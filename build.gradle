@@ -22,7 +22,7 @@ loom {
 	splitEnvironmentSourceSets()
 
 	mods {
-		"boxys-backrooms" {
+		"boxys_backrooms" {
 			sourceSet sourceSets.main
 			sourceSet sourceSets.client
 		}

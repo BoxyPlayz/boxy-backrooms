@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "boxys-backrooms",
+	"id": "boxys_backrooms",
 	"version": "${version}",
 	"name": "Boxy's Backrooms",
 	"description": "This is an example description! Tell everyone what your mod is about!",
@@ -11,8 +11,8 @@
 		"homepage": "https://fabricmc.net/",
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
-	"license": "CC0-1.0",
-	"icon": "assets/boxys-backrooms/icon.png",
+	"license": "MIT",
+	"icon": "assets/boxys_backrooms/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
@@ -22,13 +22,6 @@
 			"com.boxyplayz.backrooms.BoxysBackroomsClient"
 		]
 	},
-	"mixins": [
-		"boxys-backrooms.mixins.json",
-		{
-			"config": "boxys-backrooms.client.mixins.json",
-			"environment": "client"
-		}
-	],
 	"depends": {
 		"fabricloader": ">=0.18.4",
 		"minecraft": "~1.21.11",
