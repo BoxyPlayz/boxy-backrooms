@@ -1,3 +1,5 @@
 {
-    "item.boxys_backrooms.almond_water": "Almond Water"
+    "item.boxys_backrooms.gray_almond_water": "Almond Water",
+    "item.boxys_backrooms.green_almond_water": "Almond Water",
+    "itemGroup.boxys_backrooms": "Boxy's Backrooms"
 }
