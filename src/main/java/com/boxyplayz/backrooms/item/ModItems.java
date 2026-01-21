@@ -23,7 +23,7 @@ public class ModItems {
 		return Registry.register(BuiltInRegistries.ITEM, id, item);
 	}
 
-	public static Item GRAY_ALMOND_WATER, GREEN_ALMOND_WATER;
+	public static Item GRAY_ALMOND_WATER, GREEN_ALMOND_WATER, RED_ALMOND_WATER;
 
 	public static void registerModItems() {
 
@@ -47,10 +47,27 @@ public class ModItems {
 										new MobEffectInstance(MobEffects.NAUSEA, 11 * 20, 1)))
 								.build())
 				.setId(greenAlmondWaterKey)));
+		ResourceKey<Item> redAlmondWaterKey = ResourceKey.create(
+				BuiltInRegistries.ITEM.key(),
+				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "red_almond_water"));
+		RED_ALMOND_WATER = registerItem("red_almond_water", new Item(new Item.Properties()
+				.food(new FoodProperties.Builder().nutrition(4).saturationModifier(6).build(),
+						Consumables.defaultFood()
+								.onConsume(new ApplyStatusEffectsConsumeEffect(
+										new MobEffectInstance(MobEffects.SLOWNESS, 30 * 20, 1)))
+								.onConsume(new ApplyStatusEffectsConsumeEffect(
+										new MobEffectInstance(MobEffects.REGENERATION, 25 * 20, 2)))
+								.onConsume(new ApplyStatusEffectsConsumeEffect(
+										new MobEffectInstance(MobEffects.MINING_FATIGUE, 30 * 20, 1)))
+								.onConsume(new ApplyStatusEffectsConsumeEffect(
+										new MobEffectInstance(MobEffects.WEAKNESS, 30 * 20, 3)))
+								.build())
+				.setId(redAlmondWaterKey)));
 
 		ItemGroupEvents.modifyEntriesEvent(ModCreativeTabs.BACKROOMS_ITEM_GROUP_KEY).register(itemGroup -> {
 			itemGroup.accept(GRAY_ALMOND_WATER);
 			itemGroup.accept(GREEN_ALMOND_WATER);
+			itemGroup.accept(RED_ALMOND_WATER);
 		});
 	}
 }
