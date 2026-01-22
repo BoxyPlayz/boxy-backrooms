@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.boxyplayz.backrooms.creativetabs.ModCreativeTabs;
+import com.boxyplayz.backrooms.entity.ModEntities;
 import com.boxyplayz.backrooms.item.ModItems;
 
 public class BoxysBackrooms implements ModInitializer {
@@ -16,5 +17,6 @@ public class BoxysBackrooms implements ModInitializer {
 	public void onInitialize() {
 		ModItems.registerModItems();
 		ModCreativeTabs.RegisterModCreativeTabs();
+		// ModEntities.RegisterModEntities();
 	}
 }
