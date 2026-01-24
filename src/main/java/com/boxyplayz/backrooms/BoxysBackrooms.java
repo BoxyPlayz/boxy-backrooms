@@ -17,6 +17,6 @@ public class BoxysBackrooms implements ModInitializer {
 	public void onInitialize() {
 		ModItems.registerModItems();
 		ModCreativeTabs.RegisterModCreativeTabs();
-		// ModEntities.RegisterModEntities();
+		ModEntities.RegisterModEntities();
 	}
 }
