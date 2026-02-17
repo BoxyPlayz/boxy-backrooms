@@ -15,6 +15,9 @@
 	"icon": "assets/boxys_backrooms/icon.png",
 	"environment": "*",
 	"entrypoints": {
+		"fabric-datagen": [
+			"com.boxyplayz.backrooms.BoxysBackroomsDataGen"
+		],
 		"main": [
 			"com.boxyplayz.backrooms.BoxysBackrooms"
 		],
