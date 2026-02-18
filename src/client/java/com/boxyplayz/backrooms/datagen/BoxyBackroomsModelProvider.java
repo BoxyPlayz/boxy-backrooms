@@ -9,6 +9,7 @@ import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.ModelTemplates;
 
 public class BoxyBackroomsModelProvider extends FabricModelProvider {
+
 	public BoxyBackroomsModelProvider(FabricDataOutput output) {
 		super(output);
 	}

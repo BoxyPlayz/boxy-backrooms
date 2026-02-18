@@ -1,7 +1,5 @@
 package com.boxyplayz.backrooms;
 
-import org.jspecify.annotations.NonNull;
-
 import com.boxyplayz.backrooms.datagen.BoxyBackroomsModelProvider;
 import com.boxyplayz.backrooms.datagen.lang.BoxyBackroomsEnglishLangProvider;
 
