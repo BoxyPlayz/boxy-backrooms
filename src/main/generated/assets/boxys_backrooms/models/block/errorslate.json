@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "boxys_backrooms:block/errorslate_top",
+    "side": "boxys_backrooms:block/errorslate_side"
+  }
+}
