@@ -10,6 +10,8 @@ public class BoxysBackroomsDataGen implements DataGeneratorEntrypoint {
 
 	@Override
 	public void onInitializeDataGenerator(FabricDataGenerator generator) {
+		BoxysBackrooms.LOGGER.info("Data Generation running!");
+
 		FabricDataGenerator.Pack pack = generator.createPack();
  
         pack.addProvider(BoxyBackroomsModelProvider::new);
