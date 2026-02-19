@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:deepslate",
+    "minecraft:deepslate",
+    "minecraft:deepslate",
+    "minecraft:deepslate",
+    "minecraft:redstone_block",
+    "minecraft:redstone_block",
+    "minecraft:redstone_block",
+    "minecraft:redstone_block",
+    "minecraft:nether_star"
+  ],
+  "result": {
+    "count": 1,
+    "id": "boxys_backrooms:errorslate"
+  }
+}

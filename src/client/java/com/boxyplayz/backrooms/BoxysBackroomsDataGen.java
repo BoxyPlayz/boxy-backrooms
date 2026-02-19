@@ -1,6 +1,7 @@
 package com.boxyplayz.backrooms;
 
 import com.boxyplayz.backrooms.datagen.BoxyBackroomsModelProvider;
+import com.boxyplayz.backrooms.datagen.BoxyBackroomsRecipeProvider;
 import com.boxyplayz.backrooms.datagen.lang.BoxyBackroomsEnglishLangProvider;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
@@ -16,6 +17,7 @@ public class BoxysBackroomsDataGen implements DataGeneratorEntrypoint {
  
         pack.addProvider(BoxyBackroomsModelProvider::new);
 		pack.addProvider(BoxyBackroomsEnglishLangProvider::new);
+		pack.addProvider(BoxyBackroomsRecipeProvider::new);
 	}
 
 }
