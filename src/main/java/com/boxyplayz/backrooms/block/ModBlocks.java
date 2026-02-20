@@ -3,6 +3,7 @@ package com.boxyplayz.backrooms.block;
 import java.util.function.Function;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.block.custom.ErrorslateBlock;
 import com.boxyplayz.backrooms.creativetabs.ModCreativeTabs;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -48,7 +49,7 @@ public class ModBlocks {
 
 	public static final Block ERRORSLATE = register(
 		"errorslate",
-		Block::new,
+		ErrorslateBlock::new,
 		BlockBehaviour.Properties.of().sound(SoundType.DEEPSLATE),
 		true
 );
