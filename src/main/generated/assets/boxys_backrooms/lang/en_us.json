@@ -3,5 +3,7 @@
   "item.boxys_backrooms.gray_almond_water": "Almond Water",
   "item.boxys_backrooms.green_almond_water": "Almond Water",
   "item.boxys_backrooms.red_almond_water": "Almond Water",
-  "itemGroup.boxys_backrooms": "Boxy's Backrooms"
+  "itemGroup.boxys_backrooms": "Boxy's Backrooms",
+  "text.boxys_backrooms.oneway_desc": "Enter the endless caverns of level 8",
+  "text.boxys_backrooms.oneway_title": "One Way Cavern"
 }

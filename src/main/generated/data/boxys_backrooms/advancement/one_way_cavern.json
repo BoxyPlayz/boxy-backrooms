@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "level_eight_cavern": {
+      "conditions": {
+        "to": "boxys_backrooms:level8_cavesystem"
+      },
+      "trigger": "minecraft:changed_dimension"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/block/errorslate_side.png",
+    "description": {
+      "translate": "text.boxys_backrooms.oneway_desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "boxys_backrooms:errorslate"
+    },
+    "title": {
+      "translate": "text.boxys_backrooms.oneway_title"
+    }
+  },
+  "requirements": [
+    [
+      "level_eight_cavern"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

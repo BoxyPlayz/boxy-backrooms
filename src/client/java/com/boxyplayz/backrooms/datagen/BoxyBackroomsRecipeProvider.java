@@ -35,7 +35,7 @@ public class BoxyBackroomsRecipeProvider extends FabricRecipeProvider {
 				shapeless(RecipeCategory.MISC, ModBlocks.ERRORSLATE.asItem())
 						.requires(Items.DEEPSLATE, 4)
 						.requires(Items.REDSTONE_BLOCK, 4)
-						.requires(Items.NETHER_STAR)
+						.requires(Items.AMETHYST_SHARD)
 						.unlockedBy("has_nether_star", has(Items.NETHER_STAR))
 						.save(output);
 

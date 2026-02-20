@@ -1,5 +1,6 @@
 package com.boxyplayz.backrooms;
 
+import com.boxyplayz.backrooms.datagen.BoxyBackroomsAdvancementProvider;
 import com.boxyplayz.backrooms.datagen.BoxyBackroomsModelProvider;
 import com.boxyplayz.backrooms.datagen.BoxyBackroomsRecipeProvider;
 import com.boxyplayz.backrooms.datagen.lang.BoxyBackroomsEnglishLangProvider;
@@ -18,6 +19,7 @@ public class BoxysBackroomsDataGen implements DataGeneratorEntrypoint {
         pack.addProvider(BoxyBackroomsModelProvider::new);
 		pack.addProvider(BoxyBackroomsEnglishLangProvider::new);
 		pack.addProvider(BoxyBackroomsRecipeProvider::new);
+		pack.addProvider(BoxyBackroomsAdvancementProvider::new);
 	}
 
 }
