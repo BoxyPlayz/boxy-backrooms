@@ -4,9 +4,10 @@
 # against bad commits.
 
 name: build
-on: 
-  - workflow_dispatch:
-  - push:
+on:
+        push:
+                branches: ['master']
+        workflow_dispatch:
 
 jobs:
   build:
