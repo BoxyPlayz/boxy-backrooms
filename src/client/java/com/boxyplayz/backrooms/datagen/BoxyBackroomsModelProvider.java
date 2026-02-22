@@ -19,6 +19,7 @@ public class BoxyBackroomsModelProvider extends FabricModelProvider {
 	@Override
 	public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
 		blockStateModelGenerator.createTrivialBlock(ModBlocks.ERRORSLATE, TexturedModel.COLUMN);
+		blockStateModelGenerator.createTrivialCube(ModBlocks.OCEAN_TRANSPORTER);
 	}
 
 	@Override

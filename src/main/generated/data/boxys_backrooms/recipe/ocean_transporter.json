@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "multi_bench",
+  "key": {
+    "A": "minecraft:piston",
+    "B": "minecraft:flint_and_steel",
+    "X": "minecraft:amethyst_shard",
+    "Y": "minecraft:water_bucket",
+    "Z": "minecraft:crying_obsidian"
+  },
+  "pattern": [
+    "XYX",
+    "ABA",
+    "XZX"
+  ],
+  "result": {
+    "count": 1,
+    "id": "boxys_backrooms:ocean_transporter"
+  }
+}

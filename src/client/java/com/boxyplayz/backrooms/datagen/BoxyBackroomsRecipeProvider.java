@@ -32,13 +32,18 @@ public class BoxyBackroomsRecipeProvider extends FabricRecipeProvider {
 			@Override
 			public void buildRecipes() {
 				HolderLookup.RegistryLookup<Item> itemLookup = registries.lookupOrThrow(Registries.ITEM);
-				shapeless(RecipeCategory.MISC, ModBlocks.ERRORSLATE.asItem())
-						.requires(Items.DEEPSLATE, 4)
-						.requires(Items.REDSTONE_BLOCK, 4)
-						.requires(Items.AMETHYST_SHARD)
-						.unlockedBy("has_nether_star", has(Items.NETHER_STAR))
-						.save(output);
-
+				shaped(RecipeCategory.MISC, ModBlocks.OCEAN_TRANSPORTER.asItem())
+				.pattern("XYX")
+				.pattern("ABA")
+				.pattern("XZX")
+				.define('X', Items.AMETHYST_SHARD)
+				.define('Y', Items.WATER_BUCKET)
+				.define('A', Items.PISTON)
+				.define('B', Items.FLINT_AND_STEEL)
+				.define('Z', Items.CRYING_OBSIDIAN)
+				.group("multi_bench")
+				.unlockedBy(getHasName(Items.CRYING_OBSIDIAN), has(Items.CRYING_OBSIDIAN))
+				.save(output);
 			}
 		};
 	}

@@ -9,6 +9,7 @@ import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.creativetabs.ModCreativeTabs;
 import com.boxyplayz.backrooms.dimension.ModDimensions;
 import com.boxyplayz.backrooms.entity.ModEntities;
+import com.boxyplayz.backrooms.events.Level7Events;
 import com.boxyplayz.backrooms.item.ModItems;
 
 public class BoxysBackrooms implements ModInitializer {
@@ -22,5 +23,6 @@ public class BoxysBackrooms implements ModInitializer {
 		ModEntities.RegisterModEntities();
 		ModBlocks.RegisterModBlocks();
 		ModDimensions.RegisterModDimensions();
+		Level7Events.RegisterLevel7Events();
 	}
 }

@@ -3,7 +3,8 @@ package com.boxyplayz.backrooms.block;
 import java.util.function.Function;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
-import com.boxyplayz.backrooms.block.custom.ErrorslateBlock;
+import com.boxyplayz.backrooms.block.custom.ErrorSlateBlock;
+import com.boxyplayz.backrooms.block.custom.OceanTransporter;
 import com.boxyplayz.backrooms.creativetabs.ModCreativeTabs;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -19,20 +20,23 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
 public class ModBlocks {
-	private static Block register(String name, Function<BlockBehaviour.Properties, Block> blockFactory, BlockBehaviour.Properties settings, boolean shouldRegisterItem) {
+	private static Block register(String name, Function<BlockBehaviour.Properties, Block> blockFactory,
+			BlockBehaviour.Properties settings, boolean shouldRegisterItem) {
 		// Create a registry key for the block
 		ResourceKey<Block> blockKey = keyOfBlock(name);
 		// Create the block instance
 		Block block = blockFactory.apply(settings.setId(blockKey));
 
 		// Sometimes, you may not want to register an item for the block.
-		// Eg: if it's a technical block like `minecraft:moving_piston` or `minecraft:end_gateway`
+		// Eg: if it's a technical block like `minecraft:moving_piston` or
+		// `minecraft:end_gateway`
 		if (shouldRegisterItem) {
 			// Items need to be registered with a different type of registry key, but the ID
 			// can be the same.
 			ResourceKey<Item> itemKey = keyOfItem(name);
 
-			BlockItem blockItem = new BlockItem(block, new Item.Properties().setId(itemKey).useBlockDescriptionPrefix());
+			BlockItem blockItem = new BlockItem(block,
+					new Item.Properties().setId(itemKey).useBlockDescriptionPrefix());
 			Registry.register(BuiltInRegistries.ITEM, itemKey, blockItem);
 		}
 
@@ -48,15 +52,22 @@ public class ModBlocks {
 	}
 
 	public static final Block ERRORSLATE = register(
-		"errorslate",
-		ErrorslateBlock::new,
-		BlockBehaviour.Properties.of().sound(SoundType.DEEPSLATE),
-		true
-);
+			"errorslate",
+			ErrorSlateBlock::new,
+			BlockBehaviour.Properties.of().sound(SoundType.DEEPSLATE).strength(50f).destroyTime(20f),
+			true);
+
+	public static final Block OCEAN_TRANSPORTER = register(
+			"ocean_transporter",
+			OceanTransporter::new,
+			BlockBehaviour.Properties.of().sound(SoundType.IRON).strength(50f).destroyTime(20f),
+			true);
 
 	public static void RegisterModBlocks() {
 		ItemGroupEvents.modifyEntriesEvent(ModCreativeTabs.BACKROOMS_ITEM_GROUP_KEY).register(itemGroup -> {
 			itemGroup.accept(ERRORSLATE.asItem());
-		});;
+			itemGroup.accept(OCEAN_TRANSPORTER.asItem());
+		});
+		;
 	}
 }

@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_nether_star": {
+    "has_crying_obsidian": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:nether_star"
+            "items": "minecraft:crying_obsidian"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "boxys_backrooms:errorslate"
+        "recipe": "boxys_backrooms:ocean_transporter"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_nether_star"
+      "has_crying_obsidian"
     ]
   ],
   "rewards": {
     "recipes": [
-      "boxys_backrooms:errorslate"
+      "boxys_backrooms:ocean_transporter"
     ]
   }
 }
