@@ -3,6 +3,8 @@ package com.boxyplayz.backrooms;
 import com.boxyplayz.backrooms.datagen.BoxyBackroomsAdvancementProvider;
 import com.boxyplayz.backrooms.datagen.BoxyBackroomsModelProvider;
 import com.boxyplayz.backrooms.datagen.BoxyBackroomsRecipeProvider;
+import com.boxyplayz.backrooms.datagen.BoxysBackroomsBlockTagProvider;
+import com.boxyplayz.backrooms.datagen.BoxysBackroomsItemTagProvider;
 import com.boxyplayz.backrooms.datagen.lang.BoxyBackroomsEnglishLangProvider;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
@@ -20,6 +22,8 @@ public class BoxysBackroomsDataGen implements DataGeneratorEntrypoint {
 		pack.addProvider(BoxyBackroomsEnglishLangProvider::new);
 		pack.addProvider(BoxyBackroomsRecipeProvider::new);
 		pack.addProvider(BoxyBackroomsAdvancementProvider::new);
+		pack.addProvider(BoxysBackroomsItemTagProvider::new);
+		pack.addProvider(BoxysBackroomsBlockTagProvider::new);
 	}
 
 }
