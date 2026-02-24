@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.boxyplayz.backrooms.block.ModBlocks;
+import com.boxyplayz.backrooms.chunkgen.ModChunkGenerators;
 import com.boxyplayz.backrooms.creativetabs.ModCreativeTabs;
 import com.boxyplayz.backrooms.dimension.ModDimensions;
 import com.boxyplayz.backrooms.entity.ModEntities;
@@ -24,5 +25,6 @@ public class BoxysBackrooms implements ModInitializer {
 		ModBlocks.RegisterModBlocks();
 		ModDimensions.RegisterModDimensions();
 		Level7Events.RegisterLevel7Events();
+		ModChunkGenerators.registerModChunkGenerators();
 	}
 }
