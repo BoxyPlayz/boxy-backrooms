@@ -33,8 +33,20 @@ public class Level0ChunkGen extends ChunkGenerator {
 	private BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
 		int minY = getMinY();
 
-		if (y == minY) {
-			return Blocks.BEDROCK.defaultBlockState();
+		if (y <= minY + 4) {
+
+			if (y == minY) {
+				return Blocks.BEDROCK.defaultBlockState();
+			}
+
+			if (y == minY + 4) {
+				return Blocks.BEDROCK.defaultBlockState();
+			}
+
+			if ((x % 4) == 0 && (z % 4) == 0) {
+				return Blocks.BEDROCK.defaultBlockState();
+			}
+
 		}
 
 		return Blocks.AIR.defaultBlockState();
@@ -45,7 +57,7 @@ public class Level0ChunkGen extends ChunkGenerator {
 	}
 
 	public static final MapCodec<Level0ChunkGen> CODEC = RecordCodecBuilder.mapCodec(
-			instance -> instance.group(RegistryOps.retrieveElement(Biomes.PLAINS)).apply(instance,
+			instance -> instance.group(RegistryOps.retrieveElement(Biomes.THE_VOID)).apply(instance,
 					instance.stable(Level0ChunkGen::new)));
 
 	@Override
