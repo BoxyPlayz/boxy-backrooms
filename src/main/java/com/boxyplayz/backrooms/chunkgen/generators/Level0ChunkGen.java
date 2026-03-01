@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.block.ModBlocks;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
@@ -12,6 +13,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.server.level.WorldGenRegion;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.NoiseColumn;
 import net.minecraft.world.level.StructureManager;
@@ -33,18 +35,59 @@ public class Level0ChunkGen extends ChunkGenerator {
 	private BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
 		int minY = getMinY();
 
+		long chunkX = Math.floorDiv(x, 16);
+		long chunkZ = Math.floorDiv(z, 16);
+
+		RandomSource chunkId = randomFactory.fromSeed(chunkX * 341873128712L + chunkZ * 132897987541L);
+
+		int chunkType = chunkId.nextIntBetweenInclusive(1, 3);
+
+		int relativeChunkX = Math.floorMod(x, 16) + 1;
+		int relativeChunkZ = Math.floorMod(z, 16) + 1;
+
+		boolean hasColumns = (chunkId.nextIntBetweenInclusive(1, 4) == 4);
+
 		if (y <= minY + 4) {
 
+			// Floor
 			if (y == minY) {
-				return Blocks.BEDROCK.defaultBlockState();
+				return ModBlocks.LEVEL0_CARPET.defaultBlockState();
 			}
 
+			// Ceiling
 			if (y == minY + 4) {
-				return Blocks.BEDROCK.defaultBlockState();
+				return ModBlocks.LEVEL0_CEILING_TILE.defaultBlockState();
 			}
 
-			if ((x % 4) == 0 && (z % 4) == 0) {
-				return Blocks.BEDROCK.defaultBlockState();
+			// Maze logic start!
+			switch (chunkType) {
+				case 1:
+					if (relativeChunkX == 1 || relativeChunkX == 16) {
+						return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
+					}
+
+					if (hasColumns) {
+						if ((x % 4) == 0 && (z % 4) == 0) {
+							return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
+						}
+					}
+					break;
+
+				case 2:
+					if (relativeChunkZ == 1 || relativeChunkZ == 16) {
+						return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
+					}
+
+					if (hasColumns) {
+						if ((x % 4) == 0 && (z % 4) == 0) {
+							return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
+						}
+
+					}
+					break;
+
+				default:
+					return Blocks.AIR.defaultBlockState();
 			}
 
 		}
@@ -124,7 +167,7 @@ public class Level0ChunkGen extends ChunkGenerator {
 	@Override
 	public int getBaseHeight(int x, int z, Types types, LevelHeightAccessor levelHeightAccessor,
 			RandomState randomState) {
-		return 0;
+		return this.getMinY() + 1;
 	}
 
 	@Override

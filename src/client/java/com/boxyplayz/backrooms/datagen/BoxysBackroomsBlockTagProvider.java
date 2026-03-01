@@ -21,6 +21,10 @@ public class BoxysBackroomsBlockTagProvider extends FabricTagProvider.BlockTagPr
 		.add(ModBlocks.OCEAN_TRANSPORTER)
 		.add(ModBlocks.ERRORSLATE)
 		.setReplace(false);
+
+		valueLookupBuilder(BlockTags.MINEABLE_WITH_AXE)
+		.add(ModBlocks.LEVEL0_WALLPAPER)
+		.setReplace(false);
 	}
 
 }

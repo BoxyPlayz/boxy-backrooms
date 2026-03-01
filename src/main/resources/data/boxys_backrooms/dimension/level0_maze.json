@@ -1,5 +1,5 @@
 {
-	"type": "boxys_backrooms:level8_cavesystem",
+	"type": "boxys_backrooms:level0_maze",
 	"generator": {
 		"type": "boxys_backrooms:level0_maze",
 		"biome_source": {

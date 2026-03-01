@@ -63,10 +63,31 @@ public class ModBlocks {
 			BlockBehaviour.Properties.of().sound(SoundType.IRON).strength(50f).destroyTime(20f),
 			true);
 
+	public static final Block LEVEL0_WALLPAPER = register(
+			"level0_wallpaper",
+			Block::new,
+			BlockBehaviour.Properties.of().sound(SoundType.BAMBOO).strength(20f).destroyTime(10f),
+			true);
+	
+	public static final Block LEVEL0_CARPET = register(
+			"level0_carpet",
+			Block::new,
+			BlockBehaviour.Properties.of().sound(SoundType.WOOL).strength(1000f).destroyTime(1000f),
+			true);
+	
+	public static final Block LEVEL0_CEILING_TILE = register(
+			"level0_ceiling_tile",
+			Block::new,
+			BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1000f).destroyTime(1000f),
+			true);
+
 	public static void RegisterModBlocks() {
 		ItemGroupEvents.modifyEntriesEvent(ModCreativeTabs.BACKROOMS_ITEM_GROUP_KEY).register(itemGroup -> {
 			itemGroup.accept(ERRORSLATE.asItem());
 			itemGroup.accept(OCEAN_TRANSPORTER.asItem());
+			itemGroup.accept(LEVEL0_WALLPAPER.asItem());
+			itemGroup.accept(LEVEL0_CARPET.asItem());
+			itemGroup.accept(LEVEL0_CEILING_TILE.asItem());
 		});
 		;
 	}
