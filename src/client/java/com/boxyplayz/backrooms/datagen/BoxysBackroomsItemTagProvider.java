@@ -26,6 +26,7 @@ public class BoxysBackroomsItemTagProvider extends FabricTagProvider.ItemTagProv
 	protected void addTags(Provider wrapperLookup) {
 		valueLookupBuilder(NoClippables)
 				.add(ModBlocks.ERRORSLATE.asItem())
+				.add(ModBlocks.LEVEL0_WALLPAPER.asItem())
 				.add(ModBlocks.OCEAN_TRANSPORTER.asItem());
 	}
 
