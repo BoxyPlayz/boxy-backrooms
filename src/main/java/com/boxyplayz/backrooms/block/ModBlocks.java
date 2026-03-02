@@ -4,6 +4,7 @@ import java.util.function.Function;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.block.custom.ErrorSlateBlock;
+import com.boxyplayz.backrooms.block.custom.Level0Wallpaper;
 import com.boxyplayz.backrooms.block.custom.OceanTransporter;
 import com.boxyplayz.backrooms.creativetabs.ModCreativeTabs;
 
@@ -65,7 +66,7 @@ public class ModBlocks {
 
 	public static final Block LEVEL0_WALLPAPER = register(
 			"level0_wallpaper",
-			Block::new,
+			Level0Wallpaper::new,
 			BlockBehaviour.Properties.of().sound(SoundType.BAMBOO).strength(20f).destroyTime(10f),
 			true);
 	

@@ -24,18 +24,35 @@ public class BoxyBackroomsAdvancementProvider extends FabricAdvancementProvider 
 
 	@Override
 	public void generateAdvancement(HolderLookup.Provider wrapperLookup, Consumer<AdvancementHolder> consumer) {
+
+
+		AdvancementHolder theBackrooms = Advancement.Builder.advancement()
+		.display(
+				ModBlocks.LEVEL0_WALLPAPER.asItem(), // The display icon
+				Component.translatable("text.boxys_backrooms.backrooms_title"), // The title
+				Component.translatable("text.boxys_backrooms.backrooms_desc"), // The description
+				Identifier.withDefaultNamespace("textures/gui/advancements/backgrounds/adventure.png"), // Background image for the tab in the advancements page, if this is a root advancement (has no parent)
+				AdvancementType.TASK, // TASK, CHALLENGE, or GOAL
+				true, // Show the toast when completing it
+				true, // Announce it to chat
+				false // Hide it in the advancement tab until it's achieved
+		)
+		.addCriterion("level_one_maze", ChangeDimensionTrigger.TriggerInstance.changedDimensionTo(ModDimensions.LEVEL0))
+		.save(consumer, BoxysBackrooms.MOD_ID + ":the_backrooms");
+
 		AdvancementHolder oneWayCavern = Advancement.Builder.advancement()
 		.display(
 				ModBlocks.ERRORSLATE.asItem(), // The display icon
 				Component.translatable("text.boxys_backrooms.oneway_title"), // The title
 				Component.translatable("text.boxys_backrooms.oneway_desc"), // The description
-				Identifier.withDefaultNamespace("textures/block/errorslate_side.png"), // Background image for the tab in the advancements page, if this is a root advancement (has no parent)
+				null, // Background image for the tab in the advancements page, if this is a root advancement (has no parent)
 				AdvancementType.TASK, // TASK, CHALLENGE, or GOAL
 				true, // Show the toast when completing it
 				true, // Announce it to chat
 				false // Hide it in the advancement tab until it's achieved
 		)
 		.addCriterion("level_eight_cavern", ChangeDimensionTrigger.TriggerInstance.changedDimensionTo(ModDimensions.LEVEL8))
+		.parent(theBackrooms)
 		.save(consumer, BoxysBackrooms.MOD_ID + ":one_way_cavern");
 	}
 

@@ -25,5 +25,7 @@ public class BoxyBackroomsEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add("block.boxys_backrooms.level0_ceiling_tile", "Tiles");
 		translationBuilder.add("text.boxys_backrooms.oneway_title", "One Way Cavern");
 		translationBuilder.add("text.boxys_backrooms.oneway_desc", "Enter the endless caverns of level 8");
+		translationBuilder.add("text.boxys_backrooms.backrooms_title", "The Backrooms");
+		translationBuilder.add("text.boxys_backrooms.backrooms_desc", "Enter the endless hallways of the Backrooms");
 	}
 }

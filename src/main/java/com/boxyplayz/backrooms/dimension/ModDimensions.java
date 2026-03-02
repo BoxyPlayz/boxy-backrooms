@@ -18,6 +18,11 @@ public class ModDimensions {
             Registries.DIMENSION,
             Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level7_ocean")
     );
+
+    public static final ResourceKey<Level> LEVEL0 = ResourceKey.create(
+            Registries.DIMENSION,
+            Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level0_maze")
+    );
 	
 	public static void RegisterModDimensions() {
 

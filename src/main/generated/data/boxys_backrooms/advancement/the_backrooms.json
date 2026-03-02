@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "level_one_maze": {
+      "conditions": {
+        "to": "boxys_backrooms:level0_maze"
+      },
+      "trigger": "minecraft:changed_dimension"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+    "description": {
+      "translate": "text.boxys_backrooms.backrooms_desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "boxys_backrooms:level0_wallpaper"
+    },
+    "title": {
+      "translate": "text.boxys_backrooms.backrooms_title"
+    }
+  },
+  "requirements": [
+    [
+      "level_one_maze"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
