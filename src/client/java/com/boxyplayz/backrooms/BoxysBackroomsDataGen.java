@@ -2,6 +2,7 @@ package com.boxyplayz.backrooms;
 
 import com.boxyplayz.backrooms.datagen.BoxyBackroomsAdvancementProvider;
 import com.boxyplayz.backrooms.datagen.BoxyBackroomsBlockLootTableProvider;
+import com.boxyplayz.backrooms.datagen.BoxyBackroomsChestLootTableProvider;
 import com.boxyplayz.backrooms.datagen.BoxyBackroomsModelProvider;
 import com.boxyplayz.backrooms.datagen.BoxyBackroomsRecipeProvider;
 import com.boxyplayz.backrooms.datagen.BoxysBackroomsBlockTagProvider;
@@ -28,6 +29,7 @@ public class BoxysBackroomsDataGen implements DataGeneratorEntrypoint {
 		pack.addProvider(BoxysBackroomsItemTagProvider::new);
 		pack.addProvider(BoxysBackroomsBlockTagProvider::new);
 
+		pack.addProvider(BoxyBackroomsChestLootTableProvider::new);
 		pack.addProvider(BoxyBackroomsBlockLootTableProvider::new);
 	}
 
