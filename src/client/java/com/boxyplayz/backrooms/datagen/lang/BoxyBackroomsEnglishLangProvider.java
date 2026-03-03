@@ -14,16 +14,25 @@ public class BoxyBackroomsEnglishLangProvider extends FabricLanguageProvider {
 
 	@Override
 	public void generateTranslations(HolderLookup.Provider holderLookup, TranslationBuilder translationBuilder) {
+		// Metadata
 		translationBuilder.add("itemGroup.boxys_backrooms", "Boxy's Backrooms");
+
+		// Food
 		translationBuilder.add("item.boxys_backrooms.gray_almond_water", "Almond Water");
 		translationBuilder.add("item.boxys_backrooms.green_almond_water", "Almond Water");
 		translationBuilder.add("item.boxys_backrooms.red_almond_water", "Almond Water");
 		translationBuilder.add("item.boxys_backrooms.royal_ration", "Royal Ration");
+
+		// Noclippable Blocks
 		translationBuilder.add("block.boxys_backrooms.errorslate", "Errorslate");
 		translationBuilder.add("block.boxys_backrooms.ocean_transporter", "Aquatic Transporter");
 		translationBuilder.add("block.boxys_backrooms.level0_wallpaper", "Wallpaper");
+
+		// Regular Blocks
 		translationBuilder.add("block.boxys_backrooms.level0_carpet", "Carpet");
 		translationBuilder.add("block.boxys_backrooms.level0_ceiling_tile", "Tiles");
+
+		// Advancements
 		translationBuilder.add("text.boxys_backrooms.oneway_title", "One Way Cavern");
 		translationBuilder.add("text.boxys_backrooms.oneway_desc", "Enter the endless caverns of level 8");
 		translationBuilder.add("text.boxys_backrooms.backrooms_title", "The Backrooms");
