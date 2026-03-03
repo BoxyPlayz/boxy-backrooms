@@ -23,7 +23,7 @@ public class ModItems {
 		return Registry.register(BuiltInRegistries.ITEM, id, item);
 	}
 
-	public static Item GRAY_ALMOND_WATER, GREEN_ALMOND_WATER, RED_ALMOND_WATER;
+	public static Item GRAY_ALMOND_WATER, GREEN_ALMOND_WATER, RED_ALMOND_WATER, ROYAL_RATION;
 
 	public static void registerModItems() {
 
@@ -35,6 +35,15 @@ public class ModItems {
 		GRAY_ALMOND_WATER = registerItem("gray_almond_water", new Item(new Item.Properties()
 				.food(new FoodProperties.Builder().nutrition(5).saturationModifier(1f).build())
 				.setId(grayAlmondWaterKey)));
+
+		ResourceKey<Item> royalRationKey = ResourceKey.create(
+				BuiltInRegistries.ITEM.key(),
+				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "royal_ration"));
+		ROYAL_RATION = registerItem("royal_ration", new Item(new Item.Properties()
+				.food(new FoodProperties.Builder().nutrition(20).saturationModifier(8f).build())
+				.setId(royalRationKey)));
+
+
 		ResourceKey<Item> greenAlmondWaterKey = ResourceKey.create(
 				BuiltInRegistries.ITEM.key(),
 				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "green_almond_water"));
@@ -68,6 +77,7 @@ public class ModItems {
 			itemGroup.accept(GRAY_ALMOND_WATER);
 			itemGroup.accept(GREEN_ALMOND_WATER);
 			itemGroup.accept(RED_ALMOND_WATER);
+			itemGroup.accept(ROYAL_RATION);
 		});
 	}
 }

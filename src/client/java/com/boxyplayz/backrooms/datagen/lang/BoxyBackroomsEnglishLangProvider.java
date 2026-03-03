@@ -18,6 +18,7 @@ public class BoxyBackroomsEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add("item.boxys_backrooms.gray_almond_water", "Almond Water");
 		translationBuilder.add("item.boxys_backrooms.green_almond_water", "Almond Water");
 		translationBuilder.add("item.boxys_backrooms.red_almond_water", "Almond Water");
+		translationBuilder.add("item.boxys_backrooms.royal_ration", "Royal Ration");
 		translationBuilder.add("block.boxys_backrooms.errorslate", "Errorslate");
 		translationBuilder.add("block.boxys_backrooms.ocean_transporter", "Aquatic Transporter");
 		translationBuilder.add("block.boxys_backrooms.level0_wallpaper", "Wallpaper");
