@@ -29,10 +29,10 @@ public class ErrorSlateBlock extends Block {
 		if (!player.isShiftKeyDown())
 			return;
 
-		if (level.dimension() == ModDimensions.LEVEL8)
+		if (level.dimension() == ModDimensions.LEVEL8_DIMENSION)
 			return;
 
-		ServerLevel target = player.level().getServer().getLevel(ModDimensions.LEVEL8);
+		ServerLevel target = player.level().getServer().getLevel(ModDimensions.LEVEL8_DIMENSION);
 		if (target == null)
 			return;
 

@@ -28,10 +28,10 @@ public class Level0Wallpaper extends Block {
 		if (!player.isShiftKeyDown())
 			return;
 
-		if (level.dimension() == ModDimensions.LEVEL0)
+		if (level.dimension() == ModDimensions.LEVEL0_DIMENSION)
 			return;
 
-		ServerLevel target = player.level().getServer().getLevel(ModDimensions.LEVEL0);
+		ServerLevel target = player.level().getServer().getLevel(ModDimensions.LEVEL0_DIMENSION);
 		if (target == null)
 			return;
 

@@ -1,8 +1,7 @@
 {
 	"type": "boxys_backrooms:level7_ocean",
 	"generator": {
-		"type": "minecraft:noise",
-		"settings": "boxys_backrooms:level7_ocean",
+		"type": "boxys_backrooms:level7_ocean",
 		"biome_source": {
 			"type": "minecraft:fixed",
 			"biome": "boxys_backrooms:level7_ocean"

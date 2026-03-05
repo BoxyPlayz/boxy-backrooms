@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.biome.ModBiomes;
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -19,7 +20,6 @@ import net.minecraft.world.level.NoiseColumn;
 import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeManager;
-import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.FixedBiomeSource;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -30,77 +30,50 @@ import net.minecraft.world.level.levelgen.PositionalRandomFactory;
 import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.blending.Blender;
 
-public class Level0ChunkGen extends ChunkGenerator {
+public class Level7ChunkGen extends ChunkGenerator {
 
 	private BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
 		int minY = getMinY();
 
-		long chunkX = Math.floorDiv(x, 16);
-		long chunkZ = Math.floorDiv(z, 16);
+		RandomSource chunkId = randomFactory.fromSeed(x * 341873128712L + z * 132897987541L + y * 1328712L);
 
-		RandomSource chunkId = randomFactory.fromSeed(chunkX * 341873128712L + chunkZ * 132897987541L);
+		// Bedrock Floor
+		if (y == minY) {
+			return Blocks.BEDROCK.defaultBlockState();
+		}
 
-		int chunkType = chunkId.nextIntBetweenInclusive(1, 3);
-
-		int relativeChunkX = Math.floorMod(x, 16) + 1;
-		int relativeChunkZ = Math.floorMod(z, 16) + 1;
-
-		boolean hasColumns = (chunkId.nextIntBetweenInclusive(1, 4) == 4);
-
-		if (y <= minY + 4) {
-
-			// Floor
-			if (y == minY) {
-				return ModBlocks.LEVEL0_CARPET.defaultBlockState();
+		// Main Deepslate Layer
+		if (y < 20) {
+			boolean isErrorSlate = (chunkId.nextIntBetweenInclusive(1, 80) == 1);
+			if (isErrorSlate) {
+				return ModBlocks.ERRORSLATE.defaultBlockState();
+			} else {
+				return Blocks.DEEPSLATE.defaultBlockState();
 			}
+		}
 
-			// Ceiling
-			if (y == minY + 4) {
-				return ModBlocks.LEVEL0_CEILING_TILE.defaultBlockState();
+		// Secondary Deepslate Layer
+		if (y < 40) {
+			boolean isDeepSlate = (chunkId.nextIntBetweenInclusive(1, 60 - y) == 1);
+			if (isDeepSlate) {
+				return Blocks.DEEPSLATE.defaultBlockState();
 			}
+		}
 
-			// Maze logic start!
-			switch (chunkType) {
-				case 1:
-					if (relativeChunkX == 1 || relativeChunkX == 16) {
-						return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
-					}
-
-					if (hasColumns) {
-						if ((x % 4) == 0 && (z % 4) == 0) {
-							return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
-						}
-					}
-					break;
-
-				case 2:
-					if (relativeChunkZ == 1 || relativeChunkZ == 16) {
-						return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
-					}
-
-					if (hasColumns) {
-						if ((x % 4) == 0 && (z % 4) == 0) {
-							return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
-						}
-
-					}
-					break;
-
-				default:
-					return Blocks.AIR.defaultBlockState();
-			}
-
+		// Water
+		if (y < this.getSeaLevel()) {
+			return Blocks.WATER.defaultBlockState();
 		}
 
 		return Blocks.AIR.defaultBlockState();
 	}
 
-	public Level0ChunkGen(Holder.Reference<Biome> reference) {
+	public Level7ChunkGen(Holder.Reference<Biome> reference) {
 		super(new FixedBiomeSource(reference));
 	}
 
 	public static final MapCodec<Level7ChunkGen> CODEC = RecordCodecBuilder.mapCodec(
-			instance -> instance.group(RegistryOps.retrieveElement(Biomes.THE_VOID)).apply(instance,
+			instance -> instance.group(RegistryOps.retrieveElement(ModBiomes.LEVEL7_BIOME)).apply(instance,
 					instance.stable(Level7ChunkGen::new)));
 
 	@Override
@@ -124,7 +97,7 @@ public class Level0ChunkGen extends ChunkGenerator {
 
 	@Override
 	public int getGenDepth() {
-		return 16;
+		return 304;
 	}
 
 	@Override
@@ -156,12 +129,12 @@ public class Level0ChunkGen extends ChunkGenerator {
 
 	@Override
 	public int getSeaLevel() {
-		return 0;
+		return 200;
 	}
 
 	@Override
 	public int getMinY() {
-		return 0;
+		return -64;
 	}
 
 	@Override

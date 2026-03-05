@@ -1,10 +1,6 @@
 {
 	"attributes": {},
-	"carvers": [
-		"minecraft:cave",
-		"minecraft:cave_extra_underground",
-		"minecraft:canyon"
-	],
+	"carvers": [],
 	"downfall": 0.5,
 	"effects": {
 		"water_color": "#0007ff"

@@ -5,6 +5,7 @@ import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.boxyplayz.backrooms.biome.ModBiomes;
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.chunkgen.ModChunkGenerators;
 import com.boxyplayz.backrooms.creativetabs.ModCreativeTabs;
@@ -28,5 +29,6 @@ public class BoxysBackrooms implements ModInitializer {
 		Level7Events.RegisterLevel7Events();
 		ModChunkGenerators.registerModChunkGenerators();
 		ModLootTables.RegisterLootTables();
+		ModBiomes.RegisterModBiomes();
 	}
 }

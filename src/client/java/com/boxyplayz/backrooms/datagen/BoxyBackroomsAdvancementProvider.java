@@ -37,7 +37,7 @@ public class BoxyBackroomsAdvancementProvider extends FabricAdvancementProvider 
 				true, // Announce it to chat
 				false // Hide it in the advancement tab until it's achieved
 		)
-		.addCriterion("level_one_maze", ChangeDimensionTrigger.TriggerInstance.changedDimensionTo(ModDimensions.LEVEL0))
+		.addCriterion("level_one_maze", ChangeDimensionTrigger.TriggerInstance.changedDimensionTo(ModDimensions.LEVEL0_DIMENSION))
 		.save(consumer, BoxysBackrooms.MOD_ID + ":the_backrooms");
 
 		AdvancementHolder oneWayCavern = Advancement.Builder.advancement()
@@ -51,7 +51,7 @@ public class BoxyBackroomsAdvancementProvider extends FabricAdvancementProvider 
 				true, // Announce it to chat
 				false // Hide it in the advancement tab until it's achieved
 		)
-		.addCriterion("level_eight_cavern", ChangeDimensionTrigger.TriggerInstance.changedDimensionTo(ModDimensions.LEVEL8))
+		.addCriterion("level_eight_cavern", ChangeDimensionTrigger.TriggerInstance.changedDimensionTo(ModDimensions.LEVEL8_DIMENSION))
 		.parent(theBackrooms)
 		.save(consumer, BoxysBackrooms.MOD_ID + ":one_way_cavern");
 	}

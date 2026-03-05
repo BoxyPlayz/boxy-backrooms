@@ -28,10 +28,10 @@ public class OceanTransporter extends Block {
 		if (!player.isShiftKeyDown())
 			return;
 
-		if (level.dimension() == ModDimensions.LEVEL7)
+		if (level.dimension() == ModDimensions.LEVEL7_DIMENSION)
 			return;
 
-		ServerLevel target = player.level().getServer().getLevel(ModDimensions.LEVEL7);
+		ServerLevel target = player.level().getServer().getLevel(ModDimensions.LEVEL7_DIMENSION);
 		if (target == null)
 			return;
 
