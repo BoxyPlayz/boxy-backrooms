@@ -11,7 +11,7 @@ import com.boxyplayz.backrooms.chunkgen.ModChunkGenerators;
 import com.boxyplayz.backrooms.creativetabs.ModCreativeTabs;
 import com.boxyplayz.backrooms.dimension.ModDimensions;
 import com.boxyplayz.backrooms.entity.ModEntities;
-import com.boxyplayz.backrooms.events.Level7Events;
+import com.boxyplayz.backrooms.events.ModEvents;
 import com.boxyplayz.backrooms.item.ModItems;
 import com.boxyplayz.backrooms.loot.ModLootTables;
 
@@ -26,7 +26,7 @@ public class BoxysBackrooms implements ModInitializer {
 		ModEntities.RegisterModEntities();
 		ModBlocks.RegisterModBlocks();
 		ModDimensions.RegisterModDimensions();
-		Level7Events.RegisterLevel7Events();
+		ModEvents.RegisterModEvents();
 		ModChunkGenerators.registerModChunkGenerators();
 		ModLootTables.RegisterLootTables();
 		ModBiomes.RegisterModBiomes();

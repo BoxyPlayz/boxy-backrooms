@@ -7,7 +7,8 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
 
 public class BoxyBackroomsEnglishLangProvider extends FabricLanguageProvider {
-	public BoxyBackroomsEnglishLangProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
+	public BoxyBackroomsEnglishLangProvider(FabricDataOutput dataOutput,
+			CompletableFuture<HolderLookup.Provider> registryLookup) {
 		// Specifying en_us is optional, as it's the default language code
 		super(dataOutput, "en_us", registryLookup);
 	}
@@ -22,6 +23,9 @@ public class BoxyBackroomsEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add("item.boxys_backrooms.green_almond_water", "Almond Water");
 		translationBuilder.add("item.boxys_backrooms.red_almond_water", "Almond Water");
 		translationBuilder.add("item.boxys_backrooms.royal_ration", "Royal Ration");
+
+		// Other Items
+		translationBuilder.add("item.boxys_backrooms.firesalt_shard", "Firesalt Shard");
 
 		// Noclippable Blocks
 		translationBuilder.add("block.boxys_backrooms.errorslate", "Errorslate");

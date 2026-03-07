@@ -23,7 +23,7 @@ public class ModItems {
 		return Registry.register(BuiltInRegistries.ITEM, id, item);
 	}
 
-	public static Item GRAY_ALMOND_WATER, GREEN_ALMOND_WATER, RED_ALMOND_WATER, ROYAL_RATION;
+	public static Item GRAY_ALMOND_WATER, GREEN_ALMOND_WATER, RED_ALMOND_WATER, ROYAL_RATION, FIRESALT_SHARD;
 
 	public static void registerModItems() {
 
@@ -43,7 +43,6 @@ public class ModItems {
 				.food(new FoodProperties.Builder().nutrition(20).saturationModifier(8f).build())
 				.setId(royalRationKey)));
 
-
 		ResourceKey<Item> greenAlmondWaterKey = ResourceKey.create(
 				BuiltInRegistries.ITEM.key(),
 				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "green_almond_water"));
@@ -56,6 +55,7 @@ public class ModItems {
 										new MobEffectInstance(MobEffects.NAUSEA, 11 * 20, 1)))
 								.build())
 				.setId(greenAlmondWaterKey)));
+
 		ResourceKey<Item> redAlmondWaterKey = ResourceKey.create(
 				BuiltInRegistries.ITEM.key(),
 				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "red_almond_water"));
@@ -73,11 +73,18 @@ public class ModItems {
 								.build())
 				.setId(redAlmondWaterKey)));
 
+		ResourceKey<Item> fireSaltShardKey = ResourceKey.create(
+				BuiltInRegistries.ITEM.key(),
+				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "firesalt_shard"));
+		FIRESALT_SHARD = registerItem("firesalt_shard",
+				new FireSaltShard(new Item.Properties().setId(fireSaltShardKey)));
+
 		ItemGroupEvents.modifyEntriesEvent(ModCreativeTabs.BACKROOMS_ITEM_GROUP_KEY).register(itemGroup -> {
 			itemGroup.accept(GRAY_ALMOND_WATER);
 			itemGroup.accept(GREEN_ALMOND_WATER);
 			itemGroup.accept(RED_ALMOND_WATER);
 			itemGroup.accept(ROYAL_RATION);
+			itemGroup.accept(FIRESALT_SHARD);
 		});
 	}
 }

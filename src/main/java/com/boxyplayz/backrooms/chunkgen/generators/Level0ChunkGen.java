@@ -45,7 +45,7 @@ public class Level0ChunkGen extends ChunkGenerator {
 		int relativeChunkZ = Math.floorMod(z, 16) + 1;
 
 		boolean hasColumns = (chunkId.nextIntBetweenInclusive(1, 4) == 4);
-		boolean hasPitFalls = (chunkId.nextIntBetweenInclusive(1, 8) == 4 && !hasColumns);
+		boolean hasPitFalls = (chunkId.nextIntBetweenInclusive(1, 24) == 4 && !hasColumns);
 
 		if (y <= 4) {
 
