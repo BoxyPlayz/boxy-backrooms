@@ -47,57 +47,54 @@ public class Level0ChunkGen extends ChunkGenerator {
 		boolean hasColumns = (chunkId.nextIntBetweenInclusive(1, 4) == 4);
 		boolean hasPitFalls = (chunkId.nextIntBetweenInclusive(1, 24) == 4 && !hasColumns);
 
-		if (y <= 4) {
-
-			// Floor
-			if (y <= 0) {
-				if (hasPitFalls) {
-					if ((relativeChunkX / 2 % 2) == 0 && (relativeChunkZ / 2 % 2) == 0) {
-						return Blocks.AIR.defaultBlockState();
-					} else {
-						return ModBlocks.LEVEL0_CARPET.defaultBlockState();
-					}
+		// Floor
+		if (y <= 0) {
+			if (hasPitFalls) {
+				if ((relativeChunkX / 2 % 2) == 0 && (relativeChunkZ / 2 % 2) == 0
+						&& this.getBlockAt(randomFactory, x, 2, z).isAir()) {
+					return Blocks.AIR.defaultBlockState();
 				} else {
 					return ModBlocks.LEVEL0_CARPET.defaultBlockState();
 				}
+			} else {
+				return ModBlocks.LEVEL0_CARPET.defaultBlockState();
 			}
+		}
 
-			// Ceiling
-			if (y == 4) {
-				return ModBlocks.LEVEL0_CEILING_TILE.defaultBlockState();
-			}
+		// Ceiling
+		if (y >= 4) {
+			return ModBlocks.LEVEL0_CEILING_TILE.defaultBlockState();
+		}
 
-			// Maze logic start!
-			switch (chunkType) {
-				case 1:
-					if (relativeChunkX == 1 || relativeChunkX == 16) {
+		// Maze logic start!
+		switch (chunkType) {
+			case 1:
+				if (relativeChunkX == 1 || relativeChunkX == 16) {
+					return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
+				}
+
+				if (hasColumns) {
+					if (Math.floorMod(x, 4) == 0 && Math.floorMod(z, 4) == 0) {
+						return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
+					}
+				}
+				break;
+
+			case 2:
+				if (relativeChunkZ == 1 || relativeChunkZ == 16) {
+					return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
+				}
+
+				if (hasColumns) {
+					if (Math.floorMod(x, 4) == 0 && Math.floorMod(z, 4) == 0) {
 						return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
 					}
 
-					if (hasColumns) {
-						if (Math.floorMod(x, 4) == 0 && Math.floorMod(z, 4) == 0) {
-							return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
-						}
-					}
-					break;
+				}
+				break;
 
-				case 2:
-					if (relativeChunkZ == 1 || relativeChunkZ == 16) {
-						return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
-					}
-
-					if (hasColumns) {
-						if (Math.floorMod(x, 4) == 0 && Math.floorMod(z, 4) == 0) {
-							return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
-						}
-
-					}
-					break;
-
-				default:
-					return Blocks.AIR.defaultBlockState();
-			}
-
+			default:
+				return Blocks.AIR.defaultBlockState();
 		}
 
 		return Blocks.AIR.defaultBlockState();
@@ -158,6 +155,9 @@ public class Level0ChunkGen extends ChunkGenerator {
 				}
 			}
 		}
+
+		chunkAccess.getOrCreateHeightmapUnprimed(Types.WORLD_SURFACE_WG);
+		chunkAccess.getOrCreateHeightmapUnprimed(Types.OCEAN_FLOOR_WG);
 		return CompletableFuture.completedFuture(chunkAccess);
 	}
 
@@ -174,7 +174,16 @@ public class Level0ChunkGen extends ChunkGenerator {
 	@Override
 	public int getBaseHeight(int x, int z, Types types, LevelHeightAccessor levelHeightAccessor,
 			RandomState randomState) {
-		return this.getMinY() + 1;
+		PositionalRandomFactory worldSeed = randomState.getOrCreateRandomFactory(
+				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level0seed"));
+
+		for (int y = getMinY() + getGenDepth() - 1; y >= getMinY(); y--) {
+			if (!getBlockAt(worldSeed, x, y, z).isAir()) {
+				return y + 1;
+			}
+		}
+
+		return this.getMinY();
 	}
 
 	@Override

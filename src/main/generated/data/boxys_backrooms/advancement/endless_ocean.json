@@ -1,0 +1,29 @@
+{
+  "parent": "boxys_backrooms:the_backrooms",
+  "criteria": {
+    "level_7_ocean": {
+      "conditions": {
+        "to": "boxys_backrooms:level7_ocean"
+      },
+      "trigger": "minecraft:changed_dimension"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "text.boxys_backrooms.ocean_desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:water_bucket"
+    },
+    "title": {
+      "translate": "text.boxys_backrooms.ocean_title"
+    }
+  },
+  "requirements": [
+    [
+      "level_7_ocean"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
