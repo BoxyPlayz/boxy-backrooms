@@ -33,12 +33,11 @@ import net.minecraft.world.level.levelgen.blending.Blender;
 public class Level0ChunkGen extends ChunkGenerator {
 
 	private BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
-		int minY = getMinY();
-
 		long chunkX = Math.floorDiv(x, 16);
 		long chunkZ = Math.floorDiv(z, 16);
 
-		RandomSource chunkId = randomFactory.fromSeed(chunkX * 341873128712L + chunkZ * 132897987541L);
+		long seed = chunkX * 341873128712L + chunkZ * 132897987541L;
+		RandomSource chunkId = randomFactory.fromSeed(seed);
 
 		int chunkType = chunkId.nextIntBetweenInclusive(1, 3);
 
@@ -46,16 +45,25 @@ public class Level0ChunkGen extends ChunkGenerator {
 		int relativeChunkZ = Math.floorMod(z, 16) + 1;
 
 		boolean hasColumns = (chunkId.nextIntBetweenInclusive(1, 4) == 4);
+		boolean hasPitFalls = (chunkId.nextIntBetweenInclusive(1, 8) == 4 && !hasColumns);
 
-		if (y <= minY + 4) {
+		if (y <= 4) {
 
 			// Floor
-			if (y == minY) {
-				return ModBlocks.LEVEL0_CARPET.defaultBlockState();
+			if (y <= 0) {
+				if (hasPitFalls) {
+					if ((relativeChunkX / 2 % 2) == 0 && (relativeChunkZ / 2 % 2) == 0) {
+						return Blocks.AIR.defaultBlockState();
+					} else {
+						return ModBlocks.LEVEL0_CARPET.defaultBlockState();
+					}
+				} else {
+					return ModBlocks.LEVEL0_CARPET.defaultBlockState();
+				}
 			}
 
 			// Ceiling
-			if (y == minY + 4) {
+			if (y == 4) {
 				return ModBlocks.LEVEL0_CEILING_TILE.defaultBlockState();
 			}
 
@@ -67,7 +75,7 @@ public class Level0ChunkGen extends ChunkGenerator {
 					}
 
 					if (hasColumns) {
-						if ((x % 4) == 0 && (z % 4) == 0) {
+						if (Math.floorMod(x, 4) == 0 && Math.floorMod(z, 4) == 0) {
 							return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
 						}
 					}
@@ -79,7 +87,7 @@ public class Level0ChunkGen extends ChunkGenerator {
 					}
 
 					if (hasColumns) {
-						if ((x % 4) == 0 && (z % 4) == 0) {
+						if (Math.floorMod(x, 4) == 0 && Math.floorMod(z, 4) == 0) {
 							return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
 						}
 
@@ -99,9 +107,9 @@ public class Level0ChunkGen extends ChunkGenerator {
 		super(new FixedBiomeSource(reference));
 	}
 
-	public static final MapCodec<Level7ChunkGen> CODEC = RecordCodecBuilder.mapCodec(
+	public static final MapCodec<Level0ChunkGen> CODEC = RecordCodecBuilder.mapCodec(
 			instance -> instance.group(RegistryOps.retrieveElement(Biomes.THE_VOID)).apply(instance,
-					instance.stable(Level7ChunkGen::new)));
+					instance.stable(Level0ChunkGen::new)));
 
 	@Override
 	protected MapCodec<? extends ChunkGenerator> codec() {
@@ -124,7 +132,7 @@ public class Level0ChunkGen extends ChunkGenerator {
 
 	@Override
 	public int getGenDepth() {
-		return 16;
+		return 32;
 	}
 
 	@Override
@@ -133,7 +141,6 @@ public class Level0ChunkGen extends ChunkGenerator {
 		PositionalRandomFactory worldSeed = randomState
 				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level0seed"));
 		int minY = getMinY();
-		int maxY = minY + getGenDepth();
 
 		int chunkMinX = chunkAccess.getPos().getMinBlockX();
 		int chunkMinZ = chunkAccess.getPos().getMinBlockZ();
@@ -142,7 +149,7 @@ public class Level0ChunkGen extends ChunkGenerator {
 			for (int z = 0; z < 16; z++) {
 				int globalX = chunkMinX + x;
 				int globalZ = chunkMinZ + z;
-				for (int y = minY; y < maxY; y++) {
+				for (int y = minY; y < minY + this.getGenDepth(); y++) {
 					BlockState block = getBlockAt(worldSeed, globalX, y, globalZ);
 					chunkAccess.setBlockState(
 							new BlockPos(x, y, z),
@@ -161,7 +168,7 @@ public class Level0ChunkGen extends ChunkGenerator {
 
 	@Override
 	public int getMinY() {
-		return 0;
+		return -16;
 	}
 
 	@Override
@@ -178,8 +185,8 @@ public class Level0ChunkGen extends ChunkGenerator {
 		int height = this.getGenDepth();
 		BlockState[] blocks = new BlockState[height];
 
-		for (int y = 0; y < height; y++) {
-			blocks[y] = getBlockAt(worldSeed, x, y, z);
+		for (int y = -16; y < height + this.getMinY(); y++) {
+			blocks[y - this.getMinY()] = getBlockAt(worldSeed, x, y, z);
 		}
 
 		return new NoiseColumn(
