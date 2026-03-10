@@ -2,6 +2,10 @@ package com.boxyplayz.backrooms.datagen.lang;
 
 import java.util.concurrent.CompletableFuture;
 
+import com.boxyplayz.backrooms.block.ModBlocks;
+import com.boxyplayz.backrooms.creativetabs.ModCreativeTabs;
+import com.boxyplayz.backrooms.item.ModItems;
+
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
@@ -16,25 +20,25 @@ public class BoxyBackroomsEnglishLangProvider extends FabricLanguageProvider {
 	@Override
 	public void generateTranslations(HolderLookup.Provider holderLookup, TranslationBuilder translationBuilder) {
 		// Metadata
-		translationBuilder.add("itemGroup.boxys_backrooms", "Boxy's Backrooms");
+		translationBuilder.add(ModCreativeTabs.BACKROOMS_ITEM_GROUP_KEY, "Boxy's Backrooms");
 
 		// Food
-		translationBuilder.add("item.boxys_backrooms.gray_almond_water", "Almond Water");
-		translationBuilder.add("item.boxys_backrooms.green_almond_water", "Almond Water");
-		translationBuilder.add("item.boxys_backrooms.red_almond_water", "Almond Water");
-		translationBuilder.add("item.boxys_backrooms.royal_ration", "Royal Ration");
+		translationBuilder.add(ModItems.GRAY_ALMOND_WATER, "Almond Water");
+		translationBuilder.add(ModItems.GREEN_ALMOND_WATER, "Almond Water");
+		translationBuilder.add(ModItems.RED_ALMOND_WATER, "Almond Water");
+		translationBuilder.add(ModItems.ROYAL_RATION, "Royal Ration");
 
 		// Other Items
-		translationBuilder.add("item.boxys_backrooms.firesalt_shard", "Firesalt Shard");
+		translationBuilder.add(ModItems.FIRESALT_SHARD, "Firesalt Shard");
 
 		// Noclippable Blocks
-		translationBuilder.add("block.boxys_backrooms.errorslate", "Errorslate");
-		translationBuilder.add("block.boxys_backrooms.ocean_transporter", "Aquatic Transporter");
-		translationBuilder.add("block.boxys_backrooms.level0_wallpaper", "Wallpaper");
+		translationBuilder.add(ModBlocks.ERRORSLATE, "Errorslate");
+		translationBuilder.add(ModBlocks.OCEAN_TRANSPORTER, "Aquatic Transporter");
+		translationBuilder.add(ModBlocks.LEVEL0_WALLPAPER, "Wallpaper");
 
 		// Regular Blocks
-		translationBuilder.add("block.boxys_backrooms.level0_carpet", "Carpet");
-		translationBuilder.add("block.boxys_backrooms.level0_ceiling_tile", "Tiles");
+		translationBuilder.add(ModBlocks.LEVEL0_CARPET, "Carpet");
+		translationBuilder.add(ModBlocks.LEVEL0_CEILING_TILE, "Tiles");
 
 		// Advancements
 		translationBuilder.add("text.boxys_backrooms.oneway_title", "It's a cave?");
@@ -43,5 +47,13 @@ public class BoxyBackroomsEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add("text.boxys_backrooms.backrooms_desc", "Enter the endless hallways of the Backrooms");
 		translationBuilder.add("text.boxys_backrooms.ocean_title", "Endless Ocean");
 		translationBuilder.add("text.boxys_backrooms.ocean_desc", "There's really no end.");
+
+		// Tags
+		translationBuilder.add("tag.item.boxys_backrooms.noclippable", "Noclippable Blocks");
+
+		// Tooltips
+		translationBuilder.add("item.gray_almond_water.tooltip", "Tastes like almonds.");
+		translationBuilder.add("item.green_almond_water.tooltip", "Tastes sweet!");
+		translationBuilder.add("item.red_almond_water.tooltip", "Tastes bitter.");
 	}
 }

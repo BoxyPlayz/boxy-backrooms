@@ -8,10 +8,12 @@
     }
   },
   "display": {
+    "announce_to_chat": false,
     "background": "boxys_backrooms:block/level0_wallpaper",
     "description": {
       "translate": "text.boxys_backrooms.backrooms_desc"
     },
+    "hidden": true,
     "icon": {
       "count": 1,
       "id": "boxys_backrooms:level0_wallpaper"

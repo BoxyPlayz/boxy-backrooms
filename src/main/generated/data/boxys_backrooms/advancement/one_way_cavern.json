@@ -9,9 +9,11 @@
     }
   },
   "display": {
+    "announce_to_chat": false,
     "description": {
       "translate": "text.boxys_backrooms.oneway_desc"
     },
+    "hidden": true,
     "icon": {
       "count": 1,
       "id": "boxys_backrooms:errorslate"

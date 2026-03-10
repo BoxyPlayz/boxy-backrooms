@@ -9,9 +9,11 @@
     }
   },
   "display": {
+    "announce_to_chat": false,
     "description": {
       "translate": "text.boxys_backrooms.ocean_desc"
     },
+    "hidden": true,
     "icon": {
       "count": 1,
       "id": "minecraft:water_bucket"
