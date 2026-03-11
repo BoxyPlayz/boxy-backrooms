@@ -23,7 +23,8 @@ public class ModItems {
 		return Registry.register(BuiltInRegistries.ITEM, id, item);
 	}
 
-	public static Item GRAY_ALMOND_WATER, GREEN_ALMOND_WATER, RED_ALMOND_WATER, ROYAL_RATION, FIRESALT_SHARD;
+	public static Item GRAY_ALMOND_WATER, GREEN_ALMOND_WATER, RED_ALMOND_WATER, ROYAL_RATION, FIRESALT_SHARD,
+			SHADOW_DUST, SMILER_REPELLANT;
 
 	public static void registerModItems() {
 
@@ -79,12 +80,26 @@ public class ModItems {
 		FIRESALT_SHARD = registerItem("firesalt_shard",
 				new FireSaltShard(new Item.Properties().setId(fireSaltShardKey)));
 
+		ResourceKey<Item> shadowDustKey = ResourceKey.create(
+				BuiltInRegistries.ITEM.key(),
+				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "shadow_dust"));
+		SHADOW_DUST = registerItem("shadow_dust",
+				new Item(new Item.Properties().setId(shadowDustKey)));
+
+		ResourceKey<Item> smilerRepellantKey = ResourceKey.create(
+				BuiltInRegistries.ITEM.key(),
+				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "smiler_repellant"));
+		SMILER_REPELLANT = registerItem("smiler_repellant",
+				new Item(new Item.Properties().setId(smilerRepellantKey)));
+
 		ItemGroupEvents.modifyEntriesEvent(ModCreativeTabs.BACKROOMS_ITEM_GROUP_KEY).register(itemGroup -> {
 			itemGroup.accept(GRAY_ALMOND_WATER);
 			itemGroup.accept(GREEN_ALMOND_WATER);
 			itemGroup.accept(RED_ALMOND_WATER);
 			itemGroup.accept(ROYAL_RATION);
 			itemGroup.accept(FIRESALT_SHARD);
+			itemGroup.accept(SHADOW_DUST);
+			itemGroup.accept(SMILER_REPELLANT);
 		});
 	}
 }

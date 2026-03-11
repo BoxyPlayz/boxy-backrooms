@@ -20,8 +20,11 @@ public class SmilerModel<T extends Entity> extends EntityModel<SmilerRenderState
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "smiler"), "main");
 	private final ModelPart core;
+	@SuppressWarnings("unused")
 	private final ModelPart mouth;
+	@SuppressWarnings("unused")
 	private final ModelPart eyeL;
+	@SuppressWarnings("unused")
 	private final ModelPart eyeR;
 
 	public SmilerModel(ModelPart root) {
@@ -39,6 +42,7 @@ public class SmilerModel<T extends Entity> extends EntityModel<SmilerRenderState
 		PartDefinition root = partdefinition.addOrReplaceChild("root", CubeListBuilder.create(),
 				PartPose.offset(0.0F, 24.0F, 0.0F));
 
+		@SuppressWarnings("unused")
 		PartDefinition mouth = root.addOrReplaceChild("mouth",
 				CubeListBuilder.create().texOffs(0, 0)
 						.addBox(-4.0F, -2.0F, -1.0F, 8.0F, 2.0F, 2.0F, new CubeDeformation(0.0F))
@@ -48,9 +52,11 @@ public class SmilerModel<T extends Entity> extends EntityModel<SmilerRenderState
 						.texOffs(8, 4).addBox(4.0F, -4.0F, -1.0F, 2.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)),
 				PartPose.offset(0.0F, -2.0F, 0.0F));
 
+		@SuppressWarnings("unused")
 		PartDefinition eyeL = root.addOrReplaceChild("eyeL", CubeListBuilder.create().texOffs(0, 12).addBox(-5.0F,
 				-18.0F, -1.0F, 2.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
+		@SuppressWarnings("unused")
 		PartDefinition eyeR = root.addOrReplaceChild("eyeR", CubeListBuilder.create().texOffs(8, 12).addBox(3.0F,
 				-18.0F, -1.0F, 2.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 

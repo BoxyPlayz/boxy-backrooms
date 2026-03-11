@@ -1,11 +1,19 @@
 package com.boxyplayz.backrooms.entity.custom.Smiler;
 
+import com.boxyplayz.backrooms.item.ModItems;
+
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 
@@ -19,22 +27,53 @@ public class SmilerEntity extends PathfinderMob {
 	protected void registerGoals() {
 		super.registerGoals();
 		this.goalSelector.addGoal(0, new FloatGoal(this));
-		this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.2D, true));
-		this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 1.0D));
-		this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 8.0F));
-		this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
-
-		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(
+		this.goalSelector.addGoal(0, new AvoidEntityGoal<Player>(this, Player.class, 4, 1.1, 1.2, player -> {
+			ItemStack mainHand = player.getMainHandItem();
+			ItemStack offHand = player.getOffhandItem();
+			return mainHand.getItem() == ModItems.SMILER_REPELLANT.asItem() ||
+					offHand.getItem() == ModItems.SMILER_REPELLANT.asItem();
+		}));
+		this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0D, true));
+		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(
 				this, Player.class, true));
+		this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D));
+		this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 8.0F));
+		this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
+
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
 		return PathfinderMob.createMobAttributes()
 				.add(Attributes.MAX_HEALTH, 20.0D)
-				.add(Attributes.FOLLOW_RANGE, 35.0)
 				.add(Attributes.MOVEMENT_SPEED, 0.25D)
 				.add(Attributes.ATTACK_DAMAGE, 8.0D)
 				.add(Attributes.FOLLOW_RANGE, 80.0D);
 	}
 
+	@Override
+	public boolean hurtServer(ServerLevel level, DamageSource damageSource, float amount) {
+		if (damageSource.is(DamageTypes.PLAYER_ATTACK)) {
+			if (damageSource.getEntity() instanceof Player player) {
+				if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FIRESALT_SHARD)) {
+					this.setRemainingFireTicks(120);
+				}
+			}
+			return false;
+		}
+		if (damageSource.is(DamageTypes.MACE_SMASH)) {
+			return false;
+		}
+		if (damageSource.is(DamageTypes.SPEAR)) {
+			return false;
+		}
+		return super.hurtServer(level, damageSource, amount);
+	}
+
+	@Override
+	public void awardKillScore(Entity entity, DamageSource damageSource) {
+		super.awardKillScore(entity, damageSource);
+		if (entity instanceof Player player) {
+			player.giveExperiencePoints(10);
+		}
+	}
 }

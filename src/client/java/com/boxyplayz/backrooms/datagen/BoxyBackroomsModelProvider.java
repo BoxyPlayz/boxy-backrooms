@@ -32,6 +32,8 @@ public class BoxyBackroomsModelProvider extends FabricModelProvider {
 		itemModelGenerator.generateFlatItem(ModItems.GRAY_ALMOND_WATER, ModelTemplates.FLAT_ITEM);
 		itemModelGenerator.generateFlatItem(ModItems.ROYAL_RATION, ModelTemplates.FLAT_ITEM);
 		itemModelGenerator.generateFlatItem(ModItems.FIRESALT_SHARD, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(ModItems.SHADOW_DUST, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(ModItems.SMILER_REPELLANT, ModelTemplates.FLAT_ITEM);
 	}
 
 }

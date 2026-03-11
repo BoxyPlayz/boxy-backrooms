@@ -5,7 +5,6 @@ import java.util.concurrent.CompletableFuture;
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.creativetabs.ModCreativeTabs;
 import com.boxyplayz.backrooms.entity.ModEntities;
-import com.boxyplayz.backrooms.entity.custom.Smiler.SmilerEntity;
 import com.boxyplayz.backrooms.item.ModItems;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -32,6 +31,8 @@ public class BoxyBackroomsEnglishLangProvider extends FabricLanguageProvider {
 
 		// Other Items
 		translationBuilder.add(ModItems.FIRESALT_SHARD, "Firesalt Shard");
+		translationBuilder.add(ModItems.SHADOW_DUST, "Shadow Dust");
+		translationBuilder.add(ModItems.SMILER_REPELLANT, "Smiler Repellant");
 
 		// Noclippable Blocks
 		translationBuilder.add(ModBlocks.ERRORSLATE, "Errorslate");
@@ -52,6 +53,7 @@ public class BoxyBackroomsEnglishLangProvider extends FabricLanguageProvider {
 
 		// Tags
 		translationBuilder.add("tag.item.boxys_backrooms.noclippable", "Noclippable Blocks");
+		translationBuilder.add("tag.item.boxys_backrooms.almond_waters", "Almond Waters");
 
 		// Tooltips
 		translationBuilder.add("item.gray_almond_water.tooltip", "Tastes like almonds.");

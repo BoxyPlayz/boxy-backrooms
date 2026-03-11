@@ -46,6 +46,11 @@ public class BoxyBackroomsRecipeProvider extends FabricRecipeProvider {
 						ModItems.FIRESALT_SHARD, 0.1f, 100)
 						.unlockedBy(getHasName(Items.AMETHYST_SHARD), has(Items.AMETHYST_SHARD))
 						.save(output);
+				shapeless(RecipeCategory.MISC, ModItems.SMILER_REPELLANT)
+						.requires(ModItems.SHADOW_DUST)
+						.requires(BoxysBackroomsItemTagProvider.AlmondWaters)
+						.unlockedBy(getHasName(ModItems.SHADOW_DUST), has(ModItems.SHADOW_DUST))
+						.save(output);
 			}
 		};
 	}

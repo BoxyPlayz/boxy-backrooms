@@ -13,10 +13,10 @@ public class BoxysBackroomsDataGen implements DataGeneratorEntrypoint {
 		BoxysBackrooms.LOGGER.info("Data Generation running!");
 
 		FabricDataGenerator.Pack pack = generator.createPack();
- 
-        pack.addProvider(BoxyBackroomsModelProvider::new);
+
+		pack.addProvider(BoxyBackroomsModelProvider::new);
 		pack.addProvider(BoxyBackroomsEnglishLangProvider::new);
-		
+
 		pack.addProvider(BoxyBackroomsRecipeProvider::new);
 		pack.addProvider(BoxyBackroomsAdvancementProvider::new);
 
@@ -25,6 +25,7 @@ public class BoxysBackroomsDataGen implements DataGeneratorEntrypoint {
 
 		pack.addProvider(BoxyBackroomsChestLootTableProvider::new);
 		pack.addProvider(BoxyBackroomsBlockLootTableProvider::new);
+		pack.addProvider(BoxyBackroomsEntityLootTableProvider::new);
 	}
 
 }

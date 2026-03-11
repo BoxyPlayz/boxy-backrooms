@@ -12,6 +12,6 @@ public class FireSaltShard extends Item {
 
 	@Override
 	public void hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-		target.setRemainingFireTicks(60);
+		target.setRemainingFireTicks(120);
 	}
 }

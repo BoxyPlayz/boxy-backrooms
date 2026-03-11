@@ -3,7 +3,6 @@ package com.boxyplayz.backrooms;
 import com.boxyplayz.backrooms.entity.ModEntities;
 import com.boxyplayz.backrooms.entity.SmilerEntityRenderer;
 import com.boxyplayz.backrooms.entity.SmilerModel;
-import com.boxyplayz.backrooms.entity.custom.Smiler.SmilerEntity;
 import com.boxyplayz.backrooms.events.ItemEvents;
 
 import net.fabricmc.api.ClientModInitializer;
