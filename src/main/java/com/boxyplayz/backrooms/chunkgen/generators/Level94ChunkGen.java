@@ -28,11 +28,11 @@ import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraft.world.level.levelgen.PositionalRandomFactory;
 import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.blending.Blender;
-import net.minecraft.world.level.levelgen.synth.PerlinNoise;
+import net.minecraft.world.level.levelgen.synth.SimplexNoise;
 
 public class Level94ChunkGen extends ChunkGenerator {
 
-	private PerlinNoise noise;
+	private SimplexNoise noise;
 
 	private BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
 		// long chunkX = Math.floorDiv(x, 16);
@@ -41,7 +41,7 @@ public class Level94ChunkGen extends ChunkGenerator {
 		// long seed = chunkX * 341873128712L + chunkZ * 132897987541L;
 		// RandomSource randomIsNess = randomFactory.fromSeed(seed);
 
-		int height = (int) (70 + noise.getValue(x * 0.01, 0, z * 0.01) * 40);
+		int height = (int) (70 + noise.getValue(x * 0.01, z * 0.01) * 40);
 
 		if (y == height) {
 			return Blocks.GRASS_BLOCK.defaultBlockState();
@@ -92,8 +92,8 @@ public class Level94ChunkGen extends ChunkGenerator {
 				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level94seed"));
 
 		if (this.noise == null) {
-			RandomSource random = worldSeed.fromSeed(0);
-			this.noise = PerlinNoise.create(random, List.of(0, 1, 2));
+			RandomSource random = worldSeed.fromSeed(94);
+			this.noise = new SimplexNoise(random);
 		}
 
 		int minY = getMinY();

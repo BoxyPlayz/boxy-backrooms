@@ -5,7 +5,6 @@ import com.boxyplayz.backrooms.item.ModItems;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.PathfinderMob;
@@ -54,7 +53,8 @@ public class SmilerEntity extends PathfinderMob {
 	public boolean hurtServer(ServerLevel level, DamageSource damageSource, float amount) {
 		if (damageSource.is(DamageTypes.PLAYER_ATTACK)) {
 			if (damageSource.getEntity() instanceof Player player) {
-				if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FIRESALT_SHARD)) {
+				if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FIRESALT_SHARD)
+						|| player.getItemBySlot(EquipmentSlot.OFFHAND).is(ModItems.FIRESALT_SHARD)) {
 					this.setRemainingFireTicks(120);
 				}
 			}
@@ -67,13 +67,5 @@ public class SmilerEntity extends PathfinderMob {
 			return false;
 		}
 		return super.hurtServer(level, damageSource, amount);
-	}
-
-	@Override
-	public void awardKillScore(Entity entity, DamageSource damageSource) {
-		super.awardKillScore(entity, damageSource);
-		if (entity instanceof Player player) {
-			player.giveExperiencePoints(10);
-		}
 	}
 }

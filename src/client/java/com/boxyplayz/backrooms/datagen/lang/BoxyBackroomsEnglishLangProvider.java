@@ -4,6 +4,7 @@ import java.util.concurrent.CompletableFuture;
 
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.creativetabs.ModCreativeTabs;
+import com.boxyplayz.backrooms.datagen.BoxysBackroomsItemTagProvider;
 import com.boxyplayz.backrooms.entity.ModEntities;
 import com.boxyplayz.backrooms.item.ModItems;
 
@@ -46,14 +47,19 @@ public class BoxyBackroomsEnglishLangProvider extends FabricLanguageProvider {
 		// Advancements
 		translationBuilder.add("text.boxys_backrooms.oneway_title", "It's a cave?");
 		translationBuilder.add("text.boxys_backrooms.oneway_desc", "There are no halls here.");
+
 		translationBuilder.add("text.boxys_backrooms.backrooms_title", "The Backrooms");
 		translationBuilder.add("text.boxys_backrooms.backrooms_desc", "Enter the endless hallways of the Backrooms");
+
 		translationBuilder.add("text.boxys_backrooms.ocean_title", "Endless Ocean");
 		translationBuilder.add("text.boxys_backrooms.ocean_desc", "There's really no end.");
 
+		translationBuilder.add("text.boxys_backrooms.94_title", "Rolling Hills");
+		translationBuilder.add("text.boxys_backrooms.94_desc", "Peaceful..?");
+
 		// Tags
-		translationBuilder.add("tag.item.boxys_backrooms.noclippable", "Noclippable Blocks");
-		translationBuilder.add("tag.item.boxys_backrooms.almond_waters", "Almond Waters");
+		translationBuilder.add(BoxysBackroomsItemTagProvider.NoClippables, "Noclippable Blocks");
+		translationBuilder.add(BoxysBackroomsItemTagProvider.AlmondWaters, "Almond Waters");
 
 		// Tooltips
 		translationBuilder.add("item.gray_almond_water.tooltip", "Tastes like almonds.");

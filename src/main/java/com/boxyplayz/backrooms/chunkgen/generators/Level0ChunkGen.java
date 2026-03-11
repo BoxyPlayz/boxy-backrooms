@@ -29,29 +29,51 @@ import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraft.world.level.levelgen.PositionalRandomFactory;
 import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.blending.Blender;
+import net.minecraft.world.level.levelgen.synth.SimplexNoise;
 
 public class Level0ChunkGen extends ChunkGenerator {
+
+	private SimplexNoise noise;
+
+	private static int getHash(long x, long z) {
+		long h = x * 0x9E3779B97F4A7C15L ^ z * 0xC2B2AE3D27D4EB4FL;
+		h ^= (h >>> 27);
+		h *= 0x3C79AC492BA7B653L;
+		h ^= (h >>> 33);
+		return (int) h;
+	}
+
+	private SimplexNoise getNoise(PositionalRandomFactory worldSeed) {
+		if (this.noise == null) {
+			RandomSource random = worldSeed.fromSeed(0);
+			this.noise = new SimplexNoise(random);
+		}
+		return this.noise;
+	}
 
 	private BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
 		long chunkX = Math.floorDiv(x, 16);
 		long chunkZ = Math.floorDiv(z, 16);
 
-		long seed = chunkX * 341873128712L + chunkZ * 132897987541L;
-		RandomSource chunkId = randomFactory.fromSeed(seed);
-
-		int chunkType = chunkId.nextIntBetweenInclusive(1, 3);
+		int chunkType = ((getHash(chunkX, chunkZ) & 0x7fffffff) % 3) + 1;
 
 		int relativeChunkX = Math.floorMod(x, 16) + 1;
 		int relativeChunkZ = Math.floorMod(z, 16) + 1;
 
-		boolean hasColumns = (chunkId.nextIntBetweenInclusive(1, 4) == 4);
-		boolean hasPitFalls = (chunkId.nextIntBetweenInclusive(1, 24) == 4 && !hasColumns);
+		boolean hasColumns = false;
+		boolean hasPitFalls = false;
+
+		double noiseValue = getNoise(randomFactory).getValue(chunkX * 0.02, chunkZ * 0.02);
+		if (noiseValue < 0.4) {
+			hasColumns = true;
+		} else if (noiseValue > 0.8) {
+			hasPitFalls = true;
+		}
 
 		// Floor
 		if (y <= 0) {
 			if (hasPitFalls) {
-				if ((relativeChunkX / 2 % 2) == 0 && (relativeChunkZ / 2 % 2) == 0
-						&& this.getBlockAt(randomFactory, x, 2, z).isAir()) {
+				if ((relativeChunkX / 2 % 2) == 0 && (relativeChunkZ / 2 % 2) == 0) {
 					return Blocks.AIR.defaultBlockState();
 				} else {
 					return ModBlocks.LEVEL0_CARPET.defaultBlockState();
@@ -67,29 +89,22 @@ public class Level0ChunkGen extends ChunkGenerator {
 		}
 
 		// Maze logic start!
+		if (hasColumns) {
+			if (Math.floorMod(x, 4) == 0 && Math.floorMod(z, 4) == 0) {
+				return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
+			}
+		}
+
 		switch (chunkType) {
 			case 1:
 				if (relativeChunkX == 1 || relativeChunkX == 16) {
 					return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
-				}
-
-				if (hasColumns) {
-					if (Math.floorMod(x, 4) == 0 && Math.floorMod(z, 4) == 0) {
-						return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
-					}
 				}
 				break;
 
 			case 2:
 				if (relativeChunkZ == 1 || relativeChunkZ == 16) {
 					return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
-				}
-
-				if (hasColumns) {
-					if (Math.floorMod(x, 4) == 0 && Math.floorMod(z, 4) == 0) {
-						return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
-					}
-
 				}
 				break;
 
@@ -137,6 +152,7 @@ public class Level0ChunkGen extends ChunkGenerator {
 			StructureManager structureManager, ChunkAccess chunkAccess) {
 		PositionalRandomFactory worldSeed = randomState
 				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level0seed"));
+
 		int minY = getMinY();
 
 		int chunkMinX = chunkAccess.getPos().getMinBlockX();

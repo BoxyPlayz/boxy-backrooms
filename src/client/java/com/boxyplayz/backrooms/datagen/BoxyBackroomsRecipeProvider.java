@@ -34,6 +34,7 @@ public class BoxyBackroomsRecipeProvider extends FabricRecipeProvider {
 		return new RecipeProvider(registryLookup, output) {
 			@Override
 			public void buildRecipes() {
+				@SuppressWarnings("unused")
 				HolderLookup.RegistryLookup<Item> itemLookup = registries.lookupOrThrow(Registries.ITEM);
 				shapeless(RecipeCategory.MISC, ModBlocks.LEVEL0_WALLPAPER)
 						.requires(Items.YELLOW_CONCRETE)

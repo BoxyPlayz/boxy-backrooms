@@ -1,0 +1,31 @@
+{
+  "parent": "boxys_backrooms:the_backrooms",
+  "criteria": {
+    "level_94": {
+      "conditions": {
+        "to": "boxys_backrooms:level94"
+      },
+      "trigger": "minecraft:changed_dimension"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "text.boxys_backrooms.94_desc"
+    },
+    "hidden": true,
+    "icon": {
+      "count": 1,
+      "id": "minecraft:grass_block"
+    },
+    "title": {
+      "translate": "text.boxys_backrooms.94_title"
+    }
+  },
+  "requirements": [
+    [
+      "level_94"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

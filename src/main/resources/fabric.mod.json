@@ -8,10 +8,12 @@
 		"BoxyPlayz"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://github.com/BoxyPlayz/boxy-backrooms",
+		"sources": "https://github.com/BoxyPlayz/boxy-backrooms.git",
+		"issues": "https://github.com/BoxyPlayz/boxy-backrooms/issues",
+		"discord": "https://discord.com/invite/T9abqkRdk6"
 	},
-	"license": "MIT",
+	"license": "Apache-2.0",
 	"icon": "assets/boxys_backrooms/icon.png",
 	"environment": "*",
 	"entrypoints": {

@@ -12,7 +12,7 @@ public class SmilerEntityRenderer
 		extends MobRenderer<SmilerEntity, SmilerRenderState, SmilerModel<SmilerEntity>> {
 
 	public SmilerEntityRenderer(EntityRendererProvider.Context context) {
-		super(context, new SmilerModel(context.bakeLayer(BoxysBackroomsClient.MODEL_SMILER_LAYER)), 0f);
+		super(context, new SmilerModel<SmilerEntity>(context.bakeLayer(BoxysBackroomsClient.MODEL_SMILER_LAYER)), 0f);
 	}
 
 	@Override
