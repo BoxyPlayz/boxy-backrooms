@@ -1,12 +1,6 @@
-package com.boxyplayz.backrooms;
+package com.boxyplayz.backrooms.datagen;
 
-import com.boxyplayz.backrooms.datagen.BoxyBackroomsAdvancementProvider;
-import com.boxyplayz.backrooms.datagen.BoxyBackroomsBlockLootTableProvider;
-import com.boxyplayz.backrooms.datagen.BoxyBackroomsChestLootTableProvider;
-import com.boxyplayz.backrooms.datagen.BoxyBackroomsModelProvider;
-import com.boxyplayz.backrooms.datagen.BoxyBackroomsRecipeProvider;
-import com.boxyplayz.backrooms.datagen.BoxysBackroomsBlockTagProvider;
-import com.boxyplayz.backrooms.datagen.BoxysBackroomsItemTagProvider;
+import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.datagen.lang.BoxyBackroomsEnglishLangProvider;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;

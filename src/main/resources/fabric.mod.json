@@ -16,7 +16,7 @@
 	"environment": "*",
 	"entrypoints": {
 		"fabric-datagen": [
-			"com.boxyplayz.backrooms.BoxysBackroomsDataGen"
+			"com.boxyplayz.backrooms.datagen.BoxysBackroomsDataGen"
 		],
 		"main": [
 			"com.boxyplayz.backrooms.BoxysBackrooms"

@@ -3,6 +3,7 @@ package com.boxyplayz.backrooms.entity;
 import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.entity.custom.Smiler.SmilerEntity;
 
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
@@ -21,5 +22,7 @@ public class ModEntities {
 
 	public static void RegisterModEntities() {
 		BoxysBackrooms.LOGGER.info("Registering Entities");
+		FabricDefaultAttributeRegistry.register(SMILER,
+				SmilerEntity.createAttributes());
 	}
 }

@@ -29,11 +29,12 @@ public class SmilerEntity extends PathfinderMob {
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
-	return PathfinderMob.createMobAttributes()
-		.add(Attributes.MAX_HEALTH, 20.0D)
-		.add(Attributes.MOVEMENT_SPEED, 0.25D)
-		.add(Attributes.ATTACK_DAMAGE, 8.0D)
-		.add(Attributes.FOLLOW_RANGE, 80.0D);
-}
+		return PathfinderMob.createMobAttributes()
+				.add(Attributes.MAX_HEALTH, 20.0D)
+				.add(Attributes.FOLLOW_RANGE, 35.0)
+				.add(Attributes.MOVEMENT_SPEED, 0.25D)
+				.add(Attributes.ATTACK_DAMAGE, 8.0D)
+				.add(Attributes.FOLLOW_RANGE, 80.0D);
+	}
 
 }

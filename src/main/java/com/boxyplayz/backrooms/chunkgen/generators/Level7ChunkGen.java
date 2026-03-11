@@ -73,7 +73,7 @@ public class Level7ChunkGen extends ChunkGenerator {
 	}
 
 	public static final MapCodec<Level7ChunkGen> CODEC = RecordCodecBuilder.mapCodec(
-			instance -> instance.group(RegistryOps.retrieveElement(ModBiomes.LEVEL7_BIOME)).apply(instance,
+			instance -> instance.group(RegistryOps.retrieveElement(ModBiomes.LEVEL7_OCEAN_BIOME)).apply(instance,
 					instance.stable(Level7ChunkGen::new)));
 
 	@Override

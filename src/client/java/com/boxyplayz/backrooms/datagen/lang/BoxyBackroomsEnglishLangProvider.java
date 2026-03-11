@@ -4,6 +4,8 @@ import java.util.concurrent.CompletableFuture;
 
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.creativetabs.ModCreativeTabs;
+import com.boxyplayz.backrooms.entity.ModEntities;
+import com.boxyplayz.backrooms.entity.custom.Smiler.SmilerEntity;
 import com.boxyplayz.backrooms.item.ModItems;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -55,5 +57,8 @@ public class BoxyBackroomsEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add("item.gray_almond_water.tooltip", "Tastes like almonds.");
 		translationBuilder.add("item.green_almond_water.tooltip", "Tastes sweet!");
 		translationBuilder.add("item.red_almond_water.tooltip", "Tastes bitter.");
+
+		// Entities
+		translationBuilder.add(ModEntities.SMILER, "Smiler");
 	}
 }
