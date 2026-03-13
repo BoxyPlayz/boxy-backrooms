@@ -1,6 +1,7 @@
 package com.boxyplayz.backrooms.entity.custom.Smiler;
 
 import com.boxyplayz.backrooms.item.ModItems;
+import com.boxyplayz.backrooms.tags.ModTags;
 
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
@@ -44,7 +45,7 @@ public class SmilerEntity extends PathfinderMob {
 	public static AttributeSupplier.Builder createAttributes() {
 		return PathfinderMob.createMobAttributes()
 				.add(Attributes.MAX_HEALTH, 20.0D)
-				.add(Attributes.MOVEMENT_SPEED, 0.25D)
+				.add(Attributes.MOVEMENT_SPEED, 0.35D)
 				.add(Attributes.ATTACK_DAMAGE, 8.0D)
 				.add(Attributes.FOLLOW_RANGE, 80.0D);
 	}
@@ -60,11 +61,11 @@ public class SmilerEntity extends PathfinderMob {
 			}
 			return false;
 		}
-		if (damageSource.is(DamageTypes.MACE_SMASH)) {
+		if (damageSource.is(ModTags.physicalAttacks)) {
 			return false;
 		}
-		if (damageSource.is(DamageTypes.SPEAR)) {
-			return false;
+		if (damageSource.is(DamageTypes.ARROW)) {
+			return super.hurtServer(level, damageSource, amount * 0.75f);
 		}
 		return super.hurtServer(level, damageSource, amount);
 	}

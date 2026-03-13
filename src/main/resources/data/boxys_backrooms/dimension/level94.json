@@ -4,7 +4,7 @@
 		"type": "boxys_backrooms:level94",
 		"biome_source": {
 			"type": "minecraft:fixed",
-			"biome": "minecraft:the_void"
+			"biome": "boxys_backrooms:level94"
 		}
 	}
 }

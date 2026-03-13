@@ -17,6 +17,10 @@ public class ModBiomes {
 			Registries.BIOME,
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level8_cavesystem"));
 
+	public static final ResourceKey<Biome> LEVEL94_BIOME = ResourceKey.create(
+			Registries.BIOME,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level94"));
+
 	public static void RegisterModBiomes() {
 
 	}
