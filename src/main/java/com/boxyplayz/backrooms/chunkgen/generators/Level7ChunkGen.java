@@ -32,7 +32,7 @@ import net.minecraft.world.level.levelgen.blending.Blender;
 
 public class Level7ChunkGen extends ChunkGenerator {
 
-	private BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
+	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
 		int minY = getMinY();
 
 		RandomSource chunkId = randomFactory.fromSeed(x * 341873128712L + z * 132897987541L + y * 1328712L);

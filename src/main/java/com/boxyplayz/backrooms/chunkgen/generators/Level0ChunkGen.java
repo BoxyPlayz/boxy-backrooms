@@ -51,7 +51,7 @@ public class Level0ChunkGen extends ChunkGenerator {
 		return this.noise;
 	}
 
-	private BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
+	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
 		long chunkX = Math.floorDiv(x, 16);
 		long chunkZ = Math.floorDiv(z, 16);
 

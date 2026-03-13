@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
-import com.boxyplayz.backrooms.biome.ModBiomes;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
@@ -19,6 +18,7 @@ import net.minecraft.world.level.NoiseColumn;
 import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeManager;
+import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.FixedBiomeSource;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -28,48 +28,50 @@ import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraft.world.level.levelgen.PositionalRandomFactory;
 import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.blending.Blender;
-import net.minecraft.world.level.levelgen.synth.SimplexNoise;
 
-public class Level94ChunkGen extends ChunkGenerator {
+public class TheBrokenChunkGen extends ChunkGenerator {
+	Level0ChunkGen level0ChunkGen;
+	Level7ChunkGen level7ChunkGen;
+	Level94ChunkGen level94ChunkGen;
 
-	private SimplexNoise noise;
+	private BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
+		RandomSource random = randomFactory
+				.fromSeed(Math.floorDiv(x, 16) * 341873128712L + Math.floorDiv(z, 16) * 132897987541L);
 
-	protected SimplexNoise getNoise(PositionalRandomFactory randomFactory) {
-		if (this.noise == null) {
-			RandomSource random = randomFactory.fromSeed(94);
-			this.noise = new SimplexNoise(random);
+		int chunkId = random.nextIntBetweenInclusive(1, 4);
+
+		switch (chunkId) {
+			case 1:
+				if (Math.floorMod(Math.abs(x + z), 256) == y) {
+					return Blocks.STONE.defaultBlockState();
+				}
+
+				break;
+
+			case 2:
+				return level0ChunkGen.getBlockAt(randomFactory, x, y, z);
+
+			case 3:
+				return level7ChunkGen.getBlockAt(randomFactory, x, y, z);
+
+			case 4:
+				return level94ChunkGen.getBlockAt(randomFactory, x, y, z);
+			default:
+				return Blocks.AIR.defaultBlockState();
 		}
-
-		return this.noise;
-
-	}
-
-	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
-		// long chunkX = Math.floorDiv(x, 16);
-		// long chunkZ = Math.floorDiv(z, 16);
-
-		// long seed = chunkX * 341873128712L + chunkZ * 132897987541L;
-		// RandomSource randomIsNess = randomFactory.fromSeed(seed);
-
-		int height = (int) (70 + getNoise(randomFactory).getValue(x * 0.01, z * 0.01) * 40);
-
-		if (y == height) {
-			return Blocks.GRASS_BLOCK.defaultBlockState();
-		}
-		if (y < height) {
-			return Blocks.DIRT.defaultBlockState();
-		}
-
 		return Blocks.AIR.defaultBlockState();
 	}
 
-	public Level94ChunkGen(Holder.Reference<Biome> reference) {
+	public TheBrokenChunkGen(Holder.Reference<Biome> reference) {
 		super(new FixedBiomeSource(reference));
+		level0ChunkGen = new Level0ChunkGen(reference);
+		level7ChunkGen = new Level7ChunkGen(reference);
+		level94ChunkGen = new Level94ChunkGen(reference);
 	}
 
-	public static final MapCodec<Level94ChunkGen> CODEC = RecordCodecBuilder.mapCodec(
-			instance -> instance.group(RegistryOps.retrieveElement(ModBiomes.LEVEL94_BIOME)).apply(instance,
-					instance.stable(Level94ChunkGen::new)));
+	public static final MapCodec<TheBrokenChunkGen> CODEC = RecordCodecBuilder.mapCodec(
+			instance -> instance.group(RegistryOps.retrieveElement(Biomes.THE_VOID)).apply(instance,
+					instance.stable(TheBrokenChunkGen::new)));
 
 	@Override
 	protected MapCodec<? extends ChunkGenerator> codec() {
@@ -99,7 +101,7 @@ public class Level94ChunkGen extends ChunkGenerator {
 	public CompletableFuture<ChunkAccess> fillFromNoise(Blender blender, RandomState randomState,
 			StructureManager structureManager, ChunkAccess chunkAccess) {
 		PositionalRandomFactory worldSeed = randomState
-				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level94seed"));
+				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level0seed"));
 
 		int minY = getMinY();
 
@@ -139,7 +141,7 @@ public class Level94ChunkGen extends ChunkGenerator {
 	public int getBaseHeight(int x, int z, Types types, LevelHeightAccessor levelHeightAccessor,
 			RandomState randomState) {
 		PositionalRandomFactory worldSeed = randomState.getOrCreateRandomFactory(
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level94seed"));
+				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level0seed"));
 
 		for (int y = getMinY() + getGenDepth() - 1; y >= getMinY(); y--) {
 			if (!getBlockAt(worldSeed, x, y, z).isAir()) {
@@ -153,12 +155,12 @@ public class Level94ChunkGen extends ChunkGenerator {
 	@Override
 	public NoiseColumn getBaseColumn(int x, int z, LevelHeightAccessor levelHeightAccessor, RandomState randomState) {
 		PositionalRandomFactory worldSeed = randomState
-				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level94seed"));
+				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level0seed"));
 
 		int height = this.getGenDepth();
 		BlockState[] blocks = new BlockState[height];
 
-		for (int y = 0; y < height + this.getMinY(); y++) {
+		for (int y = -16; y < height + this.getMinY(); y++) {
 			blocks[y - this.getMinY()] = getBlockAt(worldSeed, x, y, z);
 		}
 
