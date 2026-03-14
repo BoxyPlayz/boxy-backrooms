@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.block.ModBlocks;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
@@ -30,7 +31,6 @@ import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.blending.Blender;
 
 public class TheBrokenChunkGen extends ChunkGenerator {
-	Level0ChunkGen level0ChunkGen;
 	Level7ChunkGen level7ChunkGen;
 	Level94ChunkGen level94ChunkGen;
 
@@ -42,14 +42,26 @@ public class TheBrokenChunkGen extends ChunkGenerator {
 
 		switch (chunkId) {
 			case 1:
-				if (Math.floorMod(Math.abs(x + z), 256) == y) {
+				if (Math.abs(Math.floorMod(x, 128) + Math.floorMod(z, 128)) == y) {
 					return Blocks.STONE.defaultBlockState();
 				}
 
 				break;
 
 			case 2:
-				return level0ChunkGen.getBlockAt(randomFactory, x, y, z);
+				switch (Math.floorMod(y, 5)) {
+					case 0:
+						return ModBlocks.LEVEL0_CARPET.defaultBlockState();
+
+					case 4:
+						return ModBlocks.LEVEL0_CEILING_TILE.defaultBlockState();
+
+					default:
+						if (Math.floorMod(x, 4) == 0 && Math.floorMod(z, 4) == 0) {
+							return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
+						}
+						return Blocks.AIR.defaultBlockState();
+				}
 
 			case 3:
 				return level7ChunkGen.getBlockAt(randomFactory, x, y, z);
@@ -64,7 +76,6 @@ public class TheBrokenChunkGen extends ChunkGenerator {
 
 	public TheBrokenChunkGen(Holder.Reference<Biome> reference) {
 		super(new FixedBiomeSource(reference));
-		level0ChunkGen = new Level0ChunkGen(reference);
 		level7ChunkGen = new Level7ChunkGen(reference);
 		level94ChunkGen = new Level94ChunkGen(reference);
 	}
