@@ -33,15 +33,11 @@ import net.minecraft.world.level.levelgen.synth.SimplexNoise;
 
 public class Level0ChunkGen extends ChunkGenerator {
 
-	private SimplexNoise noise;
-
-	private static int getHash(long x, long z) {
-		long h = x * 0x9E3779B97F4A7C15L ^ z * 0xC2B2AE3D27D4EB4FL;
-		h ^= (h >>> 27);
-		h *= 0x3C79AC492BA7B653L;
-		h ^= (h >>> 33);
-		return (int) h;
+	private boolean getRandomBool(RandomSource random) {
+		return random.nextIntBetweenInclusive(0, 5) == 0;
 	}
+
+	private SimplexNoise noise;
 
 	private SimplexNoise getNoise(PositionalRandomFactory worldSeed) {
 		if (this.noise == null) {
@@ -55,7 +51,7 @@ public class Level0ChunkGen extends ChunkGenerator {
 		long chunkX = Math.floorDiv(x, 16);
 		long chunkZ = Math.floorDiv(z, 16);
 
-		int chunkType = ((getHash(chunkX, chunkZ) & 0x7fffffff) % 3) + 1;
+		RandomSource random = randomFactory.at(new BlockPos(x, y, z));
 
 		int relativeChunkX = Math.floorMod(x, 16) + 1;
 		int relativeChunkZ = Math.floorMod(z, 16) + 1;
@@ -79,6 +75,9 @@ public class Level0ChunkGen extends ChunkGenerator {
 					return ModBlocks.LEVEL0_CARPET.defaultBlockState();
 				}
 			} else {
+				if (y == 0 && random.nextIntBetweenInclusive(0, 800) == 0) {
+					return ModBlocks.LEVEL0_CARPET_GLITCHED.defaultBlockState();
+				}
 				return ModBlocks.LEVEL0_CARPET.defaultBlockState();
 			}
 		}
@@ -95,21 +94,28 @@ public class Level0ChunkGen extends ChunkGenerator {
 			}
 		}
 
-		switch (chunkType) {
-			case 1:
-				if (relativeChunkX == 1 || relativeChunkX == 16) {
-					return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
-				}
-				break;
+		int cellX = Math.floorDiv(Math.floorMod(x, 16), 4);
+		int cellZ = Math.floorDiv(Math.floorMod(z, 16), 4);
 
-			case 2:
-				if (relativeChunkZ == 1 || relativeChunkZ == 16) {
-					return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
-				}
-				break;
+		int localX = Math.abs(Math.floorMod(x, 4));
+		int localZ = Math.abs(Math.floorMod(z, 4));
 
-			default:
-				return Blocks.AIR.defaultBlockState();
+		RandomSource cellRandom = randomFactory.at(
+				(int) (chunkX * 4 + cellX),
+				0,
+				(int) (chunkZ * 4 + cellZ));
+
+		if (getRandomBool(cellRandom) && localZ == 0) {
+			return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
+		}
+		if (getRandomBool(cellRandom) && localZ == 3) {
+			return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
+		}
+		if (getRandomBool(cellRandom) && localX == 0) {
+			return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
+		}
+		if (getRandomBool(cellRandom) && localX == 3) {
+			return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
 		}
 
 		return Blocks.AIR.defaultBlockState();

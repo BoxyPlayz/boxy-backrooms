@@ -51,6 +51,10 @@ public class TheBrokenChunkGen extends ChunkGenerator {
 			case 2:
 				switch (Math.floorMod(y, 5)) {
 					case 0:
+						RandomSource blockRandom = randomFactory.at(x, y, z);
+						if (y == 0 && blockRandom.nextIntBetweenInclusive(0, 800) == 0) {
+							return ModBlocks.LEVEL0_CARPET_GLITCHED.defaultBlockState();
+						}
 						return ModBlocks.LEVEL0_CARPET.defaultBlockState();
 
 					case 4:

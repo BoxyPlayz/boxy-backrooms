@@ -31,6 +31,7 @@ public class BoxysBackroomsItemTagProvider extends FabricTagProvider.ItemTagProv
 		valueLookupBuilder(NoClippables)
 				.add(ModBlocks.ERRORSLATE.asItem())
 				.add(ModBlocks.LEVEL0_WALLPAPER.asItem())
+				.add(ModBlocks.LEVEL0_CARPET_GLITCHED.asItem())
 				.add(ModBlocks.OCEAN_TRANSPORTER.asItem());
 		valueLookupBuilder(AlmondWaters)
 				.add(ModItems.GRAY_ALMOND_WATER)

@@ -4,6 +4,7 @@ import java.util.function.Function;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.block.custom.ErrorSlateBlock;
+import com.boxyplayz.backrooms.block.custom.Level0GlitchedCarpet;
 import com.boxyplayz.backrooms.block.custom.Level0Wallpaper;
 import com.boxyplayz.backrooms.block.custom.OceanTransporter;
 import com.boxyplayz.backrooms.creativetabs.ModCreativeTabs;
@@ -69,17 +70,23 @@ public class ModBlocks {
 			Level0Wallpaper::new,
 			BlockBehaviour.Properties.of().sound(SoundType.BAMBOO).strength(20f).destroyTime(10f),
 			true);
-	
+
 	public static final Block LEVEL0_CARPET = register(
 			"level0_carpet",
 			Block::new,
 			BlockBehaviour.Properties.of().sound(SoundType.WOOL).strength(1000f).destroyTime(1000f),
 			true);
-	
+
 	public static final Block LEVEL0_CEILING_TILE = register(
 			"level0_ceiling_tile",
 			Block::new,
 			BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1000f).destroyTime(1000f),
+			true);
+
+	public static final Block LEVEL0_CARPET_GLITCHED = register(
+			"level0_carpet_glitched",
+			Level0GlitchedCarpet::new,
+			BlockBehaviour.Properties.of().sound(SoundType.TUFF).strength(1000f).destroyTime(1000f),
 			true);
 
 	public static void RegisterModBlocks() {

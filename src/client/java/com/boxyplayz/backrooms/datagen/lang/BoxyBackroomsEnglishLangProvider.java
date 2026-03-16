@@ -39,6 +39,7 @@ public class BoxyBackroomsEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModBlocks.ERRORSLATE, "Errorslate");
 		translationBuilder.add(ModBlocks.OCEAN_TRANSPORTER, "Aquatic Transporter");
 		translationBuilder.add(ModBlocks.LEVEL0_WALLPAPER, "Wallpaper");
+		translationBuilder.add(ModBlocks.LEVEL0_CARPET_GLITCHED, "Carpet?");
 
 		// Regular Blocks
 		translationBuilder.add(ModBlocks.LEVEL0_CARPET, "Carpet");
