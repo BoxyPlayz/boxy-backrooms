@@ -47,23 +47,81 @@ public class Level1ChunkGen extends ChunkGenerator {
 		long chunkX = Math.floorDiv(x, 16);
 		long chunkZ = Math.floorDiv(z, 16);
 
-		double noiseValue = getNoise(randomFactory).getValue(chunkX * 0.001, chunkZ * 0.001);
+		long localChunkX = Math.floorMod(x, 16);
+		long localChunkZ = Math.floorMod(z, 16);
+
+		RandomSource layerChunkRandom = randomFactory
+				.fromSeed(chunkX * 341873128712L + chunkZ * 132897987541L + Math.floorDiv(y, 7) * 47323);
+
+		boolean rampOnSegment = layerChunkRandom.nextIntBetweenInclusive(0, 50) == 0;
+
+		RandomSource belowLayerChunkRandom = randomFactory
+				.fromSeed(chunkX * 341873128712L + chunkZ * 132897987541L + Math.floorDiv(y - 7, 7) * 47323);
+
+		boolean rampOnLowerSegment = belowLayerChunkRandom.nextIntBetweenInclusive(0, 50) == 0;
+
+		// double noiseValue = getNoise(randomFactory).getValue(chunkX * 0.001, chunkZ *
+		// 0.001);
 
 		// Floor
-		if (y == 0) {
-			return ModBlocks.LEVEL0_CARPET.defaultBlockState();
+		if (Math.floorMod(y, 7) == 0) {
+			if (rampOnLowerSegment && !(y == getMinY()) && !(y == getMinY() + getGenDepth() - 1)) {
+				if (localChunkX > 4 && localChunkX < 12) {
+					return Blocks.AIR.defaultBlockState();
+				}
+			}
+			return ModBlocks.LEVEL1_FLOOR_AQUILA.defaultBlockState();
 		}
 
 		// Ceiling
-		if (y == 6) {
-			return ModBlocks.LEVEL0_CEILING_TILE.defaultBlockState();
+		if (Math.floorMod(y, 7) == 6) {
+			if (rampOnSegment) {
+				if (localChunkX > 4 && localChunkX < 12) {
+					if (localChunkZ == 15) {
+						return ModBlocks.LEVEL1_FLOOR_AQUILA.defaultBlockState();
+					}
+					return Blocks.AIR.defaultBlockState();
+				}
+			}
+			return ModBlocks.LEVEL1_CEILING_AQUILA.defaultBlockState();
+		}
+
+		if (rampOnSegment) {
+			if (localChunkX > 4 && localChunkX < 12) {
+				if (localChunkZ > 4 && localChunkZ <= 6) {
+					if (Math.floorMod(y, 7) == 1) {
+						return ModBlocks.LEVEL1_FLOOR_AQUILA.defaultBlockState();
+					}
+				}
+				if (localChunkZ > 6 && localChunkZ <= 8) {
+					if (Math.floorMod(y, 7) == 2) {
+						return ModBlocks.LEVEL1_FLOOR_AQUILA.defaultBlockState();
+					}
+				}
+				if (localChunkZ > 8 && localChunkZ <= 10) {
+					if (Math.floorMod(y, 7) == 3) {
+						return ModBlocks.LEVEL1_FLOOR_AQUILA.defaultBlockState();
+					}
+				}
+				if (localChunkZ > 10 && localChunkZ <= 12) {
+					if (Math.floorMod(y, 7) == 4) {
+						return ModBlocks.LEVEL1_FLOOR_AQUILA.defaultBlockState();
+					}
+				}
+				if (localChunkZ > 12 && localChunkZ <= 16) {
+					if (Math.floorMod(y, 7) == 5) {
+						return ModBlocks.LEVEL1_FLOOR_AQUILA.defaultBlockState();
+					}
+				}
+			}
+			return Blocks.AIR.defaultBlockState();
 		}
 
 		// Fallback
 		if ((Math.floorMod(x, 8) == 0 || Math.floorMod(x, 8) == 1)
 				&&
-				(Math.floorMod(z, 8) == 0 || Math.floorMod(z, 8) == 1)) {
-			return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
+				(Math.floorMod(z, 8) == 0 || Math.floorMod(z, 8) == 1) && !(rampOnLowerSegment)) {
+			return ModBlocks.LEVEL1_PILLAR_AQUILA.defaultBlockState();
 		}
 
 		return Blocks.AIR.defaultBlockState();
@@ -105,7 +163,7 @@ public class Level1ChunkGen extends ChunkGenerator {
 	public CompletableFuture<ChunkAccess> fillFromNoise(Blender blender, RandomState randomState,
 			StructureManager structureManager, ChunkAccess chunkAccess) {
 		PositionalRandomFactory worldSeed = randomState
-				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level0seed"));
+				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level1seed"));
 
 		int minY = getMinY();
 
@@ -145,7 +203,7 @@ public class Level1ChunkGen extends ChunkGenerator {
 	public int getBaseHeight(int x, int z, Types types, LevelHeightAccessor levelHeightAccessor,
 			RandomState randomState) {
 		PositionalRandomFactory worldSeed = randomState.getOrCreateRandomFactory(
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level0seed"));
+				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level1seed"));
 
 		for (int y = getMinY() + getGenDepth() - 1; y >= getMinY(); y--) {
 			if (!getBlockAt(worldSeed, x, y, z).isAir()) {
@@ -159,12 +217,12 @@ public class Level1ChunkGen extends ChunkGenerator {
 	@Override
 	public NoiseColumn getBaseColumn(int x, int z, LevelHeightAccessor levelHeightAccessor, RandomState randomState) {
 		PositionalRandomFactory worldSeed = randomState
-				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level0seed"));
+				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level1seed"));
 
 		int height = this.getGenDepth();
 		BlockState[] blocks = new BlockState[height];
 
-		for (int y = -16; y < height + this.getMinY(); y++) {
+		for (int y = getMinY(); y < height + this.getMinY(); y++) {
 			blocks[y - this.getMinY()] = getBlockAt(worldSeed, x, y, z);
 		}
 

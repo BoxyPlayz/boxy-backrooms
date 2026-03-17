@@ -158,7 +158,7 @@ public class Level94ChunkGen extends ChunkGenerator {
 		int height = this.getGenDepth();
 		BlockState[] blocks = new BlockState[height];
 
-		for (int y = 0; y < height + this.getMinY(); y++) {
+		for (int y = getMinY(); y < height + this.getMinY(); y++) {
 			blocks[y - this.getMinY()] = getBlockAt(worldSeed, x, y, z);
 		}
 

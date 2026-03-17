@@ -45,6 +45,10 @@ public class BoxyBackroomsEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModBlocks.LEVEL0_CARPET, "Carpet");
 		translationBuilder.add(ModBlocks.LEVEL0_CEILING_TILE, "Tiles");
 
+		translationBuilder.add(ModBlocks.LEVEL1_CEILING_AQUILA, "Aquila Sector Ceiling");
+		translationBuilder.add(ModBlocks.LEVEL1_FLOOR_AQUILA, "Aquila Sector Floor");
+		translationBuilder.add(ModBlocks.LEVEL1_PILLAR_AQUILA, "Aquila Sector Pillar");
+
 		// Advancements
 		translationBuilder.add("text.boxys_backrooms.oneway_title", "It's a cave?");
 		translationBuilder.add("text.boxys_backrooms.oneway_desc", "There are no halls here.");

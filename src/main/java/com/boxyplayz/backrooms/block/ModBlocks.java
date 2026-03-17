@@ -89,6 +89,24 @@ public class ModBlocks {
 			BlockBehaviour.Properties.of().sound(SoundType.TUFF).strength(1000f).destroyTime(1000f),
 			true);
 
+	public static final Block LEVEL1_CEILING_AQUILA = register(
+			"level1_ceiling_aquila",
+			Block::new,
+			BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(25f).destroyTime(15f),
+			true);
+
+	public static final Block LEVEL1_FLOOR_AQUILA = register(
+			"level1_floor_aquila",
+			Block::new,
+			BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(25f).destroyTime(15f),
+			true);
+
+	public static final Block LEVEL1_PILLAR_AQUILA = register(
+			"level1_pillar_aquila",
+			Block::new,
+			BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(25f).destroyTime(15f),
+			true);
+
 	public static void RegisterModBlocks() {
 		ItemGroupEvents.modifyEntriesEvent(ModCreativeTabs.BACKROOMS_ITEM_GROUP_KEY).register(itemGroup -> {
 			itemGroup.accept(ERRORSLATE.asItem());

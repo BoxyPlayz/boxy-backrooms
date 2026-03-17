@@ -151,7 +151,7 @@ public class Level7ChunkGen extends ChunkGenerator {
 		int height = this.getGenDepth();
 		BlockState[] blocks = new BlockState[height];
 
-		for (int y = 0; y < height; y++) {
+		for (int y = getMinY(); y < height; y++) {
 			blocks[y] = getBlockAt(worldSeed, x, y, z);
 		}
 
