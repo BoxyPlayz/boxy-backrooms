@@ -21,6 +21,30 @@ public class ModBiomes {
 			Registries.BIOME,
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level94"));
 
+	public static final ResourceKey<Biome> LEVEL1_AQUILA_BIOME = ResourceKey.create(
+			Registries.BIOME,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level1/aquila"));
+
+	public static final ResourceKey<Biome> LEVEL1_GILDED_BIOME = ResourceKey.create(
+			Registries.BIOME,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level1/gilded"));
+
+	public static final ResourceKey<Biome> LEVEL1_GARDEN_BIOME = ResourceKey.create(
+			Registries.BIOME,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level1/garden"));
+
+	public static final ResourceKey<Biome> LEVEL1_GOTHIC_BIOME = ResourceKey.create(
+			Registries.BIOME,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level1/gothic"));
+
+	public static final ResourceKey<Biome> LEVEL1_FABLED_BIOME = ResourceKey.create(
+			Registries.BIOME,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level1/fabled"));
+
+	public static final ResourceKey<Biome> LEVEL1_OUROBOROS_BIOME = ResourceKey.create(
+			Registries.BIOME,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level1/fabled"));
+
 	public static void RegisterModBiomes() {
 
 	}

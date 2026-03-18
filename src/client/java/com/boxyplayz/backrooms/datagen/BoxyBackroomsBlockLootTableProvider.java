@@ -22,6 +22,10 @@ public class BoxyBackroomsBlockLootTableProvider extends FabricBlockLootTablePro
 		dropSelf(ModBlocks.ERRORSLATE);
 		dropSelf(ModBlocks.OCEAN_TRANSPORTER);
 		dropSelf(ModBlocks.LEVEL0_WALLPAPER);
+		dropSelf(ModBlocks.LEVEL0_CARPET_GLITCHED);
+		dropSelf(ModBlocks.LEVEL1_CEILING_AQUILA);
+		dropSelf(ModBlocks.LEVEL1_FLOOR_AQUILA);
+		dropSelf(ModBlocks.LEVEL1_PILLAR_AQUILA);
 	}
-	
+
 }
