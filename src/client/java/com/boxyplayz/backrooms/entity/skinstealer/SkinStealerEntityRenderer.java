@@ -28,10 +28,12 @@ public class SkinStealerEntityRenderer
 	public Identifier getTextureLocation(SkinStealerRenderState renderState) {
 		if (renderState.varient == SkinStealerVarient.PASSIVE && renderState.maskedPlayerUsername != null) {
 			Minecraft minecraft = net.minecraft.client.Minecraft.getInstance();
-			Player player = minecraft.level.getPlayerByUUID(UUID.fromString(renderState.maskedPlayerUsername));
+			if (minecraft.level != null) {
+				Player player = minecraft.level.getPlayerByUUID(UUID.fromString(renderState.maskedPlayerUsername));
 
-			if (player instanceof AbstractClientPlayer clientPlayer) {
-				return clientPlayer.getSkin().body().texturePath();
+				if (player instanceof AbstractClientPlayer clientPlayer) {
+					return clientPlayer.getSkin().body().texturePath();
+				}
 			}
 		}
 		return Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "textures/entity/skin_stealer.png");
