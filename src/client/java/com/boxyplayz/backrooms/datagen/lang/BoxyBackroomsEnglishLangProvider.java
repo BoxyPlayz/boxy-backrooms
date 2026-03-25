@@ -8,12 +8,12 @@ import com.boxyplayz.backrooms.datagen.BoxysBackroomsItemTagProvider;
 import com.boxyplayz.backrooms.entity.ModEntities;
 import com.boxyplayz.backrooms.item.ModItems;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
 
 public class BoxyBackroomsEnglishLangProvider extends FabricLanguageProvider {
-	public BoxyBackroomsEnglishLangProvider(FabricDataOutput dataOutput,
+	public BoxyBackroomsEnglishLangProvider(FabricPackOutput dataOutput,
 			CompletableFuture<HolderLookup.Provider> registryLookup) {
 		// Specifying en_us is optional, as it's the default language code
 		super(dataOutput, "en_us", registryLookup);

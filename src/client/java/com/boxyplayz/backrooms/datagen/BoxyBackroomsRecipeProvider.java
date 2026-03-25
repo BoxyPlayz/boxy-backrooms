@@ -5,7 +5,7 @@ import java.util.concurrent.CompletableFuture;
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.item.ModItems;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
@@ -16,11 +16,12 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 
 public class BoxyBackroomsRecipeProvider extends FabricRecipeProvider {
 
-	public BoxyBackroomsRecipeProvider(FabricDataOutput output, CompletableFuture<Provider> registriesFuture) {
+	public BoxyBackroomsRecipeProvider(FabricPackOutput output, CompletableFuture<Provider> registriesFuture) {
 		super(output, registriesFuture);
 	}
 
@@ -43,8 +44,9 @@ public class BoxyBackroomsRecipeProvider extends FabricRecipeProvider {
 						.unlockedBy(getHasName(Items.YELLOW_CONCRETE), has(Items.YELLOW_CONCRETE))
 						.save(output);
 
-				SimpleCookingRecipeBuilder.blasting(Ingredient.of(Items.AMETHYST_SHARD), RecipeCategory.COMBAT,
-						ModItems.FIRESALT_SHARD, 0.1f, 100)
+				SimpleCookingRecipeBuilder
+						.blasting(Ingredient.of(Items.AMETHYST_SHARD), RecipeCategory.COMBAT, CookingBookCategory.MISC,
+								ModItems.FIRESALT_SHARD, 0.1f, 100)
 						.unlockedBy(getHasName(Items.AMETHYST_SHARD), has(Items.AMETHYST_SHARD))
 						.save(output);
 				shapeless(RecipeCategory.MISC, ModItems.SMILER_REPELLANT)

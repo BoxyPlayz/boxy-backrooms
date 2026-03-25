@@ -3,7 +3,7 @@ package com.boxyplayz.backrooms.creativetabs;
 import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.item.ModItems;
 
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -16,7 +16,7 @@ public class ModCreativeTabs {
 	public static final ResourceKey<CreativeModeTab> BACKROOMS_ITEM_GROUP_KEY = ResourceKey.create(
 			BuiltInRegistries.CREATIVE_MODE_TAB.key(),
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "item_group"));
-	public static final CreativeModeTab BACKROOMS_ITEM_GROUP = FabricItemGroup.builder()
+	public static final CreativeModeTab BACKROOMS_ITEM_GROUP = FabricCreativeModeTab.builder()
 			.icon(() -> new ItemStack(ModItems.GRAY_ALMOND_WATER))
 			.title(Component.translatable("itemGroup.boxys_backrooms"))
 			.build();

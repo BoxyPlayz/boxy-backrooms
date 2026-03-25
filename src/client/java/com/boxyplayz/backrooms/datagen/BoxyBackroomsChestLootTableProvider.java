@@ -6,8 +6,8 @@ import java.util.function.BiConsumer;
 import com.boxyplayz.backrooms.item.ModItems;
 import com.boxyplayz.backrooms.loot.ModLootTables;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.SimpleFabricLootTableProvider;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.SimpleFabricLootTableSubProvider;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -17,9 +17,9 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 
-public class BoxyBackroomsChestLootTableProvider extends SimpleFabricLootTableProvider {
+public class BoxyBackroomsChestLootTableProvider extends SimpleFabricLootTableSubProvider {
 
-	public BoxyBackroomsChestLootTableProvider(FabricDataOutput dataOutput,
+	public BoxyBackroomsChestLootTableProvider(FabricPackOutput dataOutput,
 			CompletableFuture<Provider> registryLookup) {
 		super(dataOutput, registryLookup, LootContextParamSets.CHEST);
 	}

@@ -7,7 +7,7 @@ import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.dimension.ModDimensions;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementHolder;
@@ -20,7 +20,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 
 public class BoxyBackroomsAdvancementProvider extends FabricAdvancementProvider {
-	public BoxyBackroomsAdvancementProvider(FabricDataOutput output,
+	public BoxyBackroomsAdvancementProvider(FabricPackOutput output,
 			CompletableFuture<HolderLookup.Provider> registryLookup) {
 		super(output, registryLookup);
 	}

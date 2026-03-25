@@ -6,17 +6,17 @@ import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.item.ModItems;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 
-public class BoxysBackroomsItemTagProvider extends FabricTagProvider.ItemTagProvider {
+public class BoxysBackroomsItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
 
-	public BoxysBackroomsItemTagProvider(FabricDataOutput output, CompletableFuture<Provider> registriesFuture) {
+	public BoxysBackroomsItemTagProvider(FabricPackOutput output, CompletableFuture<Provider> registriesFuture) {
 		super(output, registriesFuture);
 	}
 

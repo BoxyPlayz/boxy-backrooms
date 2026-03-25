@@ -5,7 +5,8 @@ import org.jspecify.annotations.NonNull;
 import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.creativetabs.ModCreativeTabs;
 
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
+// import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
@@ -92,7 +93,7 @@ public class ModItems {
 		SMILER_REPELLANT = registerItem("smiler_repellant",
 				new Item(new Item.Properties().setId(smilerRepellantKey)));
 
-		ItemGroupEvents.modifyEntriesEvent(ModCreativeTabs.BACKROOMS_ITEM_GROUP_KEY).register(itemGroup -> {
+		CreativeModeTabEvents.modifyOutputEvent(ModCreativeTabs.BACKROOMS_ITEM_GROUP_KEY).register(itemGroup -> {
 			itemGroup.accept(GRAY_ALMOND_WATER);
 			itemGroup.accept(GREEN_ALMOND_WATER);
 			itemGroup.accept(RED_ALMOND_WATER);

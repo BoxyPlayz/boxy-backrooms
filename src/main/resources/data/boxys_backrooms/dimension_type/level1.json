@@ -6,6 +6,7 @@
 	"has_fixed_time": true,
 	"logical_height": 64,
 	"skybox": "none",
+	"has_ender_dragon_fight": false,
 	"infiniburn": "#minecraft:infiniburn_overworld",
 	"min_y": 0,
 	"height": 64,
