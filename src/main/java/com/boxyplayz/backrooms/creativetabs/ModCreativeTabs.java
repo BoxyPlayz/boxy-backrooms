@@ -1,8 +1,10 @@
 package com.boxyplayz.backrooms.creativetabs;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.item.ModItems;
 
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -23,6 +25,25 @@ public class ModCreativeTabs {
 
 	public static void RegisterModCreativeTabs() {
 		Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, BACKROOMS_ITEM_GROUP_KEY, BACKROOMS_ITEM_GROUP);
+
+		CreativeModeTabEvents.modifyOutputEvent(ModCreativeTabs.BACKROOMS_ITEM_GROUP_KEY).register(itemGroup -> {
+			itemGroup.accept(ModBlocks.ERRORSLATE.asItem());
+			itemGroup.accept(ModBlocks.OCEAN_TRANSPORTER.asItem());
+			itemGroup.accept(ModBlocks.LEVEL0_WALLPAPER.asItem());
+			itemGroup.accept(ModBlocks.LEVEL0_CARPET.asItem());
+			itemGroup.accept(ModBlocks.LEVEL0_CEILING_TILE.asItem());
+			itemGroup.accept(ModBlocks.LEVEL1_CEILING_AQUILA.asItem());
+			itemGroup.accept(ModBlocks.LEVEL1_FLOOR_AQUILA.asItem());
+			itemGroup.accept(ModBlocks.LEVEL1_PILLAR_AQUILA.asItem());
+
+			itemGroup.accept(ModItems.GRAY_ALMOND_WATER);
+			itemGroup.accept(ModItems.GREEN_ALMOND_WATER);
+			itemGroup.accept(ModItems.RED_ALMOND_WATER);
+			itemGroup.accept(ModItems.ROYAL_RATION);
+			itemGroup.accept(ModItems.FIRESALT_SHARD);
+			itemGroup.accept(ModItems.SHADOW_DUST);
+			itemGroup.accept(ModItems.SMILER_REPELLANT);
+		});
 	}
 
 }

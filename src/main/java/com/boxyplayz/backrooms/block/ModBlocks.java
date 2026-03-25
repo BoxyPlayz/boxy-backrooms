@@ -7,9 +7,6 @@ import com.boxyplayz.backrooms.block.custom.ErrorSlateBlock;
 import com.boxyplayz.backrooms.block.custom.Level0GlitchedCarpet;
 import com.boxyplayz.backrooms.block.custom.Level0Wallpaper;
 import com.boxyplayz.backrooms.block.custom.OceanTransporter;
-import com.boxyplayz.backrooms.creativetabs.ModCreativeTabs;
-
-import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -108,13 +105,5 @@ public class ModBlocks {
 			true);
 
 	public static void RegisterModBlocks() {
-		CreativeModeTabEvents.modifyOutputEvent(ModCreativeTabs.BACKROOMS_ITEM_GROUP_KEY).register(itemGroup -> {
-			itemGroup.accept(ERRORSLATE.asItem());
-			itemGroup.accept(OCEAN_TRANSPORTER.asItem());
-			itemGroup.accept(LEVEL0_WALLPAPER.asItem());
-			itemGroup.accept(LEVEL0_CARPET.asItem());
-			itemGroup.accept(LEVEL0_CEILING_TILE.asItem());
-		});
-		;
 	}
 }
