@@ -18,6 +18,9 @@ public class BoxysBackroomsClient implements ClientModInitializer {
 	public static final ModelLayerLocation MODEL_SKIN_STEALER_LAYER = new ModelLayerLocation(
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "skinstealer"), "main");
 
+	public static final ModelLayerLocation MODEL_PERFECT_PLAYER_LAYER = new ModelLayerLocation(
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "itsgonnabeperfect"), "main");
+
 	@Override
 	public void onInitializeClient() {
 		ItemEvents.RegisterItemEvents();

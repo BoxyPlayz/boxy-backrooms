@@ -8,6 +8,7 @@ import com.boxyplayz.backrooms.entity.custom.SkinStealer.SkinStealerEntity;
 import com.boxyplayz.backrooms.entity.custom.SkinStealer.SkinStealerVarient;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.player.PlayerModel;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
@@ -17,11 +18,17 @@ import net.minecraft.world.entity.player.Player;
 public class SkinStealerEntityRenderer
 		extends MobRenderer<SkinStealerEntity, SkinStealerRenderState, SkinStealerModel<SkinStealerEntity>> {
 
+	private final SkinStealerModel<SkinStealerEntity> skinStealerModel;
+	private final PlayerModel playerModel;
+
 	public SkinStealerEntityRenderer(EntityRendererProvider.Context context) {
 		super(context,
 				new SkinStealerModel<SkinStealerEntity>(
 						context.bakeLayer(BoxysBackroomsClient.MODEL_SKIN_STEALER_LAYER)),
 				0f);
+		this.skinStealerModel = new SkinStealerModel<>(
+				context.bakeLayer(BoxysBackroomsClient.MODEL_SKIN_STEALER_LAYER));
+		this.playerModel = new PlayerModel(context.bakeLayer(BoxysBackroomsClient.MODEL_PERFECT_PLAYER_LAYER), false);
 	}
 
 	@Override
