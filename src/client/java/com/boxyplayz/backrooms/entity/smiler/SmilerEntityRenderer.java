@@ -1,4 +1,4 @@
-package com.boxyplayz.backrooms.entity;
+package com.boxyplayz.backrooms.entity.smiler;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.BoxysBackroomsClient;

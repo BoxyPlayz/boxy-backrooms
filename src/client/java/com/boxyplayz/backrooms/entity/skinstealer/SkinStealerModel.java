@@ -1,4 +1,4 @@
-package com.boxyplayz.backrooms.entity;
+package com.boxyplayz.backrooms.entity.skinstealer;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
 
@@ -14,7 +14,7 @@ import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.Entity;
 
-public class SmilerModel<T extends Entity> extends EntityModel<SmilerRenderState> {
+public class SkinStealerModel<T extends Entity> extends EntityModel<SkinStealerRenderState> {
 	// This layer location should be baked with EntityRendererProvider.Context in
 	// the entity renderer and passed into this model's constructor
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(
@@ -27,7 +27,7 @@ public class SmilerModel<T extends Entity> extends EntityModel<SmilerRenderState
 	@SuppressWarnings("unused")
 	private final ModelPart eyeR;
 
-	public SmilerModel(ModelPart root) {
+	public SkinStealerModel(ModelPart root) {
 		super(root);
 		this.core = root.getChild("root");
 		this.mouth = this.core.getChild("mouth");
