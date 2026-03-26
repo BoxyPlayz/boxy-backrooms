@@ -1,7 +1,5 @@
 package com.boxyplayz.backrooms.entity.custom.SkinStealer;
 
-import com.boxyplayz.backrooms.item.ModItems;
-
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
@@ -10,7 +8,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 
@@ -25,10 +22,7 @@ public class SkinStealerEntity extends PathfinderMob {
 		super.registerGoals();
 		this.goalSelector.addGoal(0, new FloatGoal(this));
 		this.goalSelector.addGoal(0, new AvoidEntityGoal<Player>(this, Player.class, 4, 1.1, 1.2, player -> {
-			ItemStack mainHand = player.getMainHandItem();
-			ItemStack offHand = player.getOffhandItem();
-			return mainHand.getItem() == ModItems.SMILER_REPELLANT.asItem() ||
-					offHand.getItem() == ModItems.SMILER_REPELLANT.asItem();
+			return false;
 		}));
 		this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0D, true));
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(
@@ -41,9 +35,9 @@ public class SkinStealerEntity extends PathfinderMob {
 
 	public static AttributeSupplier.Builder createAttributes() {
 		return PathfinderMob.createMobAttributes()
-				.add(Attributes.MAX_HEALTH, 20.0D)
-				.add(Attributes.MOVEMENT_SPEED, 0.35D)
-				.add(Attributes.ATTACK_DAMAGE, 8.0D)
+				.add(Attributes.MAX_HEALTH, 30.0D)
+				.add(Attributes.MOVEMENT_SPEED, 0.28D)
+				.add(Attributes.ATTACK_DAMAGE, 12.0D)
 				.add(Attributes.FOLLOW_RANGE, 80.0D);
 	}
 

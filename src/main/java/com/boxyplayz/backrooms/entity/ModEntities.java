@@ -1,6 +1,7 @@
 package com.boxyplayz.backrooms.entity;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.entity.custom.SkinStealer.SkinStealerEntity;
 import com.boxyplayz.backrooms.entity.custom.Smiler.SmilerEntity;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -20,9 +21,20 @@ public class ModEntities {
 			EntityType.Builder.of(SmilerEntity::new, MobCategory.MONSTER).sized(1, 2)
 					.build(smilerResourceKey));
 
+	static ResourceKey<EntityType<?>> skinStealerResourceKey = ResourceKey.create(
+			BuiltInRegistries.ENTITY_TYPE.key(),
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "skinstealer"));
+	public static final EntityType<SkinStealerEntity> SKINSTEALER = Registry.register(BuiltInRegistries.ENTITY_TYPE,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "skinstealer"),
+			EntityType.Builder.of(SkinStealerEntity::new, MobCategory.MONSTER).sized(1, 2)
+					.build(skinStealerResourceKey));
+
 	public static void RegisterModEntities() {
 		BoxysBackrooms.LOGGER.info("Registering Entities");
 		FabricDefaultAttributeRegistry.register(SMILER,
 				SmilerEntity.createAttributes());
+
+		FabricDefaultAttributeRegistry.register(SKINSTEALER,
+				SkinStealerEntity.createAttributes());
 	}
 }
