@@ -18,6 +18,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Blocks;
 
 public class BoxyBackroomsRecipeProvider extends FabricRecipeProvider {
 
@@ -37,6 +38,7 @@ public class BoxyBackroomsRecipeProvider extends FabricRecipeProvider {
 			public void buildRecipes() {
 				@SuppressWarnings("unused")
 				HolderLookup.RegistryLookup<Item> itemLookup = registries.lookupOrThrow(Registries.ITEM);
+
 				shapeless(RecipeCategory.MISC, ModBlocks.LEVEL0_WALLPAPER)
 						.requires(Items.YELLOW_CONCRETE)
 						.requires(Items.AMETHYST_SHARD, 4)
@@ -49,10 +51,23 @@ public class BoxyBackroomsRecipeProvider extends FabricRecipeProvider {
 								ModItems.FIRESALT_SHARD, 0.1f, 100)
 						.unlockedBy(getHasName(Items.AMETHYST_SHARD), has(Items.AMETHYST_SHARD))
 						.save(output);
+
 				shapeless(RecipeCategory.MISC, ModItems.SMILER_REPELLANT)
 						.requires(ModItems.SHADOW_DUST)
 						.requires(BoxysBackroomsItemTagProvider.AlmondWaters)
 						.unlockedBy(getHasName(ModItems.SHADOW_DUST), has(ModItems.SHADOW_DUST))
+						.save(output);
+
+				shapeless(RecipeCategory.MISC, Blocks.BARREL.asItem(), 8)
+						.requires(ModBlocks.LEVEL1_CRATE.asItem())
+						.requires(Items.COPPER_NUGGET)
+						.unlockedBy(getHasName(ModBlocks.LEVEL1_CRATE.asItem()), has(ModBlocks.LEVEL1_CRATE.asItem()))
+						.save(output);
+
+				shapeless(RecipeCategory.MISC, Blocks.CHEST.asItem(), 8)
+						.requires(ModBlocks.LEVEL1_CRATE.asItem())
+						.requires(Items.IRON_NUGGET)
+						.unlockedBy(getHasName(ModBlocks.LEVEL1_CRATE.asItem()), has(ModBlocks.LEVEL1_CRATE.asItem()))
 						.save(output);
 			}
 		};

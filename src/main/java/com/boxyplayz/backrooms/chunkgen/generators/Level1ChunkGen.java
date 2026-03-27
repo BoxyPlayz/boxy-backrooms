@@ -53,92 +53,28 @@ public class Level1ChunkGen extends ChunkGenerator {
 		long chunkX = Math.floorDiv(x, 16);
 		long chunkZ = Math.floorDiv(z, 16);
 
-		long localChunkX = Math.floorMod(x, 16);
-		long localChunkZ = Math.floorMod(z, 16);
-
-		RandomSource layerChunkRandom = randomFactory
-				.fromSeed(chunkX * 341873128712L + chunkZ * 132897987541L + Math.floorDiv(y, 7) * 47323);
-
-		boolean rampOnSegment = layerChunkRandom.nextIntBetweenInclusive(0, 50) == 0;
-
-		RandomSource belowLayerChunkRandom = randomFactory
-				.fromSeed(chunkX * 341873128712L + chunkZ * 132897987541L + (Math.floorDiv(y, 7) - 1) * 47323);
-
-		boolean rampOnLowerSegment = belowLayerChunkRandom.nextIntBetweenInclusive(0, 50) == 0;
-
 		// Floor
 		if (Math.floorMod(y, 7) == 0) {
-			if (rampOnLowerSegment && !(y == getMinY()) && !(y == getMinY() + getGenDepth() - 1)) {
-				if (localChunkX > 4 && localChunkX < 12) {
-					return Blocks.AIR.defaultBlockState();
-				}
-			}
 			return ModBlocks.LEVEL1_FLOOR_AQUILA.defaultBlockState();
 		}
 
 		// Ceiling
 		if (Math.floorMod(y, 7) == 6) {
-			if (rampOnSegment) {
-				if (localChunkX > 4 && localChunkX < 12) {
-					if (localChunkZ == 15) {
-						return ModBlocks.LEVEL1_FLOOR_AQUILA.defaultBlockState();
-					}
-					return Blocks.AIR.defaultBlockState();
-				}
-			}
 			return ModBlocks.LEVEL1_CEILING_AQUILA.defaultBlockState();
-		}
-
-		if (rampOnSegment) {
-			if (localChunkX > 4 && localChunkX < 12) {
-				if (localChunkZ > 4 && localChunkZ <= 6) {
-					if (Math.floorMod(y, 7) == 1) {
-						return ModBlocks.LEVEL1_FLOOR_AQUILA.defaultBlockState();
-					}
-					if (Math.floorMod(y, 7) > 1) {
-						return Blocks.AIR.defaultBlockState();
-					}
-				}
-				if (localChunkZ > 6 && localChunkZ <= 8) {
-					if (Math.floorMod(y, 7) == 2) {
-						return ModBlocks.LEVEL1_FLOOR_AQUILA.defaultBlockState();
-					}
-					if (Math.floorMod(y, 7) > 2) {
-						return Blocks.AIR.defaultBlockState();
-					}
-				}
-				if (localChunkZ > 8 && localChunkZ <= 10) {
-					if (Math.floorMod(y, 7) == 3) {
-						return ModBlocks.LEVEL1_FLOOR_AQUILA.defaultBlockState();
-					}
-					if (Math.floorMod(y, 7) > 3) {
-						return Blocks.AIR.defaultBlockState();
-					}
-				}
-				if (localChunkZ > 10 && localChunkZ <= 12) {
-					if (Math.floorMod(y, 7) == 4) {
-						return ModBlocks.LEVEL1_FLOOR_AQUILA.defaultBlockState();
-					}
-					if (Math.floorMod(y, 7) > 4) {
-						return Blocks.AIR.defaultBlockState();
-					}
-				}
-				if (localChunkZ > 12 && localChunkZ < 16) {
-					if (Math.floorMod(y, 7) == 5) {
-						return ModBlocks.LEVEL1_FLOOR_AQUILA.defaultBlockState();
-					}
-					if (Math.floorMod(y, 7) > 5) {
-						return Blocks.AIR.defaultBlockState();
-					}
-				}
-			}
 		}
 
 		// Fallback
 		if ((Math.floorMod(x, 8) == 0 || Math.floorMod(x, 8) == 1)
 				&&
-				(Math.floorMod(z, 8) == 0 || Math.floorMod(z, 8) == 1) && !(rampOnLowerSegment)) {
+				(Math.floorMod(z, 8) == 0 || Math.floorMod(z, 8) == 1)) {
 			return ModBlocks.LEVEL1_PILLAR_AQUILA.defaultBlockState();
+		}
+
+		if (Math.floorMod(y, 7) == 1) {
+			RandomSource random = randomFactory.at(x, y, z);
+			if (random.nextIntBetweenInclusive(0, 1000) == 1) {
+				return ModBlocks.LEVEL1_CRATE.defaultBlockState();
+			}
 		}
 
 		return Blocks.AIR.defaultBlockState();

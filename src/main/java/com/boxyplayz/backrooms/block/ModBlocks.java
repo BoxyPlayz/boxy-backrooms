@@ -111,6 +111,12 @@ public class ModBlocks {
 			BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(25f).destroyTime(15f),
 			true);
 
+	public static final Block LEVEL1_CRATE = register(
+			"level1_crate",
+			Block::new,
+			BlockBehaviour.Properties.of().destroyTime(1).sound(SoundType.WOOD).strength(1f).explosionResistance(20f),
+			true);
+
 	public static void RegisterModBlocks() {
 	}
 }

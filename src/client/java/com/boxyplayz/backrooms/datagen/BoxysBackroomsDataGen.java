@@ -24,7 +24,6 @@ public class BoxysBackroomsDataGen implements DataGeneratorEntrypoint {
 		pack.addProvider(BoxysBackroomsBlockTagProvider::new);
 		pack.addProvider(BoxysBackroomsDamageTypeTagProvider::new);
 
-		pack.addProvider(BoxyBackroomsChestLootTableProvider::new);
 		pack.addProvider(BoxyBackroomsBlockLootTableProvider::new);
 		pack.addProvider(BoxyBackroomsEntityLootTableProvider::new);
 	}
