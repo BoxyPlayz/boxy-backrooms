@@ -15,6 +15,7 @@ import com.boxyplayz.backrooms.loot.ModLootTables;
 import com.boxyplayz.backrooms.tags.ModTags;
 import com.boxyplayz.backrooms.world.dimension.ModDimensions;
 import com.boxyplayz.backrooms.world.generators.ModChunkGenerators;
+import com.boxyplayz.backrooms.world.spawning.ModEntitySpawner;
 
 public class BoxysBackrooms implements ModInitializer {
 	public static final String MOD_ID = "boxys_backrooms";
@@ -32,5 +33,6 @@ public class BoxysBackrooms implements ModInitializer {
 		ModLootTables.RegisterLootTables();
 		ModBiomes.RegisterModBiomes();
 		ModTags.RegisterModTags();
+		ModEntitySpawner.RegisterModMobSpawning();
 	}
 }

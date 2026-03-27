@@ -1,23 +1,42 @@
 package com.boxyplayz.backrooms.entity.custom.Smiler;
 
+import com.boxyplayz.backrooms.biome.ModBiomes;
+import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.item.ModItems;
 import com.boxyplayz.backrooms.tags.ModTags;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LightLayer;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 
 public class SmilerEntity extends PathfinderMob {
+
+	public static boolean CheckSmilerSpawnRules(final EntityType<SmilerEntity> type, final ServerLevelAccessor level,
+			final EntitySpawnReason spawnReason, final BlockPos pos, final RandomSource random) {
+		return level.getBlockState(pos.below()).is(ModBlocks.LEVEL0_CARPET)
+				&& level.getBlockState(pos).isAir()
+				&& level.getBlockState(pos.above()).isAir()
+				&& (level.getBiome(pos).is(ModBiomes.Level0Biomes.BLACKOUT_BIOME))
+				&& level.getBrightness(LightLayer.BLOCK, pos) < 5;
+	}
 
 	public SmilerEntity(EntityType<? extends PathfinderMob> entityType, Level level) {
 		super(entityType, level);
@@ -27,7 +46,7 @@ public class SmilerEntity extends PathfinderMob {
 	protected void registerGoals() {
 		super.registerGoals();
 		this.goalSelector.addGoal(0, new FloatGoal(this));
-		this.goalSelector.addGoal(0, new AvoidEntityGoal<Player>(this, Player.class, 4, 1.1, 1.2, player -> {
+		this.goalSelector.addGoal(1, new AvoidEntityGoal<Player>(this, Player.class, 4, 1.1, 1.2, player -> {
 			ItemStack mainHand = player.getMainHandItem();
 			ItemStack offHand = player.getOffhandItem();
 			return mainHand.getItem() == ModItems.SMILER_REPELLANT.asItem() ||
@@ -35,10 +54,20 @@ public class SmilerEntity extends PathfinderMob {
 		}));
 		this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0D, true));
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(
+				this, Player.class, true, (LivingEntity target, ServerLevel level) -> {
+					if (target instanceof Player player) {
+						if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModTags.LIGHT_BLOCKS)
+								|| player.getItemBySlot(EquipmentSlot.OFFHAND).is(ModTags.LIGHT_BLOCKS)) {
+							return true;
+						}
+					}
+					return false;
+				}));
+		this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(
 				this, Player.class, true));
-		this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D));
-		this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 8.0F));
-		this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
+		this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0D));
+		this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));
+		this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
 
 	}
 
