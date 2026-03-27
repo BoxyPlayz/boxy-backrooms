@@ -1,4 +1,4 @@
-package com.boxyplayz.backrooms.dimension;
+package com.boxyplayz.backrooms.world.dimension;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
 

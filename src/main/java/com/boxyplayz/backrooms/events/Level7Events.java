@@ -1,6 +1,6 @@
 package com.boxyplayz.backrooms.events;
 
-import com.boxyplayz.backrooms.dimension.ModDimensions;
+import com.boxyplayz.backrooms.world.dimension.ModDimensions;
 
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.server.level.ServerPlayer;

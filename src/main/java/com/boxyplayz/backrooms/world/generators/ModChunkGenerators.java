@@ -1,11 +1,6 @@
-package com.boxyplayz.backrooms.chunkgen;
+package com.boxyplayz.backrooms.world.generators;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
-import com.boxyplayz.backrooms.chunkgen.generators.Level0ChunkGen;
-import com.boxyplayz.backrooms.chunkgen.generators.Level1ChunkGen;
-import com.boxyplayz.backrooms.chunkgen.generators.Level7ChunkGen;
-import com.boxyplayz.backrooms.chunkgen.generators.Level94ChunkGen;
-import com.boxyplayz.backrooms.chunkgen.generators.TheBrokenChunkGen;
 
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;

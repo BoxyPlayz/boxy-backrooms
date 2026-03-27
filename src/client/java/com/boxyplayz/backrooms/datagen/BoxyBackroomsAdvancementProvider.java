@@ -5,7 +5,7 @@ import java.util.function.Consumer;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.block.ModBlocks;
-import com.boxyplayz.backrooms.dimension.ModDimensions;
+import com.boxyplayz.backrooms.world.dimension.ModDimensions;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;

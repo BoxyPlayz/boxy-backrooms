@@ -3,7 +3,7 @@ package com.boxyplayz.backrooms.block.custom;
 import java.util.Set;
 
 import com.boxyplayz.backrooms.block.ModBlocks;
-import com.boxyplayz.backrooms.dimension.ModDimensions;
+import com.boxyplayz.backrooms.world.dimension.ModDimensions;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;

@@ -1,4 +1,4 @@
-package com.boxyplayz.backrooms.chunkgen.biomesources;
+package com.boxyplayz.backrooms.world.biomesources;
 
 import java.util.stream.Stream;
 
