@@ -23,6 +23,7 @@ public class BoxyBackroomsModelProvider extends FabricModelProvider {
 		blockStateModelGenerator.createTrivialCube(ModBlocks.LEVEL0_WALLPAPER);
 		blockStateModelGenerator.createTrivialCube(ModBlocks.LEVEL0_CARPET);
 		blockStateModelGenerator.createTrivialCube(ModBlocks.LEVEL0_CEILING_TILE);
+		blockStateModelGenerator.createTrivialCube(ModBlocks.LEVEL0_CEILING_LIGHT);
 		blockStateModelGenerator.createTrivialCube(ModBlocks.LEVEL0_CARPET_GLITCHED);
 		blockStateModelGenerator.createTrivialCube(ModBlocks.LEVEL1_CEILING_AQUILA);
 		blockStateModelGenerator.createTrivialCube(ModBlocks.LEVEL1_FLOOR_AQUILA);

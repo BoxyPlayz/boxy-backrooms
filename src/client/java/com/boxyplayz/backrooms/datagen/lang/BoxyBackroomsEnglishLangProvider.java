@@ -43,6 +43,7 @@ public class BoxyBackroomsEnglishLangProvider extends FabricLanguageProvider {
 
 		// Regular Blocks
 		translationBuilder.add(ModBlocks.LEVEL0_CARPET, "Carpet");
+		translationBuilder.add(ModBlocks.LEVEL0_CEILING_LIGHT, "Ceiling Light");
 		translationBuilder.add(ModBlocks.LEVEL0_CEILING_TILE, "Tiles");
 
 		translationBuilder.add(ModBlocks.LEVEL1_CEILING_AQUILA, "Aquila Sector Ceiling");
@@ -73,5 +74,6 @@ public class BoxyBackroomsEnglishLangProvider extends FabricLanguageProvider {
 
 		// Entities
 		translationBuilder.add(ModEntities.SMILER, "Smiler");
+		translationBuilder.add(ModEntities.SKINSTEALER, "Skin Stealer");
 	}
 }

@@ -26,6 +26,7 @@ public class BoxyBackroomsBlockLootTableProvider extends FabricBlockLootSubProvi
 		dropSelf(ModBlocks.LEVEL1_CEILING_AQUILA);
 		dropSelf(ModBlocks.LEVEL1_FLOOR_AQUILA);
 		dropSelf(ModBlocks.LEVEL1_PILLAR_AQUILA);
+		dropSelf(ModBlocks.LEVEL0_CEILING_LIGHT);
 	}
 
 }

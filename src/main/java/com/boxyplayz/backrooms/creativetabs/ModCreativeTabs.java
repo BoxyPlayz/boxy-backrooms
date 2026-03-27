@@ -32,6 +32,7 @@ public class ModCreativeTabs {
 			itemGroup.accept(ModBlocks.LEVEL0_WALLPAPER.asItem());
 			itemGroup.accept(ModBlocks.LEVEL0_CARPET.asItem());
 			itemGroup.accept(ModBlocks.LEVEL0_CEILING_TILE.asItem());
+			itemGroup.accept(ModBlocks.LEVEL0_CEILING_LIGHT.asItem());
 			itemGroup.accept(ModBlocks.LEVEL1_CEILING_AQUILA.asItem());
 			itemGroup.accept(ModBlocks.LEVEL1_FLOOR_AQUILA.asItem());
 			itemGroup.accept(ModBlocks.LEVEL1_PILLAR_AQUILA.asItem());

@@ -80,6 +80,13 @@ public class ModBlocks {
 			BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1000f).destroyTime(1000f),
 			true);
 
+	public static final Block LEVEL0_CEILING_LIGHT = register(
+			"level0_ceiling_light",
+			Block::new,
+			BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1000f).destroyTime(1000f)
+					.lightLevel(state -> 14),
+			true);
+
 	public static final Block LEVEL0_CARPET_GLITCHED = register(
 			"level0_carpet_glitched",
 			Level0GlitchedCarpet::new,

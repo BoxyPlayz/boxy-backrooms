@@ -152,12 +152,12 @@ public class Level1ChunkGen extends ChunkGenerator {
 
 	public static final MapCodec<Level1ChunkGen> CODEC = RecordCodecBuilder.mapCodec(
 			instance -> instance.group(
-					RegistryOps.retrieveElement(ModBiomes.LEVEL1_AQUILA_BIOME),
-					RegistryOps.retrieveElement(ModBiomes.LEVEL1_GARDEN_BIOME),
-					RegistryOps.retrieveElement(ModBiomes.LEVEL1_FABLED_BIOME),
-					RegistryOps.retrieveElement(ModBiomes.LEVEL1_OUROBOROS_BIOME),
-					RegistryOps.retrieveElement(ModBiomes.LEVEL1_GOTHIC_BIOME),
-					RegistryOps.retrieveElement(ModBiomes.LEVEL1_GILDED_BIOME)).apply(instance,
+					RegistryOps.retrieveElement(ModBiomes.Level1Biomes.AQUILA_BIOME),
+					RegistryOps.retrieveElement(ModBiomes.Level1Biomes.GARDEN_BIOME),
+					RegistryOps.retrieveElement(ModBiomes.Level1Biomes.FABLED_BIOME),
+					RegistryOps.retrieveElement(ModBiomes.Level1Biomes.OUROBOROS_BIOME),
+					RegistryOps.retrieveElement(ModBiomes.Level1Biomes.GOTHIC_BIOME),
+					RegistryOps.retrieveElement(ModBiomes.Level1Biomes.GILDED_BIOME)).apply(instance,
 							instance.stable(Level1ChunkGen::new)));
 
 	@Override
