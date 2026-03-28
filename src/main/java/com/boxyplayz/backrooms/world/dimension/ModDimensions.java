@@ -29,6 +29,10 @@ public class ModDimensions {
                         Registries.DIMENSION,
                         Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level1"));
 
+        public static final ResourceKey<Level> PITFALLS_DIMENSION = ResourceKey.create(
+                        Registries.DIMENSION,
+                        Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "pitfalls"));
+
         public static void RegisterModDimensions() {
 
         }

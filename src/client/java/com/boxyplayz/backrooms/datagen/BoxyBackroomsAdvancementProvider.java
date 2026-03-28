@@ -94,6 +94,23 @@ public class BoxyBackroomsAdvancementProvider extends FabricAdvancementProvider 
 				.parent(neverEndingOcean)
 				.save(consumer, BoxysBackrooms.MOD_ID + ":one_way_cavern");
 
+		AdvancementHolder wrongWay = Advancement.Builder.advancement()
+				.display(
+						Blocks.OAK_LOG.asItem(), // The display icon
+						Component.translatable("text.boxys_backrooms.wrongway_title"), // The title
+						Component.translatable("text.boxys_backrooms.wrongway_desc"), // The description
+						null, // Background image for the tab in the advancements page, if this is a root
+								// advancement (has no parent)
+						AdvancementType.TASK, // TASK, CHALLENGE, or GOAL
+						true, // Show the toast when completing it
+						false, // Announce it to chat
+						true // Hide it in the advancement tab until it's achieved
+				)
+				.addCriterion("level_pitfalls",
+						ChangeDimensionTrigger.TriggerInstance.changedDimensionTo(ModDimensions.PITFALLS_DIMENSION))
+				.parent(theBackrooms)
+				.save(consumer, BoxysBackrooms.MOD_ID + ":wrongway_pitfalls");
+
 		AdvancementHolder ninetyFour = Advancement.Builder.advancement()
 				.display(
 						Blocks.GRASS_BLOCK.asItem(), // The display icon
@@ -108,7 +125,7 @@ public class BoxyBackroomsAdvancementProvider extends FabricAdvancementProvider 
 				)
 				.addCriterion("level_94",
 						ChangeDimensionTrigger.TriggerInstance.changedDimensionTo(ModDimensions.LEVEL94_DIMENSION))
-				.parent(theBackrooms)
+				.parent(wrongWay)
 				.save(consumer, BoxysBackrooms.MOD_ID + ":ninety_four");
 
 	}

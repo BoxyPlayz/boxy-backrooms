@@ -4,9 +4,9 @@ import java.util.concurrent.CompletableFuture;
 
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.creativetabs.ModCreativeTabs;
-import com.boxyplayz.backrooms.datagen.BoxysBackroomsItemTagProvider;
 import com.boxyplayz.backrooms.entity.ModEntities;
 import com.boxyplayz.backrooms.item.ModItems;
+import com.boxyplayz.backrooms.tags.ModTags;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -66,9 +66,13 @@ public class BoxyBackroomsEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add("text.boxys_backrooms.94_title", "Rolling Hills");
 		translationBuilder.add("text.boxys_backrooms.94_desc", "Peaceful..?");
 
+		translationBuilder.add("text.boxys_backrooms.wrongway_title", "Wrong Direction");
+		translationBuilder.add("text.boxys_backrooms.wrongway_desc", "Take the wrong way.");
+
 		// Tags
-		translationBuilder.add(BoxysBackroomsItemTagProvider.NoClippables, "Noclippable Blocks");
-		translationBuilder.add(BoxysBackroomsItemTagProvider.AlmondWaters, "Almond Waters");
+		translationBuilder.add(ModTags.NOCLIPPABLES, "Noclippable Blocks");
+		translationBuilder.add(ModTags.ALMOND_WATERS, "Almond Waters");
+		translationBuilder.add(ModTags.LIGHT_BLOCKS, "Light Blocks");
 
 		// Tooltips
 		translationBuilder.add("item.gray_almond_water.tooltip", "Tastes like almonds.");

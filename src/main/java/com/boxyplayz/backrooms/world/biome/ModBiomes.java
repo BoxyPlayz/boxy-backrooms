@@ -1,4 +1,4 @@
-package com.boxyplayz.backrooms.biome;
+package com.boxyplayz.backrooms.world.biome;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
 
@@ -20,6 +20,10 @@ public class ModBiomes {
 	public static final ResourceKey<Biome> LEVEL94_BIOME = ResourceKey.create(
 			Registries.BIOME,
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level94"));
+
+	public static final ResourceKey<Biome> PITFALLS_BIOME = ResourceKey.create(
+			Registries.BIOME,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "pitfalls"));
 
 	public class Level1Biomes {
 		public static final ResourceKey<Biome> AQUILA_BIOME = ResourceKey.create(

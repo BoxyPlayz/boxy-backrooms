@@ -9,6 +9,13 @@ import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.item.Item;
 
 public class ModTags {
+
+	public static final TagKey<Item> NOCLIPPABLES = TagKey.create(Registries.ITEM,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "noclippable"));
+
+	public static final TagKey<Item> ALMOND_WATERS = TagKey.create(Registries.ITEM,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "almond_waters"));
+
 	public static final TagKey<DamageType> physicalAttacks = TagKey.create(Registries.DAMAGE_TYPE,
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "physical_attacks"));
 

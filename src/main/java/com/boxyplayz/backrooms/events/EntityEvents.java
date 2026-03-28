@@ -1,15 +1,23 @@
 package com.boxyplayz.backrooms.events;
 
+import java.util.List;
+import java.util.Set;
+
 import com.boxyplayz.backrooms.entity.custom.Smiler.SmilerEntity;
 import com.boxyplayz.backrooms.item.ModItems;
+import com.boxyplayz.backrooms.world.dimension.ModDimensions;
 
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
-import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -41,14 +49,6 @@ public class EntityEvents {
 			return true;
 		});
 
-		AttackEntityCallback.EVENT.register(
-				(Player player, Level world, InteractionHand hand, Entity entity, EntityHitResult hitResult) -> {
-					if (entity instanceof SmilerEntity) {
-						return InteractionResult.FAIL;
-					}
-					return InteractionResult.PASS;
-				});
-
 		UseEntityCallback.EVENT.register(
 				(Player player, Level world, InteractionHand hand, Entity entity, EntityHitResult hitResult) -> {
 					if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FIRESALT_SHARD.asItem())
@@ -59,6 +59,31 @@ public class EntityEvents {
 
 					return InteractionResult.PASS;
 				});
+
+		ServerTickEvents.START_LEVEL_TICK.register((ServerLevel level) -> {
+			List<ServerPlayer> players = List.copyOf(level.players());
+			players.forEach((ServerPlayer player) -> {
+				if (player.level().dimension() == ModDimensions.PITFALLS_DIMENSION) {
+					if (Math.sqrt((player.position().x * player.position().x)
+							+ (player.position().z * player.position().z)) > 1000) {
+						ServerLevel target = player.level().getServer().getLevel(ModDimensions.LEVEL94_DIMENSION);
+						if (target == null)
+							return;
+						player.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 10 * 20, 20));
+						player.teleportTo(target, 0.5, 120, 0.5, Set.of(), player.getYRot(), player.getXRot(), false);
+					}
+				}
+				if (player.level().dimension() == ModDimensions.LEVEL0_DIMENSION) {
+					if (player.position().y < -10) {
+						ServerLevel target = player.level().getServer().getLevel(ModDimensions.PITFALLS_DIMENSION);
+						if (target == null)
+							return;
+						player.fallDistance = 0;
+						player.teleportTo(target, 0, 10, 0, Set.of(), player.getYRot(), player.getXRot(), false);
+					}
+				}
+			});
+		});
 	}
 
 }

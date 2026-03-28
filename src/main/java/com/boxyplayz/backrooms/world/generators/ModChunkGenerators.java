@@ -18,5 +18,7 @@ public class ModChunkGenerators {
 				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "the_broken"), TheBrokenChunkGen.CODEC);
 		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
 				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level1"), Level1ChunkGen.CODEC);
+		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
+				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "pitfalls"), PitfallsChunkGen.CODEC);
 	}
 }

@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
-import com.boxyplayz.backrooms.biome.ModBiomes;
 import com.boxyplayz.backrooms.block.ModBlocks;
+import com.boxyplayz.backrooms.world.biome.ModBiomes;
 import com.boxyplayz.backrooms.world.biomesources.Level1BiomeSource;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -50,8 +50,6 @@ public class Level1ChunkGen extends ChunkGenerator {
 
 	public BlockState getBlockAt(SimplexNoise localNoise, PositionalRandomFactory randomFactory, int x, int y, int z,
 			Holder<Biome> biome) {
-		long chunkX = Math.floorDiv(x, 16);
-		long chunkZ = Math.floorDiv(z, 16);
 
 		// Floor
 		if (Math.floorMod(y, 7) == 0) {

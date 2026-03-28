@@ -4,6 +4,7 @@ import java.util.concurrent.CompletableFuture;
 
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.item.ModItems;
+import com.boxyplayz.backrooms.tags.ModTags;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
@@ -54,7 +55,7 @@ public class BoxyBackroomsRecipeProvider extends FabricRecipeProvider {
 
 				shapeless(RecipeCategory.MISC, ModItems.SMILER_REPELLANT)
 						.requires(ModItems.SHADOW_DUST)
-						.requires(BoxysBackroomsItemTagProvider.AlmondWaters)
+						.requires(ModTags.ALMOND_WATERS)
 						.unlockedBy(getHasName(ModItems.SHADOW_DUST), has(ModItems.SHADOW_DUST))
 						.save(output);
 

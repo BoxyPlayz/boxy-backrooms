@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
-import com.boxyplayz.backrooms.biome.ModBiomes;
+import com.boxyplayz.backrooms.world.biome.ModBiomes;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
@@ -45,11 +45,6 @@ public class Level94ChunkGen extends ChunkGenerator {
 	}
 
 	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
-		// long chunkX = Math.floorDiv(x, 16);
-		// long chunkZ = Math.floorDiv(z, 16);
-
-		// long seed = chunkX * 341873128712L + chunkZ * 132897987541L;
-		// RandomSource randomIsNess = randomFactory.fromSeed(seed);
 
 		int height = (int) (70 + getNoise(randomFactory).getValue(x * 0.01, z * 0.01) * 40);
 

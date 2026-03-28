@@ -24,6 +24,7 @@
   "item.red_almond_water.tooltip": "Tastes bitter.",
   "itemGroup.boxys_backrooms": "Boxy's Backrooms",
   "tag.item.boxys_backrooms.almond_waters": "Almond Waters",
+  "tag.item.boxys_backrooms.light_blocks": "Light Blocks",
   "tag.item.boxys_backrooms.noclippable": "Noclippable Blocks",
   "text.boxys_backrooms.94_desc": "Peaceful..?",
   "text.boxys_backrooms.94_title": "Rolling Hills",
@@ -32,5 +33,7 @@
   "text.boxys_backrooms.ocean_desc": "There's really no end.",
   "text.boxys_backrooms.ocean_title": "Endless Ocean",
   "text.boxys_backrooms.oneway_desc": "There are no halls here.",
-  "text.boxys_backrooms.oneway_title": "It's a cave?"
+  "text.boxys_backrooms.oneway_title": "It's a cave?",
+  "text.boxys_backrooms.wrongway_desc": "Take the wrong way.",
+  "text.boxys_backrooms.wrongway_title": "Wrong Direction"
 }

@@ -1,8 +1,8 @@
 package com.boxyplayz.backrooms.world.spawning;
 
-import com.boxyplayz.backrooms.biome.ModBiomes;
 import com.boxyplayz.backrooms.entity.ModEntities;
 import com.boxyplayz.backrooms.entity.custom.Smiler.SmilerEntity;
+import com.boxyplayz.backrooms.world.biome.ModBiomes;
 
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;

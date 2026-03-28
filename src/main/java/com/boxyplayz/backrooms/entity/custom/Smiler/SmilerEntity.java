@@ -1,9 +1,9 @@
 package com.boxyplayz.backrooms.entity.custom.Smiler;
 
-import com.boxyplayz.backrooms.biome.ModBiomes;
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.item.ModItems;
 import com.boxyplayz.backrooms.tags.ModTags;
+import com.boxyplayz.backrooms.world.biome.ModBiomes;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;

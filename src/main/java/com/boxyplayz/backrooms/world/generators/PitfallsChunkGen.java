@@ -4,9 +4,7 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
-import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.world.biome.ModBiomes;
-import com.boxyplayz.backrooms.world.biomesources.Level0BiomeSource;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
@@ -21,6 +19,7 @@ import net.minecraft.world.level.NoiseColumn;
 import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeManager;
+import net.minecraft.world.level.biome.FixedBiomeSource;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
@@ -30,10 +29,80 @@ import net.minecraft.world.level.levelgen.PositionalRandomFactory;
 import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.blending.Blender;
 
-public class Level0ChunkGen extends ChunkGenerator {
+public class PitfallsChunkGen extends ChunkGenerator {
 
-	private boolean getRandomBool(RandomSource random) {
-		return random.nextIntBetweenInclusive(0, 5) == 0;
+	protected BlockState getRandomWallBlock(RandomSource random) {
+		WallBlock blockType = WallBlock.values()[random.nextInt(0, WallBlock.values().length)];
+		BlockState state = Blocks.OAK_LOG.defaultBlockState();
+		switch (blockType) {
+			case WallBlock.OAK:
+				state = Blocks.OAK_LOG.defaultBlockState();
+				break;
+
+			case WallBlock.BIRCH:
+				state = Blocks.BIRCH_LOG.defaultBlockState();
+				break;
+
+			case WallBlock.DARK_OAK:
+				state = Blocks.DARK_OAK_LOG.defaultBlockState();
+				break;
+
+			case WallBlock.SPRUCE:
+				state = Blocks.SPRUCE_LOG.defaultBlockState();
+				break;
+
+			case WallBlock.ACACIA:
+				state = Blocks.ACACIA_LOG.defaultBlockState();
+				break;
+
+			case WallBlock.JUNGLE:
+				state = Blocks.JUNGLE_LOG.defaultBlockState();
+				break;
+
+			case WallBlock.MANGROVE:
+				state = Blocks.MANGROVE_LOG.defaultBlockState();
+				break;
+
+			case WallBlock.CHERRY:
+				state = Blocks.CHERRY_LOG.defaultBlockState();
+				break;
+
+			case WallBlock.PALE:
+				state = Blocks.PALE_OAK_LOG.defaultBlockState();
+				break;
+
+			case WallBlock.CRIMSON:
+				state = Blocks.CRIMSON_STEM.defaultBlockState();
+				break;
+
+			case WallBlock.WARPED:
+				state = Blocks.WARPED_STEM.defaultBlockState();
+				break;
+
+			default:
+				state = Blocks.OAK_LOG.defaultBlockState();
+				break;
+		}
+
+		return state;
+	}
+
+	public enum WallBlock {
+		OAK,
+		BIRCH,
+		DARK_OAK,
+		SPRUCE,
+		ACACIA,
+		JUNGLE,
+		MANGROVE,
+		CHERRY,
+		PALE,
+		CRIMSON,
+		WARPED
+	}
+
+	protected boolean getRandomBool(RandomSource random) {
+		return random.nextIntBetweenInclusive(0, 9) == 0;
 	}
 
 	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
@@ -45,85 +114,63 @@ public class Level0ChunkGen extends ChunkGenerator {
 		long chunkX = Math.floorDiv(x, 16);
 		long chunkZ = Math.floorDiv(z, 16);
 
-		RandomSource random = randomFactory.at(new BlockPos(x, y, z));
-
-		int relativeChunkX = Math.floorMod(x, 16) + 1;
-		int relativeChunkZ = Math.floorMod(z, 16) + 1;
-
 		// Floor
-		if (y <= 0) {
-			if (biome.is(ModBiomes.Level0Biomes.PITFALLS_BIOME)) {
-				if ((relativeChunkX / 2 % 2) == 0 && (relativeChunkZ / 2 % 2) == 0) {
-					return Blocks.AIR.defaultBlockState();
-				} else {
-					return ModBlocks.LEVEL0_CARPET.defaultBlockState();
-				}
-			} else {
-				if (y == 0 && random.nextIntBetweenInclusive(0, 800) == 0) {
-					return ModBlocks.LEVEL0_CARPET_GLITCHED.defaultBlockState();
-				}
-				return ModBlocks.LEVEL0_CARPET.defaultBlockState();
-			}
+		if (y == 0) {
+			return Blocks.BEDROCK.defaultBlockState();
 		}
-
-		// Ceiling
-		if (y >= 4) {
-			if (Math.floorMod(x, 4) == 2 && Math.floorMod(z, 4) == 2
-					&& !(biome.is(ModBiomes.Level0Biomes.BLACKOUT_BIOME))) {
-				return ModBlocks.LEVEL0_CEILING_LIGHT.defaultBlockState();
-			}
-			return ModBlocks.LEVEL0_CEILING_TILE.defaultBlockState();
+		if (y < 8) {
+			return Blocks.DIRT.defaultBlockState();
 		}
+		if (y == 8) {
+			return Blocks.GRASS_BLOCK.defaultBlockState();
+		}
+		if (Math.abs(x) > 16 || Math.abs(z) > 16) {
+			int cellX = Math.floorDiv(Math.floorMod(x, 16), 4);
+			int cellZ = Math.floorDiv(Math.floorMod(z, 16), 4);
 
-		// Maze logic start!
-		if (biome.is(ModBiomes.Level0Biomes.COLUMNS_BIOME)) {
-			if (Math.floorMod(x, 4) == 0 && Math.floorMod(z, 4) == 0) {
-				return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
+			int localX = Math.abs(Math.floorMod(x, 4));
+			int localZ = Math.abs(Math.floorMod(z, 4));
+
+			RandomSource cellRandom = randomFactory.at(
+					(int) (chunkX * 4 + cellX),
+					0,
+					(int) (chunkZ * 4 + cellZ));
+
+			long unOffsettedValue = (chunkX * 2 + x) * 454 + (chunkZ * 93 + z) * 3623 - (36 * x / 4 * z);
+			if (getRandomBool(cellRandom) && localZ == 0) {
+				RandomSource wallRandom = randomFactory
+						.fromSeed(unOffsettedValue + 23 * z + x * 31);
+				return this.getRandomWallBlock(wallRandom);
 			}
-		} else {
-			if (biome.is(ModBiomes.Level0Biomes.BLACKOUT_BIOME) || biome.is(ModBiomes.Level0Biomes.NORMAL_BIOME)) {
-				int cellX = Math.floorDiv(Math.floorMod(x, 16), 4);
-				int cellZ = Math.floorDiv(Math.floorMod(z, 16), 4);
-
-				int localX = Math.abs(Math.floorMod(x, 4));
-				int localZ = Math.abs(Math.floorMod(z, 4));
-
-				RandomSource cellRandom = randomFactory.at(
-						(int) (chunkX * 4 + cellX),
-						0,
-						(int) (chunkZ * 4 + cellZ));
-
-				if (getRandomBool(cellRandom) && localZ == 0) {
-					return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
-				}
-				if (getRandomBool(cellRandom) && localZ == 3) {
-					return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
-				}
-				if (getRandomBool(cellRandom) && localX == 0) {
-					return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
-				}
-				if (getRandomBool(cellRandom) && localX == 3) {
-					return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
-				}
+			if (getRandomBool(cellRandom) && localZ == 3) {
+				RandomSource wallRandom = randomFactory
+						.fromSeed(unOffsettedValue + 23 * z + x * 31);
+				return this.getRandomWallBlock(wallRandom);
+			}
+			if (getRandomBool(cellRandom) && localX == 0) {
+				RandomSource wallRandom = randomFactory
+						.fromSeed(unOffsettedValue + 23 * z + x * 31);
+				return this.getRandomWallBlock(wallRandom);
+			}
+			if (getRandomBool(cellRandom) && localX == 3) {
+				RandomSource wallRandom = randomFactory
+						.fromSeed(unOffsettedValue + 23 * z + x * 31);
+				return this.getRandomWallBlock(wallRandom);
 			}
 		}
 
 		return Blocks.AIR.defaultBlockState();
 	}
 
-	public Level0ChunkGen(Holder.Reference<Biome> normal, Holder.Reference<Biome> columns,
-			Holder.Reference<Biome> blackout, Holder.Reference<Biome> pitfalls) {
-		super(new Level0BiomeSource(normal, columns, blackout, pitfalls));
+	public PitfallsChunkGen(Holder.Reference<Biome> reference) {
+		super(new FixedBiomeSource(reference));
 	}
 
-	public static final MapCodec<Level0ChunkGen> CODEC = RecordCodecBuilder.mapCodec(
+	public static final MapCodec<PitfallsChunkGen> CODEC = RecordCodecBuilder.mapCodec(
 			instance -> instance.group(
-					RegistryOps.retrieveElement(ModBiomes.Level0Biomes.NORMAL_BIOME),
-					RegistryOps.retrieveElement(ModBiomes.Level0Biomes.COLUMNS_BIOME),
-					RegistryOps.retrieveElement(ModBiomes.Level0Biomes.BLACKOUT_BIOME),
-					RegistryOps.retrieveElement(ModBiomes.Level0Biomes.PITFALLS_BIOME))
+					RegistryOps.retrieveElement(ModBiomes.PITFALLS_BIOME))
 					.apply(instance,
-							instance.stable(Level0ChunkGen::new)));
+							instance.stable(PitfallsChunkGen::new)));
 
 	@Override
 	protected MapCodec<? extends ChunkGenerator> codec() {
@@ -146,14 +193,14 @@ public class Level0ChunkGen extends ChunkGenerator {
 
 	@Override
 	public int getGenDepth() {
-		return 32;
+		return 80;
 	}
 
 	@Override
 	public CompletableFuture<ChunkAccess> fillFromNoise(Blender blender, RandomState randomState,
 			StructureManager structureManager, ChunkAccess chunkAccess) {
 		PositionalRandomFactory worldSeed = randomState
-				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level0seed"));
+				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "pitfallsseed"));
 
 		int minY = getMinY();
 
@@ -187,14 +234,14 @@ public class Level0ChunkGen extends ChunkGenerator {
 
 	@Override
 	public int getMinY() {
-		return -16;
+		return 0;
 	}
 
 	@Override
 	public int getBaseHeight(int x, int z, Types types, LevelHeightAccessor levelHeightAccessor,
 			RandomState randomState) {
 		PositionalRandomFactory worldSeed = randomState.getOrCreateRandomFactory(
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level0seed"));
+				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "pitfallsseed"));
 
 		for (int y = getMinY() + getGenDepth() - 1; y >= getMinY(); y--) {
 			if (!getBlockAt(worldSeed, x, y, z).isAir()) {
@@ -208,7 +255,7 @@ public class Level0ChunkGen extends ChunkGenerator {
 	@Override
 	public NoiseColumn getBaseColumn(int x, int z, LevelHeightAccessor levelHeightAccessor, RandomState randomState) {
 		PositionalRandomFactory worldSeed = randomState
-				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level0seed"));
+				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "pitfallsseed"));
 
 		int height = this.getGenDepth();
 		BlockState[] blocks = new BlockState[height];

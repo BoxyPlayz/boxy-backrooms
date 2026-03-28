@@ -2,7 +2,7 @@ package com.boxyplayz.backrooms.world.biomesources;
 
 import java.util.stream.Stream;
 
-import com.boxyplayz.backrooms.biome.ModBiomes;
+import com.boxyplayz.backrooms.world.biome.ModBiomes;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 

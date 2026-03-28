@@ -5,7 +5,6 @@ import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.boxyplayz.backrooms.biome.ModBiomes;
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.creativetabs.ModCreativeTabs;
 import com.boxyplayz.backrooms.entity.ModEntities;
@@ -13,6 +12,7 @@ import com.boxyplayz.backrooms.events.ModEvents;
 import com.boxyplayz.backrooms.item.ModItems;
 import com.boxyplayz.backrooms.loot.ModLootTables;
 import com.boxyplayz.backrooms.tags.ModTags;
+import com.boxyplayz.backrooms.world.biome.ModBiomes;
 import com.boxyplayz.backrooms.world.dimension.ModDimensions;
 import com.boxyplayz.backrooms.world.generators.ModChunkGenerators;
 import com.boxyplayz.backrooms.world.spawning.ModEntitySpawner;

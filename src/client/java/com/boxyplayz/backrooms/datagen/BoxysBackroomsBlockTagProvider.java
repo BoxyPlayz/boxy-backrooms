@@ -24,6 +24,7 @@ public class BoxysBackroomsBlockTagProvider extends FabricTagsProvider.BlockTags
 
 		valueLookupBuilder(BlockTags.MINEABLE_WITH_AXE)
 				.add(ModBlocks.LEVEL0_WALLPAPER)
+				.add(ModBlocks.LEVEL1_CRATE)
 				.setReplace(false);
 	}
 
