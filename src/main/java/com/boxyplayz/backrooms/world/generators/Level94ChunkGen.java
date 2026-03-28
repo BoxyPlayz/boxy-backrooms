@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.world.biome.ModBiomes;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -46,13 +47,12 @@ public class Level94ChunkGen extends ChunkGenerator {
 
 	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
 
-		int height = (int) (70 + getNoise(randomFactory).getValue(x * 0.01, z * 0.01) * 40);
+		int height = (int) (getNoise(randomFactory).getValue(x * 0.01, z * 0.01) * 10);
 
-		if (y == height) {
-			return Blocks.GRASS_BLOCK.defaultBlockState();
-		}
-		if (y < height) {
-			return Blocks.DIRT.defaultBlockState();
+		height += 70;
+
+		if (y <= height) {
+			return ModBlocks.PURE_GRASS.defaultBlockState();
 		}
 
 		return Blocks.AIR.defaultBlockState();

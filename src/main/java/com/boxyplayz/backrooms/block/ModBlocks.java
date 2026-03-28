@@ -17,6 +17,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
 
 public class ModBlocks {
 	private static Block register(String name, Function<BlockBehaviour.Properties, Block> blockFactory,
@@ -115,6 +116,12 @@ public class ModBlocks {
 			"level1_crate",
 			Block::new,
 			BlockBehaviour.Properties.of().destroyTime(1).sound(SoundType.WOOD).strength(1f).explosionResistance(20f),
+			true);
+
+	public static final Block PURE_GRASS = register(
+			"pure_grass",
+			Block::new,
+			BlockBehaviour.Properties.of().mapColor(MapColor.GRASS).randomTicks().strength(0.6F).sound(SoundType.GRASS),
 			true);
 
 	public static void RegisterModBlocks() {

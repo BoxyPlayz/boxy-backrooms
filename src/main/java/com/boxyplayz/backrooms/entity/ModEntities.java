@@ -30,7 +30,7 @@ public class ModEntities {
 					.build(skinStealerResourceKey));
 
 	public static void RegisterModEntities() {
-		BoxysBackrooms.LOGGER.info("Registering Entities");
+		BoxysBackrooms.LOGGER.debug("Registering Entities");
 		FabricDefaultAttributeRegistry.register(SMILER,
 				SmilerEntity.createAttributes());
 

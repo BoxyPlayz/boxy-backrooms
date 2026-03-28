@@ -8,6 +8,7 @@ import com.boxyplayz.backrooms.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootSubProvider;
 import net.minecraft.core.HolderLookup.Provider;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -43,6 +44,8 @@ public class BoxyBackroomsBlockLootTableProvider extends FabricBlockLootSubProvi
 						.add(LootItem.lootTableItem(ModItems.ROYAL_RATION).setWeight(1))
 						.add(LootItem.lootTableItem(ModItems.FIRESALT_SHARD).setWeight(5))
 						.add(LootItem.lootTableItem(ModItems.SMILER_REPELLANT).setWeight(12))));
+
+		dropOther(ModBlocks.PURE_GRASS, Blocks.GRASS_BLOCK.asItem());
 	}
 
 }

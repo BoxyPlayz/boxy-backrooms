@@ -42,6 +42,8 @@ public class BoxyBackroomsEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModBlocks.LEVEL0_CARPET_GLITCHED, "Carpet?");
 
 		// Regular Blocks
+		translationBuilder.add(ModBlocks.PURE_GRASS, "Pure Grass");
+
 		translationBuilder.add(ModBlocks.LEVEL0_CARPET, "Carpet");
 		translationBuilder.add(ModBlocks.LEVEL0_CEILING_LIGHT, "Ceiling Light");
 		translationBuilder.add(ModBlocks.LEVEL0_CEILING_TILE, "Tiles");

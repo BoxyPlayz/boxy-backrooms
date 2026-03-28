@@ -136,25 +136,25 @@ public class PitfallsChunkGen extends ChunkGenerator {
 					0,
 					(int) (chunkZ * 4 + cellZ));
 
-			long unOffsettedValue = (chunkX * 2 + x) * 454 + (chunkZ * 93 + z) * 3623 - (36 * x / 4 * z);
+			long unOffsettedValue = (x) * 4543214L + (z) * 3632454334523L;
 			if (getRandomBool(cellRandom) && localZ == 0) {
 				RandomSource wallRandom = randomFactory
-						.fromSeed(unOffsettedValue + 23 * z + x * 31);
+						.fromSeed(unOffsettedValue);
 				return this.getRandomWallBlock(wallRandom);
 			}
 			if (getRandomBool(cellRandom) && localZ == 3) {
 				RandomSource wallRandom = randomFactory
-						.fromSeed(unOffsettedValue + 23 * z + x * 31);
+						.fromSeed(unOffsettedValue);
 				return this.getRandomWallBlock(wallRandom);
 			}
 			if (getRandomBool(cellRandom) && localX == 0) {
 				RandomSource wallRandom = randomFactory
-						.fromSeed(unOffsettedValue + 23 * z + x * 31);
+						.fromSeed(unOffsettedValue);
 				return this.getRandomWallBlock(wallRandom);
 			}
 			if (getRandomBool(cellRandom) && localX == 3) {
 				RandomSource wallRandom = randomFactory
-						.fromSeed(unOffsettedValue + 23 * z + x * 31);
+						.fromSeed(unOffsettedValue);
 				return this.getRandomWallBlock(wallRandom);
 			}
 		}

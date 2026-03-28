@@ -5,6 +5,7 @@ import com.boxyplayz.backrooms.entity.skinstealer.SkinStealerEntityRenderer;
 import com.boxyplayz.backrooms.entity.skinstealer.SkinStealerModel;
 import com.boxyplayz.backrooms.entity.smiler.SmilerEntityRenderer;
 import com.boxyplayz.backrooms.entity.smiler.SmilerModel;
+import com.boxyplayz.backrooms.events.GrassColors;
 import com.boxyplayz.backrooms.events.ItemEvents;
 
 import net.fabricmc.api.ClientModInitializer;
@@ -23,6 +24,8 @@ public class BoxysBackroomsClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		ItemEvents.RegisterItemEvents();
+
+		GrassColors.RegisterGrassColors();
 
 		EntityRenderers.register(ModEntities.SMILER, SmilerEntityRenderer::new);
 

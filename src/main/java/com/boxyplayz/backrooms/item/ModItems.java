@@ -25,7 +25,7 @@ public class ModItems {
 
 	public static void registerModItems() {
 
-		BoxysBackrooms.LOGGER.info("Registering items for " + BoxysBackrooms.MOD_ID);
+		BoxysBackrooms.LOGGER.debug("Registering items for " + BoxysBackrooms.MOD_ID);
 
 		ResourceKey<Item> grayAlmondWaterKey = ResourceKey.create(
 				BuiltInRegistries.ITEM.key(),
