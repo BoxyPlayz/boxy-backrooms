@@ -44,6 +44,9 @@ public class BoxyBackroomsBlockLootTableProvider extends FabricBlockLootSubProvi
 						.add(LootItem.lootTableItem(ModItems.ROYAL_RATION).setWeight(1))
 						.add(LootItem.lootTableItem(ModItems.FIRESALT_SHARD).setWeight(5))
 						.add(LootItem.lootTableItem(ModItems.SMILER_REPELLANT).setWeight(12))));
+		dropSelf(ModBlocks.LEVEL1_WALL_GILD);
+		dropSelf(ModBlocks.LEVEL1_CEILING_LIGHT);
+		dropSelf(ModBlocks.GOTHIC_CONCRETE);
 
 		dropOther(ModBlocks.PURE_GRASS, Blocks.GRASS_BLOCK.asItem());
 	}

@@ -40,6 +40,10 @@ public class ModCreativeTabs {
 			itemGroup.accept(ModBlocks.LEVEL1_FLOOR_AQUILA.asItem());
 			itemGroup.accept(ModBlocks.LEVEL1_PILLAR_AQUILA.asItem());
 			itemGroup.accept(ModBlocks.LEVEL1_CRATE.asItem());
+			itemGroup.accept(ModBlocks.GOTHIC_CONCRETE.asItem());
+			itemGroup.accept(ModBlocks.PURE_GRASS.asItem());
+			itemGroup.accept(ModBlocks.LEVEL0_CARPET_GLITCHED.asItem());
+			itemGroup.accept(ModBlocks.LEVEL1_CEILING_LIGHT.asItem());
 
 			itemGroup.accept(ModBlocks.ERRORSLATE.asItem());
 			itemGroup.accept(ModBlocks.OCEAN_TRANSPORTER.asItem());

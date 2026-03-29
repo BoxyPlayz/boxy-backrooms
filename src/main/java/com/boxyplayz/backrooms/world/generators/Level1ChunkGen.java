@@ -35,6 +35,10 @@ import net.minecraft.world.level.levelgen.synth.SimplexNoise;
 
 public class Level1ChunkGen extends ChunkGenerator {
 
+	protected boolean getRandom(RandomSource random) {
+		return (random.nextIntBetweenInclusive(1, 10) == 1);
+	}
+
 	private SimplexNoise noise;
 
 	protected SimplexNoise getNoise(PositionalRandomFactory worldSeed) {
@@ -52,6 +56,8 @@ public class Level1ChunkGen extends ChunkGenerator {
 
 	public BlockState getBlockAt(SimplexNoise localNoise, PositionalRandomFactory randomFactory, int x, int y, int z,
 			Holder<Biome> biome) {
+		int localX = Math.floorMod(x, 16);
+		int localZ = Math.floorMod(z, 16);
 
 		if (biome.is(ModBiomes.Level1Biomes.AQUILA_BIOME)) {
 			// Floor
@@ -74,6 +80,71 @@ public class Level1ChunkGen extends ChunkGenerator {
 					&&
 					(Math.floorMod(z, 8) == 1 || Math.floorMod(z, 8) == 2)) {
 				return ModBlocks.LEVEL1_PILLAR_AQUILA.defaultBlockState();
+			}
+		} else if (biome.is(ModBiomes.Level1Biomes.GILDED_BIOME)) {
+			RandomSource random = randomFactory.at(Math.floorDiv(x, 16), 0, Math.floorDiv(z, 16));
+
+			// Floor
+			if (Math.floorMod(y, 7) == 0) {
+				return ModBlocks.LEVEL1_FLOOR_AQUILA.defaultBlockState();
+			}
+
+			// Ceiling
+			if (Math.floorMod(y, 7) == 6) {
+				return ModBlocks.LEVEL1_CEILING_AQUILA.defaultBlockState();
+			}
+
+			// Walls
+			if (getRandom(random)) {
+				if (localX == 15) {
+					return ModBlocks.LEVEL1_WALL_GILD.defaultBlockState();
+				}
+			}
+			if (getRandom(random)) {
+				if (localX == 0) {
+					return ModBlocks.LEVEL1_WALL_GILD.defaultBlockState();
+				}
+			}
+			if (getRandom(random)) {
+				if (localZ == 15) {
+					return ModBlocks.LEVEL1_WALL_GILD.defaultBlockState();
+				}
+			}
+			if (getRandom(random)) {
+				if (localZ == 0) {
+					return ModBlocks.LEVEL1_WALL_GILD.defaultBlockState();
+				}
+			}
+
+			if (Math.floorMod(y, 7) == 5) {
+				if (Math.floorMod(localZ, 4) == 0) {
+					if (Math.floorMod(Math.floorDiv(localX, 2), 4) == 0) {
+						return ModBlocks.LEVEL1_CEILING_LIGHT.defaultBlockState();
+					}
+				}
+			}
+		} else if (biome.is(ModBiomes.Level1Biomes.GOTHIC_BIOME)) {
+			if (Math.floorMod(y, 7) == 0) {
+				return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
+			}
+
+			// Ceiling
+			if (Math.floorMod(y, 7) == 6) {
+				return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
+			}
+
+			if (Math.floorMod(localX, 7) == 3 && Math.floorMod(localZ, 7) == 3) {
+				return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
+			}
+
+			Range<Integer> baseRange = Range.of(2, 4);
+
+			if (baseRange.contains(Math.floorMod(localX, 7))) {
+				if (baseRange.contains(Math.floorMod(localZ, 7))) {
+					if (Math.floorMod(y, 7) == 1 || Math.floorMod(y, 7) == 5) {
+						return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
+					}
+				}
 			}
 		} else {
 			// Floor

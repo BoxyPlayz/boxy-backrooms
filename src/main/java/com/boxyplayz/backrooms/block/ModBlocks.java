@@ -107,6 +107,18 @@ public class ModBlocks {
 			BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(25f).destroyTime(15f),
 			true);
 
+	public static final Block GOTHIC_CONCRETE = register(
+			"gothic_concrete",
+			Block::new,
+			BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(25f).destroyTime(15f),
+			true);
+
+	public static final Block LEVEL1_WALL_GILD = register(
+			"level1_wall_gild",
+			Block::new,
+			BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(25f).destroyTime(15f),
+			true);
+
 	public static final Block LEVEL1_FLOOR_AQUILA = register(
 			"level1_floor_aquila",
 			Block::new,

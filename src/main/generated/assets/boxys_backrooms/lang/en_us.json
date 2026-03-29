@@ -1,5 +1,6 @@
 {
   "block.boxys_backrooms.errorslate": "Errorslate",
+  "block.boxys_backrooms.gothic_concrete": "Gothic Concrete",
   "block.boxys_backrooms.level0_carpet": "Carpet",
   "block.boxys_backrooms.level0_carpet_glitched": "Carpet?",
   "block.boxys_backrooms.level0_ceiling_light": "Old Ceiling Light",
@@ -9,6 +10,7 @@
   "block.boxys_backrooms.level1_ceiling_light": "Aquila Ceiling Light",
   "block.boxys_backrooms.level1_crate": "Crate",
   "block.boxys_backrooms.level1_floor_aquila": "Aquila Sector Floor",
+  "block.boxys_backrooms.level1_wall_gild": "Gilded Sector Wall",
   "block.boxys_backrooms.ocean_transporter": "Aquatic Transporter",
   "block.boxys_backrooms.pure_grass": "Pure Grass",
   "entity.boxys_backrooms.skinstealer": "Skin Stealer",
