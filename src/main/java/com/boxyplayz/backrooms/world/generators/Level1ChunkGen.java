@@ -243,16 +243,16 @@ public class Level1ChunkGen extends ChunkGenerator {
 					Math.floorDiv(y, 7),
 					(int) (chunkZ * 4 + cellZ));
 
-			if (getRandomBool(cellRandom) && localerZ == 0) {
+			if (getRandomBool(cellRandom, 3) && localerZ == 0) {
 				return ModBlocks.GARDEN_CONCRETE.defaultBlockState();
 			}
-			if (getRandomBool(cellRandom) && localerZ == 7) {
+			if (getRandomBool(cellRandom, 3) && localerZ == 7) {
 				return ModBlocks.GARDEN_CONCRETE.defaultBlockState();
 			}
-			if (getRandomBool(cellRandom) && localerX == 0) {
+			if (getRandomBool(cellRandom, 3) && localerX == 0) {
 				return ModBlocks.GARDEN_CONCRETE.defaultBlockState();
 			}
-			if (getRandomBool(cellRandom) && localerX == 7) {
+			if (getRandomBool(cellRandom, 3) && localerX == 7) {
 				return ModBlocks.GARDEN_CONCRETE.defaultBlockState();
 			}
 
