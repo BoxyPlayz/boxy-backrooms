@@ -143,6 +143,12 @@ public class ModBlocks {
 			BlockBehaviour.Properties.of().mapColor(MapColor.GRASS).randomTicks().strength(0.6F).sound(SoundType.GRASS),
 			true);
 
+	public static final Block GARDEN_CONCRETE = register(
+			"garden_concrete",
+			Block::new,
+			BlockBehaviour.Properties.of().mapColor(MapColor.GRASS).randomTicks().strength(0.6F).sound(SoundType.GRASS),
+			true);
+
 	public static void RegisterModBlocks() {
 	}
 }

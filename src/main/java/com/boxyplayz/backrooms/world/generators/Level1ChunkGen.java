@@ -35,6 +35,14 @@ import net.minecraft.world.level.levelgen.synth.SimplexNoise;
 
 public class Level1ChunkGen extends ChunkGenerator {
 
+	protected boolean getRandomBool(RandomSource random) {
+		return random.nextIntBetweenInclusive(0, 5) == 0;
+	}
+
+	protected boolean getRandomBool(RandomSource random, int max) {
+		return random.nextIntBetweenInclusive(0, max) == 0;
+	}
+
 	protected boolean getRandom(RandomSource random) {
 		return (random.nextIntBetweenInclusive(1, 10) == 1);
 	}
@@ -58,6 +66,8 @@ public class Level1ChunkGen extends ChunkGenerator {
 			Holder<Biome> biome) {
 		int localX = Math.floorMod(x, 16);
 		int localZ = Math.floorMod(z, 16);
+		int chunkX = Math.floorDiv(x, 16);
+		int chunkZ = Math.floorDiv(z, 16);
 
 		if (biome.is(ModBiomes.Level1Biomes.AQUILA_BIOME)) {
 			// Floor
@@ -146,6 +156,110 @@ public class Level1ChunkGen extends ChunkGenerator {
 					}
 				}
 			}
+		} else if (biome.is(ModBiomes.Level1Biomes.GARDEN_BIOME)) {
+			RandomSource blockRandom = randomFactory.at(x, y, z);
+			// Floor
+			if (Math.floorMod(y, 7) == 0) {
+				return ModBlocks.PURE_GRASS.defaultBlockState();
+			}
+
+			// Ceiling
+			if (Math.floorMod(y, 7) == 6) {
+				return ModBlocks.LEVEL1_CEILING_LIGHT.defaultBlockState();
+			}
+
+			int cellX = Math.floorDiv(Math.floorMod(x, 16), 8);
+			int cellZ = Math.floorDiv(Math.floorMod(z, 16), 8);
+
+			int localerX = Math.abs(Math.floorMod(x, 8));
+			int localerZ = Math.abs(Math.floorMod(z, 8));
+
+			RandomSource cellRandom = randomFactory.at(
+					(int) (chunkX * 4 + cellX),
+					0,
+					(int) (chunkZ * 4 + cellZ));
+
+			if (getRandomBool(cellRandom) && localerZ == 0) {
+				return ModBlocks.GARDEN_CONCRETE.defaultBlockState();
+			}
+			if (getRandomBool(cellRandom) && localerZ == 7) {
+				return ModBlocks.GARDEN_CONCRETE.defaultBlockState();
+			}
+			if (getRandomBool(cellRandom) && localerX == 0) {
+				return ModBlocks.GARDEN_CONCRETE.defaultBlockState();
+			}
+			if (getRandomBool(cellRandom) && localerX == 7) {
+				return ModBlocks.GARDEN_CONCRETE.defaultBlockState();
+			}
+
+			if (Math.floorMod(y, 7) == 1 && blockRandom.nextBoolean()) {
+				int randomVal = blockRandom.nextIntBetweenInclusive(1, 20);
+				switch (randomVal) {
+					case 1:
+						return Blocks.SHORT_GRASS.defaultBlockState();
+
+					case 2:
+						return Blocks.FERN.defaultBlockState();
+
+					case 3:
+						return Blocks.FERN.defaultBlockState();
+
+					case 4:
+						return Blocks.DANDELION.defaultBlockState();
+
+					case 5:
+						return Blocks.GOLDEN_DANDELION.defaultBlockState();
+
+					case 6:
+						return Blocks.POPPY.defaultBlockState();
+
+					case 7:
+						return Blocks.BLUE_ORCHID.defaultBlockState();
+
+					case 8:
+						return Blocks.ALLIUM.defaultBlockState();
+
+					case 9:
+						return Blocks.AZURE_BLUET.defaultBlockState();
+
+					case 10:
+						return Blocks.RED_TULIP.defaultBlockState();
+
+					case 11:
+						return Blocks.ORANGE_TULIP.defaultBlockState();
+
+					case 12:
+						return Blocks.WHITE_TULIP.defaultBlockState();
+
+					case 13:
+						return Blocks.PINK_TULIP.defaultBlockState();
+
+					case 14:
+						return Blocks.OXEYE_DAISY.defaultBlockState();
+
+					case 15:
+						return Blocks.CORNFLOWER.defaultBlockState();
+
+					case 16:
+						return Blocks.WITHER_ROSE.defaultBlockState();
+
+					case 17:
+						return Blocks.LILY_OF_THE_VALLEY.defaultBlockState();
+
+					case 18:
+						return Blocks.TORCHFLOWER.defaultBlockState();
+
+					case 19:
+						return Blocks.PINK_PETALS.defaultBlockState();
+
+					case 20:
+						return Blocks.WILDFLOWERS.defaultBlockState();
+
+					default:
+						break;
+				}
+			}
+
 		} else {
 			// Floor
 			if (Math.floorMod(y, 7) == 0) {

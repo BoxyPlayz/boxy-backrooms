@@ -53,6 +53,7 @@ public class BoxyBackroomsEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModBlocks.LEVEL1_CEILING_LIGHT, "Aquila Ceiling Light");
 		translationBuilder.add(ModBlocks.LEVEL1_WALL_GILD, "Gilded Sector Wall");
 		translationBuilder.add(ModBlocks.GOTHIC_CONCRETE, "Gothic Concrete");
+		translationBuilder.add(ModBlocks.GARDEN_CONCRETE, "Garden Concrete");
 
 		// Loot Blocks
 		translationBuilder.add(ModBlocks.LEVEL1_CRATE, "Crate");
@@ -86,5 +87,8 @@ public class BoxyBackroomsEnglishLangProvider extends FabricLanguageProvider {
 		// Entities
 		translationBuilder.add(ModEntities.SMILER, "Smiler");
 		translationBuilder.add(ModEntities.SKINSTEALER, "Skin Stealer");
+
+		// Effects
+		translationBuilder.add("effect.boxys_backrooms.gardeners_pain", "Gardener's Pain");
 	}
 }

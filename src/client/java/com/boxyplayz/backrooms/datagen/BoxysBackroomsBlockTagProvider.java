@@ -26,6 +26,10 @@ public class BoxysBackroomsBlockTagProvider extends FabricTagsProvider.BlockTags
 				.add(ModBlocks.LEVEL0_WALLPAPER)
 				.add(ModBlocks.LEVEL1_CRATE)
 				.setReplace(false);
+
+		valueLookupBuilder(BlockTags.GRASS_BLOCKS)
+				.add(ModBlocks.PURE_GRASS)
+				.setReplace(false);
 	}
 
 }
