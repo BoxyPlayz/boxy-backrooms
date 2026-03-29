@@ -4,9 +4,12 @@ import java.util.function.Function;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.block.custom.ErrorSlateBlock;
+import com.boxyplayz.backrooms.block.custom.Level0Carpet;
 import com.boxyplayz.backrooms.block.custom.Level0GlitchedCarpet;
 import com.boxyplayz.backrooms.block.custom.Level0Wallpaper;
 import com.boxyplayz.backrooms.block.custom.OceanTransporter;
+import com.boxyplayz.backrooms.block.custom.PremiumCarpet;
+
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -71,7 +74,7 @@ public class ModBlocks {
 
 	public static final Block LEVEL0_CARPET = register(
 			"level0_carpet",
-			Block::new,
+			Level0Carpet::new,
 			BlockBehaviour.Properties.of().sound(SoundType.WOOL).strength(1000f).destroyTime(1000f),
 			true);
 
@@ -140,20 +143,38 @@ public class ModBlocks {
 	public static final Block PURE_GRASS = register(
 			"pure_grass",
 			Block::new,
-			BlockBehaviour.Properties.of().mapColor(MapColor.GRASS).randomTicks().strength(0.6F).sound(SoundType.GRASS),
+			BlockBehaviour.Properties.of().mapColor(MapColor.GRASS).strength(0.6F).sound(SoundType.GRASS),
 			true);
 
 	public static final Block GARDEN_CONCRETE = register(
 			"garden_concrete",
 			Block::new,
-			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).randomTicks().strength(0.6F)
+			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).strength(0.6F)
 					.sound(SoundType.MOSS),
 			true);
 
 	public static final Block AGED_CONCRETE = register(
 			"aged_concrete",
 			Block::new,
-			BlockBehaviour.Properties.of().mapColor(MapColor.STONE).randomTicks().strength(0.6F).sound(SoundType.STONE),
+			BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(0.6F).sound(SoundType.STONE),
+			true);
+
+	public static final Block PREMIUM_CARPET = register(
+			"premium_carpet",
+			PremiumCarpet::new,
+			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_RED).strength(0.6F).sound(SoundType.STONE),
+			true);
+
+	public static final Block PREMIUM_WALLPAPER = register(
+			"premium_wallpaper",
+			Block::new,
+			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).strength(0.6F).sound(SoundType.STONE),
+			true);
+
+	public static final Block PREMIUM_CEILING_TILE = register(
+			"premium_ceiling_tile",
+			Block::new,
+			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).strength(0.6F).sound(SoundType.STONE),
 			true);
 
 	public static void RegisterModBlocks() {

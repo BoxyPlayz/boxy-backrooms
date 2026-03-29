@@ -30,6 +30,10 @@ public class BoxysBackroomsBlockTagProvider extends FabricTagsProvider.BlockTags
 		valueLookupBuilder(BlockTags.GRASS_BLOCKS)
 				.add(ModBlocks.PURE_GRASS)
 				.setReplace(false);
+
+		valueLookupBuilder(BlockTags.MINEABLE_WITH_SHOVEL)
+				.add(ModBlocks.PURE_GRASS)
+				.setReplace(false);
 	}
 
 }

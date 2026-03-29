@@ -49,6 +49,9 @@ public class BoxyBackroomsBlockLootTableProvider extends FabricBlockLootSubProvi
 		dropSelf(ModBlocks.GOTHIC_CONCRETE);
 		dropSelf(ModBlocks.GARDEN_CONCRETE);
 		dropSelf(ModBlocks.AGED_CONCRETE);
+		dropSelf(ModBlocks.PREMIUM_CARPET);
+		dropSelf(ModBlocks.PREMIUM_CEILING_TILE);
+		dropSelf(ModBlocks.PREMIUM_WALLPAPER);
 
 		dropOther(ModBlocks.PURE_GRASS, Blocks.GRASS_BLOCK.asItem());
 	}
