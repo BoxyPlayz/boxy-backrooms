@@ -3,6 +3,8 @@ package com.boxyplayz.backrooms.world.generators;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
+import org.apache.commons.lang3.Range;
+
 import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.world.biome.ModBiomes;
@@ -51,21 +53,39 @@ public class Level1ChunkGen extends ChunkGenerator {
 	public BlockState getBlockAt(SimplexNoise localNoise, PositionalRandomFactory randomFactory, int x, int y, int z,
 			Holder<Biome> biome) {
 
-		// Floor
-		if (Math.floorMod(y, 7) == 0) {
-			return ModBlocks.LEVEL1_FLOOR_AQUILA.defaultBlockState();
-		}
+		if (biome.is(ModBiomes.Level1Biomes.AQUILA_BIOME)) {
+			// Floor
+			if (Math.floorMod(y, 7) == 0) {
+				return ModBlocks.LEVEL1_FLOOR_AQUILA.defaultBlockState();
+			}
 
-		// Ceiling
-		if (Math.floorMod(y, 7) == 6) {
-			return ModBlocks.LEVEL1_CEILING_AQUILA.defaultBlockState();
-		}
+			// Ceiling
+			if (Math.floorMod(y, 7) == 6) {
+				Range<Integer> range = Range.of(0, 3);
+				if (range.contains(Math.floorMod(x, 8))
+						&&
+						range.contains(Math.floorMod(z, 8))) {
+					return ModBlocks.LEVEL1_CEILING_LIGHT.defaultBlockState();
+				}
+				return ModBlocks.LEVEL1_CEILING_AQUILA.defaultBlockState();
+			}
 
-		// Fallback
-		if ((Math.floorMod(x, 8) == 0 || Math.floorMod(x, 8) == 1)
-				&&
-				(Math.floorMod(z, 8) == 0 || Math.floorMod(z, 8) == 1)) {
-			return ModBlocks.LEVEL1_PILLAR_AQUILA.defaultBlockState();
+			if ((Math.floorMod(x, 8) == 1 || Math.floorMod(x, 8) == 2)
+					&&
+					(Math.floorMod(z, 8) == 1 || Math.floorMod(z, 8) == 2)) {
+				return ModBlocks.LEVEL1_PILLAR_AQUILA.defaultBlockState();
+			}
+		} else {
+			// Floor
+			if (Math.floorMod(y, 7) == 0) {
+				return ModBlocks.LEVEL1_FLOOR_AQUILA.defaultBlockState();
+			}
+
+			// Ceiling
+			if (Math.floorMod(y, 7) == 6) {
+				return ModBlocks.LEVEL1_CEILING_AQUILA.defaultBlockState();
+			}
+
 		}
 
 		if (Math.floorMod(y, 7) == 1) {

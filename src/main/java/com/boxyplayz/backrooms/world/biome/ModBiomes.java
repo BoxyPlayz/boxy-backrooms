@@ -48,7 +48,7 @@ public class ModBiomes {
 
 		public static final ResourceKey<Biome> OUROBOROS_BIOME = ResourceKey.create(
 				Registries.BIOME,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level1/fabled"));
+				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level1/ouroboros"));
 	}
 
 	public class Level0Biomes {

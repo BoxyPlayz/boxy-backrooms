@@ -70,6 +70,13 @@ public class BoxyBackroomsRecipeProvider extends FabricRecipeProvider {
 						.requires(Items.IRON_NUGGET)
 						.unlockedBy(getHasName(ModBlocks.LEVEL1_CRATE.asItem()), has(ModBlocks.LEVEL1_CRATE.asItem()))
 						.save(output);
+
+				shapeless(RecipeCategory.DECORATIONS, ModBlocks.PURE_GRASS)
+						.requires(Blocks.GRASS_BLOCK.asItem(), 4)
+						.requires(Blocks.SHORT_GRASS.asItem(), 1)
+						.requires(Items.BONE_MEAL, 4)
+						.unlockedBy(getHasName(Blocks.GRASS_BLOCK.asItem()), has(Blocks.GRASS_BLOCK.asItem()))
+						.save(output);
 			}
 		};
 	}

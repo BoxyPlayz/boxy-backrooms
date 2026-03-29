@@ -45,12 +45,12 @@ public class BoxyBackroomsEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModBlocks.PURE_GRASS, "Pure Grass");
 
 		translationBuilder.add(ModBlocks.LEVEL0_CARPET, "Carpet");
-		translationBuilder.add(ModBlocks.LEVEL0_CEILING_LIGHT, "Ceiling Light");
+		translationBuilder.add(ModBlocks.LEVEL0_CEILING_LIGHT, "Old Ceiling Light");
 		translationBuilder.add(ModBlocks.LEVEL0_CEILING_TILE, "Tiles");
 
 		translationBuilder.add(ModBlocks.LEVEL1_CEILING_AQUILA, "Aquila Sector Ceiling");
 		translationBuilder.add(ModBlocks.LEVEL1_FLOOR_AQUILA, "Aquila Sector Floor");
-		translationBuilder.add(ModBlocks.LEVEL1_PILLAR_AQUILA, "Aquila Sector Pillar");
+		translationBuilder.add(ModBlocks.LEVEL1_CEILING_LIGHT, "Aquila Ceiling Light");
 
 		// Loot Blocks
 		translationBuilder.add(ModBlocks.LEVEL1_CRATE, "Crate");

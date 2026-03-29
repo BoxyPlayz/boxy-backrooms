@@ -88,6 +88,13 @@ public class ModBlocks {
 					.lightLevel(state -> 14),
 			true);
 
+	public static final Block LEVEL1_CEILING_LIGHT = register(
+			"level1_ceiling_light",
+			Block::new,
+			BlockBehaviour.Properties.of().sound(SoundType.LANTERN).strength(1000f).destroyTime(1000f)
+					.lightLevel(state -> 15),
+			true);
+
 	public static final Block LEVEL0_CARPET_GLITCHED = register(
 			"level0_carpet_glitched",
 			Level0GlitchedCarpet::new,

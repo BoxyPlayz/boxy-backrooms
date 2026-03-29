@@ -31,7 +31,7 @@ public class ModItems {
 				BuiltInRegistries.ITEM.key(),
 				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "gray_almond_water"));
 		GRAY_ALMOND_WATER = registerItem("gray_almond_water", new Item(new Item.Properties()
-				.food(new FoodProperties.Builder().nutrition(5).saturationModifier(1f).build())
+				.food(new FoodProperties.Builder().nutrition(5).saturationModifier(1f).alwaysEdible().build())
 				.setId(grayAlmondWaterKey)));
 
 		ResourceKey<Item> royalRationKey = ResourceKey.create(
@@ -45,7 +45,7 @@ public class ModItems {
 				BuiltInRegistries.ITEM.key(),
 				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "green_almond_water"));
 		GREEN_ALMOND_WATER = registerItem("green_almond_water", new Item(new Item.Properties()
-				.food(new FoodProperties.Builder().nutrition(4).saturationModifier(1f).build(),
+				.food(new FoodProperties.Builder().nutrition(4).saturationModifier(1f).alwaysEdible().build(),
 						Consumables.defaultFood()
 								.onConsume(new ApplyStatusEffectsConsumeEffect(
 										new MobEffectInstance(MobEffects.SPEED, 10 * 20, 2)))
@@ -58,7 +58,7 @@ public class ModItems {
 				BuiltInRegistries.ITEM.key(),
 				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "red_almond_water"));
 		RED_ALMOND_WATER = registerItem("red_almond_water", new Item(new Item.Properties()
-				.food(new FoodProperties.Builder().nutrition(4).saturationModifier(1f).build(),
+				.food(new FoodProperties.Builder().nutrition(4).saturationModifier(1f).alwaysEdible().build(),
 						Consumables.defaultFood()
 								.onConsume(new ApplyStatusEffectsConsumeEffect(
 										new MobEffectInstance(MobEffects.SLOWNESS, 30 * 20, 1)))

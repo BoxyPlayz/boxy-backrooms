@@ -81,26 +81,18 @@ public class Level1BiomeSource extends BiomeSource {
 		long chunkZ = Math.floorDiv(z, 16);
 
 		double noiseValue = getNoise(randomFactory).getValue(chunkX * 0.03, chunkZ * 0.03);
-		if (noiseValue > 0.6) {
-			if (noiseValue > 0.8) {
-				if (noiseValue > 0.9) {
-					if (noiseValue > 0.91) {
-						if (noiseValue > 0.99) {
-							return this.fabled;
-						} else {
-							return this.garden;
-						}
-					} else {
-						return this.ouroboros;
-					}
-				} else {
-					return this.gothic;
-				}
-			} else {
-				return this.gilded;
-			}
-		}
 
+		if (noiseValue > 0.95) {
+			return this.fabled;
+		} else if (noiseValue > 0.9) {
+			return this.garden;
+		} else if (noiseValue > 0.8) {
+			return this.ouroboros;
+		} else if (noiseValue > 0.7) {
+			return this.gothic;
+		} else if (noiseValue > 0.5) {
+			return this.gilded;
+		}
 		return this.aquila;
 	}
 
