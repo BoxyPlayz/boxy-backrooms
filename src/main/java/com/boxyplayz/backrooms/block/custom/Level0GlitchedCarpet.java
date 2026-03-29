@@ -40,10 +40,13 @@ public class Level0GlitchedCarpet extends Block {
 		int y = 1;
 
 		BlockPos center = new BlockPos(x, y, z);
-		searchLoop: for (int dx = -5; dx <= 5; dx++) {
-			for (int dz = -5; dz <= 5; dz++) {
+
+		int searchSize = 10;
+
+		searchLoop: for (int dx = -searchSize; dx <= searchSize; dx++) {
+			for (int dz = -searchSize; dz <= searchSize; dz++) {
 				BlockPos newPos = center.offset(dx, 0, dz);
-				if (target.getBlockState(newPos).isAir()) {
+				if (!target.getBlockState(newPos).isSuffocating(level, blockPos)) {
 					x = newPos.getX();
 					z = newPos.getZ();
 					break searchLoop;

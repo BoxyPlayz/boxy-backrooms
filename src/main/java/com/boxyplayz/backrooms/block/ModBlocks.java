@@ -146,7 +146,14 @@ public class ModBlocks {
 	public static final Block GARDEN_CONCRETE = register(
 			"garden_concrete",
 			Block::new,
-			BlockBehaviour.Properties.of().mapColor(MapColor.GRASS).randomTicks().strength(0.6F).sound(SoundType.GRASS),
+			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).randomTicks().strength(0.6F)
+					.sound(SoundType.MOSS),
+			true);
+
+	public static final Block AGED_CONCRETE = register(
+			"aged_concrete",
+			Block::new,
+			BlockBehaviour.Properties.of().mapColor(MapColor.STONE).randomTicks().strength(0.6F).sound(SoundType.STONE),
 			true);
 
 	public static void RegisterModBlocks() {

@@ -47,6 +47,22 @@ public class Level1ChunkGen extends ChunkGenerator {
 		return (random.nextIntBetweenInclusive(1, 10) == 1);
 	}
 
+	protected BlockState getRandomWood(RandomSource random) {
+		int woodId = random.nextInt(1, 3);
+		switch (woodId) {
+			case 1:
+				return Blocks.OAK_PLANKS.defaultBlockState();
+
+			case 2:
+				return Blocks.SPRUCE_PLANKS.defaultBlockState();
+
+			case 3:
+				return Blocks.DARK_OAK_PLANKS.defaultBlockState();
+			default:
+				return Blocks.AIR.defaultBlockState();
+		}
+	}
+
 	private SimplexNoise noise;
 
 	protected SimplexNoise getNoise(PositionalRandomFactory worldSeed) {
@@ -92,7 +108,7 @@ public class Level1ChunkGen extends ChunkGenerator {
 				return ModBlocks.LEVEL1_PILLAR_AQUILA.defaultBlockState();
 			}
 		} else if (biome.is(ModBiomes.Level1Biomes.GILDED_BIOME)) {
-			RandomSource random = randomFactory.at(Math.floorDiv(x, 16), 0, Math.floorDiv(z, 16));
+			RandomSource random = randomFactory.at(Math.floorDiv(x, 16), Math.floorDiv(y, 7), Math.floorDiv(z, 16));
 
 			// Floor
 			if (Math.floorMod(y, 7) == 0) {
@@ -138,23 +154,71 @@ public class Level1ChunkGen extends ChunkGenerator {
 				return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
 			}
 
-			// Ceiling
-			if (Math.floorMod(y, 7) == 6) {
-				return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
-			}
-
 			if (Math.floorMod(localX, 7) == 3 && Math.floorMod(localZ, 7) == 3) {
 				return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
 			}
 
 			Range<Integer> baseRange = Range.of(2, 4);
+			Range<Integer> lightRange = Range.of(1, 5);
 
-			if (baseRange.contains(Math.floorMod(localX, 7))) {
-				if (baseRange.contains(Math.floorMod(localZ, 7))) {
+			if (lightRange.contains(Math.floorMod(localX, 7)) && lightRange.contains(Math.floorMod(localZ, 7))) {
+				if (baseRange.contains(Math.floorMod(localX, 7)) && baseRange.contains(Math.floorMod(localZ, 7))) {
 					if (Math.floorMod(y, 7) == 1 || Math.floorMod(y, 7) == 5) {
 						return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
 					}
+				} else {
+					if (Math.floorMod(y, 7) == 6) {
+						return ModBlocks.LEVEL1_CEILING_LIGHT.defaultBlockState();
+					}
 				}
+			}
+
+			// Ceiling
+			if (Math.floorMod(y, 7) == 6) {
+				return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
+			}
+		} else if (biome.is(ModBiomes.Level1Biomes.OUROBOROS_BIOME)) {
+			RandomSource blockRandom = randomFactory.at(x, y, z);
+			if (Math.floorMod(y, 7) == 0) {
+				return ModBlocks.AGED_CONCRETE.defaultBlockState();
+			}
+
+			RandomSource pillarRandom = randomFactory.at(x, Math.floorDiv(y, 7), z);
+
+			if (pillarRandom.nextIntBetweenInclusive(1, 20) == 1) {
+				return ModBlocks.AGED_CONCRETE.defaultBlockState();
+			}
+
+			int cellX = Math.floorDiv(Math.floorMod(x, 16), 8);
+			int cellZ = Math.floorDiv(Math.floorMod(z, 16), 8);
+
+			int localerX = Math.abs(Math.floorMod(x, 8));
+			int localerZ = Math.abs(Math.floorMod(z, 8));
+
+			RandomSource cellRandom = randomFactory.at(
+					(int) (chunkX * 4 + cellX),
+					Math.floorDiv(y, 7),
+					(int) (chunkZ * 4 + cellZ));
+
+			if (getRandomBool(cellRandom, 10) && localerZ == 0) {
+				return ModBlocks.AGED_CONCRETE.defaultBlockState();
+			}
+			if (getRandomBool(cellRandom, 10) && localerZ == 7) {
+				return ModBlocks.AGED_CONCRETE.defaultBlockState();
+			}
+			if (getRandomBool(cellRandom, 10) && localerX == 0) {
+				return ModBlocks.AGED_CONCRETE.defaultBlockState();
+			}
+			if (getRandomBool(cellRandom, 10) && localerX == 7) {
+				return ModBlocks.AGED_CONCRETE.defaultBlockState();
+			}
+
+			// Ceiling
+			if (Math.floorMod(y, 7) == 6) {
+				if (blockRandom.nextIntBetweenInclusive(0, 8) == 1) {
+					return ModBlocks.LEVEL1_CEILING_LIGHT.defaultBlockState();
+				}
+				return ModBlocks.AGED_CONCRETE.defaultBlockState();
 			}
 		} else if (biome.is(ModBiomes.Level1Biomes.GARDEN_BIOME)) {
 			RandomSource blockRandom = randomFactory.at(x, y, z);
@@ -176,7 +240,7 @@ public class Level1ChunkGen extends ChunkGenerator {
 
 			RandomSource cellRandom = randomFactory.at(
 					(int) (chunkX * 4 + cellX),
-					0,
+					Math.floorDiv(y, 7),
 					(int) (chunkZ * 4 + cellZ));
 
 			if (getRandomBool(cellRandom) && localerZ == 0) {
@@ -258,6 +322,53 @@ public class Level1ChunkGen extends ChunkGenerator {
 					default:
 						break;
 				}
+			}
+
+		} else if (biome.is(ModBiomes.Level1Biomes.FABLED_BIOME)) {
+			// Floor
+			if (Math.floorMod(y, 7) == 0) {
+				return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
+			}
+
+			// Ceiling
+			if (Math.floorMod(y, 7) == 6) {
+				if (Math.floorMod(localZ, 4) == 0) {
+					if (Math.floorMod(Math.floorDiv(localX, 2), 4) == 0) {
+						return ModBlocks.LEVEL1_CEILING_LIGHT.defaultBlockState();
+					}
+				}
+
+				return Blocks.SPRUCE_PLANKS.defaultBlockState();
+			}
+
+			int cellSize = 4;
+
+			int cellX = Math.floorDiv(Math.floorMod(x, 16), cellSize);
+			int cellZ = Math.floorDiv(Math.floorMod(z, 16), cellSize);
+
+			int localerX = Math.abs(Math.floorMod(x, cellSize));
+			int localerZ = Math.abs(Math.floorMod(z, cellSize));
+
+			RandomSource cellRandom = randomFactory.at(
+					(int) (chunkX * 4 + cellX),
+					Math.floorDiv(y, 7),
+					(int) (chunkZ * 4 + cellZ));
+
+			if (getRandomBool(cellRandom) && localerZ == 0) {
+				RandomSource randomWallSource = randomFactory.at(x, Math.floorDiv(y, 7), Math.floorDiv(z, cellSize));
+				return getRandomWood(randomWallSource);
+			}
+			if (getRandomBool(cellRandom) && localerZ == cellSize - 1) {
+				RandomSource randomWallSource = randomFactory.at(x, Math.floorDiv(y, 7), Math.floorDiv(z, cellSize));
+				return getRandomWood(randomWallSource);
+			}
+			if (getRandomBool(cellRandom) && localerX == 0) {
+				RandomSource randomWallSource = randomFactory.at(Math.floorDiv(x, cellSize), Math.floorDiv(y, 7), z);
+				return getRandomWood(randomWallSource);
+			}
+			if (getRandomBool(cellRandom) && localerX == cellSize - 1) {
+				RandomSource randomWallSource = randomFactory.at(Math.floorDiv(x, cellSize), Math.floorDiv(y, 7), z);
+				return getRandomWood(randomWallSource);
 			}
 
 		} else {

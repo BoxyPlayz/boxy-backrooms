@@ -34,6 +34,7 @@ public class BoxyBackroomsModelProvider extends FabricModelProvider {
 		blockStateModelGenerator.createTrivialCube(ModBlocks.PURE_GRASS);
 		blockStateModelGenerator.createTrivialCube(ModBlocks.GOTHIC_CONCRETE);
 		blockStateModelGenerator.createTrivialCube(ModBlocks.GARDEN_CONCRETE);
+		blockStateModelGenerator.createTrivialCube(ModBlocks.AGED_CONCRETE);
 	}
 
 	@Override
