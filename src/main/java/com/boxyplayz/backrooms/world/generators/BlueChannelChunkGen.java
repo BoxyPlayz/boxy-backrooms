@@ -29,8 +29,22 @@ import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraft.world.level.levelgen.PositionalRandomFactory;
 import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.blending.Blender;
+import net.minecraft.world.level.levelgen.synth.SimplexNoise;
 
 public class BlueChannelChunkGen extends ChunkGenerator {
+	private SimplexNoise noise;
+
+	protected SimplexNoise getNoise(PositionalRandomFactory worldSeed) {
+		if (this.noise == null) {
+			RandomSource random = worldSeed.fromHashOf("blueChannel");
+			this.noise = new SimplexNoise(random);
+		}
+		return this.noise;
+	}
+
+	private boolean getRandomBool(RandomSource random) {
+		return random.nextIntBetweenInclusive(0, 5) == 0;
+	}
 
 	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
 		Holder<Biome> biome = this.getBiomeSource().getNoiseBiome(x, y, z, null);
@@ -44,10 +58,44 @@ public class BlueChannelChunkGen extends ChunkGenerator {
 
 		if (chunkRandom.nextIntBetweenInclusive(0, 40) == 5) {
 			int chunkType = chunkRandom.nextIntBetweenInclusive(1, 4);
+			int cellX;
+			int cellZ;
+			int localX;
+			int localZ;
+			RandomSource cellRandom;
 			switch (chunkType) {
 				case 1:
 					if (y <= 40) {
 						return ModBlocks.LEVEL0_CARPET.defaultBlockState();
+					}
+					if (y >= 44) {
+						if (Math.floorMod(x, 4) == 2 && Math.floorMod(z, 4) == 2) {
+							return ModBlocks.LEVEL0_CEILING_LIGHT.defaultBlockState();
+						}
+						return ModBlocks.LEVEL0_CEILING_TILE.defaultBlockState();
+					}
+					cellX = Math.floorDiv(Math.floorMod(x, 16), 4);
+					cellZ = Math.floorDiv(Math.floorMod(z, 16), 4);
+
+					localX = Math.abs(Math.floorMod(x, 4));
+					localZ = Math.abs(Math.floorMod(z, 4));
+
+					cellRandom = randomFactory.at(
+							(int) (chunkX * 4 + cellX),
+							0,
+							(int) (chunkZ * 4 + cellZ));
+
+					if (getRandomBool(cellRandom) && localZ == 0) {
+						return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
+					}
+					if (getRandomBool(cellRandom) && localZ == 3) {
+						return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
+					}
+					if (getRandomBool(cellRandom) && localX == 0) {
+						return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
+					}
+					if (getRandomBool(cellRandom) && localX == 3) {
+						return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
 					}
 					break;
 
@@ -55,19 +103,57 @@ public class BlueChannelChunkGen extends ChunkGenerator {
 					if (y <= 40) {
 						return ModBlocks.INFERIOR_CARPET.defaultBlockState();
 					}
+					if (y >= 44) {
+						if (Math.floorMod(x, 4) == 2 && Math.floorMod(z, 4) == 2) {
+							return ModBlocks.LEVEL1_CEILING_LIGHT.defaultBlockState();
+						}
+						return ModBlocks.INFERIOR_CEILING_TILE.defaultBlockState();
+					}
+					cellX = Math.floorDiv(Math.floorMod(x, 16), 4);
+					cellZ = Math.floorDiv(Math.floorMod(z, 16), 4);
+
+					localX = Math.abs(Math.floorMod(x, 4));
+					localZ = Math.abs(Math.floorMod(z, 4));
+
+					cellRandom = randomFactory.at(
+							(int) (chunkX * 4 + cellX),
+							0,
+							(int) (chunkZ * 4 + cellZ));
+
+					if (getRandomBool(cellRandom) && localZ == 0) {
+						return ModBlocks.INFERIOR_WALLPAPER.defaultBlockState();
+					}
+					if (getRandomBool(cellRandom) && localZ == 3) {
+						return ModBlocks.INFERIOR_WALLPAPER.defaultBlockState();
+					}
+					if (getRandomBool(cellRandom) && localX == 0) {
+						return ModBlocks.INFERIOR_WALLPAPER.defaultBlockState();
+					}
+					if (getRandomBool(cellRandom) && localX == 3) {
+						return ModBlocks.INFERIOR_WALLPAPER.defaultBlockState();
+					}
 					break;
 
 				case 3:
 					if (y <= 40) {
-						return ModBlocks.OCEAN_TRANSPORTER.defaultBlockState();
+						if (y <= 20) {
+							return ModBlocks.OCEAN_TRANSPORTER.defaultBlockState();
+						}
+						return Blocks.WATER.defaultBlockState();
 					}
 					break;
 
 				case 4:
-					if (y <= 40) {
+					double recievedValue = this.getNoise(randomFactory).getValue(x, y, z);
+					if (recievedValue > 0.5) {
 						return ModBlocks.ERRORSLATE.defaultBlockState();
+					} else {
+						if (y < 5) {
+							return ModBlocks.PURE_BLUE.defaultBlockState();
+						} else {
+							return Blocks.AIR.defaultBlockState();
+						}
 					}
-					break;
 
 				default:
 					return Blocks.AIR.defaultBlockState();

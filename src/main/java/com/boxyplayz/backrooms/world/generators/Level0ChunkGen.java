@@ -85,7 +85,7 @@ public class Level0ChunkGen extends ChunkGenerator {
 			if (getRandomBool(cellRandom) && localX == 3) {
 				return ModBlocks.PREMIUM_WALLPAPER.defaultBlockState();
 			}
-
+			return Blocks.AIR.defaultBlockState();
 		}
 
 		// Floor
