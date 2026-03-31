@@ -91,6 +91,17 @@ public class EntityEvents {
 					}
 				}
 
+				if (player.level().dimension() == ModDimensions.LEVEL_NEGATIVE_0_2_DIMENSION) {
+					if (player.position().y < -10) {
+						ServerLevel target = player.level().getServer().getLevel(ModDimensions.BLUE_CHANNEL_DIMENSION);
+						if (target == null)
+							return;
+						player.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 10 * 20, 20));
+						player.teleportTo(target, player.position().x, 120, player.position().z, Set.of(),
+								player.getYRot(), player.getXRot(), false);
+					}
+				}
+
 				if (player.level().dimension() == ModDimensions.LEVEL1_DIMENSION) {
 					if (player.level().getBiome(new BlockPos(
 							((int) Math.floor(player.position().x)),

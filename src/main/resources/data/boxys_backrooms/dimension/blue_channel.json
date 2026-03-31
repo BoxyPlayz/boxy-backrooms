@@ -1,7 +1,7 @@
 {
 	"type": "boxys_backrooms:blue_channel",
 	"generator": {
-		"type": "boxys_backrooms:level0_2",
+		"type": "boxys_backrooms:blue_channel",
 		"biome_source": {
 			"type": "minecraft:fixed",
 			"biome": "minecraft:the_void"

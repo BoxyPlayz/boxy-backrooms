@@ -28,7 +28,8 @@ public class InferiorCarpet extends Block {
 		if (!player.isShiftKeyDown())
 			return;
 
-		if (!(level.dimension() == ModDimensions.LEVEL0_2_DIMENSION))
+		if (!(level.dimension() == ModDimensions.LEVEL0_2_DIMENSION
+				|| level.dimension() == ModDimensions.BLUE_CHANNEL_DIMENSION))
 			return;
 
 		ServerLevel target = player.level().getServer().getLevel(ModDimensions.LEVEL_NEGATIVE_0_2_DIMENSION);

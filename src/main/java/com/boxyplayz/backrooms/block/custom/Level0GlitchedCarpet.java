@@ -29,7 +29,8 @@ public class Level0GlitchedCarpet extends Block {
 			return;
 
 		if (!(level.dimension() == ModDimensions.LEVEL0_DIMENSION
-				|| level.dimension() == ModDimensions.LEVEL0_2_DIMENSION))
+				|| level.dimension() == ModDimensions.LEVEL0_2_DIMENSION
+				|| level.dimension() == ModDimensions.BLUE_CHANNEL_DIMENSION))
 			return;
 
 		ServerLevel target = player.level().getServer().getLevel(ModDimensions.LEVEL1_DIMENSION);

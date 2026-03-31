@@ -9,6 +9,10 @@ import net.minecraft.world.level.Level;
 
 public class ModDimensions {
 
+        public static final ResourceKey<Level> BLUE_CHANNEL_DIMENSION = ResourceKey.create(
+                        Registries.DIMENSION,
+                        Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "blue_channel"));
+
         public static final ResourceKey<Level> LEVEL8_DIMENSION = ResourceKey.create(
                         Registries.DIMENSION,
                         Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level8_cavesystem"));

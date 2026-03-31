@@ -196,6 +196,12 @@ public class ModBlocks {
 			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).strength(0.6F).sound(SoundType.STONE),
 			true);
 
+	public static final Block PURE_BLUE = register(
+			"pure_blue",
+			Block::new,
+			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).strength(999F).sound(SoundType.AMETHYST),
+			true);
+
 	public static void RegisterModBlocks() {
 	}
 }

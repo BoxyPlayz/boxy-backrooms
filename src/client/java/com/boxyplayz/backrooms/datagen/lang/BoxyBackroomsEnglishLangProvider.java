@@ -63,6 +63,8 @@ public class BoxyBackroomsEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModBlocks.GARDEN_CONCRETE, "Garden Concrete");
 		translationBuilder.add(ModBlocks.AGED_CONCRETE, "Aged Concrete");
 
+		translationBuilder.add(ModBlocks.PURE_BLUE, "Pure Blue");
+
 		// Loot Blocks
 		translationBuilder.add(ModBlocks.LEVEL1_CRATE, "Crate");
 

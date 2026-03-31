@@ -30,11 +30,7 @@ import net.minecraft.world.level.levelgen.PositionalRandomFactory;
 import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.blending.Blender;
 
-public class Level_Negative_0_2ChunkGen extends ChunkGenerator {
-
-	private boolean getRandomBool(RandomSource random) {
-		return random.nextIntBetweenInclusive(0, 5) == 0;
-	}
+public class BlueChannelChunkGen extends ChunkGenerator {
 
 	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
 		Holder<Biome> biome = this.getBiomeSource().getNoiseBiome(x, y, z, null);
@@ -42,101 +38,58 @@ public class Level_Negative_0_2ChunkGen extends ChunkGenerator {
 	}
 
 	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z, Holder<Biome> biome) {
-		long chunkX = Math.floorDiv(x, 16);
-		long chunkZ = Math.floorDiv(z, 16);
+		int chunkX = Math.floorDiv(x, 16);
+		int chunkZ = Math.floorDiv(z, 16);
+		RandomSource chunkRandom = randomFactory.at(chunkX, 0, chunkZ);
 
-		RandomSource chunkRandom = randomFactory.at((int) chunkX, 0, (int) chunkZ);
+		if (chunkRandom.nextIntBetweenInclusive(0, 40) == 5) {
+			int chunkType = chunkRandom.nextIntBetweenInclusive(1, 4);
+			switch (chunkType) {
+				case 1:
+					if (y <= 40) {
+						return ModBlocks.LEVEL0_CARPET.defaultBlockState();
+					}
+					break;
 
-		if (chunkRandom.nextIntBetweenInclusive(0, 24) == 2) {
-			if (y <= 0) {
-				return ModBlocks.PREMIUM_CARPET.defaultBlockState();
-			}
-			if (y >= 4) {
-				if (Math.floorMod(x, 4) == 2 && Math.floorMod(z, 4) == 2) {
-					return ModBlocks.LEVEL0_CEILING_LIGHT.defaultBlockState();
-				}
-				return ModBlocks.PREMIUM_CEILING_TILE.defaultBlockState();
-			}
+				case 2:
+					if (y <= 40) {
+						return ModBlocks.INFERIOR_CARPET.defaultBlockState();
+					}
+					break;
 
-			int cellX = Math.floorDiv(Math.floorMod(x, 16), 4);
-			int cellZ = Math.floorDiv(Math.floorMod(z, 16), 4);
-			int localX = Math.abs(Math.floorMod(x, 4));
-			int localZ = Math.abs(Math.floorMod(z, 4));
+				case 3:
+					if (y <= 40) {
+						return ModBlocks.OCEAN_TRANSPORTER.defaultBlockState();
+					}
+					break;
 
-			RandomSource cellRandom = randomFactory.at(
-					(int) (chunkX * 4 + cellX),
-					0,
-					(int) (chunkZ * 4 + cellZ));
+				case 4:
+					if (y <= 40) {
+						return ModBlocks.ERRORSLATE.defaultBlockState();
+					}
+					break;
 
-			if (getRandomBool(cellRandom) && localZ == 0) {
-				return ModBlocks.PREMIUM_WALLPAPER.defaultBlockState();
+				default:
+					return Blocks.AIR.defaultBlockState();
 			}
-			if (getRandomBool(cellRandom) && localZ == 3) {
-				return ModBlocks.PREMIUM_WALLPAPER.defaultBlockState();
-			}
-			if (getRandomBool(cellRandom) && localX == 0) {
-				return ModBlocks.PREMIUM_WALLPAPER.defaultBlockState();
-			}
-			if (getRandomBool(cellRandom) && localX == 3) {
-				return ModBlocks.PREMIUM_WALLPAPER.defaultBlockState();
-			}
-
 		}
-
 		// Floor
-		if (y <= 0) {
-			RandomSource xyRandom = randomFactory.at(x, 0, z);
-			if (xyRandom.nextIntBetweenInclusive(1, 300) == 4) {
-				return Blocks.AIR.defaultBlockState();
-			}
-			return ModBlocks.INFERIOR_CARPET.defaultBlockState();
-		}
-
-		// Ceiling
-		if (y >= 4) {
-			if (Math.floorMod(x, 4) == 2 && Math.floorMod(z, 4) == 2) {
-				return ModBlocks.LEVEL1_CEILING_LIGHT.defaultBlockState();
-			}
-			return ModBlocks.INFERIOR_CEILING_TILE.defaultBlockState();
-		}
-
-		// Maze logic start!
-		int cellX = Math.floorDiv(Math.floorMod(x, 16), 4);
-		int cellZ = Math.floorDiv(Math.floorMod(z, 16), 4);
-
-		int localX = Math.abs(Math.floorMod(x, 4));
-		int localZ = Math.abs(Math.floorMod(z, 4));
-
-		RandomSource cellRandom = randomFactory.at(
-				(int) (chunkX * 4 + cellX),
-				0,
-				(int) (chunkZ * 4 + cellZ));
-
-		if (getRandomBool(cellRandom) && localZ == 0) {
-			return ModBlocks.INFERIOR_WALLPAPER.defaultBlockState();
-		}
-		if (getRandomBool(cellRandom) && localZ == 3) {
-			return ModBlocks.INFERIOR_WALLPAPER.defaultBlockState();
-		}
-		if (getRandomBool(cellRandom) && localX == 0) {
-			return ModBlocks.INFERIOR_WALLPAPER.defaultBlockState();
-		}
-		if (getRandomBool(cellRandom) && localX == 3) {
-			return ModBlocks.INFERIOR_WALLPAPER.defaultBlockState();
+		if (y <= 40) {
+			return ModBlocks.PURE_BLUE.defaultBlockState();
 		}
 
 		return Blocks.AIR.defaultBlockState();
 	}
 
-	public Level_Negative_0_2ChunkGen(Holder.Reference<Biome> biome) {
+	public BlueChannelChunkGen(Holder.Reference<Biome> biome) {
 		super(new FixedBiomeSource(biome));
 	}
 
-	public static final MapCodec<Level_Negative_0_2ChunkGen> CODEC = RecordCodecBuilder.mapCodec(
+	public static final MapCodec<BlueChannelChunkGen> CODEC = RecordCodecBuilder.mapCodec(
 			instance -> instance.group(
 					RegistryOps.retrieveElement(Biomes.THE_VOID))
 					.apply(instance,
-							instance.stable(Level_Negative_0_2ChunkGen::new)));
+							instance.stable(BlueChannelChunkGen::new)));
 
 	@Override
 	protected MapCodec<? extends ChunkGenerator> codec() {
@@ -159,14 +112,14 @@ public class Level_Negative_0_2ChunkGen extends ChunkGenerator {
 
 	@Override
 	public int getGenDepth() {
-		return 32;
+		return 256;
 	}
 
 	@Override
 	public CompletableFuture<ChunkAccess> fillFromNoise(Blender blender, RandomState randomState,
 			StructureManager structureManager, ChunkAccess chunkAccess) {
 		PositionalRandomFactory worldSeed = randomState
-				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level0seed"));
+				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "blue"));
 
 		int minY = getMinY();
 
@@ -200,7 +153,7 @@ public class Level_Negative_0_2ChunkGen extends ChunkGenerator {
 
 	@Override
 	public int getMinY() {
-		return -16;
+		return 0;
 	}
 
 	@Override

@@ -25,6 +25,10 @@ public class ModBiomes {
 			Registries.BIOME,
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "pitfalls"));
 
+	public static final ResourceKey<Biome> BLUE_CHANNEL_BIOME = ResourceKey.create(
+			Registries.BIOME,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "blue_channel"));
+
 	public class Level1Biomes {
 		public static final ResourceKey<Biome> AQUILA_BIOME = ResourceKey.create(
 				Registries.BIOME,
