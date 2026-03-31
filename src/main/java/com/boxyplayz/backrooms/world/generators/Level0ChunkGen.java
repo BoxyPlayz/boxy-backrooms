@@ -52,7 +52,7 @@ public class Level0ChunkGen extends ChunkGenerator {
 
 		RandomSource chunkRandom = randomFactory.at((int) chunkX, 0, (int) chunkZ);
 
-		if (chunkRandom.nextIntBetweenInclusive(0, 2) == 2) {
+		if (chunkRandom.nextIntBetweenInclusive(0, 76) == 2) {
 			if (y <= 0) {
 				return ModBlocks.PREMIUM_CARPET.defaultBlockState();
 			}
