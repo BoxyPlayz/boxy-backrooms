@@ -1,0 +1,23 @@
+{
+	"attributes": {
+		"minecraft:visual/ambient_light_color": "#0000ff",
+		"minecraft:visual/fog_color": "#0000ff",
+		"minecraft:visual/sky_color": "#0000ff",
+		"minecraft:visual/night_vision_color": "#0000ff",
+		"minecraft:visual/sky_light_color": "#0000ff",
+		"minecraft:visual/sunrise_sunset_color": 255,
+		"minecraft:visual/cloud_color": 1728436,
+		"minecraft:visual/water_fog_color": 1728436
+	},
+	"has_skylight": true,
+	"has_ceiling": false,
+	"has_ender_dragon_fight": false,
+	"coordinate_scale": 1,
+	"ambient_light": 0,
+	"logical_height": 0,
+	"infiniburn": "#minecraft:ice",
+	"min_y": 0,
+	"height": 256,
+	"monster_spawn_light_level": 0,
+	"monster_spawn_block_light_limit": 0
+}

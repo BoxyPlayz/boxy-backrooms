@@ -24,6 +24,7 @@ public class BoxysBackroomsItemTagProvider extends FabricTagsProvider.ItemTagsPr
 				.add(ModBlocks.LEVEL0_WALLPAPER.asItem())
 				.add(ModBlocks.LEVEL0_CARPET.asItem())
 				.add(ModBlocks.PREMIUM_CARPET.asItem())
+				.add(ModBlocks.INFERIOR_CARPET.asItem())
 				.add(ModBlocks.LEVEL0_CARPET_GLITCHED.asItem())
 				.add(ModBlocks.OCEAN_TRANSPORTER.asItem());
 

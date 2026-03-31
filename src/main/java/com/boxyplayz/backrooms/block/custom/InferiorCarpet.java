@@ -12,9 +12,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class PremiumCarpet extends Block {
+public class InferiorCarpet extends Block {
 
-	public PremiumCarpet(Properties properties) {
+	public InferiorCarpet(Properties properties) {
 		super(properties);
 	}
 
@@ -28,11 +28,10 @@ public class PremiumCarpet extends Block {
 		if (!player.isShiftKeyDown())
 			return;
 
-		if (!(level.dimension() == ModDimensions.LEVEL0_DIMENSION
-				|| level.dimension() == ModDimensions.LEVEL_NEGATIVE_0_2_DIMENSION))
+		if (!(level.dimension() == ModDimensions.LEVEL0_2_DIMENSION))
 			return;
 
-		ServerLevel target = player.level().getServer().getLevel(ModDimensions.LEVEL0_2_DIMENSION);
+		ServerLevel target = player.level().getServer().getLevel(ModDimensions.LEVEL_NEGATIVE_0_2_DIMENSION);
 		if (target == null)
 			return;
 

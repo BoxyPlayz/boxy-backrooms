@@ -1,5 +1,6 @@
 {
 	"has_skylight": true,
+	"default_clock": "boxys_backrooms:level94",
 	"has_ceiling": false,
 	"coordinate_scale": 1,
 	"ambient_light": 0,

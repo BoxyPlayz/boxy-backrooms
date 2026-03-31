@@ -30,7 +30,7 @@ import net.minecraft.world.level.levelgen.PositionalRandomFactory;
 import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.blending.Blender;
 
-public class Level0_2ChunkGen extends ChunkGenerator {
+public class Level_Negative_0_2ChunkGen extends ChunkGenerator {
 
 	private boolean getRandomBool(RandomSource random) {
 		return random.nextIntBetweenInclusive(0, 5) == 0;
@@ -45,22 +45,17 @@ public class Level0_2ChunkGen extends ChunkGenerator {
 		long chunkX = Math.floorDiv(x, 16);
 		long chunkZ = Math.floorDiv(z, 16);
 
-		RandomSource random = randomFactory.at(new BlockPos(x, y, z));
-
 		RandomSource chunkRandom = randomFactory.at((int) chunkX, 0, (int) chunkZ);
 
-		if (chunkRandom.nextIntBetweenInclusive(0, 16) == 2) {
+		if (chunkRandom.nextIntBetweenInclusive(0, 24) == 2) {
 			if (y <= 0) {
-				if (random.nextIntBetweenInclusive(0, 7) == 0) {
-					return ModBlocks.LEVEL0_CARPET_GLITCHED.defaultBlockState();
-				}
-				return ModBlocks.LEVEL0_CARPET.defaultBlockState();
+				return ModBlocks.PREMIUM_CARPET.defaultBlockState();
 			}
 			if (y >= 4) {
 				if (Math.floorMod(x, 4) == 2 && Math.floorMod(z, 4) == 2) {
 					return ModBlocks.LEVEL0_CEILING_LIGHT.defaultBlockState();
 				}
-				return ModBlocks.LEVEL0_CEILING_TILE.defaultBlockState();
+				return ModBlocks.PREMIUM_CEILING_TILE.defaultBlockState();
 			}
 
 			int cellX = Math.floorDiv(Math.floorMod(x, 16), 4);
@@ -74,67 +69,31 @@ public class Level0_2ChunkGen extends ChunkGenerator {
 					(int) (chunkZ * 4 + cellZ));
 
 			if (getRandomBool(cellRandom) && localZ == 0) {
-				return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
+				return ModBlocks.PREMIUM_WALLPAPER.defaultBlockState();
 			}
 			if (getRandomBool(cellRandom) && localZ == 3) {
-				return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
+				return ModBlocks.PREMIUM_WALLPAPER.defaultBlockState();
 			}
 			if (getRandomBool(cellRandom) && localX == 0) {
-				return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
+				return ModBlocks.PREMIUM_WALLPAPER.defaultBlockState();
 			}
 			if (getRandomBool(cellRandom) && localX == 3) {
-				return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
-			}
-
-		}
-
-		if (chunkRandom.nextIntBetweenInclusive(0, 46) == 2) {
-			if (y <= 0) {
-				return ModBlocks.INFERIOR_CARPET.defaultBlockState();
-			}
-			if (y >= 4) {
-				if (Math.floorMod(x, 4) == 2 && Math.floorMod(z, 4) == 2) {
-					return ModBlocks.LEVEL0_CEILING_LIGHT.defaultBlockState();
-				}
-				return ModBlocks.INFERIOR_CEILING_TILE.defaultBlockState();
-			}
-
-			int cellX = Math.floorDiv(Math.floorMod(x, 16), 4);
-			int cellZ = Math.floorDiv(Math.floorMod(z, 16), 4);
-			int localX = Math.abs(Math.floorMod(x, 4));
-			int localZ = Math.abs(Math.floorMod(z, 4));
-
-			RandomSource cellRandom = randomFactory.at(
-					(int) (chunkX * 4 + cellX),
-					0,
-					(int) (chunkZ * 4 + cellZ));
-
-			if (getRandomBool(cellRandom) && localZ == 0) {
-				return ModBlocks.INFERIOR_WALLPAPER.defaultBlockState();
-			}
-			if (getRandomBool(cellRandom) && localZ == 3) {
-				return ModBlocks.INFERIOR_WALLPAPER.defaultBlockState();
-			}
-			if (getRandomBool(cellRandom) && localX == 0) {
-				return ModBlocks.INFERIOR_WALLPAPER.defaultBlockState();
-			}
-			if (getRandomBool(cellRandom) && localX == 3) {
-				return ModBlocks.INFERIOR_WALLPAPER.defaultBlockState();
+				return ModBlocks.PREMIUM_WALLPAPER.defaultBlockState();
 			}
 
 		}
 
 		// Floor
 		if (y <= 0) {
-			return ModBlocks.PREMIUM_CARPET.defaultBlockState();
+			return ModBlocks.INFERIOR_CARPET.defaultBlockState();
 		}
 
 		// Ceiling
 		if (y >= 4) {
 			if (Math.floorMod(x, 4) == 2 && Math.floorMod(z, 4) == 2) {
-				return ModBlocks.LEVEL0_CEILING_LIGHT.defaultBlockState();
+				return ModBlocks.LEVEL1_CEILING_LIGHT.defaultBlockState();
 			}
-			return ModBlocks.PREMIUM_CEILING_TILE.defaultBlockState();
+			return ModBlocks.INFERIOR_CEILING_TILE.defaultBlockState();
 		}
 
 		// Maze logic start!
@@ -150,30 +109,30 @@ public class Level0_2ChunkGen extends ChunkGenerator {
 				(int) (chunkZ * 4 + cellZ));
 
 		if (getRandomBool(cellRandom) && localZ == 0) {
-			return ModBlocks.PREMIUM_WALLPAPER.defaultBlockState();
+			return ModBlocks.INFERIOR_WALLPAPER.defaultBlockState();
 		}
 		if (getRandomBool(cellRandom) && localZ == 3) {
-			return ModBlocks.PREMIUM_WALLPAPER.defaultBlockState();
+			return ModBlocks.INFERIOR_WALLPAPER.defaultBlockState();
 		}
 		if (getRandomBool(cellRandom) && localX == 0) {
-			return ModBlocks.PREMIUM_WALLPAPER.defaultBlockState();
+			return ModBlocks.INFERIOR_WALLPAPER.defaultBlockState();
 		}
 		if (getRandomBool(cellRandom) && localX == 3) {
-			return ModBlocks.PREMIUM_WALLPAPER.defaultBlockState();
+			return ModBlocks.INFERIOR_WALLPAPER.defaultBlockState();
 		}
 
 		return Blocks.AIR.defaultBlockState();
 	}
 
-	public Level0_2ChunkGen(Holder.Reference<Biome> biome) {
+	public Level_Negative_0_2ChunkGen(Holder.Reference<Biome> biome) {
 		super(new FixedBiomeSource(biome));
 	}
 
-	public static final MapCodec<Level0_2ChunkGen> CODEC = RecordCodecBuilder.mapCodec(
+	public static final MapCodec<Level_Negative_0_2ChunkGen> CODEC = RecordCodecBuilder.mapCodec(
 			instance -> instance.group(
 					RegistryOps.retrieveElement(Biomes.THE_VOID))
 					.apply(instance,
-							instance.stable(Level0_2ChunkGen::new)));
+							instance.stable(Level_Negative_0_2ChunkGen::new)));
 
 	@Override
 	protected MapCodec<? extends ChunkGenerator> codec() {

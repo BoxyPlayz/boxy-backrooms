@@ -4,6 +4,7 @@ import java.util.function.Function;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.block.custom.ErrorSlateBlock;
+import com.boxyplayz.backrooms.block.custom.InferiorCarpet;
 import com.boxyplayz.backrooms.block.custom.Level0Carpet;
 import com.boxyplayz.backrooms.block.custom.Level0GlitchedCarpet;
 import com.boxyplayz.backrooms.block.custom.Level0Wallpaper;
@@ -173,6 +174,24 @@ public class ModBlocks {
 
 	public static final Block PREMIUM_CEILING_TILE = register(
 			"premium_ceiling_tile",
+			Block::new,
+			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).strength(0.6F).sound(SoundType.STONE),
+			true);
+
+	public static final Block INFERIOR_CARPET = register(
+			"inferior_carpet",
+			InferiorCarpet::new,
+			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_RED).strength(0.6F).sound(SoundType.STONE),
+			true);
+
+	public static final Block INFERIOR_WALLPAPER = register(
+			"inferior_wallpaper",
+			Block::new,
+			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).strength(0.6F).sound(SoundType.STONE),
+			true);
+
+	public static final Block INFERIOR_CEILING_TILE = register(
+			"inferior_ceiling_tile",
 			Block::new,
 			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).strength(0.6F).sound(SoundType.STONE),
 			true);

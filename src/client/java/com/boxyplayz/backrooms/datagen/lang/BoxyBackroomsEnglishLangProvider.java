@@ -50,6 +50,9 @@ public class BoxyBackroomsEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModBlocks.PREMIUM_CARPET, "Premium Carpet");
 		translationBuilder.add(ModBlocks.PREMIUM_CEILING_TILE, "Premium Ceiling Tiles");
 		translationBuilder.add(ModBlocks.PREMIUM_WALLPAPER, "Premium Wallpaper");
+		translationBuilder.add(ModBlocks.INFERIOR_CARPET, "Worn Carpet");
+		translationBuilder.add(ModBlocks.INFERIOR_CEILING_TILE, "Failed Ceiling Tiles");
+		translationBuilder.add(ModBlocks.INFERIOR_WALLPAPER, "Old Wallpaper");
 
 		translationBuilder.add(ModBlocks.LEVEL1_CEILING_AQUILA, "Aquila Sector Ceiling");
 		translationBuilder.add(ModBlocks.LEVEL1_FLOOR_AQUILA, "Aquila Sector Floor");
