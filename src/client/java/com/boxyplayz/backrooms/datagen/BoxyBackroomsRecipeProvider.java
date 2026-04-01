@@ -15,6 +15,7 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.data.recipes.SmithingTransformRecipeBuilder;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CookingBookCategory;
@@ -39,6 +40,24 @@ public class BoxyBackroomsRecipeProvider extends FabricRecipeProvider {
 			public void buildRecipes() {
 				@SuppressWarnings("unused")
 				HolderLookup.RegistryLookup<Item> itemLookup = registries.lookupOrThrow(Registries.ITEM);
+
+				SmithingTransformRecipeBuilder
+						.smithing(Ingredient.of(Items.MAGMA_CREAM),
+								Ingredient.of(ModItems.FIRESALT_SHARD),
+								Ingredient.of(Items.IRON_INGOT),
+								RecipeCategory.MISC,
+								ModItems.FIRESTEEL_ALLOY)
+						.unlocks(getHasName(ModItems.FIRESALT_SHARD), has(ModItems.FIRESALT_SHARD))
+						.save(output, getItemName(ModItems.FIRESTEEL_ALLOY) + "_smithing");
+
+				SmithingTransformRecipeBuilder
+						.smithing(Ingredient.of(Items.BLAZE_POWDER),
+								Ingredient.of(Items.GOLDEN_SWORD),
+								Ingredient.of(ModItems.FIRESTEEL_ALLOY),
+								RecipeCategory.COMBAT,
+								ModItems.FIRESTEEL_SWORD)
+						.unlocks(getHasName(ModItems.FIRESTEEL_ALLOY), has(ModItems.FIRESTEEL_ALLOY))
+						.save(output, getItemName(ModItems.FIRESTEEL_SWORD) + "_smithing");
 
 				shapeless(RecipeCategory.MISC, ModBlocks.LEVEL0_WALLPAPER)
 						.requires(Items.YELLOW_CONCRETE)
@@ -77,6 +96,7 @@ public class BoxyBackroomsRecipeProvider extends FabricRecipeProvider {
 						.requires(Items.BONE_MEAL, 4)
 						.unlockedBy(getHasName(Blocks.GRASS_BLOCK.asItem()), has(Blocks.GRASS_BLOCK.asItem()))
 						.save(output);
+
 			}
 		};
 	}

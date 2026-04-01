@@ -9,6 +9,7 @@ import com.boxyplayz.backrooms.tags.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.minecraft.core.HolderLookup.Provider;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 
 public class BoxysBackroomsItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
@@ -31,9 +32,16 @@ public class BoxysBackroomsItemTagProvider extends FabricTagsProvider.ItemTagsPr
 		valueLookupBuilder(ModTags.ALMOND_WATERS)
 				.add(ModItems.GRAY_ALMOND_WATER)
 				.add(ModItems.GREEN_ALMOND_WATER)
-				.add(ModItems.RED_ALMOND_WATER);
+				.add(ModItems.RED_ALMOND_WATER)
+				.setReplace(false);
 
-		valueLookupBuilder(ModTags.LIGHT_BLOCKS)
+		valueLookupBuilder(ModTags.FIRESTEEL_REPAIR_ITEMS)
+				.add(ModItems.FIRESALT_SHARD)
+				.add(ModItems.FIRESTEEL_ALLOY)
+				.add(Items.GOLD_INGOT)
+				.add(Items.IRON_INGOT);
+
+		valueLookupBuilder(ModTags.LIGHT_ITEMS)
 				.add(Blocks.TORCH.asItem())
 				.add(Blocks.LANTERN.asItem(), Blocks.SOUL_LANTERN.asItem())
 				.addAll(Blocks.COPPER_LANTERN.asList().stream().map(block -> {

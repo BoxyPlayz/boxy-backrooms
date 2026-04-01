@@ -54,8 +54,8 @@ public class SmilerEntity extends PathfinderMob {
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(
 				this, Player.class, true, (LivingEntity target, ServerLevel level) -> {
 					if (target instanceof Player player) {
-						if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModTags.LIGHT_BLOCKS)
-								|| player.getItemBySlot(EquipmentSlot.OFFHAND).is(ModTags.LIGHT_BLOCKS)) {
+						if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModTags.LIGHT_ITEMS)
+								|| player.getItemBySlot(EquipmentSlot.OFFHAND).is(ModTags.LIGHT_ITEMS)) {
 							return true;
 						}
 					}
@@ -81,6 +81,10 @@ public class SmilerEntity extends PathfinderMob {
 	public boolean hurtServer(ServerLevel level, DamageSource damageSource, float amount) {
 		if (damageSource.is(DamageTypes.PLAYER_ATTACK)) {
 			if (damageSource.getEntity() instanceof Player player) {
+				if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FIRESTEEL_SWORD)) {
+					return super.hurtServer(level, damageSource, amount);
+
+				}
 				if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FIRESALT_SHARD)
 						|| player.getItemBySlot(EquipmentSlot.OFFHAND).is(ModItems.FIRESALT_SHARD)) {
 					this.setRemainingFireTicks(120);

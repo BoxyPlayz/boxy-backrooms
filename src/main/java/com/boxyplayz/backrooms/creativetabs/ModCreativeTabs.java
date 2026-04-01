@@ -55,6 +55,8 @@ public class ModCreativeTabs {
 			itemGroup.accept(ModItems.FIRESALT_SHARD);
 			itemGroup.accept(ModItems.SHADOW_DUST);
 			itemGroup.accept(ModItems.SMILER_REPELLANT);
+			itemGroup.accept(ModItems.FIRESTEEL_ALLOY);
+			itemGroup.accept(ModItems.FIRESTEEL_SWORD);
 		});
 	}
 

@@ -38,6 +38,9 @@ public class EntityEvents {
 			if ((entity instanceof SmilerEntity)) {
 				if (source.is(DamageTypes.PLAYER_ATTACK)) {
 					if (source.getEntity() instanceof Player player) {
+						if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FIRESTEEL_SWORD)) {
+							return true;
+						}
 						if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FIRESALT_SHARD.asItem())
 								|| player.getItemBySlot(EquipmentSlot.OFFHAND)
 										.is(ModItems.FIRESALT_SHARD.asItem())) {

@@ -34,6 +34,8 @@ public class BoxyBackroomsEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModItems.FIRESALT_SHARD, "Firesalt Shard");
 		translationBuilder.add(ModItems.SHADOW_DUST, "Shadow Dust");
 		translationBuilder.add(ModItems.SMILER_REPELLANT, "Smiler Repellant");
+		translationBuilder.add(ModItems.FIRESTEEL_ALLOY, "Firesteel Alloy");
+		translationBuilder.add(ModItems.FIRESTEEL_SWORD, "Firesteel Sword");
 
 		// Noclippable Blocks
 		translationBuilder.add(ModBlocks.ERRORSLATE, "Errorslate");
@@ -87,12 +89,14 @@ public class BoxyBackroomsEnglishLangProvider extends FabricLanguageProvider {
 		// Tags
 		translationBuilder.add(ModTags.NOCLIPPABLES, "Noclippable Blocks");
 		translationBuilder.add(ModTags.ALMOND_WATERS, "Almond Waters");
-		translationBuilder.add(ModTags.LIGHT_BLOCKS, "Light Blocks");
+		translationBuilder.add(ModTags.LIGHT_ITEMS, "Light Blocks");
 
 		// Tooltips
 		translationBuilder.add("item.gray_almond_water.tooltip", "Tastes like almonds.");
 		translationBuilder.add("item.green_almond_water.tooltip", "Tastes sweet!");
 		translationBuilder.add("item.red_almond_water.tooltip", "Tastes bitter.");
+		translationBuilder.add("item.firesteel_sword.tooltip", "Fire, Magic, and Steel.");
+		translationBuilder.add("item.firesteel_alloy.tooltip", "Fire and Steel.");
 
 		// Entities
 		translationBuilder.add(ModEntities.SMILER, "Smiler");

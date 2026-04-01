@@ -63,6 +63,7 @@ public class BlueChannelChunkGen extends ChunkGenerator {
 			int localX;
 			int localZ;
 			RandomSource cellRandom;
+			RandomSource blockRandom = randomFactory.at(x, y, z);
 			switch (chunkType) {
 				case 1:
 					if (y <= 40) {
@@ -144,9 +145,13 @@ public class BlueChannelChunkGen extends ChunkGenerator {
 					break;
 
 				case 4:
-					double recievedValue = this.getNoise(randomFactory).getValue(x, y, z);
-					if (recievedValue > 0.5) {
-						return ModBlocks.ERRORSLATE.defaultBlockState();
+					double recievedValue = this.getNoise(randomFactory).getValue(x * 0.1, y * 0.1, z * 0.1);
+					if (recievedValue > 0.2) {
+						if (blockRandom.nextIntBetweenInclusive(0, 10) == 1) {
+							return ModBlocks.ERRORSLATE.defaultBlockState();
+						} else {
+							return Blocks.DEEPSLATE.defaultBlockState();
+						}
 					} else {
 						if (y < 5) {
 							return ModBlocks.PURE_BLUE.defaultBlockState();

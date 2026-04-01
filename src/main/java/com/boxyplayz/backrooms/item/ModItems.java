@@ -3,6 +3,8 @@ package com.boxyplayz.backrooms.item;
 import org.jspecify.annotations.NonNull;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.toolMaterials.ModToolMaterials;
+
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
@@ -21,7 +23,7 @@ public class ModItems {
 	}
 
 	public static Item GRAY_ALMOND_WATER, GREEN_ALMOND_WATER, RED_ALMOND_WATER, ROYAL_RATION, FIRESALT_SHARD,
-			SHADOW_DUST, SMILER_REPELLANT;
+			SHADOW_DUST, SMILER_REPELLANT, FIRESTEEL_ALLOY, FIRESTEEL_SWORD;
 
 	public static void registerModItems() {
 
@@ -75,7 +77,7 @@ public class ModItems {
 				BuiltInRegistries.ITEM.key(),
 				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "firesalt_shard"));
 		FIRESALT_SHARD = registerItem("firesalt_shard",
-				new FireSaltShard(new Item.Properties().setId(fireSaltShardKey)));
+				new FireSaltItem(new Item.Properties().setId(fireSaltShardKey)));
 
 		ResourceKey<Item> shadowDustKey = ResourceKey.create(
 				BuiltInRegistries.ITEM.key(),
@@ -88,6 +90,20 @@ public class ModItems {
 				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "smiler_repellant"));
 		SMILER_REPELLANT = registerItem("smiler_repellant",
 				new Item(new Item.Properties().setId(smilerRepellantKey)));
+
+		ResourceKey<Item> fireSteelAlloyKey = ResourceKey.create(
+				BuiltInRegistries.ITEM.key(),
+				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "firesteel_alloy"));
+		FIRESTEEL_ALLOY = registerItem("firesteel_alloy",
+				new Item(new Item.Properties().setId(fireSteelAlloyKey)));
+
+		ResourceKey<Item> fireSteelSwordKey = ResourceKey.create(
+				BuiltInRegistries.ITEM.key(),
+				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "firesteel_sword"));
+		FIRESTEEL_SWORD = registerItem("firesteel_sword",
+				new FireSaltItem(
+						new Item.Properties().setId(fireSteelSwordKey).sword(ModToolMaterials.FIRESTEEL_MATERIAL, 3,
+								-2)));
 
 	}
 }

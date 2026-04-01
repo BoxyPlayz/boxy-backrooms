@@ -4,9 +4,9 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
-public class FireSaltShard extends Item {
+public class FireSaltItem extends Item {
 
-	public FireSaltShard(Properties properties) {
+	public FireSaltItem(Properties properties) {
 		super(properties);
 	}
 

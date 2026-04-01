@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "minecraft:iron_ingot",
+  "base": "boxys_backrooms:firesalt_shard",
+  "result": {
+    "id": "boxys_backrooms:firesteel_alloy"
+  },
+  "template": "minecraft:magma_cream"
+}
