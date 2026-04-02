@@ -19,12 +19,12 @@ import net.minecraft.world.item.component.Consumables;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 
 public class ModItems {
-	private static Item registerItem(@NonNull String name, Function<Item.Properties, Item> itemFactory,
+	private static <T extends Item> T registerItem(@NonNull String name, Function<Item.Properties, T> itemFactory,
 			Item.Properties settings) {
 		Identifier id = Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, name);
 		ResourceKey<Item> key = ResourceKey.create(
 				BuiltInRegistries.ITEM.key(), id);
-		Item item = itemFactory.apply(settings.setId(key));
+		T item = itemFactory.apply(settings.setId(key));
 		return Registry.register(BuiltInRegistries.ITEM, id, item);
 	}
 
@@ -64,7 +64,7 @@ public class ModItems {
 											new MobEffectInstance(MobEffects.WEAKNESS, 30 * 20, 3)))
 									.build()));
 
-	public static final Item FIRESALT_SHARD = registerItem("firesalt_shard",
+	public static final FireSaltItem FIRESALT_SHARD = registerItem("firesalt_shard",
 			FireSaltItem::new, new Item.Properties());
 
 	public static final Item SHADOW_DUST = registerItem("shadow_dust",
@@ -79,7 +79,7 @@ public class ModItems {
 			Item::new,
 			new Item.Properties());
 
-	public static final Item FIRESTEEL_SWORD = registerItem("firesteel_sword",
+	public static final FireSaltItem FIRESTEEL_SWORD = registerItem("firesteel_sword",
 			FireSaltItem::new,
 			new Item.Properties().sword(ModToolMaterials.FIRESTEEL_MATERIAL, 3,
 					-2));
