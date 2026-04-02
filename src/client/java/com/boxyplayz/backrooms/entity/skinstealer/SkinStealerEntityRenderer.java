@@ -1,18 +1,16 @@
 package com.boxyplayz.backrooms.entity.skinstealer;
 
-// import java.util.UUID;
-
 import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.BoxysBackroomsClient;
 import com.boxyplayz.backrooms.entity.custom.SkinStealer.SkinStealerEntity;
-// import com.boxyplayz.backrooms.entity.custom.SkinStealer.SkinStealerVarient;
+import com.mojang.authlib.GameProfile;
 
-// import net.minecraft.client.Minecraft;
-// import net.minecraft.client.player.AbstractClientPlayer;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.client.resources.SkinManager;
 import net.minecraft.resources.Identifier;
-// import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.player.PlayerSkin;
 
 public class SkinStealerEntityRenderer
 		extends MobRenderer<SkinStealerEntity, SkinStealerRenderState, SkinStealerModel<SkinStealerEntity>> {
@@ -26,22 +24,29 @@ public class SkinStealerEntityRenderer
 
 	@Override
 	public Identifier getTextureLocation(SkinStealerRenderState renderState) {
-
-		// if (renderState.varient == SkinStealerVarient.PASSIVE &&
-		// renderState.maskedPlayerUsername != null) {
-		// Minecraft minecraft = net.minecraft.client.Minecraft.getInstance();
-
-		// if (minecraft.level != null) {
-		// Player player =
-		// minecraft.level.getPlayerByUUID(UUID.fromString(renderState.maskedPlayerUsername));
-
-		// if (player instanceof AbstractClientPlayer clientPlayer) {
-		// return clientPlayer.getSkin().body().texturePath();
-		// }
-		// }
-		// }
-
+		if (renderState.cachedSkin != null) {
+			return renderState.cachedSkin;
+		}
+		if (renderState.maskedPlayerUsername != null &&
+				!renderState.maskedPlayerUsername.isEmpty() && renderState.maskedPlayerUUID != null) {
+			Minecraft client = Minecraft.getInstance();
+			SkinManager manager = client.getSkinManager();
+			GameProfile profile = new GameProfile(renderState.maskedPlayerUUID, renderState.maskedPlayerUsername);
+			PlayerSkin skin = manager.createLookup(profile, false).get();
+			Identifier texture = skin.body().texturePath();
+			renderState.cachedSkin = texture;
+			return texture;
+		}
 		return Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "textures/entity/skinstealer.png");
+	}
+
+	@Override
+	public void extractRenderState(SkinStealerEntity entity, SkinStealerRenderState state, float partialTicks) {
+		if (entity.getPlayerKilled() != null && !entity.getPlayerKilled().isEmpty()) {
+			state.maskedPlayerUsername = entity.getPlayerKilled();
+			state.maskedPlayerUUID = entity.getPlayerKilledUUID();
+		}
+		super.extractRenderState(entity, state, partialTicks);
 	}
 
 	@Override

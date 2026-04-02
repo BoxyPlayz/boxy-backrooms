@@ -90,6 +90,7 @@ public class BoxyBackroomsEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModTags.NOCLIPPABLES, "Noclippable Blocks");
 		translationBuilder.add(ModTags.ALMOND_WATERS, "Almond Waters");
 		translationBuilder.add(ModTags.LIGHT_ITEMS, "Light Blocks");
+		translationBuilder.add(ModTags.FIRESTEEL_REPAIR_ITEMS, "Firesteel Repair Items");
 
 		// Tooltips
 		translationBuilder.add("item.gray_almond_water.tooltip", "Tastes like almonds.");
