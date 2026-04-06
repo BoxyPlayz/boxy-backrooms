@@ -17,6 +17,7 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.component.Consumables;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
+import net.minecraft.world.item.consume_effects.RemoveStatusEffectsConsumeEffect;
 
 public class ModItems {
 	private static <T extends Item> T registerItem(@NonNull String name, Function<Item.Properties, T> itemFactory,
@@ -31,7 +32,9 @@ public class ModItems {
 	public static final Item GRAY_ALMOND_WATER = registerItem("gray_almond_water",
 			Item::new,
 			new Item.Properties()
-					.food(new FoodProperties.Builder().nutrition(5).saturationModifier(1f).build()));
+					.food(new FoodProperties.Builder().nutrition(5).saturationModifier(1f).build(),
+							Consumables.defaultDrink()
+									.onConsume(new RemoveStatusEffectsConsumeEffect(MobEffects.NAUSEA)).build()));
 
 	public static final Item ROYAL_RATION = registerItem("royal_ration",
 			Item::new,
@@ -42,7 +45,7 @@ public class ModItems {
 			Item::new,
 			new Item.Properties()
 					.food(new FoodProperties.Builder().nutrition(4).saturationModifier(1f).alwaysEdible().build(),
-							Consumables.defaultFood()
+							Consumables.defaultDrink()
 									.onConsume(new ApplyStatusEffectsConsumeEffect(
 											new MobEffectInstance(MobEffects.SPEED, 10 * 20, 2)))
 									.onConsume(new ApplyStatusEffectsConsumeEffect(
@@ -53,7 +56,7 @@ public class ModItems {
 			Item::new,
 			new Item.Properties()
 					.food(new FoodProperties.Builder().nutrition(4).saturationModifier(1f).alwaysEdible().build(),
-							Consumables.defaultFood()
+							Consumables.defaultDrink()
 									.onConsume(new ApplyStatusEffectsConsumeEffect(
 											new MobEffectInstance(MobEffects.SLOWNESS, 30 * 20, 1)))
 									.onConsume(new ApplyStatusEffectsConsumeEffect(
