@@ -92,7 +92,7 @@ public class SmilerEntity extends PathfinderMob {
 			}
 			return false;
 		}
-		if (damageSource.is(ModTags.physicalAttacks)) {
+		if (damageSource.is(ModTags.PHYSICAL_ATTACKS)) {
 			return false;
 		}
 		if (damageSource.is(DamageTypes.ARROW)) {

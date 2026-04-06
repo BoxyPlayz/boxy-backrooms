@@ -16,7 +16,7 @@ public class ModTags {
 	public static final TagKey<Item> ALMOND_WATERS = TagKey.create(Registries.ITEM,
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "almond_waters"));
 
-	public static final TagKey<DamageType> physicalAttacks = TagKey.create(Registries.DAMAGE_TYPE,
+	public static final TagKey<DamageType> PHYSICAL_ATTACKS = TagKey.create(Registries.DAMAGE_TYPE,
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "physical_attacks"));
 
 	public static final TagKey<Item> LIGHT_ITEMS = TagKey.create(Registries.ITEM,
