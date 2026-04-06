@@ -3,6 +3,7 @@ package com.boxyplayz.backrooms.entity;
 import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.entity.custom.SkinStealer.SkinStealerEntity;
 import com.boxyplayz.backrooms.entity.custom.Smiler.SmilerEntity;
+import com.boxyplayz.backrooms.entity.custom.Wretch.WretchEntity;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.core.Registry;
@@ -29,12 +30,22 @@ public class ModEntities {
 			EntityType.Builder.of(SkinStealerEntity::new, MobCategory.MONSTER).sized(1, 2)
 					.build(skinStealerResourceKey));
 
+	static ResourceKey<EntityType<?>> wretchResourceKey = ResourceKey.create(
+			BuiltInRegistries.ENTITY_TYPE.key(),
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "wretch"));
+	public static final EntityType<WretchEntity> WRETCH = Registry.register(BuiltInRegistries.ENTITY_TYPE,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "wretch"),
+			EntityType.Builder.of(WretchEntity::new, MobCategory.MONSTER).sized(1f, 2.5f)
+					.build(wretchResourceKey));
+
 	public static void RegisterModEntities() {
-		BoxysBackrooms.LOGGER.debug("Registering Entities");
 		FabricDefaultAttributeRegistry.register(SMILER,
 				SmilerEntity.createAttributes());
 
 		FabricDefaultAttributeRegistry.register(SKINSTEALER,
 				SkinStealerEntity.createAttributes());
+
+		FabricDefaultAttributeRegistry.register(WRETCH,
+				WretchEntity.createAttributes());
 	}
 }

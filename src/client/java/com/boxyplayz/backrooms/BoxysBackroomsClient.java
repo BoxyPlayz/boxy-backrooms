@@ -5,6 +5,8 @@ import com.boxyplayz.backrooms.entity.skinstealer.SkinStealerEntityRenderer;
 import com.boxyplayz.backrooms.entity.skinstealer.SkinStealerModel;
 import com.boxyplayz.backrooms.entity.smiler.SmilerEntityRenderer;
 import com.boxyplayz.backrooms.entity.smiler.SmilerModel;
+import com.boxyplayz.backrooms.entity.wretch.WretchModel;
+import com.boxyplayz.backrooms.entity.wretch.WretchedRenderer;
 import com.boxyplayz.backrooms.events.GrassColors;
 import com.boxyplayz.backrooms.events.ItemEvents;
 
@@ -17,6 +19,9 @@ import net.minecraft.resources.Identifier;
 public class BoxysBackroomsClient implements ClientModInitializer {
 	public static final ModelLayerLocation MODEL_SMILER_LAYER = new ModelLayerLocation(
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "smiler"), "main");
+
+	public static final ModelLayerLocation MODEL_WRETCH_LAYER = new ModelLayerLocation(
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "wretch"), "main");
 
 	public static final ModelLayerLocation MODEL_SKIN_STEALER_LAYER = new ModelLayerLocation(
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "skinstealer"), "main");
@@ -34,5 +39,9 @@ public class BoxysBackroomsClient implements ClientModInitializer {
 		EntityRenderers.register(ModEntities.SKINSTEALER, SkinStealerEntityRenderer::new);
 
 		ModelLayerRegistry.registerModelLayer(MODEL_SKIN_STEALER_LAYER, SkinStealerModel::createBodyLayer);
+
+		EntityRenderers.register(ModEntities.WRETCH, WretchedRenderer::new);
+
+		ModelLayerRegistry.registerModelLayer(MODEL_WRETCH_LAYER, WretchModel::createBodyLayer);
 	}
 }

@@ -1,0 +1,88 @@
+package com.boxyplayz.backrooms.entity.wretch;
+
+import com.boxyplayz.backrooms.BoxysBackrooms;
+
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.CubeDeformation;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
+import net.minecraft.client.model.geom.builders.PartDefinition;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.entity.Entity;
+
+public class WretchModel<T extends Entity> extends EntityModel<WretchRenderState> {
+	// This layer location should be baked with EntityRendererProvider.Context in
+	// the entity renderer and passed into this model's constructor
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "wretch"), "main");
+	private final ModelPart Waist;
+	@SuppressWarnings("unused")
+	private final ModelPart Head;
+	@SuppressWarnings("unused")
+	private final ModelPart Body;
+	@SuppressWarnings("unused")
+	private final ModelPart RightArm;
+	@SuppressWarnings("unused")
+	private final ModelPart LeftArm;
+	@SuppressWarnings("unused")
+	private final ModelPart RightLeg;
+	@SuppressWarnings("unused")
+	private final ModelPart LeftLeg;
+
+	public WretchModel(ModelPart root) {
+		super(root);
+		this.Waist = root.getChild("Waist");
+		this.Head = this.Waist.getChild("Head");
+		this.Body = this.Waist.getChild("Body");
+		this.RightArm = this.Waist.getChild("Right Arm");
+		this.LeftArm = this.Waist.getChild("Left Arm");
+		this.RightLeg = root.getChild("Right Leg");
+		this.LeftLeg = root.getChild("Left Leg");
+	}
+
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
+
+		PartDefinition Waist = partdefinition.addOrReplaceChild("Waist", CubeListBuilder.create(),
+				PartPose.offset(0.0F, 7.0F, 0.0F));
+
+		@SuppressWarnings("unused")
+		PartDefinition Head = Waist.addOrReplaceChild("Head",
+				CubeListBuilder.create().texOffs(0, 0)
+						.addBox(-2.0F, -8.0F, -4.0F, 6.0F, 8.0F, 8.0F, new CubeDeformation(0.0F))
+						.texOffs(28, 0).addBox(-4.0F, -6.0F, -4.0F, 2.0F, 6.0F, 8.0F, new CubeDeformation(0.0F))
+						.texOffs(-3, -3).addBox(-4.0F, -8.0F, -1.0F, 2.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)),
+				PartPose.offset(0.0F, -12.0F, 0.0F));
+
+		@SuppressWarnings("unused")
+		PartDefinition Body = Waist.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(0, 16).addBox(-4.0F,
+				0.0F, -2.0F, 8.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -12.0F, 0.0F));
+
+		@SuppressWarnings("unused")
+		PartDefinition RightArm = Waist.addOrReplaceChild("Right Arm", CubeListBuilder.create().texOffs(32, 37)
+				.addBox(-3.0F, -2.0F, -2.0F, 4.0F, 15.0F, 4.0F, new CubeDeformation(0.0F)),
+				PartPose.offset(-5.0F, -10.0F, 0.0F));
+
+		@SuppressWarnings("unused")
+		PartDefinition LeftArm = Waist.addOrReplaceChild("Left Arm", CubeListBuilder.create().texOffs(16, 37)
+				.addBox(-1.0F, -2.0F, -2.0F, 4.0F, 16.0F, 4.0F, new CubeDeformation(0.0F)),
+				PartPose.offset(5.0F, -10.0F, 0.0F));
+
+		@SuppressWarnings("unused")
+		PartDefinition RightLeg = partdefinition.addOrReplaceChild("Right Leg", CubeListBuilder.create().texOffs(24, 16)
+				.addBox(-2.0F, -5.0F, -2.0F, 4.0F, 17.0F, 4.0F, new CubeDeformation(0.0F)),
+				PartPose.offset(-1.9F, 12.0F, 0.0F));
+
+		@SuppressWarnings("unused")
+		PartDefinition LeftLeg = partdefinition.addOrReplaceChild("Left Leg", CubeListBuilder.create().texOffs(0, 32)
+				.addBox(-2.0F, -5.0F, -2.0F, 4.0F, 17.0F, 4.0F, new CubeDeformation(0.0F)),
+				PartPose.offset(1.9F, 12.0F, 0.0F));
+
+		return LayerDefinition.create(meshdefinition, 64, 64);
+	}
+}

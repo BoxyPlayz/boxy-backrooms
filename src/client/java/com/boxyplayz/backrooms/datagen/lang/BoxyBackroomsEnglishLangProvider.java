@@ -102,6 +102,7 @@ public class BoxyBackroomsEnglishLangProvider extends FabricLanguageProvider {
 		// Entities
 		translationBuilder.add(ModEntities.SMILER, "Smiler");
 		translationBuilder.add(ModEntities.SKINSTEALER, "Skin Stealer");
+		translationBuilder.add(ModEntities.WRETCH, "Wretch");
 
 		// Effects
 		translationBuilder.add("effect.boxys_backrooms.gardeners_pain", "Gardener's Pain");
