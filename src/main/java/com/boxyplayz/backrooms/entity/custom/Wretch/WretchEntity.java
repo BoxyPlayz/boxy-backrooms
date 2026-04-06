@@ -36,10 +36,9 @@ public class WretchEntity extends PathfinderMob {
 	protected void registerGoals() {
 		super.registerGoals();
 		this.goalSelector.addGoal(0, new FloatGoal(this));
-		this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.0D, true));
+		this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.0D, false));
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(
 				this, Player.class, true));
-		this.goalSelector.addGoal(3, new WaterAvoidingRandomStrollGoal(this, 0.6D));
 
 	}
 
@@ -47,7 +46,7 @@ public class WretchEntity extends PathfinderMob {
 		return PathfinderMob.createMobAttributes()
 				.add(Attributes.MAX_HEALTH, 40.0D)
 				.add(Attributes.MOVEMENT_SPEED, 0.39D)
-				.add(Attributes.ATTACK_DAMAGE, 10.0D)
-				.add(Attributes.FOLLOW_RANGE, 32.0D);
+				.add(Attributes.ATTACK_DAMAGE, 16.0D)
+				.add(Attributes.FOLLOW_RANGE, 20.0D);
 	}
 }

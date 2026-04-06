@@ -31,7 +31,7 @@ public class ModItems {
 	public static final Item GRAY_ALMOND_WATER = registerItem("gray_almond_water",
 			Item::new,
 			new Item.Properties()
-					.food(new FoodProperties.Builder().nutrition(5).saturationModifier(1f).alwaysEdible().build()));
+					.food(new FoodProperties.Builder().nutrition(5).saturationModifier(1f).build()));
 
 	public static final Item ROYAL_RATION = registerItem("royal_ration",
 			Item::new,
