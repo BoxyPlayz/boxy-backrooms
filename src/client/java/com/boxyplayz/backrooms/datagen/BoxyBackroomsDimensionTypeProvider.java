@@ -12,6 +12,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.dimension.DimensionType;
+import net.minecraft.world.level.dimension.DimensionType.Skybox;
 
 public class BoxyBackroomsDimensionTypeProvider extends FabricDynamicRegistryProvider {
 	private static void register(BootstrapContext<DimensionType> context, ResourceKey<DimensionType> key,
@@ -54,6 +55,23 @@ public class BoxyBackroomsDimensionTypeProvider extends FabricDynamicRegistryPro
 				.setAmbientLight(0.3f)
 				.setSkylight(false)
 				.setCeiling(true)
+				.build());
+
+		register(context, ModDimensionTypes.LEVEL7_OCEAN_DIMENSION_TYPE, new DimensionTypeBuilder()
+				.setHeight(304)
+				.setFixedTime(false)
+				.setAmbientLight(0)
+				.setSkylight(false)
+				.setCeiling(false)
+				.build());
+
+		register(context, ModDimensionTypes.LEVEL94_DIMENSION_TYPE, new DimensionTypeBuilder()
+				.setHeight(256)
+				.setSkybox(Skybox.OVERWORLD)
+				.setFixedTime(false)
+				.setAmbientLight(0)
+				.setSkylight(true)
+				.setCeiling(false)
 				.build());
 	}
 }
