@@ -38,5 +38,22 @@ public class BoxyBackroomsDimensionTypeProvider extends FabricDynamicRegistryPro
 				.setHeight(80)
 				.setFixedTime(true)
 				.build());
+
+		register(context, ModDimensionTypes.LEVEL0_DIMENSION_TYPE, new DimensionTypeBuilder()
+				.setHeight(32)
+				.setFixedTime(true)
+				.setMinY(-16)
+				.setAmbientLight(0.3f)
+				.setSkylight(false)
+				.setCeiling(true)
+				.build());
+
+		register(context, ModDimensionTypes.LEVEL1_DIMENSION_TYPE, new DimensionTypeBuilder()
+				.setHeight(64)
+				.setFixedTime(true)
+				.setAmbientLight(0.3f)
+				.setSkylight(false)
+				.setCeiling(true)
+				.build());
 	}
 }

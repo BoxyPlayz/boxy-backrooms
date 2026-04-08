@@ -12,6 +12,14 @@ public class ModDimensionTypes {
 			Registries.DIMENSION_TYPE,
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "pitfalls"));
 
+	public static final ResourceKey<DimensionType> LEVEL0_DIMENSION_TYPE = ResourceKey.create(
+			Registries.DIMENSION_TYPE,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level0_maze"));
+
+	public static final ResourceKey<DimensionType> LEVEL1_DIMENSION_TYPE = ResourceKey.create(
+			Registries.DIMENSION_TYPE,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level1"));
+
 	public static void RegisterModDimensionTypes() {
 	}
 }
