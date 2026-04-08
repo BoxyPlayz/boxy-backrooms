@@ -7,6 +7,7 @@ import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.effect.ModEffects;
 import com.boxyplayz.backrooms.entity.custom.Smiler.SmilerEntity;
 import com.boxyplayz.backrooms.item.ModItems;
+import com.boxyplayz.backrooms.utils.Misc;
 import com.boxyplayz.backrooms.world.biome.ModBiomes;
 import com.boxyplayz.backrooms.world.dimension.ModDimensions;
 
@@ -73,6 +74,14 @@ public class EntityEvents {
 		ServerTickEvents.START_LEVEL_TICK.register((ServerLevel level) -> {
 			List<ServerPlayer> players = List.copyOf(level.players());
 			players.forEach((ServerPlayer player) -> {
+				if (Misc.isWretchableBackrooms(player.level())) {
+					if (player.getFoodData().getFoodLevel() < 2) {
+						if (!player.hasEffect(ModEffects.WRETCHED_CYCLE)) {
+							MobEffectInstance instance = new MobEffectInstance(ModEffects.WRETCHED_CYCLE, 20 * 60 * 5);
+							player.addEffect(instance);
+						}
+					}
+				}
 				if (player.level().dimension() == ModDimensions.PITFALLS_DIMENSION) {
 					if (Math.sqrt((player.position().x * player.position().x)
 							+ (player.position().z * player.position().z)) > 1000) {

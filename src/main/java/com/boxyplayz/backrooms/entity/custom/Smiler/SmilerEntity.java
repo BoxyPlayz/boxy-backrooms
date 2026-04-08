@@ -6,6 +6,7 @@ import com.boxyplayz.backrooms.tags.ModTags;
 import com.boxyplayz.backrooms.world.biome.ModBiomes;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
@@ -44,13 +45,25 @@ public class SmilerEntity extends PathfinderMob {
 	protected void registerGoals() {
 		super.registerGoals();
 		this.goalSelector.addGoal(0, new FloatGoal(this));
-		this.goalSelector.addGoal(1, new AvoidEntityGoal<Player>(this, Player.class, 4, 1.1, 1.2, player -> {
+		this.goalSelector.addGoal(1, new AvoidEntityGoal<Player>(this, Player.class, 10, 1.1, 1.2, player -> {
 			ItemStack mainHand = player.getMainHandItem();
 			ItemStack offHand = player.getOffhandItem();
 			return mainHand.getItem() == ModItems.SMILER_REPELLANT.asItem() ||
 					offHand.getItem() == ModItems.SMILER_REPELLANT.asItem();
 		}));
-		this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0D, true));
+		this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0D, true) {
+			@Override
+			protected void checkAndPerformAttack(LivingEntity target) {
+				if (this.canPerformAttack(target)) {
+					this.resetAttackCooldown();
+					target.hurtServer(getServerLevel(target),
+							new DamageSource(level().registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE)
+									.getOrThrow(DamageTypes.MAGIC), null, this.mob),
+							((float) this.mob.getAttribute(Attributes.ATTACK_DAMAGE).getValue()));
+				}
+				super.checkAndPerformAttack(target);
+			}
+		});
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(
 				this, Player.class, true, (LivingEntity target, ServerLevel level) -> {
 					if (target instanceof Player player) {
@@ -83,7 +96,6 @@ public class SmilerEntity extends PathfinderMob {
 			if (damageSource.getEntity() instanceof Player player) {
 				if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FIRESTEEL_SWORD)) {
 					return super.hurtServer(level, damageSource, amount);
-
 				}
 				if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FIRESALT_SHARD)
 						|| player.getItemBySlot(EquipmentSlot.OFFHAND).is(ModItems.FIRESALT_SHARD)) {
