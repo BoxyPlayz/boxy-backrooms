@@ -5,6 +5,8 @@ import com.boxyplayz.backrooms.datagen.lang.BoxyBackroomsEnglishLangProvider;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.core.registries.Registries;
 
 public class BoxysBackroomsDataGen implements DataGeneratorEntrypoint {
 
@@ -26,6 +28,13 @@ public class BoxysBackroomsDataGen implements DataGeneratorEntrypoint {
 
 		pack.addProvider(BoxyBackroomsBlockLootTableProvider::new);
 		pack.addProvider(BoxyBackroomsEntityLootTableProvider::new);
+
+		pack.addProvider(BoxyBackroomsDimensionTypeProvider::new);
+	}
+
+	@Override
+	public void buildRegistry(RegistrySetBuilder registryBuilder) {
+		registryBuilder.add(Registries.DIMENSION_TYPE, BoxyBackroomsDimensionTypeProvider::bootstrap);
 	}
 
 }
