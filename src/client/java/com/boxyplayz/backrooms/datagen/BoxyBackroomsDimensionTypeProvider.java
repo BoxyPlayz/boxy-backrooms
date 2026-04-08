@@ -34,6 +34,9 @@ public class BoxyBackroomsDimensionTypeProvider extends FabricDynamicRegistryPro
 	}
 
 	public static void bootstrap(BootstrapContext<DimensionType> context) {
-		register(context, ModDimensionTypes.TEST_DIMENSION_TYPE, new DimensionTypeBuilder().build());
+		register(context, ModDimensionTypes.PITFALLS_DIMENSION_TYPE, new DimensionTypeBuilder()
+				.setHeight(80)
+				.setFixedTime(true)
+				.build());
 	}
 }

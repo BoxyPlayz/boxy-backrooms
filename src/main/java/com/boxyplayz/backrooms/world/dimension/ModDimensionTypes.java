@@ -8,9 +8,9 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.dimension.DimensionType;
 
 public class ModDimensionTypes {
-	public static final ResourceKey<DimensionType> TEST_DIMENSION_TYPE = ResourceKey.create(
+	public static final ResourceKey<DimensionType> PITFALLS_DIMENSION_TYPE = ResourceKey.create(
 			Registries.DIMENSION_TYPE,
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "test_dimension"));
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "pitfalls"));
 
 	public static void RegisterModDimensionTypes() {
 	}
