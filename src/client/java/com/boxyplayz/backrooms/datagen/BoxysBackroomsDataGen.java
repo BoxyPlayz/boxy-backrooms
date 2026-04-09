@@ -35,6 +35,7 @@ public class BoxysBackroomsDataGen implements DataGeneratorEntrypoint {
 		pack.addProvider(EntityLootTableProvider::new);
 
 		pack.addProvider(DimensionTypeProvider::new);
+		pack.addProvider(BiomeDataProvider::new);
 
 		pack.addProvider(WorldClockProvider::new);
 	}
@@ -43,6 +44,7 @@ public class BoxysBackroomsDataGen implements DataGeneratorEntrypoint {
 	public void buildRegistry(RegistrySetBuilder registryBuilder) {
 		registryBuilder.add(Registries.DIMENSION_TYPE, DimensionTypeProvider::bootstrap);
 		registryBuilder.add(Registries.WORLD_CLOCK, WorldClockProvider::bootstrap);
+		registryBuilder.add(Registries.BIOME, BiomeDataProvider::bootstrap);
 	}
 
 }
