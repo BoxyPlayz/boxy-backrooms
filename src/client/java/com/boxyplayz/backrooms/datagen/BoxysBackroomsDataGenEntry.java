@@ -15,7 +15,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 
-public class BoxysBackroomsDataGen implements DataGeneratorEntrypoint {
+public class BoxysBackroomsDataGenEntry implements DataGeneratorEntrypoint {
 
 	@Override
 	public void onInitializeDataGenerator(FabricDataGenerator generator) {

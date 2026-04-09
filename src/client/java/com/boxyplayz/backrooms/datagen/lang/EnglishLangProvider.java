@@ -2,8 +2,10 @@ package com.boxyplayz.backrooms.datagen.lang;
 
 import java.util.concurrent.CompletableFuture;
 
+import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.creativetabs.ModCreativeTabs;
+import com.boxyplayz.backrooms.effect.ModEffects;
 import com.boxyplayz.backrooms.entity.ModEntities;
 import com.boxyplayz.backrooms.item.ModItems;
 import com.boxyplayz.backrooms.tags.ModTags;
@@ -11,8 +13,17 @@ import com.boxyplayz.backrooms.tags.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.world.item.Item;
 
 public class EnglishLangProvider extends FabricLanguageProvider {
+	public String getText(String id) {
+		return "text." + BoxysBackrooms.MOD_ID + "." + id;
+	}
+
+	public String getTooltip(Item item) {
+		return item.getDescriptionId() + ".tooltip";
+	}
+
 	public EnglishLangProvider(FabricPackOutput dataOutput,
 			CompletableFuture<HolderLookup.Provider> registryLookup) {
 		// Specifying en_us is optional, as it's the default language code
@@ -71,20 +82,20 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModBlocks.LEVEL1_CRATE, "Crate");
 
 		// Advancements
-		translationBuilder.add("text.boxys_backrooms.oneway_title", "It's a cave?");
-		translationBuilder.add("text.boxys_backrooms.oneway_desc", "There are no halls here.");
+		translationBuilder.add(getText("oneway_title"), "It's a cave?");
+		translationBuilder.add(getText("oneway_desc"), "There are no halls here.");
 
-		translationBuilder.add("text.boxys_backrooms.backrooms_title", "The Backrooms");
-		translationBuilder.add("text.boxys_backrooms.backrooms_desc", "Enter the endless hallways of the Backrooms");
+		translationBuilder.add(getText("backrooms_title"), "The Backrooms");
+		translationBuilder.add(getText("backrooms_desc"), "Enter the endless hallways of the Backrooms");
 
-		translationBuilder.add("text.boxys_backrooms.ocean_title", "Endless Ocean");
-		translationBuilder.add("text.boxys_backrooms.ocean_desc", "There's really no end.");
+		translationBuilder.add(getText("ocean_title"), "Endless Ocean");
+		translationBuilder.add(getText("ocean_desc"), "There's really no end.");
 
-		translationBuilder.add("text.boxys_backrooms.94_title", "Rolling Hills");
-		translationBuilder.add("text.boxys_backrooms.94_desc", "Peaceful..?");
+		translationBuilder.add(getText("94_title"), "Rolling Hills");
+		translationBuilder.add(getText("94_desc"), "Peaceful..?");
 
-		translationBuilder.add("text.boxys_backrooms.wrongway_title", "Wrong Direction");
-		translationBuilder.add("text.boxys_backrooms.wrongway_desc", "Take the wrong way.");
+		translationBuilder.add(getText("wrongway_title"), "Wrong Direction");
+		translationBuilder.add(getText("wrongway_desc"), "Take the wrong way.");
 
 		// Tags
 		translationBuilder.add(ModTags.NOCLIPPABLES, "Noclippable Blocks");
@@ -93,11 +104,11 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModTags.FIRESTEEL_REPAIR_ITEMS, "Firesteel Repair Items");
 
 		// Tooltips
-		translationBuilder.add("item.gray_almond_water.tooltip", "Tastes like almonds.");
-		translationBuilder.add("item.green_almond_water.tooltip", "Tastes sweet!");
-		translationBuilder.add("item.red_almond_water.tooltip", "Tastes bitter.");
-		translationBuilder.add("item.firesteel_sword.tooltip", "Fire, Magic, and Steel.");
-		translationBuilder.add("item.firesteel_alloy.tooltip", "Fire and Steel.");
+		translationBuilder.add(getTooltip(ModItems.GRAY_ALMOND_WATER), "Tastes like almonds.");
+		translationBuilder.add(getTooltip(ModItems.GREEN_ALMOND_WATER), "Tastes sweet!");
+		translationBuilder.add(getTooltip(ModItems.RED_ALMOND_WATER), "Tastes bitter.");
+		translationBuilder.add(getTooltip(ModItems.FIRESTEEL_SWORD), "Fire, Magic, and Steel.");
+		translationBuilder.add(getTooltip(ModItems.FIRESTEEL_ALLOY), "Fire and Steel.");
 
 		// Entities
 		translationBuilder.add(ModEntities.SMILER, "Smiler");
@@ -105,10 +116,10 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModEntities.WRETCH, "Wretch");
 
 		// Effects
-		translationBuilder.add("effect.boxys_backrooms.gardeners_pain", "Gardener's Pain");
-		translationBuilder.add("effect.boxys_backrooms.wretched_cycle", "The Wretched Cycle");
+		translationBuilder.add(ModEffects.GARDENERS_PAIN.value(), "Gardener's Pain");
+		translationBuilder.add(ModEffects.WRETCHED_CYCLE.value(), "The Wretched Cycle");
 
 		// Other
-		translationBuilder.add("text.boxys_backrooms.level8bed", "You may not rest here. THEY are nearby.");
+		translationBuilder.add(getText("level8bed"), "You may not rest here. THEY are nearby.");
 	}
 }
