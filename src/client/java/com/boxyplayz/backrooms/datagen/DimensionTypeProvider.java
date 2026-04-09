@@ -26,7 +26,7 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 
 	@Override
 	public String getName() {
-		return "";
+		return "DimensionTypeRooms";
 	}
 
 	@Override
