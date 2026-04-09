@@ -32,6 +32,14 @@ public class ModDimensionTypes {
 			Registries.DIMENSION_TYPE,
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "the_broken"));
 
+	public static final ResourceKey<DimensionType> LEVEL8_CAVESYSTEM_DIMENSION_TYPE = ResourceKey.create(
+			Registries.DIMENSION_TYPE,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level8_cavesystem"));
+
+	public static final ResourceKey<DimensionType> BLUE_CHANNEL_DIMENSION_TYPE = ResourceKey.create(
+			Registries.DIMENSION_TYPE,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "blue_channel"));
+
 	public static void RegisterModDimensionTypes() {
 	}
 }

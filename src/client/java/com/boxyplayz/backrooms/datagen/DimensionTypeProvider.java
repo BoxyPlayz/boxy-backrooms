@@ -11,6 +11,7 @@ import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.dimension.DimensionType.Skybox;
 
@@ -82,5 +83,25 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 				.setSkylight(true)
 				.setCeiling(true)
 				.build());
+
+		register(context, ModDimensionTypes.LEVEL8_CAVESYSTEM_DIMENSION_TYPE, new DimensionTypeBuilder()
+				.setHeight(256)
+				.setSkybox(Skybox.NONE)
+				.setFixedTime(true)
+				.setAmbientLight(0)
+				.setSkylight(false)
+				.setCeiling(true)
+				.build());
+
+		register(context, ModDimensionTypes.BLUE_CHANNEL_DIMENSION_TYPE, new DimensionTypeBuilder()
+				.setHeight(256)
+				.setSkybox(Skybox.NONE)
+				.setFixedTime(true)
+				.setAmbientLight(0)
+				.setSkylight(false)
+				.setCeiling(false)
+				.setInfiniburn(BlockTags.ICE)
+				.build());
+
 	}
 }
