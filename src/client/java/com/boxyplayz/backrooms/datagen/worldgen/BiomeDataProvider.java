@@ -1,4 +1,4 @@
-package com.boxyplayz.backrooms.datagen;
+package com.boxyplayz.backrooms.datagen.worldgen;
 
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;

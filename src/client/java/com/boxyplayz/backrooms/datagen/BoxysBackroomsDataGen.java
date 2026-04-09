@@ -6,6 +6,8 @@ import com.boxyplayz.backrooms.datagen.loot.BlockLootTableProvider;
 import com.boxyplayz.backrooms.datagen.loot.EntityLootTableProvider;
 import com.boxyplayz.backrooms.datagen.tags.BlockTagProvider;
 import com.boxyplayz.backrooms.datagen.tags.ItemTagProvider;
+import com.boxyplayz.backrooms.datagen.worldgen.BiomeDataProvider;
+import com.boxyplayz.backrooms.datagen.worldgen.DimensionTypeProvider;
 import com.boxyplayz.backrooms.datagen.tags.DamageTypeTagProvider;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
