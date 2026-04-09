@@ -1,4 +1,4 @@
-package com.boxyplayz.backrooms.datagen;
+package com.boxyplayz.backrooms.datagen.tags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -12,9 +12,9 @@ import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 
-public class BoxysBackroomsItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
+public class ItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
 
-	public BoxysBackroomsItemTagProvider(FabricPackOutput output, CompletableFuture<Provider> registriesFuture) {
+	public ItemTagProvider(FabricPackOutput output, CompletableFuture<Provider> registriesFuture) {
 		super(output, registriesFuture);
 	}
 

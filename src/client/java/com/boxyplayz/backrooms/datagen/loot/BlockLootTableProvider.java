@@ -1,4 +1,4 @@
-package com.boxyplayz.backrooms.datagen;
+package com.boxyplayz.backrooms.datagen.loot;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -14,9 +14,9 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
-public class BoxyBackroomsBlockLootTableProvider extends FabricBlockLootSubProvider {
+public class BlockLootTableProvider extends FabricBlockLootSubProvider {
 
-	public BoxyBackroomsBlockLootTableProvider(FabricPackOutput dataOutput,
+	public BlockLootTableProvider(FabricPackOutput dataOutput,
 			CompletableFuture<Provider> registryLookup) {
 		super(dataOutput, registryLookup);
 	}

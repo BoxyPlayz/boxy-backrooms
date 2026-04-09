@@ -1,7 +1,12 @@
 package com.boxyplayz.backrooms.datagen;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
-import com.boxyplayz.backrooms.datagen.lang.BoxyBackroomsEnglishLangProvider;
+import com.boxyplayz.backrooms.datagen.lang.EnglishLangProvider;
+import com.boxyplayz.backrooms.datagen.loot.BlockLootTableProvider;
+import com.boxyplayz.backrooms.datagen.loot.EntityLootTableProvider;
+import com.boxyplayz.backrooms.datagen.tags.BlockTagProvider;
+import com.boxyplayz.backrooms.datagen.tags.ItemTagProvider;
+import com.boxyplayz.backrooms.datagen.tags.DamageTypeTagProvider;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
@@ -16,25 +21,25 @@ public class BoxysBackroomsDataGen implements DataGeneratorEntrypoint {
 
 		FabricDataGenerator.Pack pack = generator.createPack();
 
-		pack.addProvider(BoxyBackroomsModelProvider::new);
-		pack.addProvider(BoxyBackroomsEnglishLangProvider::new);
+		pack.addProvider(ModelProvider::new);
+		pack.addProvider(EnglishLangProvider::new);
 
-		pack.addProvider(BoxyBackroomsRecipeProvider::new);
-		pack.addProvider(BoxyBackroomsAdvancementProvider::new);
+		pack.addProvider(RecipeDataProvider::new);
+		pack.addProvider(AdvancementProvider::new);
 
-		pack.addProvider(BoxysBackroomsItemTagProvider::new);
-		pack.addProvider(BoxysBackroomsBlockTagProvider::new);
-		pack.addProvider(BoxysBackroomsDamageTypeTagProvider::new);
+		pack.addProvider(ItemTagProvider::new);
+		pack.addProvider(BlockTagProvider::new);
+		pack.addProvider(DamageTypeTagProvider::new);
 
-		pack.addProvider(BoxyBackroomsBlockLootTableProvider::new);
-		pack.addProvider(BoxyBackroomsEntityLootTableProvider::new);
+		pack.addProvider(BlockLootTableProvider::new);
+		pack.addProvider(EntityLootTableProvider::new);
 
-		pack.addProvider(BoxyBackroomsDimensionTypeProvider::new);
+		pack.addProvider(DimensionTypeProvider::new);
 	}
 
 	@Override
 	public void buildRegistry(RegistrySetBuilder registryBuilder) {
-		registryBuilder.add(Registries.DIMENSION_TYPE, BoxyBackroomsDimensionTypeProvider::bootstrap);
+		registryBuilder.add(Registries.DIMENSION_TYPE, DimensionTypeProvider::bootstrap);
 	}
 
 }

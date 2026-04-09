@@ -14,13 +14,13 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.dimension.DimensionType.Skybox;
 
-public class BoxyBackroomsDimensionTypeProvider extends FabricDynamicRegistryProvider {
+public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 	private static void register(BootstrapContext<DimensionType> context, ResourceKey<DimensionType> key,
 			DimensionType type) {
 		context.register(key, type);
 	}
 
-	public BoxyBackroomsDimensionTypeProvider(FabricPackOutput output, CompletableFuture<Provider> registriesFuture) {
+	public DimensionTypeProvider(FabricPackOutput output, CompletableFuture<Provider> registriesFuture) {
 		super(output, registriesFuture);
 	}
 
@@ -72,6 +72,15 @@ public class BoxyBackroomsDimensionTypeProvider extends FabricDynamicRegistryPro
 				.setAmbientLight(0)
 				.setSkylight(true)
 				.setCeiling(false)
+				.build());
+
+		register(context, ModDimensionTypes.THE_BROKEN_DIMENSION_TYPE, new DimensionTypeBuilder()
+				.setHeight(256)
+				.setSkybox(Skybox.NONE)
+				.setFixedTime(true)
+				.setAmbientLight(0)
+				.setSkylight(true)
+				.setCeiling(true)
 				.build());
 	}
 }

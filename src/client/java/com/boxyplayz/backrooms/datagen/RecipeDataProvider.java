@@ -22,9 +22,9 @@ import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Blocks;
 
-public class BoxyBackroomsRecipeProvider extends FabricRecipeProvider {
+public class RecipeDataProvider extends FabricRecipeProvider {
 
-	public BoxyBackroomsRecipeProvider(FabricPackOutput output, CompletableFuture<Provider> registriesFuture) {
+	public RecipeDataProvider(FabricPackOutput output, CompletableFuture<Provider> registriesFuture) {
 		super(output, registriesFuture);
 	}
 

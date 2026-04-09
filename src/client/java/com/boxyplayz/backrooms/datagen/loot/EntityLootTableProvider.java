@@ -1,4 +1,4 @@
-package com.boxyplayz.backrooms.datagen;
+package com.boxyplayz.backrooms.datagen.loot;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -15,9 +15,9 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.BinomialDistributionGenerator;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 
-public class BoxyBackroomsEntityLootTableProvider extends FabricEntityLootSubProvider {
+public class EntityLootTableProvider extends FabricEntityLootSubProvider {
 
-	public BoxyBackroomsEntityLootTableProvider(FabricPackOutput dataOutput,
+	public EntityLootTableProvider(FabricPackOutput dataOutput,
 			CompletableFuture<Provider> registryLookup) {
 		super(dataOutput, registryLookup);
 	}

@@ -19,8 +19,8 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 
-public class BoxyBackroomsAdvancementProvider extends FabricAdvancementProvider {
-	public BoxyBackroomsAdvancementProvider(FabricPackOutput output,
+public class AdvancementProvider extends FabricAdvancementProvider {
+	public AdvancementProvider(FabricPackOutput output,
 			CompletableFuture<HolderLookup.Provider> registryLookup) {
 		super(output, registryLookup);
 	}

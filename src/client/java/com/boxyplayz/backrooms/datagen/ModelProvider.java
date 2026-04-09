@@ -10,9 +10,9 @@ import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TexturedModel;
 
-public class BoxyBackroomsModelProvider extends FabricModelProvider {
+public class ModelProvider extends FabricModelProvider {
 
-	public BoxyBackroomsModelProvider(FabricPackOutput output) {
+	public ModelProvider(FabricPackOutput output) {
 		super(output);
 	}
 

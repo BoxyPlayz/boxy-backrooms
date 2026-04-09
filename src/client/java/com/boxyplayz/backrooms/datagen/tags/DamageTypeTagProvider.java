@@ -1,4 +1,4 @@
-package com.boxyplayz.backrooms.datagen;
+package com.boxyplayz.backrooms.datagen.tags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -11,9 +11,9 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.damagesource.DamageTypes;
 
-public class BoxysBackroomsDamageTypeTagProvider extends FabricTagsProvider<DamageType> {
+public class DamageTypeTagProvider extends FabricTagsProvider<DamageType> {
 
-	public BoxysBackroomsDamageTypeTagProvider(FabricPackOutput output, CompletableFuture<Provider> registriesFuture) {
+	public DamageTypeTagProvider(FabricPackOutput output, CompletableFuture<Provider> registriesFuture) {
 		super(output, Registries.DAMAGE_TYPE, registriesFuture);
 	}
 

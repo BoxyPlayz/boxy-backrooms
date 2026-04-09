@@ -12,8 +12,8 @@ import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
 
-public class BoxyBackroomsEnglishLangProvider extends FabricLanguageProvider {
-	public BoxyBackroomsEnglishLangProvider(FabricPackOutput dataOutput,
+public class EnglishLangProvider extends FabricLanguageProvider {
+	public EnglishLangProvider(FabricPackOutput dataOutput,
 			CompletableFuture<HolderLookup.Provider> registryLookup) {
 		// Specifying en_us is optional, as it's the default language code
 		super(dataOutput, "en_us", registryLookup);
