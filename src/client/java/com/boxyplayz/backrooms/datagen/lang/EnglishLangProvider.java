@@ -107,5 +107,8 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		// Effects
 		translationBuilder.add("effect.boxys_backrooms.gardeners_pain", "Gardener's Pain");
 		translationBuilder.add("effect.boxys_backrooms.wretched_cycle", "The Wretched Cycle");
+
+		// Other
+		translationBuilder.add("text.boxys_backrooms.level8bed", "You may not rest here. THEY are nearby.");
 	}
 }

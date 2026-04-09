@@ -1,5 +1,6 @@
 package com.boxyplayz.backrooms.datagen;
 
+import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
 import com.boxyplayz.backrooms.world.biome.ModBiomes;
@@ -9,8 +10,11 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.attribute.BedRule;
 import net.minecraft.world.attribute.EnvironmentAttributes;
+import net.minecraft.world.attribute.BedRule.Rule;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeGenerationSettings;
 import net.minecraft.world.level.biome.BiomeSpecialEffects;
@@ -57,6 +61,55 @@ public class BiomeDataProvider extends FabricDynamicRegistryProvider {
 				.setAttribute(EnvironmentAttributes.SKY_COLOR, 53759)
 				.setAttribute(EnvironmentAttributes.FOG_COLOR, 53759)
 				.hasPrecipitation(false)
+				.temperature(0.5f)
+				.downfall(0.5f)
+				.mobSpawnSettings(MobSpawnSettings.EMPTY)
+				.generationSettings(BiomeGenerationSettings.EMPTY)
+				.build());
+
+		register(context, ModBiomes.BLUE_CHANNEL_BIOME, new Biome.BiomeBuilder()
+				.specialEffects(new BiomeSpecialEffects.Builder()
+						.waterColor(255)
+						.build())
+				.setAttribute(EnvironmentAttributes.SKY_COLOR, 255)
+				.setAttribute(EnvironmentAttributes.FOG_COLOR, 255)
+				.setAttribute(EnvironmentAttributes.NIGHT_VISION_COLOR, 255)
+				.setAttribute(EnvironmentAttributes.SUNRISE_SUNSET_COLOR, 16754176)
+				.setAttribute(EnvironmentAttributes.CLOUD_COLOR, 1728436)
+				.setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 1728436)
+				.hasPrecipitation(false)
+				.temperature(0.5f)
+				.downfall(0.5f)
+				.mobSpawnSettings(MobSpawnSettings.EMPTY)
+				.generationSettings(BiomeGenerationSettings.EMPTY)
+				.build());
+
+		register(context, ModBiomes.LEVEL7_OCEAN_BIOME, new Biome.BiomeBuilder()
+				.specialEffects(new BiomeSpecialEffects.Builder()
+						.waterColor(2047)
+						.build())
+				.hasPrecipitation(true)
+				.temperature(0.5f)
+				.downfall(0.5f)
+				.mobSpawnSettings(MobSpawnSettings.EMPTY)
+				.generationSettings(BiomeGenerationSettings.EMPTY)
+				.build());
+
+		register(context, ModBiomes.LEVEL8_CAVESYSTEM_BIOME, new Biome.BiomeBuilder()
+				.specialEffects(new BiomeSpecialEffects.Builder()
+						.waterColor(4012102)
+						.grassColorOverride(3229232)
+						.foliageColorOverride(3229232)
+						.dryFoliageColorOverride(6184036)
+						.build())
+				.hasPrecipitation(false)
+				.setAttribute(EnvironmentAttributes.SURFACE_SLIME_SPAWN_CHANCE, 0f)
+				.setAttribute(EnvironmentAttributes.BED_RULE,
+						new BedRule(Rule.NEVER,
+								Rule.NEVER,
+								false,
+								Optional.of(Component.translatable("text.boxys_backrooms.level8bed"))))
+				.setAttribute(EnvironmentAttributes.RESPAWN_ANCHOR_WORKS, false)
 				.temperature(0.5f)
 				.downfall(0.5f)
 				.mobSpawnSettings(MobSpawnSettings.EMPTY)
