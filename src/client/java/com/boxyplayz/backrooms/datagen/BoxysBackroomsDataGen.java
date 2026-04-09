@@ -8,6 +8,7 @@ import com.boxyplayz.backrooms.datagen.tags.BlockTagProvider;
 import com.boxyplayz.backrooms.datagen.tags.ItemTagProvider;
 import com.boxyplayz.backrooms.datagen.worldgen.BiomeDataProvider;
 import com.boxyplayz.backrooms.datagen.worldgen.DimensionTypeProvider;
+import com.boxyplayz.backrooms.datagen.worldgen.LevelStemProvider;
 import com.boxyplayz.backrooms.datagen.tags.DamageTypeTagProvider;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
@@ -36,6 +37,7 @@ public class BoxysBackroomsDataGen implements DataGeneratorEntrypoint {
 		pack.addProvider(BlockLootTableProvider::new);
 		pack.addProvider(EntityLootTableProvider::new);
 
+		pack.addProvider(LevelStemProvider::new);
 		pack.addProvider(DimensionTypeProvider::new);
 		pack.addProvider(BiomeDataProvider::new);
 
@@ -47,6 +49,7 @@ public class BoxysBackroomsDataGen implements DataGeneratorEntrypoint {
 		registryBuilder.add(Registries.DIMENSION_TYPE, DimensionTypeProvider::bootstrap);
 		registryBuilder.add(Registries.WORLD_CLOCK, WorldClockProvider::bootstrap);
 		registryBuilder.add(Registries.BIOME, BiomeDataProvider::bootstrap);
+		registryBuilder.add(Registries.LEVEL_STEM, LevelStemProvider::bootstrap);
 	}
 
 }
