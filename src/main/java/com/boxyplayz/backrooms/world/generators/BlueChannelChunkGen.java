@@ -31,6 +31,9 @@ import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.blending.Blender;
 import net.minecraft.world.level.levelgen.synth.SimplexNoise;
 
+/**
+ * Chunk Generation for The Blue Channel
+ */
 public class BlueChannelChunkGen extends ChunkGenerator {
 	private SimplexNoise noise;
 

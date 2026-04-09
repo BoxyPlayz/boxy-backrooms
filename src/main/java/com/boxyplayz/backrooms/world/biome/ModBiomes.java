@@ -7,6 +7,9 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 
+/**
+ * {@link ResourceKey}s for all biomes added
+ */
 public class ModBiomes {
 
 	public static final ResourceKey<Biome> LEVEL7_OCEAN_BIOME = ResourceKey.create(
@@ -29,6 +32,9 @@ public class ModBiomes {
 			Registries.BIOME,
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "blue_channel"));
 
+	/**
+	 * Biomes for sections of level 1. Subclass of {@link ModBiomes}
+	 */
 	public class Level1Biomes {
 		public static final ResourceKey<Biome> AQUILA_BIOME = ResourceKey.create(
 				Registries.BIOME,
@@ -55,6 +61,9 @@ public class ModBiomes {
 				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level1/ouroboros"));
 	}
 
+	/**
+	 * Biomes for sections of Level 0. Subclass of {@link ModBiomes}
+	 */
 	public class Level0Biomes {
 		public static final ResourceKey<Biome> NORMAL_BIOME = ResourceKey.create(
 				Registries.BIOME,

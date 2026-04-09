@@ -23,7 +23,13 @@ import com.boxyplayz.backrooms.world.generators.ModChunkGenerators;
 import com.boxyplayz.backrooms.world.spawning.ModEntitySpawner;
 
 public class BoxysBackrooms implements ModInitializer {
+	/**
+	 * Mod ID for Boxy's Backrooms
+	 */
 	public static final String MOD_ID = "boxys_backrooms";
+	/**
+	 * Logger for Boxy's Backrooms
+	 */
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	@Override

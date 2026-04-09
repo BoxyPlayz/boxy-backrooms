@@ -8,6 +8,11 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.Level;
 
 public class Misc {
+	/**
+	 * Checks whether a player can get the Wretched Cycle in the dimension
+	 * 
+	 * @param level The dimension to check
+	 */
 	public static boolean isWretchableBackrooms(Level level) {
 		List<ResourceKey<Level>> wretchedLevels = List.of(
 				ModDimensions.LEVEL0_2_DIMENSION,
