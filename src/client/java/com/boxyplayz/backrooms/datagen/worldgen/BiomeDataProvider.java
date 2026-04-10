@@ -115,5 +115,25 @@ public class BiomeDataProvider extends FabricDynamicRegistryProvider {
 				.mobSpawnSettings(MobSpawnSettings.EMPTY)
 				.generationSettings(BiomeGenerationSettings.EMPTY)
 				.build());
+
+		Biome level0 = new Biome.BiomeBuilder()
+				.specialEffects(new BiomeSpecialEffects.Builder()
+						.waterColor(4159204)
+						.build())
+				.hasPrecipitation(false)
+				.setAttribute(EnvironmentAttributes.SKY_COLOR, 16106001)
+				.temperature(0.5f)
+				.downfall(0.5f)
+				.mobSpawnSettings(MobSpawnSettings.EMPTY)
+				.generationSettings(BiomeGenerationSettings.EMPTY)
+				.build();
+
+		register(context, ModBiomes.Level0Biomes.NORMAL_BIOME, level0);
+
+		register(context, ModBiomes.Level0Biomes.COLUMNS_BIOME, level0);
+
+		register(context, ModBiomes.Level0Biomes.PITFALLS_BIOME, level0);
+
+		register(context, ModBiomes.Level0Biomes.BLACKOUT_BIOME, level0);
 	}
 }
