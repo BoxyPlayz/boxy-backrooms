@@ -2,89 +2,131 @@
 import reactLogo from './assets/react.svg';
 import viteLogo from './assets/vite.svg';
 import './styles/App.css';
-import comic from "./assets/ComicRelief.ttf";
+import MiniSearch, { type SearchResult } from 'minisearch';
+import { useEffect, useState } from 'react';
+
+interface pageData {
+	data: {
+		id: number;
+		title: string;
+		desc: string;
+	}[]
+}
+
+enum Pages {
+	Home,
+}
 
 function App() {
+	const [debug, setDeb] = useState<SearchResult[]>([])
+	let minisearch = new MiniSearch({
+		fields: ["title", "desc"],
+		storeFields: ['title', 'desc']
+	});
+	const [page, setPage] = useState(Pages.Home)
+
+	useEffect(() => {
+		fetch("/boxy-backrooms/PageData.json").then(res => res.json()).then((data: pageData) => {
+			console.log(data)
+			minisearch.addAllAsync(data.data).then(() => {
+				setDeb(minisearch.search("homepage"));
+			});
+		})
+	}, []);
+
 	return (
 		<>
-			<section id='center'>
+			<div id='navbar'>
+				<a href='#' onClick={() => {
+					setPage(Pages.Home)
+				}}>Home</a>
+			</div>
+			{page == Pages.Home ? <><section id='center'>
 				<div>
 					<h1 style={{
-						font: comic
+						fontFamily: "Comic"
 					}}>Boxy's Backrooms</h1>
 				</div>
 			</section>
 
-			<section id='next-steps'>
-				<div id='docs'>
-					<svg
-						className='icon'
-						role='presentation'
-						aria-hidden='true'>
-						<use href='/icons.svg#documentation-icon'></use>
-					</svg>
-					<h2>Resources</h2>
-					<ul>
-						<li>
-							<a
-								href='https://vite.dev/'
-								target='_blank'>
-								<img
-									className='logo'
-									src={viteLogo}
-									alt=''
-								/>
-								Explore Vite
-							</a>
-						</li>
-						<li>
-							<a
-								href='https://react.dev/'
-								target='_blank'>
-								<img
-									className='button-icon'
-									src={reactLogo}
-									alt=''
-								/>
-								Learn more
-							</a>
-						</li>
-					</ul>
-				</div>
-				<div id='social'>
-					<h2>Connect with us</h2>
-					<ul>
-						<li>
-							<a
-								href='https://github.com/vitejs/vite'
-								target='_blank'>
-								<svg
-									className='button-icon'
-									role='presentation'
-									aria-hidden='true'>
-									<use href='/boxy-backrooms/icons.svg#github-icon'></use>
-								</svg>
-								GitHub
-							</a>
-						</li>
-						<li>
-							<a
-								href='https://chat.vite.dev/'
-								target='_blank'>
-								<svg
-									className='button-icon'
-									role='presentation'
-									aria-hidden='true'>
-									<use href='/boxy-backrooms/icons.svg#discord-icon'></use>
-								</svg>
-								Discord
-							</a>
-						</li>
-					</ul>
-				</div>
-			</section>
+				<section id='next-steps'>
+					<div id='docs'>
+						<svg
+							className='icon'
+							role='presentation'
+							aria-hidden='true'>
+							<use href='/boxy-backrooms/icons.svg#documentation-icon'></use>
+						</svg>
+						<h2>Resources</h2>
+						<ul>
+							<li>
+								<a
+									href='https://vite.dev/'
+									target='_blank'>
+									<img
+										className='logo'
+										src={viteLogo}
+										alt=''
+									/>
+									Explore Vite
+								</a>
+							</li>
+							<li>
+								<a
+									href='https://react.dev/'
+									target='_blank'>
+									<img
+										className='button-icon'
+										src={reactLogo}
+										alt=''
+									/>
+									Learn more
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div id='social'>
+						<h2>Connect with us</h2>
+						<ul>
+							<li>
+								<a
+									href='https://github.com/BoxyPlayz/boxy-backrooms'
+									target='_blank'>
+									<svg
+										className='button-icon'
+										role='presentation'
+										aria-hidden='true'>
+										<use href='/boxy-backrooms/icons.svg#github-icon'></use>
+									</svg>
+									GitHub
+								</a>
+							</li>
+							<li>
+								<a
+									href='https://discord.gg/T9abqkRdk6'
+									target='_blank'>
+									<svg
+										className='button-icon'
+										role='presentation'
+										aria-hidden='true'>
+										<use href='/boxy-backrooms/icons.svg#discord-icon'></use>
+									</svg>
+									Discord
+								</a>
+							</li>
+						</ul>
+					</div>
+				</section>
 
-			<section id='spacer' />
+				<section id='spacer' />
+
+				{debug?.map((item, idx) => (
+					<div key={idx}>
+						<h3>{item.title}</h3>
+						<p>{item.desc}</p>
+					</div>
+				))} </> : null
+			}
 		</>
 	);
 }
