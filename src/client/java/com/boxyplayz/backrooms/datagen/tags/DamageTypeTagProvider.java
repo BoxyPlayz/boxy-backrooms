@@ -27,6 +27,13 @@ public class DamageTypeTagProvider extends FabricTagsProvider<DamageType> {
 				.add(DamageTypes.SPEAR)
 				.add(DamageTypes.STALAGMITE)
 				.add(DamageTypes.STARVE);
+
+		builder(ModTags.FIRE_ATTACKS)
+				.add(DamageTypes.FIREBALL)
+				.add(DamageTypes.IN_FIRE)
+				.add(DamageTypes.ON_FIRE)
+				.add(DamageTypes.UNATTRIBUTED_FIREBALL)
+				.add(DamageTypes.LAVA);
 	}
 
 }

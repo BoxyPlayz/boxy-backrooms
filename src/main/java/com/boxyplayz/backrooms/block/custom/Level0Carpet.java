@@ -42,10 +42,10 @@ public class Level0Carpet extends Block {
 
 		BlockPos center = new BlockPos(x, y, z);
 
-		int searchSize = 10;
+		byte searchSize = 10;
 
-		searchLoop: for (int dx = -searchSize; dx <= searchSize; dx++) {
-			for (int dz = -searchSize; dz <= searchSize; dz++) {
+		searchLoop: for (byte dx = (byte) -searchSize; dx <= searchSize; dx++) {
+			for (byte dz = (byte) -searchSize; dz <= searchSize; dz++) {
 				BlockPos newPos = center.offset(dx, 0, dz);
 				if (!target.getBlockState(newPos).isSuffocating(level, blockPos)) {
 					x = newPos.getX();

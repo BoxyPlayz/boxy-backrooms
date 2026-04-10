@@ -95,10 +95,10 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 
 		register(context, ModDimensionTypes.BLUE_CHANNEL_DIMENSION_TYPE, new DimensionTypeBuilder()
 				.setHeight(256)
-				.setSkybox(Skybox.NONE)
+				.setSkybox(Skybox.OVERWORLD)
 				.setFixedTime(true)
-				.setAmbientLight(0)
-				.setSkylight(false)
+				.setAmbientLight(0.3f)
+				.setSkylight(true)
 				.setCeiling(false)
 				.setInfiniburn(BlockTags.ICE)
 				.build());

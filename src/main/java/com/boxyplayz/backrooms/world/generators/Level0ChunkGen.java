@@ -63,8 +63,8 @@ public class Level0ChunkGen extends ChunkGenerator {
 				return ModBlocks.PREMIUM_CEILING_TILE.defaultBlockState();
 			}
 
-			int cellX = Math.floorDiv(Math.floorMod(x, 16), 4);
-			int cellZ = Math.floorDiv(Math.floorMod(z, 16), 4);
+			short cellX = (short) Math.floorDiv(Math.floorMod(x, 16), 4);
+			short cellZ = (short) Math.floorDiv(Math.floorMod(z, 16), 4);
 			int localX = Math.abs(Math.floorMod(x, 4));
 			int localZ = Math.abs(Math.floorMod(z, 4));
 

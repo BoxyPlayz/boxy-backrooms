@@ -46,9 +46,9 @@ public class ErrorSlateBlock extends Block {
 
 		target.getChunk(center);
 
-		for (int dx = -5; dx <= 5; dx++) {
-			for (int dz = -5; dz <= 5; dz++) {
-				for (int dy = -5; dy <= 5; dy++) {
+		for (byte dx = -5; dx <= 5; dx++) {
+			for (byte dz = -5; dz <= 5; dz++) {
+				for (byte dy = -5; dy <= 5; dy++) {
 					BlockPos newPos = center.offset(dx, dy, dz);
 					if (target.getBlockState(newPos) == ModBlocks.ERRORSLATE.defaultBlockState()) {
 						x = newPos.getX();
@@ -61,9 +61,9 @@ public class ErrorSlateBlock extends Block {
 		}
 
 		if (!foundNew) {
-			for (int dx = -1; dx <= 1; dx++) {
-				for (int dz = -1; dz <= 1; dz++) {
-					for (int dy = -2; dy <= 2; dy++) {
+			for (byte dx = -1; dx <= 1; dx++) {
+				for (byte dz = -1; dz <= 1; dz++) {
+					for (byte dy = -2; dy <= 2; dy++) {
 						BlockPos platformPos = center.offset(dx, dy, dz);
 						if (dy == -2) {
 							if (dx == 0 && dz == 0) {

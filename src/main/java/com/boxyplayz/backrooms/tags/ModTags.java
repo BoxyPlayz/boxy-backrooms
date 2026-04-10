@@ -25,6 +25,9 @@ public class ModTags {
 	public static final TagKey<Item> FIRESTEEL_REPAIR_ITEMS = TagKey.create(Registries.ITEM,
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "firesteel_repair_items"));
 
+	public static final TagKey<DamageType> FIRE_ATTACKS = TagKey.create(Registries.DAMAGE_TYPE,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "fire_attacks"));
+
 	public static void RegisterModTags() {
 
 	}

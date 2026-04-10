@@ -42,10 +42,10 @@ public class InferiorCarpet extends Block {
 
 		BlockPos center = new BlockPos(x, y, z);
 
-		int searchSize = 10;
+		short searchSize = 10;
 
-		searchLoop: for (int dx = -searchSize; dx <= searchSize; dx++) {
-			for (int dz = -searchSize; dz <= searchSize; dz++) {
+		searchLoop: for (short dx = (short) -searchSize; dx <= searchSize; dx++) {
+			for (short dz = (short) -searchSize; dz <= searchSize; dz++) {
 				BlockPos newPos = center.offset(dx, 0, dz);
 				if (!target.getBlockState(newPos).isSuffocating(level, blockPos)) {
 					x = newPos.getX();

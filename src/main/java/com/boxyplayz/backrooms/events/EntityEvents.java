@@ -7,6 +7,7 @@ import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.effect.ModEffects;
 import com.boxyplayz.backrooms.entity.custom.Smiler.SmilerEntity;
 import com.boxyplayz.backrooms.item.ModItems;
+import com.boxyplayz.backrooms.tags.ModTags;
 import com.boxyplayz.backrooms.utils.Misc;
 import com.boxyplayz.backrooms.world.biome.ModBiomes;
 import com.boxyplayz.backrooms.world.dimension.ModDimensions;
@@ -36,6 +37,11 @@ import net.minecraft.world.phys.EntityHitResult;
 public class EntityEvents {
 	public static void RegisterEntityEvents() {
 		ServerLivingEntityEvents.ALLOW_DAMAGE.register((LivingEntity entity, DamageSource source, float amount) -> {
+			if (entity.level().dimension() == ModDimensions.BLUE_CHANNEL_DIMENSION) {
+				if (source.is(ModTags.FIRE_ATTACKS)) {
+					return false;
+				}
+			}
 			if ((entity instanceof SmilerEntity)) {
 				if (source.is(DamageTypes.PLAYER_ATTACK)) {
 					if (source.getEntity() instanceof Player player) {
