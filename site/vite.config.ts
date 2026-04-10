@@ -8,4 +8,18 @@ export default defineConfig({
 	appType: 'spa',
 	resolve: { alias: { '@/': '/src/' } },
 	plugins: [react(), babel({ presets: [reactCompilerPreset()] })],
+	build: {
+		rolldownOptions: {
+			output: {
+				codeSplitting: {
+					groups: [
+						{
+							test: /node_modules/,
+							name: "node_modules"
+						}
+					]
+				}
+			}
+		}
+	}
 });

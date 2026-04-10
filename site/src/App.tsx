@@ -3,7 +3,8 @@ import reactLogo from './assets/react.svg';
 import viteLogo from './assets/vite.svg';
 import './styles/App.css';
 import MiniSearch, { type SearchResult } from 'minisearch';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import modules from "./styles/Modules.module.css"
 
 interface pageData {
 	data: {
@@ -19,24 +20,26 @@ enum Pages {
 
 function App() {
 	const [debug, setDeb] = useState<SearchResult[]>([])
-	let minisearch = new MiniSearch({
+	const initialized = useRef(false);
+	const minisearchRef = useRef(new MiniSearch({
 		fields: ["title", "desc"],
 		storeFields: ['title', 'desc']
-	});
+	}));
 	const [page, setPage] = useState(Pages.Home)
 
 	useEffect(() => {
+		if (initialized.current) return;
+		initialized.current = true;
 		fetch("/boxy-backrooms/PageData.json").then(res => res.json()).then((data: pageData) => {
-			console.log(data)
-			minisearch.addAllAsync(data.data).then(() => {
-				setDeb(minisearch.search("homepage"));
+			minisearchRef.current.addAllAsync(data.data).then(() => {
+				setDeb(minisearchRef.current.search("homepage"));
 			});
 		})
 	}, []);
 
 	return (
 		<>
-			<div id='navbar'>
+			<div id='navbar' className={modules.navbar}>
 				<a href='#' onClick={() => {
 					setPage(Pages.Home)
 				}}>Home</a>

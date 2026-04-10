@@ -1,0 +1,22 @@
+.navbar {
+	height: 10vh;
+	background-color: brown;
+	flex: 1;
+	display: flex;
+	max-height: 5vh;
+	flex-direction: row;
+	align-items: center;
+	margin: 0;
+	padding: 0;
+
+	a {
+		display: flex;
+		height: 5vh;
+		text-decoration: none;
+		background-color: green;
+		align-self: center;
+		justify-content: center;
+		align-items: center;
+		font-size: 150%;
+	}
+}
