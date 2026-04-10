@@ -135,5 +135,83 @@ public class BiomeDataProvider extends FabricDynamicRegistryProvider {
 		register(context, ModBiomes.Level0Biomes.PITFALLS_BIOME, level0);
 
 		register(context, ModBiomes.Level0Biomes.BLACKOUT_BIOME, level0);
+
+		register(context, ModBiomes.Level1Biomes.AQUILA_BIOME, new Biome.BiomeBuilder()
+				.specialEffects(new BiomeSpecialEffects.Builder()
+						.waterColor(12287)
+						.build())
+				.setAttribute(EnvironmentAttributes.FOG_COLOR, 14671839)
+				.hasPrecipitation(false)
+				.setAttribute(EnvironmentAttributes.SKY_COLOR, 14671839)
+				.temperature(0.5f)
+				.downfall(0.5f)
+				.mobSpawnSettings(MobSpawnSettings.EMPTY)
+				.generationSettings(BiomeGenerationSettings.EMPTY)
+				.build());
+
+		register(context, ModBiomes.Level1Biomes.GILDED_BIOME, new Biome.BiomeBuilder()
+				.specialEffects(new BiomeSpecialEffects.Builder()
+						.waterColor(12287)
+						.build())
+				.setAttribute(EnvironmentAttributes.FOG_COLOR, 13355979)
+				.hasPrecipitation(false)
+				.setAttribute(EnvironmentAttributes.SKY_COLOR, 13355979)
+				.temperature(0.5f)
+				.downfall(0.5f)
+				.mobSpawnSettings(MobSpawnSettings.EMPTY)
+				.generationSettings(BiomeGenerationSettings.EMPTY)
+				.build());
+
+		register(context, ModBiomes.Level1Biomes.GOTHIC_BIOME, new Biome.BiomeBuilder()
+				.specialEffects(new BiomeSpecialEffects.Builder()
+						.waterColor(12287)
+						.build())
+				.setAttribute(EnvironmentAttributes.FOG_COLOR, 3422528)
+				.hasPrecipitation(false)
+				.setAttribute(EnvironmentAttributes.SKY_COLOR, 3422528)
+				.temperature(0.5f)
+				.downfall(0.5f)
+				.mobSpawnSettings(MobSpawnSettings.EMPTY)
+				.generationSettings(BiomeGenerationSettings.EMPTY)
+				.build());
+
+		register(context, ModBiomes.Level1Biomes.OUROBOROS_BIOME, new Biome.BiomeBuilder()
+				.specialEffects(new BiomeSpecialEffects.Builder()
+						.waterColor(12287)
+						.build())
+				.setAttribute(EnvironmentAttributes.FOG_COLOR, 9079434)
+				.hasPrecipitation(false)
+				.setAttribute(EnvironmentAttributes.SKY_COLOR, 9079434)
+				.temperature(0.5f)
+				.downfall(0.5f)
+				.mobSpawnSettings(MobSpawnSettings.EMPTY)
+				.generationSettings(BiomeGenerationSettings.EMPTY)
+				.build());
+
+		register(context, ModBiomes.Level1Biomes.GARDEN_BIOME, new Biome.BiomeBuilder()
+				.specialEffects(new BiomeSpecialEffects.Builder()
+						.waterColor(12287)
+						.build())
+				.setAttribute(EnvironmentAttributes.FOG_COLOR, 58879)
+				.hasPrecipitation(false)
+				.setAttribute(EnvironmentAttributes.SKY_COLOR, 58879)
+				.temperature(0.5f)
+				.downfall(0.5f)
+				.mobSpawnSettings(MobSpawnSettings.EMPTY)
+				.generationSettings(BiomeGenerationSettings.EMPTY)
+				.build());
+
+		register(context, ModBiomes.Level1Biomes.FABLED_BIOME, new Biome.BiomeBuilder()
+				.specialEffects(new BiomeSpecialEffects.Builder()
+						.waterColor(12287)
+						.build())
+				.setAttribute(EnvironmentAttributes.FOG_COLOR, 7365192)
+				.hasPrecipitation(false)
+				.setAttribute(EnvironmentAttributes.SKY_COLOR, 7365192)
+				.temperature(0.5f)
+				.downfall(0.5f)
+				.mobSpawnSettings(MobSpawnSettings.EMPTY)
+				.generationSettings(BiomeGenerationSettings.EMPTY)
+				.build());
 	}
 }
