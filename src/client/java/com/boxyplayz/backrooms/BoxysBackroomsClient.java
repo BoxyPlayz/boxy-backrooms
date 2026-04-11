@@ -11,11 +11,14 @@ import com.boxyplayz.backrooms.events.GrassColors;
 import com.boxyplayz.backrooms.events.ItemEvents;
 
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.ModelLayerRegistry;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.resources.Identifier;
+import net.fabricmc.api.EnvType;
 
+@Environment(EnvType.CLIENT)
 public class BoxysBackroomsClient implements ClientModInitializer {
 	public static final ModelLayerLocation MODEL_SMILER_LAYER = new ModelLayerLocation(
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "smiler"), "main");

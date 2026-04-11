@@ -16,7 +16,7 @@ import net.minecraft.world.level.levelgen.Heightmap.Types;
 public class ModEntitySpawner {
 	public static void RegisterModMobSpawning() {
 		BiomeModifications.addSpawn(
-				BiomeSelectors.includeByKey(ModBiomes.Level0Biomes.BLACKOUT_BIOME, ModBiomes.Level1Biomes.AQUILA_BIOME,
+				BiomeSelectors.includeByKey(ModBiomes.Level0Biomes.BLACKOUT_BIOME,
 						ModBiomes.Level1Biomes.OUROBOROS_BIOME, ModBiomes.Level1Biomes.GOTHIC_BIOME),
 				MobCategory.MONSTER, ModEntities.SMILER, 20, 1, 3);
 
@@ -24,7 +24,7 @@ public class ModEntitySpawner {
 				SmilerEntity::CheckSpawnRules);
 
 		BiomeModifications.addSpawn(
-				BiomeSelectors.includeByKey(ModBiomes.Level1Biomes.AQUILA_BIOME,
+				BiomeSelectors.includeByKey(
 						ModBiomes.Level1Biomes.OUROBOROS_BIOME, ModBiomes.Level1Biomes.GOTHIC_BIOME),
 				MobCategory.MONSTER, ModEntities.SKINSTEALER, 5, 1, 1);
 
@@ -32,7 +32,7 @@ public class ModEntitySpawner {
 				SkinStealerEntity::CheckSpawnRules);
 
 		BiomeModifications.addSpawn(
-				BiomeSelectors.includeByKey(ModBiomes.Level1Biomes.AQUILA_BIOME,
+				BiomeSelectors.includeByKey(
 						ModBiomes.Level1Biomes.OUROBOROS_BIOME, ModBiomes.Level1Biomes.GOTHIC_BIOME),
 				MobCategory.MONSTER, ModEntities.WRETCH, 2, 1, 1);
 

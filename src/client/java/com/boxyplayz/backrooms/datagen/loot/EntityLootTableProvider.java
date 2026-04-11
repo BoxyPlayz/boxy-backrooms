@@ -8,6 +8,7 @@ import com.boxyplayz.backrooms.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricEntityLootSubProvider;
 import net.minecraft.core.HolderLookup.Provider;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -28,6 +29,12 @@ public class EntityLootTableProvider extends FabricEntityLootSubProvider {
 				LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(2.0F))
 						.add(LootItem.lootTableItem(ModItems.SHADOW_DUST)
 								.apply(SetItemCountFunction.setCount(BinomialDistributionGenerator.binomial(1, 3))))));
+
+		add(ModEntities.WRETCH,
+				LootTable.lootTable().withPool(LootPool.lootPool()
+						.setRolls(BinomialDistributionGenerator.binomial(2, 4))
+						.add(LootItem.lootTableItem(Items.ROTTEN_FLESH)
+								.apply(SetItemCountFunction.setCount(BinomialDistributionGenerator.binomial(2, 7))))));
 	}
 
 }
