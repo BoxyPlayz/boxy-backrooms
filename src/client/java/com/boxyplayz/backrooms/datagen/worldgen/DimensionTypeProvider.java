@@ -109,8 +109,8 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 				.setSkybox(Skybox.OVERWORLD)
 				.setFixedTime(true)
 				.setAmbientLight(0f)
-				.setSkylight(true)
-				.setCeiling(false)
+				.setSkylight(false)
+				.setCeiling(true)
 				.build());
 
 	}

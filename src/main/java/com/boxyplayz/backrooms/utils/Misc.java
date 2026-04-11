@@ -1,5 +1,6 @@
 package com.boxyplayz.backrooms.utils;
 
+import java.time.LocalTime;
 import java.util.List;
 
 import com.boxyplayz.backrooms.world.dimension.ModDimensions;
@@ -29,5 +30,10 @@ public class Misc {
 			}
 		}
 		return false;
+	}
+
+	public static boolean getBlackout() {
+		LocalTime time = LocalTime.now();
+		return (time.getSecond() < 15);
 	}
 }

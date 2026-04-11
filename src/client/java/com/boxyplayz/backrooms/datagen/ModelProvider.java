@@ -1,14 +1,21 @@
 package com.boxyplayz.backrooms.datagen;
 
+import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.block.ModBlocks;
+import com.boxyplayz.backrooms.block.custom.Level1CeilingLight;
 import com.boxyplayz.backrooms.item.ModItems;
 
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
+import net.minecraft.client.data.models.blockstates.PropertyDispatch;
 import net.minecraft.client.data.models.model.ModelTemplates;
+import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.client.data.models.model.TexturedModel;
+import net.minecraft.client.resources.model.sprite.Material;
+import net.minecraft.resources.Identifier;
 
 public class ModelProvider extends FabricModelProvider {
 
@@ -28,7 +35,7 @@ public class ModelProvider extends FabricModelProvider {
 		blockStateModelGenerator.createTrivialCube(ModBlocks.LEVEL1_CEILING_AQUILA);
 		blockStateModelGenerator.createTrivialCube(ModBlocks.LEVEL1_FLOOR_AQUILA);
 		blockStateModelGenerator.createTrivialCube(ModBlocks.LEVEL1_PILLAR_AQUILA);
-		blockStateModelGenerator.createTrivialCube(ModBlocks.LEVEL1_CEILING_LIGHT);
+		// blockStateModelGenerator.createTrivialCube(ModBlocks.LEVEL1_CEILING_LIGHT);
 		blockStateModelGenerator.createTrivialCube(ModBlocks.LEVEL1_CRATE);
 		blockStateModelGenerator.createTrivialCube(ModBlocks.LEVEL1_WALL_GILD);
 		blockStateModelGenerator.createTrivialCube(ModBlocks.PURE_GRASS);
@@ -42,6 +49,25 @@ public class ModelProvider extends FabricModelProvider {
 		blockStateModelGenerator.createTrivialCube(ModBlocks.INFERIOR_CEILING_TILE);
 		blockStateModelGenerator.createTrivialCube(ModBlocks.INFERIOR_WALLPAPER);
 		blockStateModelGenerator.createTrivialCube(ModBlocks.PURE_BLUE);
+		{
+			// Ceiling Lights are weird
+			Identifier normalModel = TexturedModel.CUBE.create(
+					ModBlocks.LEVEL1_CEILING_LIGHT,
+					blockStateModelGenerator.modelOutput);
+
+			Identifier darkModel = ModelTemplates.CUBE_ALL.create(
+					Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "block/level1_ceiling_light_dark"),
+					TextureMapping.cube(
+							new Material(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID,
+									"block/level1_ceiling_light_dark"))),
+					blockStateModelGenerator.modelOutput);
+
+			blockStateModelGenerator.blockStateOutput.accept(
+					MultiVariantGenerator.dispatch(ModBlocks.LEVEL1_CEILING_LIGHT)
+							.with(PropertyDispatch.initial(Level1CeilingLight.DARK)
+									.select(false, BlockModelGenerators.plainVariant(normalModel))
+									.select(true, BlockModelGenerators.plainVariant(darkModel))));
+		}
 	}
 
 	@Override

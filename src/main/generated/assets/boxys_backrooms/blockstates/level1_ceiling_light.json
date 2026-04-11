@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "dark=false": {
       "model": "boxys_backrooms:block/level1_ceiling_light"
+    },
+    "dark=true": {
+      "model": "boxys_backrooms:block/level1_ceiling_light_dark"
     }
   }
 }

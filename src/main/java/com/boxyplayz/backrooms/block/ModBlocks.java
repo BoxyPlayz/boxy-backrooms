@@ -8,6 +8,7 @@ import com.boxyplayz.backrooms.block.custom.InferiorCarpet;
 import com.boxyplayz.backrooms.block.custom.Level0Carpet;
 import com.boxyplayz.backrooms.block.custom.Level0GlitchedCarpet;
 import com.boxyplayz.backrooms.block.custom.Level0Wallpaper;
+import com.boxyplayz.backrooms.block.custom.Level1CeilingLight;
 import com.boxyplayz.backrooms.block.custom.OceanTransporter;
 import com.boxyplayz.backrooms.block.custom.PremiumCarpet;
 
@@ -94,9 +95,14 @@ public class ModBlocks {
 
 	public static final Block LEVEL1_CEILING_LIGHT = register(
 			"level1_ceiling_light",
-			Block::new,
+			Level1CeilingLight::new,
 			BlockBehaviour.Properties.of().sound(SoundType.LANTERN).strength(1000f).destroyTime(1000f)
-					.lightLevel(state -> 15),
+					.lightLevel(state -> {
+						if (state.getValue(Level1CeilingLight.DARK)) {
+							return 0;
+						}
+						return 15;
+					}).randomTicks(),
 			true);
 
 	public static final Block LEVEL0_CARPET_GLITCHED = register(
