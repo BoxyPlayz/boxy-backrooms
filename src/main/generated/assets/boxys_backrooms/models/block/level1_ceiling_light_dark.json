@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "boxys_backrooms:block/level1_ceiling_light_dark"
-  }
-}

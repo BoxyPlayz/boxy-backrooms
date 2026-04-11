@@ -1,7 +1,9 @@
 package com.boxyplayz.backrooms.world.spawning;
 
 import com.boxyplayz.backrooms.entity.ModEntities;
+import com.boxyplayz.backrooms.entity.custom.SkinStealer.SkinStealerEntity;
 import com.boxyplayz.backrooms.entity.custom.Smiler.SmilerEntity;
+import com.boxyplayz.backrooms.entity.custom.Wretch.WretchEntity;
 import com.boxyplayz.backrooms.world.biome.ModBiomes;
 
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
@@ -13,10 +15,28 @@ import net.minecraft.world.level.levelgen.Heightmap.Types;
 
 public class ModEntitySpawner {
 	public static void RegisterModMobSpawning() {
-		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(ModBiomes.Level0Biomes.BLACKOUT_BIOME),
+		BiomeModifications.addSpawn(
+				BiomeSelectors.includeByKey(ModBiomes.Level0Biomes.BLACKOUT_BIOME, ModBiomes.Level1Biomes.AQUILA_BIOME,
+						ModBiomes.Level1Biomes.OUROBOROS_BIOME, ModBiomes.Level1Biomes.GOTHIC_BIOME),
 				MobCategory.MONSTER, ModEntities.SMILER, 20, 1, 3);
 
 		SpawnPlacements.register(ModEntities.SMILER, SpawnPlacementTypes.ON_GROUND, Types.WORLD_SURFACE,
-				SmilerEntity::CheckSmilerSpawnRules);
+				SmilerEntity::CheckSpawnRules);
+
+		BiomeModifications.addSpawn(
+				BiomeSelectors.includeByKey(ModBiomes.Level1Biomes.AQUILA_BIOME,
+						ModBiomes.Level1Biomes.OUROBOROS_BIOME, ModBiomes.Level1Biomes.GOTHIC_BIOME),
+				MobCategory.MONSTER, ModEntities.SKINSTEALER, 5, 1, 1);
+
+		SpawnPlacements.register(ModEntities.SKINSTEALER, SpawnPlacementTypes.ON_GROUND, Types.WORLD_SURFACE,
+				SkinStealerEntity::CheckSpawnRules);
+
+		BiomeModifications.addSpawn(
+				BiomeSelectors.includeByKey(ModBiomes.Level1Biomes.AQUILA_BIOME,
+						ModBiomes.Level1Biomes.OUROBOROS_BIOME, ModBiomes.Level1Biomes.GOTHIC_BIOME),
+				MobCategory.MONSTER, ModEntities.WRETCH, 2, 1, 1);
+
+		SpawnPlacements.register(ModEntities.WRETCH, SpawnPlacementTypes.ON_GROUND, Types.WORLD_SURFACE,
+				WretchEntity::CheckSpawnRules);
 	}
 }

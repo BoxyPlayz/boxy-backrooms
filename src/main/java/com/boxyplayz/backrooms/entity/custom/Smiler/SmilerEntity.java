@@ -28,13 +28,18 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 
 public class SmilerEntity extends PathfinderMob {
 
-	public static boolean CheckSmilerSpawnRules(final EntityType<SmilerEntity> type, final ServerLevelAccessor level,
+	public static boolean CheckSpawnRules(final EntityType<SmilerEntity> type, final ServerLevelAccessor level,
 			final EntitySpawnReason spawnReason, final BlockPos pos, final RandomSource random) {
-		return level.getBlockState(pos.below()).is(ModBlocks.LEVEL0_CARPET)
+		if (level.getBiome(pos).is(ModBiomes.Level0Biomes.BLACKOUT_BIOME)) {
+			return level.getBlockState(pos.below()).is(ModBlocks.LEVEL0_CARPET)
+					&& level.getBlockState(pos).isAir()
+					&& level.getBlockState(pos.above()).isAir()
+					&& (level.getBiome(pos).is(ModBiomes.Level0Biomes.BLACKOUT_BIOME))
+					&& level.getBrightness(LightLayer.BLOCK, pos) < 5;
+		}
+		return !level.getBlockState(pos.below()).isAir()
 				&& level.getBlockState(pos).isAir()
-				&& level.getBlockState(pos.above()).isAir()
-				&& (level.getBiome(pos).is(ModBiomes.Level0Biomes.BLACKOUT_BIOME))
-				&& level.getBrightness(LightLayer.BLOCK, pos) < 5;
+				&& level.getBlockState(pos.above()).isAir();
 	}
 
 	public SmilerEntity(EntityType<? extends PathfinderMob> entityType, Level level) {

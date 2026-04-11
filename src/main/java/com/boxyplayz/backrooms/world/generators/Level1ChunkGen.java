@@ -423,24 +423,6 @@ public class Level1ChunkGen extends ChunkGenerator {
 	@Override
 	public void buildSurface(WorldGenRegion worldGenRegion, StructureManager structureManager, RandomState randomState,
 			ChunkAccess chunkAccess) {
-		int chunkMinX = chunkAccess.getPos().getMinBlockX();
-		int chunkMinZ = chunkAccess.getPos().getMinBlockZ();
-		PositionalRandomFactory worldSeed = randomState
-				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level1seed"));
-		for (int x = 0; x < 16; x++) {
-			for (int z = 0; z < 16; z++) {
-				int globalX = chunkMinX + x;
-				int globalZ = chunkMinZ + z;
-				for (int y = getMinY(); y < getMinY() + this.getGenDepth(); y++) {
-					Holder<Biome> biome = chunkAccess.getNoiseBiome(globalX, y, globalZ);
-					BlockState block = getBlockAt(this.getNoise(worldSeed), worldSeed, globalX, y, globalZ, biome);
-					if (block.is(ModBlocks.LEVEL1_CEILING_LIGHT)) {
-						worldGenRegion.scheduleTick(new BlockPos(globalX, y, globalZ), ModBlocks.LEVEL1_CEILING_LIGHT,
-								20);
-					}
-				}
-			}
-		}
 	}
 
 	@Override
