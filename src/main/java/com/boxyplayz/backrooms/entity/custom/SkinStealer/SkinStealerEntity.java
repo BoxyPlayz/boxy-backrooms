@@ -1,30 +1,43 @@
 package com.boxyplayz.backrooms.entity.custom.SkinStealer;
 
-import java.util.UUID;
+import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.mojang.serialization.Codec;
 
-import com.mojang.authlib.GameProfile;
-
+import net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry;
+import net.fabricmc.fabric.api.attachment.v1.AttachmentSyncPredicate;
+import net.fabricmc.fabric.api.attachment.v1.AttachmentType;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.syncher.EntityDataAccessor;
-import net.minecraft.network.syncher.EntityDataSerializers;
-import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.network.syncher.SynchedEntityData.Builder;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 
 public class SkinStealerEntity extends PathfinderMob {
+
+	public boolean isPassive() {
+		return this.getAttachedOrElse(SKINSTEALER_PASSIVE_TIMER, 0) > 0;
+	}
+
+	public static final AttachmentType<Integer> SKINSTEALER_PASSIVE_TIMER = AttachmentRegistry.create(
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "skinstealer_passive_timer"),
+			builder -> builder
+					.initializer(() -> 0) // The default value of the Attachment, if one has not been set.
+					.persistent(Codec.INT) // Dictates how this Attachment's data should be saved and loaded.
+					.syncWith(ByteBufCodecs.INT, AttachmentSyncPredicate.all()));
 
 	public static boolean CheckSpawnRules(final EntityType<SkinStealerEntity> type, final ServerLevelAccessor level,
 			final EntitySpawnReason spawnReason, final BlockPos pos, final RandomSource random) {
@@ -33,31 +46,34 @@ public class SkinStealerEntity extends PathfinderMob {
 				&& level.getBlockState(pos.above()).isAir();
 	}
 
-	private static final EntityDataAccessor<String> PLAYER_KILLED = SynchedEntityData.defineId(SkinStealerEntity.class,
-			EntityDataSerializers.STRING);
-
-	private static final EntityDataAccessor<String> PLAYER_KILLED_UUID = SynchedEntityData.defineId(
-			SkinStealerEntity.class,
-			EntityDataSerializers.STRING);
-
 	public SkinStealerEntity(EntityType<? extends PathfinderMob> entityType, Level level) {
 		super(entityType, level);
+	}
+
+	@Override
+	public void tick() {
+		if (this.getAttachedOrElse(SKINSTEALER_PASSIVE_TIMER, 0) > 0) {
+			this.modifyAttached(SKINSTEALER_PASSIVE_TIMER, (currentValue) -> (currentValue - 1));
+		}
+		super.tick();
 	}
 
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
 		this.goalSelector.addGoal(0, new FloatGoal(this));
-		this.goalSelector.addGoal(0, new AvoidEntityGoal<Player>(this, Player.class, 4, 1.1, 1.2, player -> {
-			return false;
-		}));
-		this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0D, true));
+		this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.0D, true));
+		this.goalSelector.addGoal(2, new HurtByTargetGoal(this));
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(
-				this, Player.class, true));
+				this, Player.class, true, (LivingEntity target, ServerLevel level) -> {
+					if (this.getAttachedOrElse(SKINSTEALER_PASSIVE_TIMER, 0) > 0) {
+						return false;
+					}
+					return true;
+				}));
 		this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D));
 		this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 8.0F));
 		this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
-
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
@@ -69,15 +85,15 @@ public class SkinStealerEntity extends PathfinderMob {
 	}
 
 	@Override
-	public boolean hurtServer(ServerLevel level, DamageSource damageSource, float amount) {
-		return super.hurtServer(level, damageSource, amount);
-	}
-
-	@Override
-	protected void defineSynchedData(Builder entityData) {
-		super.defineSynchedData(entityData);
-		entityData.define(PLAYER_KILLED, "");
-		entityData.define(PLAYER_KILLED_UUID, "");
+	public boolean hurtServer(ServerLevel level, DamageSource source, float damage) {
+		int timer = this.getAttachedOrElse(SKINSTEALER_PASSIVE_TIMER, 0);
+		int damageDealt = (int) Math.floor(damage);
+		if (timer > damageDealt) {
+			this.setAttached(SKINSTEALER_PASSIVE_TIMER, timer - damageDealt);
+		} else if (timer > 0) {
+			this.setAttached(SKINSTEALER_PASSIVE_TIMER, 0);
+		}
+		return super.hurtServer(level, source, damage);
 	}
 
 	@Override
@@ -85,29 +101,11 @@ public class SkinStealerEntity extends PathfinderMob {
 		boolean didHurtResult = super.doHurtTarget(level, target);
 
 		if (target instanceof Player player) {
-			if (!player.isAlive()) {
-				GameProfile profile = player.getGameProfile();
-				setPlayerKilled(profile.name());
-				setPlayerKilledUUID(profile.id());
+			if (player.isDeadOrDying()) {
+				this.setAttached(SKINSTEALER_PASSIVE_TIMER, 20 * 60);
 			}
 		}
 
 		return didHurtResult;
-	}
-
-	public String getPlayerKilled() {
-		return entityData.get(PLAYER_KILLED);
-	}
-
-	public UUID getPlayerKilledUUID() {
-		return UUID.fromString(entityData.get(PLAYER_KILLED_UUID));
-	}
-
-	protected void setPlayerKilled(String playerName) {
-		entityData.set(PLAYER_KILLED, playerName);
-	}
-
-	protected void setPlayerKilledUUID(UUID uuid) {
-		entityData.set(PLAYER_KILLED_UUID, uuid.toString());
 	}
 }

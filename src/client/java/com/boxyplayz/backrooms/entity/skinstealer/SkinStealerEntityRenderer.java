@@ -11,6 +11,11 @@ import net.minecraft.resources.Identifier;
 public class SkinStealerEntityRenderer
 		extends MobRenderer<SkinStealerEntity, SkinStealerRenderState, SkinStealerModel<SkinStealerEntity>> {
 
+	private static final Identifier PASSIVE = Identifier.withDefaultNamespace("textures/entity/player/wide/steve.png");
+
+	private static final Identifier NORMAL = Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID,
+			"textures/entity/skinstealer.png");
+
 	public SkinStealerEntityRenderer(EntityRendererProvider.Context context) {
 		super(context,
 				new SkinStealerModel<SkinStealerEntity>(
@@ -20,11 +25,19 @@ public class SkinStealerEntityRenderer
 
 	@Override
 	public Identifier getTextureLocation(SkinStealerRenderState renderState) {
-		return Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "textures/entity/skinstealer.png");
+		return renderState.isPassive ? PASSIVE : NORMAL;
 	}
 
 	@Override
 	public SkinStealerRenderState createRenderState() {
-		return new SkinStealerRenderState();
+		SkinStealerRenderState state = new SkinStealerRenderState();
+		state.isPassive = false;
+		return state;
+	}
+
+	@Override
+	public void extractRenderState(SkinStealerEntity entity, SkinStealerRenderState state, float partialTicks) {
+		super.extractRenderState(entity, state, partialTicks);
+		state.isPassive = entity.getAttachedOrElse(SkinStealerEntity.SKINSTEALER_PASSIVE_TIMER, 0) > 0;
 	}
 }
