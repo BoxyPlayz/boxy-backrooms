@@ -72,6 +72,10 @@ public class SmilerEntity extends PathfinderMob {
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(
 				this, Player.class, true, (LivingEntity target, ServerLevel level) -> {
 					if (target instanceof Player player) {
+						if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.SMILER_REPELLANT)
+								|| player.getItemBySlot(EquipmentSlot.OFFHAND).is(ModItems.SMILER_REPELLANT)) {
+							return false;
+						}
 						if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModTags.LIGHT_ITEMS)
 								|| player.getItemBySlot(EquipmentSlot.OFFHAND).is(ModTags.LIGHT_ITEMS)) {
 							return true;
@@ -80,7 +84,15 @@ public class SmilerEntity extends PathfinderMob {
 					return false;
 				}));
 		this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(
-				this, Player.class, true));
+				this, Player.class, true, (LivingEntity target, ServerLevel level) -> {
+					if (target instanceof Player player) {
+						if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.SMILER_REPELLANT)
+								|| player.getItemBySlot(EquipmentSlot.OFFHAND).is(ModItems.SMILER_REPELLANT)) {
+							return false;
+						}
+					}
+					return true;
+				}));
 		this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0D));
 		this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));
 		this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
