@@ -1,6 +1,7 @@
 package com.boxyplayz.backrooms.entity.custom.Smiler;
 
 import com.boxyplayz.backrooms.block.ModBlocks;
+import com.boxyplayz.backrooms.damagetypes.ModDamageTypes;
 import com.boxyplayz.backrooms.item.ModItems;
 import com.boxyplayz.backrooms.tags.ModTags;
 import com.boxyplayz.backrooms.world.biome.ModBiomes;
@@ -63,7 +64,7 @@ public class SmilerEntity extends PathfinderMob {
 					this.resetAttackCooldown();
 					target.hurtServer(getServerLevel(target),
 							new DamageSource(level().registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE)
-									.getOrThrow(DamageTypes.MAGIC), null, this.mob),
+									.getOrThrow(ModDamageTypes.ANOMALY_DAMAGE), null, this.mob),
 							((float) this.mob.getAttribute(Attributes.ATTACK_DAMAGE).getValue()));
 				}
 				super.checkAndPerformAttack(target);

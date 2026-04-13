@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.clock.ModWorldClocks;
 import com.boxyplayz.backrooms.creativetabs.ModCreativeTabs;
+import com.boxyplayz.backrooms.damagetypes.ModDamageTypes;
 import com.boxyplayz.backrooms.effect.ModEffects;
 import com.boxyplayz.backrooms.entity.ModEntities;
 import com.boxyplayz.backrooms.events.ModEvents;
@@ -48,5 +49,6 @@ public class BoxysBackrooms implements ModInitializer {
 		ModEffects.RegisterModEffects();
 		ModToolMaterials.RegisterToolMaterials();
 		ModWorldClocks.RegisterModWorldClocks();
+		ModDamageTypes.RegisterDamageTypes();
 	}
 }

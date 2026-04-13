@@ -1,6 +1,8 @@
 package com.boxyplayz.backrooms;
 
 import com.boxyplayz.backrooms.entity.ModEntities;
+import com.boxyplayz.backrooms.entity.partygoer.PartygoerEntityRenderer;
+import com.boxyplayz.backrooms.entity.partygoer.PartygoerModel;
 import com.boxyplayz.backrooms.entity.skinstealer.SkinStealerEntityRenderer;
 import com.boxyplayz.backrooms.entity.skinstealer.SkinStealerModel;
 import com.boxyplayz.backrooms.entity.smiler.SmilerEntityRenderer;
@@ -29,6 +31,9 @@ public class BoxysBackroomsClient implements ClientModInitializer {
 	public static final ModelLayerLocation MODEL_SKIN_STEALER_LAYER = new ModelLayerLocation(
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "skinstealer"), "main");
 
+	public static final ModelLayerLocation MODEL_PARTYGOER_LAYER = new ModelLayerLocation(
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "partygoer"), "main");
+
 	@Override
 	public void onInitializeClient() {
 		ItemEvents.RegisterItemEvents();
@@ -46,5 +51,9 @@ public class BoxysBackroomsClient implements ClientModInitializer {
 		EntityRenderers.register(ModEntities.WRETCH, WretchedRenderer::new);
 
 		ModelLayerRegistry.registerModelLayer(MODEL_WRETCH_LAYER, WretchModel::createBodyLayer);
+
+		EntityRenderers.register(ModEntities.PARTYGOER, PartygoerEntityRenderer::new);
+
+		ModelLayerRegistry.registerModelLayer(MODEL_PARTYGOER_LAYER, PartygoerModel::createBodyLayer);
 	}
 }

@@ -24,6 +24,10 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		return item.getDescriptionId() + ".tooltip";
 	}
 
+	public String getDeathMsg(String id) {
+		return "death.attack." + id;
+	}
+
 	public EnglishLangProvider(FabricPackOutput dataOutput,
 			CompletableFuture<HolderLookup.Provider> registryLookup) {
 		// Specifying en_us is optional, as it's the default language code
@@ -114,10 +118,14 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModEntities.SMILER, "Smiler");
 		translationBuilder.add(ModEntities.SKINSTEALER, "Skin Stealer");
 		translationBuilder.add(ModEntities.WRETCH, "Wretch");
+		translationBuilder.add(ModEntities.PARTYGOER, "Partygoer");
 
 		// Effects
 		translationBuilder.add(ModEffects.GARDENERS_PAIN.value(), "Gardener's Pain");
 		translationBuilder.add(ModEffects.WRETCHED_CYCLE.value(), "The Wretched Cycle");
+
+		// Damage Type
+		translationBuilder.add(getDeathMsg("anomaly_damage"), "ERRORRORRRROORORROORO");
 
 		// Other
 		translationBuilder.add(getText("level8bed"), "You may not rest here. THEY are nearby.");

@@ -1,6 +1,7 @@
 package com.boxyplayz.backrooms.entity;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.entity.custom.Partygoer.PartygoerEntity;
 import com.boxyplayz.backrooms.entity.custom.SkinStealer.SkinStealerEntity;
 import com.boxyplayz.backrooms.entity.custom.Smiler.SmilerEntity;
 import com.boxyplayz.backrooms.entity.custom.Wretch.WretchEntity;
@@ -38,6 +39,14 @@ public class ModEntities {
 			EntityType.Builder.of(WretchEntity::new, MobCategory.MONSTER).sized(1f, 2.5f)
 					.build(wretchResourceKey));
 
+	static ResourceKey<EntityType<?>> partygoerKey = ResourceKey.create(
+			BuiltInRegistries.ENTITY_TYPE.key(),
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "partygoer"));
+	public static final EntityType<PartygoerEntity> PARTYGOER = Registry.register(BuiltInRegistries.ENTITY_TYPE,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "partygoer"),
+			EntityType.Builder.of(PartygoerEntity::new, MobCategory.MONSTER).sized(1f, 2.5f)
+					.build(partygoerKey));
+
 	public static void RegisterModEntities() {
 		FabricDefaultAttributeRegistry.register(SMILER,
 				SmilerEntity.createAttributes());
@@ -47,5 +56,8 @@ public class ModEntities {
 
 		FabricDefaultAttributeRegistry.register(WRETCH,
 				WretchEntity.createAttributes());
+
+		FabricDefaultAttributeRegistry.register(PARTYGOER,
+				PartygoerEntity.createAttributes());
 	}
 }
