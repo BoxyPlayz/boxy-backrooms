@@ -6,6 +6,7 @@ import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.creativetabs.ModCreativeTabs;
 import com.boxyplayz.backrooms.effect.ModEffects;
+import com.boxyplayz.backrooms.enchantments.ModEnchantments;
 import com.boxyplayz.backrooms.entity.ModEntities;
 import com.boxyplayz.backrooms.item.ModItems;
 import com.boxyplayz.backrooms.tags.ModTags;
@@ -123,6 +124,9 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		// Effects
 		translationBuilder.add(ModEffects.GARDENERS_PAIN.value(), "Gardener's Pain");
 		translationBuilder.add(ModEffects.WRETCHED_CYCLE.value(), "The Wretched Cycle");
+
+		// Enchantments
+		translationBuilder.addEnchantment(ModEnchantments.ANOMALOUS_PROTECTION, "Anomalous Protection");
 
 		// Damage Type
 		translationBuilder.add(getDeathMsg("anomaly_damage"), "ERRORRORRRROORORROORO");

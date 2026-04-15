@@ -10,6 +10,7 @@ import com.boxyplayz.backrooms.clock.ModWorldClocks;
 import com.boxyplayz.backrooms.creativetabs.ModCreativeTabs;
 import com.boxyplayz.backrooms.damagetypes.ModDamageTypes;
 import com.boxyplayz.backrooms.effect.ModEffects;
+import com.boxyplayz.backrooms.enchantments.ModEnchantments;
 import com.boxyplayz.backrooms.entity.ModEntities;
 import com.boxyplayz.backrooms.events.ModEvents;
 import com.boxyplayz.backrooms.item.ModItems;
@@ -50,5 +51,6 @@ public class BoxysBackrooms implements ModInitializer {
 		ModToolMaterials.RegisterToolMaterials();
 		ModWorldClocks.RegisterModWorldClocks();
 		ModDamageTypes.RegisterDamageTypes();
+		ModEnchantments.RegisterModEnchantments();
 	}
 }

@@ -42,6 +42,8 @@ public class BoxysBackroomsDataGenEntry implements DataGeneratorEntrypoint {
 		pack.addProvider(WorldClockProvider::new);
 
 		pack.addProvider(DamageTypeProvider::new);
+
+		pack.addProvider(EnchantmentsProvider::new);
 	}
 
 	@Override
@@ -50,6 +52,7 @@ public class BoxysBackroomsDataGenEntry implements DataGeneratorEntrypoint {
 		registryBuilder.add(Registries.DIMENSION_TYPE, DimensionTypeProvider::bootstrap);
 		registryBuilder.add(Registries.BIOME, BiomeDataProvider::bootstrap);
 		registryBuilder.add(Registries.DAMAGE_TYPE, DamageTypeProvider::bootstrap);
+		registryBuilder.add(Registries.ENCHANTMENT, EnchantmentsProvider::bootstrap);
 	}
 
 }

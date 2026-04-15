@@ -28,6 +28,9 @@ public class ModTags {
 	public static final TagKey<DamageType> FIRE_ATTACKS = TagKey.create(Registries.DAMAGE_TYPE,
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "fire_attacks"));
 
+	public static final TagKey<DamageType> ANOMALY_DAMAGE = TagKey.create(Registries.DAMAGE_TYPE,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "anomaly_damage"));
+
 	public static void RegisterModTags() {
 
 	}

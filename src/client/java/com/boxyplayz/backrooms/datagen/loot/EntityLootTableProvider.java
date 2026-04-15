@@ -35,6 +35,12 @@ public class EntityLootTableProvider extends FabricEntityLootSubProvider {
 						.setRolls(BinomialDistributionGenerator.binomial(2, 4))
 						.add(LootItem.lootTableItem(Items.ROTTEN_FLESH)
 								.apply(SetItemCountFunction.setCount(BinomialDistributionGenerator.binomial(2, 7))))));
+
+		add(ModEntities.SKINSTEALER,
+				LootTable.lootTable().withPool(LootPool.lootPool()
+						.setRolls(BinomialDistributionGenerator.binomial(3, 6))
+						.add(LootItem.lootTableItem(Items.ROTTEN_FLESH)
+								.apply(SetItemCountFunction.setCount(BinomialDistributionGenerator.binomial(1, 9))))));
 	}
 
 }
