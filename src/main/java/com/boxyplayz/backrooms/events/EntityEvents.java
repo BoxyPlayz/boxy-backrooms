@@ -32,6 +32,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.EntityHitResult;
 
 public class EntityEvents {
@@ -96,6 +97,21 @@ public class EntityEvents {
 							return;
 						player.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 10 * 20, 20));
 						player.teleportTo(target, 0.5, 120, 0.5, Set.of(), player.getYRot(), player.getXRot(), false);
+					}
+				}
+
+				if (player.level().dimension() == ModDimensions.LEVEL6_DIMENSION) {
+					if (player.level().getFluidState(player.blockPosition()).is(Fluids.WATER)) {
+						ServerLevel target = player.level().getServer().getLevel(ModDimensions.LEVEL7_DIMENSION);
+						if (target == null) {
+							return;
+						}
+
+						int x = player.blockPosition().getX();
+						int z = player.blockPosition().getZ();
+						int y = 200;
+						player.teleportTo(target, x + 0.5, y, z + 0.5, Set.of(), player.getYRot(), player.getXRot(),
+								false);
 					}
 				}
 

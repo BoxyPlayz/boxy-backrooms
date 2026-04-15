@@ -29,8 +29,19 @@ import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraft.world.level.levelgen.PositionalRandomFactory;
 import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.blending.Blender;
+import net.minecraft.world.level.levelgen.synth.SimplexNoise;
 
 public class Level7ChunkGen extends ChunkGenerator {
+
+	private SimplexNoise noise;
+
+	protected SimplexNoise getNoise(PositionalRandomFactory worldSeed) {
+		if (this.noise == null) {
+			RandomSource random = worldSeed.fromHashOf("level0_seed");
+			this.noise = new SimplexNoise(random);
+		}
+		return this.noise;
+	}
 
 	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
 		int minY = getMinY();
@@ -52,16 +63,23 @@ public class Level7ChunkGen extends ChunkGenerator {
 			}
 		}
 
-		// Secondary Deepslate Layer
-		if (y < 40) {
-			boolean isDeepSlate = (chunkId.nextIntBetweenInclusive(1, 60 - y) == 1);
-			if (isDeepSlate) {
-				return Blocks.DEEPSLATE.defaultBlockState();
-			}
-		}
-
 		// Water
 		if (y < this.getSeaLevel()) {
+			double noiseValue = getNoise(randomFactory).getValue(x * 0.002, z * 0.002) * 140;
+			if (noiseValue + 20 >= y) {
+				if (y > 110) {
+					return Blocks.SAND.defaultBlockState();
+				}
+				if (y > 60) {
+					return Blocks.STONE.defaultBlockState();
+				}
+				boolean isErrorSlate = (chunkId.nextIntBetweenInclusive(1, 120) == 1);
+				if (isErrorSlate) {
+					return ModBlocks.ERRORSLATE.defaultBlockState();
+				} else {
+					return Blocks.DEEPSLATE.defaultBlockState();
+				}
+			}
 			return Blocks.WATER.defaultBlockState();
 		}
 

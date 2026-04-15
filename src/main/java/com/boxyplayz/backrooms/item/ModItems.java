@@ -88,8 +88,6 @@ public class ModItems {
 					-2));
 
 	public static void registerModItems() {
-
 		BoxysBackrooms.LOGGER.debug("Registering items for " + BoxysBackrooms.MOD_ID);
-
 	}
 }

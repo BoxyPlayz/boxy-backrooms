@@ -44,9 +44,13 @@ public class Level6ChunkGen extends ChunkGenerator {
 	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z, Holder<Biome> biome) {
 		long chunkX = Math.floorDiv(x, 16);
 		long chunkZ = Math.floorDiv(z, 16);
+		RandomSource blockNoVerticalRandom = randomFactory.at(x, 0, z);
 
 		// Floor
 		if (y <= 0) {
+			if (blockNoVerticalRandom.nextIntBetweenInclusive(1, 256) == 4 && y != getMinY()) {
+				return Blocks.WATER.defaultBlockState();
+			}
 			return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
 		}
 
@@ -176,7 +180,7 @@ public class Level6ChunkGen extends ChunkGenerator {
 	@Override
 	public NoiseColumn getBaseColumn(int x, int z, LevelHeightAccessor levelHeightAccessor, RandomState randomState) {
 		PositionalRandomFactory worldSeed = randomState
-				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level0seed"));
+				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "l6"));
 
 		int height = this.getGenDepth();
 		BlockState[] blocks = new BlockState[height];

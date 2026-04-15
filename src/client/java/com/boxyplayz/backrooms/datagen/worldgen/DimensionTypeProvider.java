@@ -61,8 +61,8 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 		register(context, ModDimensionTypes.LEVEL7_OCEAN_DIMENSION_TYPE, new DimensionTypeBuilder()
 				.setHeight(304)
 				.setFixedTime(false)
-				.setAmbientLight(0)
-				.setSkylight(false)
+				.setAmbientLight(0.2f)
+				.setSkylight(true)
 				.setCeiling(false)
 				.build());
 
