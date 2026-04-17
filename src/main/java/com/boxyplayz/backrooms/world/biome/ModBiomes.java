@@ -84,6 +84,27 @@ public class ModBiomes {
 
 	}
 
+	/**
+	 * Biomes for a fun game =)
+	 */
+	public class LevelFunBiomes {
+		public static final ResourceKey<Biome> HALLWAYS_BIOME = ResourceKey.create(
+				Registries.BIOME,
+				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "levelfun/hallways"));
+
+		public static final ResourceKey<Biome> PLAYROOMS_BIOME = ResourceKey.create(
+				Registries.BIOME,
+				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "levelfun/playrooms"));
+
+		public static final ResourceKey<Biome> TRAMPOLINE_PARK_BIOME = ResourceKey.create(
+				Registries.BIOME,
+				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "levelfun/trampolines"));
+
+		public static final ResourceKey<Biome> PARTY_ROOMS_BIOME = ResourceKey.create(
+				Registries.BIOME,
+				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "levelfun/party_rooms"));
+	}
+
 	public static void RegisterModBiomes() {
 
 	}

@@ -70,6 +70,9 @@ public class Level7ChunkGen extends ChunkGenerator {
 				if (y > 110) {
 					return Blocks.SAND.defaultBlockState();
 				}
+				if (y > 100) {
+					return Blocks.GRAVEL.defaultBlockState();
+				}
 				if (y > 60) {
 					return Blocks.STONE.defaultBlockState();
 				}
