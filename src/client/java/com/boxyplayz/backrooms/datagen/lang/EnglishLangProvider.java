@@ -81,6 +81,12 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModBlocks.GARDEN_CONCRETE, "Garden Concrete");
 		translationBuilder.add(ModBlocks.AGED_CONCRETE, "Aged Concrete");
 
+		translationBuilder.add(ModBlocks.FUN_GREEN, "Fun Green Wall");
+		translationBuilder.add(ModBlocks.FUN_PINK, "Fun Pink Wall");
+		translationBuilder.add(ModBlocks.FUN_PURPLE, "Fun Purple Wall");
+		translationBuilder.add(ModBlocks.FUN_YELLOW, "Fun Yellow Wall");
+		translationBuilder.add(ModBlocks.FUN_FLOOR, "Fun Floor");
+
 		translationBuilder.add(ModBlocks.PURE_BLUE, "Pure Blue");
 
 		// Loot Blocks

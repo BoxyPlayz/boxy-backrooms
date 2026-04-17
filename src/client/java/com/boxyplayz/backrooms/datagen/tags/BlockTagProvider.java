@@ -3,6 +3,7 @@ package com.boxyplayz.backrooms.datagen.tags;
 import java.util.concurrent.CompletableFuture;
 
 import com.boxyplayz.backrooms.block.ModBlocks;
+import com.boxyplayz.backrooms.tags.ModTags;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
@@ -33,6 +34,13 @@ public class BlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
 
 		valueLookupBuilder(BlockTags.MINEABLE_WITH_SHOVEL)
 				.add(ModBlocks.PURE_GRASS)
+				.setReplace(false);
+
+		valueLookupBuilder(ModTags.FUN_BLOCKS)
+				.add(ModBlocks.FUN_GREEN)
+				.add(ModBlocks.FUN_PINK)
+				.add(ModBlocks.FUN_PURPLE)
+				.add(ModBlocks.FUN_YELLOW)
 				.setReplace(false);
 	}
 

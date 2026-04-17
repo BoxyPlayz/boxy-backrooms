@@ -204,6 +204,36 @@ public class ModBlocks {
 			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).strength(999F).sound(SoundType.AMETHYST),
 			true);
 
+	public static final Block FUN_PINK = register(
+			"fun_pink",
+			Block::new,
+			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PINK).strength(999F).sound(SoundType.WOOL),
+			true);
+
+	public static final Block FUN_GREEN = register(
+			"fun_green",
+			Block::new,
+			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).strength(999F).sound(SoundType.WOOL),
+			true);
+
+	public static final Block FUN_PURPLE = register(
+			"fun_purple",
+			Block::new,
+			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_PURPLE).strength(999F).sound(SoundType.WOOL),
+			true);
+
+	public static final Block FUN_YELLOW = register(
+			"fun_yellow",
+			Block::new,
+			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(999F).sound(SoundType.WOOL),
+			true);
+
+	public static final Block FUN_FLOOR = register(
+			"fun_floor",
+			Block::new,
+			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).strength(999F).sound(SoundType.WOOL),
+			true);
+
 	public static void RegisterModBlocks() {
 	}
 }

@@ -8,6 +8,7 @@ import com.boxyplayz.backrooms.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootSubProvider;
 import net.minecraft.core.HolderLookup.Provider;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -57,6 +58,11 @@ public class BlockLootTableProvider extends FabricBlockLootSubProvider {
 		dropSelf(ModBlocks.INFERIOR_WALLPAPER);
 
 		dropOther(ModBlocks.PURE_GRASS, Blocks.GRASS_BLOCK.asItem());
+		dropOther(ModBlocks.FUN_GREEN, Items.LIME_DYE);
+		dropOther(ModBlocks.FUN_PINK, Items.PINK_DYE);
+		dropOther(ModBlocks.FUN_YELLOW, Items.YELLOW_DYE);
+		dropOther(ModBlocks.FUN_PURPLE, Items.PURPLE_DYE);
+		dropOther(ModBlocks.FUN_FLOOR, Items.RED_WOOL);
 	}
 
 }
