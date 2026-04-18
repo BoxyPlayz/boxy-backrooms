@@ -33,11 +33,9 @@ public class LevelFunBiomeSource extends BiomeSource {
 					RegistryOps.retrieveElement(ModBiomes.LevelFunBiomes.HALLWAYS_BIOME),
 					RegistryOps.retrieveElement(ModBiomes.LevelFunBiomes.PLAYROOMS_BIOME),
 					RegistryOps.retrieveElement(ModBiomes.LevelFunBiomes.TRAMPOLINE_PARK_BIOME),
-					RegistryOps.retrieveElement(ModBiomes.LevelFunBiomes.PARTY_ROOMS_BIOME)
-
-			).apply(
-					instance,
-					instance.stable(LevelFunBiomeSource::new)));
+					RegistryOps.retrieveElement(ModBiomes.LevelFunBiomes.PARTY_ROOMS_BIOME)).apply(
+							instance,
+							instance.stable(LevelFunBiomeSource::new)));
 
 	private final Holder<Biome> hallways;
 	private final Holder<Biome> playrooms;
@@ -72,8 +70,8 @@ public class LevelFunBiomeSource extends BiomeSource {
 		long chunkX = Math.floorDiv(x, 16);
 		long chunkZ = Math.floorDiv(z, 16);
 
-		double noiseValue = getNoise(randomFactory).getValue(chunkX * 0.02,
-				chunkZ * 0.02);
+		double noiseValue = getNoise(randomFactory).getValue(chunkX * 0.07,
+				chunkZ * 0.07);
 
 		if (noiseValue > 0.8) {
 			return this.partyrooms;

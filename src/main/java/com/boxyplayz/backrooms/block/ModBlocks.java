@@ -8,6 +8,7 @@ import com.boxyplayz.backrooms.block.custom.InferiorCarpet;
 import com.boxyplayz.backrooms.block.custom.Level0Carpet;
 import com.boxyplayz.backrooms.block.custom.Level0GlitchedCarpet;
 import com.boxyplayz.backrooms.block.custom.Level0Wallpaper;
+import com.boxyplayz.backrooms.block.custom.NoFallDamageBlock;
 import com.boxyplayz.backrooms.block.custom.OceanTransporter;
 import com.boxyplayz.backrooms.block.custom.PremiumCarpet;
 import com.boxyplayz.backrooms.block.custom.TrampolineBlock;
@@ -207,31 +208,31 @@ public class ModBlocks {
 
 	public static final Block FUN_PINK = register(
 			"fun_pink",
-			Block::new,
+			NoFallDamageBlock::new,
 			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PINK).strength(999F).sound(SoundType.WOOL),
 			true);
 
 	public static final Block FUN_GREEN = register(
 			"fun_green",
-			Block::new,
+			NoFallDamageBlock::new,
 			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).strength(999F).sound(SoundType.WOOL),
 			true);
 
 	public static final Block FUN_PURPLE = register(
 			"fun_purple",
-			Block::new,
+			NoFallDamageBlock::new,
 			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_PURPLE).strength(999F).sound(SoundType.WOOL),
 			true);
 
 	public static final Block FUN_YELLOW = register(
 			"fun_yellow",
-			Block::new,
+			NoFallDamageBlock::new,
 			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(999F).sound(SoundType.WOOL),
 			true);
 
 	public static final Block FUN_FLOOR = register(
 			"fun_floor",
-			Block::new,
+			NoFallDamageBlock::new,
 			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).strength(999F).sound(SoundType.WOOL),
 			true);
 

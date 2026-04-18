@@ -102,6 +102,30 @@ public class LevelFunChunkGen extends ChunkGenerator {
 			}
 		}
 
+		if (biome.is(ModBiomes.LevelFunBiomes.TRAMPOLINE_PARK_BIOME)) {
+			if (y <= 0) {
+				int localX = Math.abs(Math.floorMod(x, 4));
+				int localZ = Math.abs(Math.floorMod(z, 4));
+				if (localX == 0) {
+					return ModBlocks.FUN_GREEN.defaultBlockState();
+				}
+				if (localZ == 0) {
+					return ModBlocks.FUN_PURPLE.defaultBlockState();
+				}
+				if (y >= -8) {
+					return ModBlocks.BLACK_TRAMPOLINE.defaultBlockState();
+				}
+				return ModBlocks.FUN_FLOOR.defaultBlockState();
+			}
+			if (y >= 8) {
+				if (Math.floorMod(x, 4) == 2 && y == 8) {
+					return ModBlocks.LEVEL1_CEILING_LIGHT.defaultBlockState();
+				}
+				return ModBlocks.LEVEL1_CEILING_AQUILA.defaultBlockState();
+			}
+
+		}
+
 		return Blocks.AIR.defaultBlockState();
 	}
 
