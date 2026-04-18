@@ -52,7 +52,7 @@ public class LevelFunChunkGen extends ChunkGenerator {
 				return ModBlocks.FUN_FLOOR.defaultBlockState();
 			}
 			if (y >= 6) {
-				if (Math.floorMod(x, 4) == 0 && Math.floorMod(z, 4) == 0) {
+				if (Math.floorMod(x, 4) == 0 && Math.floorMod(z, 4) == 0 && y == 6) {
 					return ModBlocks.LEVEL1_CEILING_LIGHT.defaultBlockState();
 				}
 				return ModBlocks.LEVEL1_CEILING_AQUILA.defaultBlockState();

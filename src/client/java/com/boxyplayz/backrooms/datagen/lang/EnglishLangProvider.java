@@ -86,6 +86,7 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModBlocks.FUN_PURPLE, "Fun Purple Wall");
 		translationBuilder.add(ModBlocks.FUN_YELLOW, "Fun Yellow Wall");
 		translationBuilder.add(ModBlocks.FUN_FLOOR, "Fun Floor");
+		translationBuilder.add(ModBlocks.BLACK_TRAMPOLINE, "Black Trampoline");
 
 		translationBuilder.add(ModBlocks.PURE_BLUE, "Pure Blue");
 

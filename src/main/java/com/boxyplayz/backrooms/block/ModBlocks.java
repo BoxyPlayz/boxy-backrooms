@@ -10,6 +10,7 @@ import com.boxyplayz.backrooms.block.custom.Level0GlitchedCarpet;
 import com.boxyplayz.backrooms.block.custom.Level0Wallpaper;
 import com.boxyplayz.backrooms.block.custom.OceanTransporter;
 import com.boxyplayz.backrooms.block.custom.PremiumCarpet;
+import com.boxyplayz.backrooms.block.custom.TrampolineBlock;
 
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -232,6 +233,12 @@ public class ModBlocks {
 			"fun_floor",
 			Block::new,
 			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).strength(999F).sound(SoundType.WOOL),
+			true);
+
+	public static final Block BLACK_TRAMPOLINE = register(
+			"black_trampoline",
+			TrampolineBlock::new,
+			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).strength(20F).sound(SoundType.WOOL),
 			true);
 
 	public static void RegisterModBlocks() {

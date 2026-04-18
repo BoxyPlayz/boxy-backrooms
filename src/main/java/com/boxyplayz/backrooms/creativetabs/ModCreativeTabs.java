@@ -48,6 +48,21 @@ public class ModCreativeTabs {
 			itemGroup.accept(ModBlocks.ERRORSLATE.asItem());
 			itemGroup.accept(ModBlocks.OCEAN_TRANSPORTER.asItem());
 
+			itemGroup.accept(ModBlocks.AGED_CONCRETE.asItem());
+			itemGroup.accept(ModBlocks.BLACK_TRAMPOLINE.asItem());
+			itemGroup.accept(ModBlocks.FUN_FLOOR.asItem());
+			itemGroup.accept(ModBlocks.FUN_GREEN.asItem());
+			itemGroup.accept(ModBlocks.FUN_PINK.asItem());
+			itemGroup.accept(ModBlocks.FUN_PURPLE.asItem());
+			itemGroup.accept(ModBlocks.FUN_YELLOW.asItem());
+			itemGroup.accept(ModBlocks.INFERIOR_CARPET.asItem());
+			itemGroup.accept(ModBlocks.INFERIOR_CEILING_TILE.asItem());
+			itemGroup.accept(ModBlocks.INFERIOR_WALLPAPER.asItem());
+
+			itemGroup.accept(ModBlocks.PREMIUM_CARPET.asItem());
+			itemGroup.accept(ModBlocks.PREMIUM_CEILING_TILE.asItem());
+			itemGroup.accept(ModBlocks.PREMIUM_WALLPAPER.asItem());
+
 			itemGroup.accept(ModItems.GRAY_ALMOND_WATER);
 			itemGroup.accept(ModItems.GREEN_ALMOND_WATER);
 			itemGroup.accept(ModItems.RED_ALMOND_WATER);
