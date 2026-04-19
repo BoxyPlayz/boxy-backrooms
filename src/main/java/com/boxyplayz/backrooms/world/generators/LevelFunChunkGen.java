@@ -11,6 +11,7 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.RegistryOps;
@@ -22,7 +23,10 @@ import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeManager;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap.Types;
@@ -46,6 +50,7 @@ public class LevelFunChunkGen extends ChunkGenerator {
 		long chunkZ = Math.floorDiv(z, 16);
 
 		RandomSource chunkRandom = randomFactory.at((int) chunkX, 0, (int) chunkZ);
+		RandomSource blockRandom = randomFactory.at(x, y, z);
 
 		if (biome.is(ModBiomes.LevelFunBiomes.HALLWAYS_BIOME)) {
 			if (y <= 0) {
@@ -124,6 +129,83 @@ public class LevelFunChunkGen extends ChunkGenerator {
 				return ModBlocks.LEVEL1_CEILING_AQUILA.defaultBlockState();
 			}
 
+		}
+
+		if (biome.is(ModBiomes.LevelFunBiomes.PARTY_ROOMS_BIOME)) {
+			if (y <= 0) {
+				return ModBlocks.FUN_FLOOR.defaultBlockState();
+			}
+			if (y >= 6) {
+				if (Math.floorMod(x, 4) == 0 && Math.floorMod(z, 4) == 0 && y == 6) {
+					return ModBlocks.LEVEL1_CEILING_LIGHT.defaultBlockState();
+				}
+				return ModBlocks.LEVEL1_CEILING_AQUILA.defaultBlockState();
+			}
+			BlockState chunkBaseWallBlock;
+			switch (chunkRandom.nextIntBetweenInclusive(1, 4)) {
+				case 1:
+					chunkBaseWallBlock = ModBlocks.FUN_YELLOW.defaultBlockState();
+					break;
+
+				case 2:
+					chunkBaseWallBlock = ModBlocks.FUN_GREEN.defaultBlockState();
+					break;
+
+				case 3:
+					chunkBaseWallBlock = ModBlocks.FUN_PINK.defaultBlockState();
+					break;
+
+				case 4:
+					chunkBaseWallBlock = ModBlocks.FUN_PURPLE.defaultBlockState();
+					break;
+
+				default:
+					chunkBaseWallBlock = ModBlocks.FUN_YELLOW.defaultBlockState();
+					break;
+			}
+			int localX = Math.abs(Math.floorMod(x, 16));
+			int localZ = Math.abs(Math.floorMod(z, 16));
+			if (getRandomBool(chunkRandom) && localZ == 0) {
+				return chunkBaseWallBlock;
+			}
+			if (getRandomBool(chunkRandom) && localZ == 15) {
+				return chunkBaseWallBlock;
+			}
+			if (getRandomBool(chunkRandom) && localX == 0) {
+				return chunkBaseWallBlock;
+			}
+			if (getRandomBool(chunkRandom) && localX == 15) {
+				return chunkBaseWallBlock;
+			}
+
+			if (y == 1) {
+				if (localX == 5 || localX == 6) {
+					if ((localZ == 5 || localZ == 6)) {
+						return Blocks.POLISHED_BLACKSTONE_SLAB.defaultBlockState().setValue(SlabBlock.TYPE,
+								SlabType.TOP);
+					}
+					if (!getRandomBool(blockRandom)) {
+						if ((localZ == 3)) {
+							return Blocks.QUARTZ_STAIRS.defaultBlockState().setValue(StairBlock.FACING,
+									Direction.NORTH);
+						}
+						if ((localZ == 8)) {
+							return Blocks.QUARTZ_STAIRS.defaultBlockState().setValue(StairBlock.FACING,
+									Direction.SOUTH);
+						}
+					}
+				}
+				if (!getRandomBool(blockRandom)) {
+					if (localZ == 5 || localZ == 6) {
+						if ((localX == 3)) {
+							return Blocks.QUARTZ_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.WEST);
+						}
+						if ((localX == 8)) {
+							return Blocks.QUARTZ_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.EAST);
+						}
+					}
+				}
+			}
 		}
 
 		return Blocks.AIR.defaultBlockState();
