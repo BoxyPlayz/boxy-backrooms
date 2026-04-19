@@ -208,6 +208,83 @@ public class LevelFunChunkGen extends ChunkGenerator {
 			}
 		}
 
+		if (biome.is(ModBiomes.LevelFunBiomes.PLAYROOMS_BIOME)) {
+			BlockPos cellPos = new BlockPos(Math.floorDiv(x, 4), Math.floorDiv(y, 4), Math.floorDiv(z, 4));
+			RandomSource cellRandom = randomFactory.at(cellPos);
+			int cellType = cellRandom.nextIntBetweenInclusive(1, 4);
+			BlockPos localCellPos = new BlockPos(Math.floorMod(x, 4), Math.floorMod(y, 4),
+					Math.floorMod(z, 4));
+			BlockState cellBaseBlock;
+			switch (cellType) {
+				case 1:
+					cellBaseBlock = ModBlocks.FUN_YELLOW.defaultBlockState();
+					break;
+
+				case 2:
+					cellBaseBlock = ModBlocks.FUN_GREEN.defaultBlockState();
+					break;
+
+				case 3:
+					cellBaseBlock = ModBlocks.FUN_PINK.defaultBlockState();
+					break;
+
+				case 4:
+					cellBaseBlock = ModBlocks.FUN_PURPLE.defaultBlockState();
+					break;
+
+				default:
+					cellBaseBlock = ModBlocks.FUN_YELLOW.defaultBlockState();
+					break;
+			}
+			if (y <= 0) {
+				return cellBaseBlock;
+			}
+			if (y >= 110) {
+				return cellBaseBlock;
+			}
+			if (localCellPos.getY() == 3 && getRandomBool(cellRandom)) {
+				if ((localCellPos.getX() == 1 || localCellPos.getX() == 2)
+						&& (localCellPos.getZ() == 1 || localCellPos.getZ() == 2)) {
+					return ModBlocks.LEVEL1_CEILING_LIGHT.defaultBlockState();
+				}
+				return cellBaseBlock;
+			}
+			if (localCellPos.getX() == 3 && getRandomBool(cellRandom)) {
+				if ((localCellPos.getY() == 1 || localCellPos.getY() == 2)
+						&& (localCellPos.getZ() == 1 || localCellPos.getZ() == 2)) {
+					return Blocks.GLASS.defaultBlockState();
+				}
+				return cellBaseBlock;
+			}
+			if (localCellPos.getX() == 0 && getRandomBool(cellRandom)) {
+				if ((localCellPos.getY() == 1 || localCellPos.getY() == 2)
+						&& (localCellPos.getZ() == 1 || localCellPos.getZ() == 2)) {
+					return Blocks.GLASS.defaultBlockState();
+				}
+				return cellBaseBlock;
+			}
+			if (localCellPos.getZ() == 3 && getRandomBool(cellRandom)) {
+				if ((localCellPos.getY() == 1 || localCellPos.getY() == 2)
+						&& (localCellPos.getX() == 1 || localCellPos.getX() == 2)) {
+					return Blocks.GLASS.defaultBlockState();
+				}
+				return cellBaseBlock;
+			}
+			if (localCellPos.getZ() == 0 && getRandomBool(cellRandom)) {
+				if ((localCellPos.getY() == 1 || localCellPos.getY() == 2)
+						&& (localCellPos.getX() == 1 || localCellPos.getX() == 2)) {
+					return Blocks.GLASS.defaultBlockState();
+				}
+				return cellBaseBlock;
+			}
+			if (localCellPos.getY() == 0 && getRandomBool(cellRandom)) {
+				return cellBaseBlock;
+			}
+			if (localCellPos.getY() == 1 && blockRandom.nextIntBetweenInclusive(1, 26) == 1) {
+				return ModBlocks.FUN_CRATE.defaultBlockState();
+			}
+		}
+
 		return Blocks.AIR.defaultBlockState();
 	}
 

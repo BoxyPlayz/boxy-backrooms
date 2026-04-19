@@ -1,15 +1,11 @@
 package com.boxyplayz.backrooms.entity.custom.Partygoer;
 
-import com.boxyplayz.backrooms.block.ModBlocks;
-import com.boxyplayz.backrooms.world.biome.ModBiomes;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
@@ -22,13 +18,6 @@ public class PartygoerEntity extends PathfinderMob {
 
 	public static boolean CheckSpawnRules(final EntityType<PartygoerEntity> type, final ServerLevelAccessor level,
 			final EntitySpawnReason spawnReason, final BlockPos pos, final RandomSource random) {
-		if (level.getBiome(pos).is(ModBiomes.Level0Biomes.BLACKOUT_BIOME)) {
-			return level.getBlockState(pos.below()).is(ModBlocks.LEVEL0_CARPET)
-					&& level.getBlockState(pos).isAir()
-					&& level.getBlockState(pos.above()).isAir()
-					&& (level.getBiome(pos).is(ModBiomes.Level0Biomes.BLACKOUT_BIOME))
-					&& level.getBrightness(LightLayer.BLOCK, pos) < 5;
-		}
 		return !level.getBlockState(pos.below()).isAir()
 				&& level.getBlockState(pos).isAir()
 				&& level.getBlockState(pos.above()).isAir();

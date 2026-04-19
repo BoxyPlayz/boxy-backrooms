@@ -92,6 +92,7 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 
 		// Loot Blocks
 		translationBuilder.add(ModBlocks.LEVEL1_CRATE, "Crate");
+		translationBuilder.add(ModBlocks.FUN_CRATE, "Fun Crate =)");
 
 		// Advancements
 		translationBuilder.add(getText("oneway_title"), "It's a cave?");

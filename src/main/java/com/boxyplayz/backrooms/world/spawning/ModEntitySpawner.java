@@ -1,6 +1,7 @@
 package com.boxyplayz.backrooms.world.spawning;
 
 import com.boxyplayz.backrooms.entity.ModEntities;
+import com.boxyplayz.backrooms.entity.custom.Partygoer.PartygoerEntity;
 import com.boxyplayz.backrooms.entity.custom.SkinStealer.SkinStealerEntity;
 import com.boxyplayz.backrooms.entity.custom.Smiler.SmilerEntity;
 import com.boxyplayz.backrooms.entity.custom.Wretch.WretchEntity;
@@ -38,5 +39,13 @@ public class ModEntitySpawner {
 
 		SpawnPlacements.register(ModEntities.WRETCH, SpawnPlacementTypes.ON_GROUND, Types.WORLD_SURFACE,
 				WretchEntity::CheckSpawnRules);
+
+		BiomeModifications.addSpawn(
+				BiomeSelectors.includeByKey(
+						ModBiomes.LevelFunBiomes.PARTY_ROOMS_BIOME),
+				MobCategory.MONSTER, ModEntities.PARTYGOER, 2, 3, 8);
+
+		SpawnPlacements.register(ModEntities.PARTYGOER, SpawnPlacementTypes.ON_GROUND, Types.WORLD_SURFACE,
+				PartygoerEntity::CheckSpawnRules);
 	}
 }

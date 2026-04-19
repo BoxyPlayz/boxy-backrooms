@@ -27,6 +27,7 @@ public class BlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
 		valueLookupBuilder(BlockTags.MINEABLE_WITH_AXE)
 				.add(ModBlocks.LEVEL0_WALLPAPER)
 				.add(ModBlocks.LEVEL1_CRATE)
+				.add(ModBlocks.FUN_CRATE)
 				.setReplace(false);
 
 		valueLookupBuilder(BlockTags.GRASS_BLOCKS)

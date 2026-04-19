@@ -45,6 +45,13 @@ public class BlockLootTableProvider extends FabricBlockLootSubProvider {
 						.add(LootItem.lootTableItem(ModItems.ROYAL_RATION).setWeight(1))
 						.add(LootItem.lootTableItem(ModItems.FIRESALT_SHARD).setWeight(5))
 						.add(LootItem.lootTableItem(ModItems.SMILER_REPELLANT).setWeight(12))));
+		add(ModBlocks.FUN_CRATE, LootTable.lootTable().withPool(
+				LootPool.lootPool().when(
+						this.hasSilkTouch()).add(LootItem.lootTableItem(ModBlocks.FUN_CRATE.asItem())))
+				.withPool(LootPool.lootPool().when(this.doesNotHaveSilkTouch())
+						.setRolls(UniformGenerator.between(3, 24))
+						.add(LootItem.lootTableItem(Items.WIND_CHARGE).setWeight(12))
+						.add(LootItem.lootTableItem(ModBlocks.BLACK_TRAMPOLINE).setWeight(3))));
 		dropSelf(ModBlocks.LEVEL1_WALL_GILD);
 		dropSelf(ModBlocks.LEVEL1_CEILING_LIGHT);
 		dropSelf(ModBlocks.GOTHIC_CONCRETE);
@@ -57,7 +64,7 @@ public class BlockLootTableProvider extends FabricBlockLootSubProvider {
 		dropSelf(ModBlocks.INFERIOR_CEILING_TILE);
 		dropSelf(ModBlocks.INFERIOR_WALLPAPER);
 
-		dropOther(ModBlocks.PURE_GRASS, Blocks.GRASS_BLOCK.asItem());
+		dropOther(ModBlocks.PURE_GRASS, Blocks.GRASS_BLOCK);
 		dropOther(ModBlocks.FUN_GREEN, Items.LIME_DYE);
 		dropOther(ModBlocks.FUN_PINK, Items.PINK_DYE);
 		dropOther(ModBlocks.FUN_YELLOW, Items.YELLOW_DYE);
@@ -65,10 +72,10 @@ public class BlockLootTableProvider extends FabricBlockLootSubProvider {
 		dropOther(ModBlocks.FUN_FLOOR, Items.RED_WOOL);
 		add(ModBlocks.BLACK_TRAMPOLINE, LootTable.lootTable().withPool(
 				LootPool.lootPool().when(
-						this.hasSilkTouch()).add(LootItem.lootTableItem(ModBlocks.BLACK_TRAMPOLINE.asItem())))
+						this.hasSilkTouch()).add(LootItem.lootTableItem(ModBlocks.BLACK_TRAMPOLINE)))
 				.withPool(
 						LootPool.lootPool().when(this.doesNotHaveSilkTouch())
-								.add(LootItem.lootTableItem(Blocks.SLIME_BLOCK.asItem()))));
+								.add(LootItem.lootTableItem(Blocks.SLIME_BLOCK))));
 	}
 
 }
