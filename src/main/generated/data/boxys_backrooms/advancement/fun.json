@@ -1,9 +1,9 @@
 {
-  "parent": "boxys_backrooms:darkness",
+  "parent": "boxys_backrooms:the_backrooms",
   "criteria": {
-    "level_7_ocean": {
+    "fun": {
       "conditions": {
-        "to": "boxys_backrooms:level7_ocean"
+        "to": "boxys_backrooms:levelfun"
       },
       "trigger": "minecraft:changed_dimension"
     }
@@ -11,19 +11,19 @@
   "display": {
     "announce_to_chat": false,
     "description": {
-      "translate": "text.boxys_backrooms.ocean_desc"
+      "translate": "text.boxys_backrooms.fun_desc"
     },
     "hidden": true,
     "icon": {
-      "id": "minecraft:water_bucket"
+      "id": "boxys_backrooms:fun_floor"
     },
     "title": {
-      "translate": "text.boxys_backrooms.ocean_title"
+      "translate": "text.boxys_backrooms.fun_title"
     }
   },
   "requirements": [
     [
-      "level_7_ocean"
+      "fun"
     ]
   ],
   "sends_telemetry_event": true

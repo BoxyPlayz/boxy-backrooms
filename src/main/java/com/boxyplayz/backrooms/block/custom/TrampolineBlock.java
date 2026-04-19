@@ -24,7 +24,7 @@ public class TrampolineBlock extends NoFallDamageBlock {
 	@Override
 	public void stepOn(final Level level, final BlockPos pos, final BlockState onState, final Entity entity) {
 		double absDeltaY = Math.abs(entity.getDeltaMovement().y);
-		if (absDeltaY < 0.1) {
+		if (absDeltaY > 0.1) {
 			double scale = 0.6 + absDeltaY * 0.4;
 			if (scale < 1) {
 				scale = 1;

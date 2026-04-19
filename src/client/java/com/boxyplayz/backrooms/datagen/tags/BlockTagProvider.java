@@ -21,6 +21,7 @@ public class BlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
 		valueLookupBuilder(BlockTags.MINEABLE_WITH_PICKAXE)
 				.add(ModBlocks.OCEAN_TRANSPORTER)
 				.add(ModBlocks.ERRORSLATE)
+				.add(ModBlocks.FUN_FLOOR)
 				.setReplace(false);
 
 		valueLookupBuilder(BlockTags.MINEABLE_WITH_AXE)
@@ -34,6 +35,10 @@ public class BlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
 
 		valueLookupBuilder(BlockTags.MINEABLE_WITH_SHOVEL)
 				.add(ModBlocks.PURE_GRASS)
+				.setReplace(false);
+
+		valueLookupBuilder(BlockTags.MINEABLE_WITH_HOE)
+				.add(ModBlocks.BLACK_TRAMPOLINE)
 				.setReplace(false);
 
 		valueLookupBuilder(ModTags.FUN_BLOCKS)

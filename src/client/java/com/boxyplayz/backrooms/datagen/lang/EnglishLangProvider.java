@@ -109,6 +109,18 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(getText("wrongway_title"), "Wrong Direction");
 		translationBuilder.add(getText("wrongway_desc"), "Take the wrong way.");
 
+		translationBuilder.add(getText("remodelling_title"), "Remodelled Mess");
+		translationBuilder.add(getText("remodelling_desc"), "This can't be intentional.");
+
+		translationBuilder.add(getText("negativezone_title"), "Subzero");
+		translationBuilder.add(getText("negativezone_desc"), "Find the negative levels.");
+
+		translationBuilder.add(getText("darkness_title"), "Pitch Black");
+		translationBuilder.add(getText("darkness_desc"), "You can find no light on level 6.");
+
+		translationBuilder.add(getText("fun_title"), "Level Fun");
+		translationBuilder.add(getText("fun_desc"), "=)");
+
 		// Tags
 		translationBuilder.add(ModTags.NOCLIPPABLES, "Noclippable Blocks");
 		translationBuilder.add(ModTags.ALMOND_WATERS, "Almond Waters");
