@@ -1,6 +1,8 @@
 package com.boxyplayz.backrooms;
 
 import com.boxyplayz.backrooms.entity.ModEntities;
+import com.boxyplayz.backrooms.entity.balloon.BalloonEntityRenderer;
+import com.boxyplayz.backrooms.entity.balloon.BalloonModel;
 import com.boxyplayz.backrooms.entity.partygoer.PartygoerEntityRenderer;
 import com.boxyplayz.backrooms.entity.partygoer.PartygoerModel;
 import com.boxyplayz.backrooms.entity.skinstealer.SkinStealerEntityRenderer;
@@ -34,6 +36,9 @@ public class BoxysBackroomsClient implements ClientModInitializer {
 	public static final ModelLayerLocation MODEL_PARTYGOER_LAYER = new ModelLayerLocation(
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "partygoer"), "main");
 
+	public static final ModelLayerLocation MODEL_BALLOON_LAYER = new ModelLayerLocation(
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "balloon"), "main");
+
 	@Override
 	public void onInitializeClient() {
 		ItemEvents.RegisterItemEvents();
@@ -55,5 +60,9 @@ public class BoxysBackroomsClient implements ClientModInitializer {
 		EntityRenderers.register(ModEntities.PARTYGOER, PartygoerEntityRenderer::new);
 
 		ModelLayerRegistry.registerModelLayer(MODEL_PARTYGOER_LAYER, PartygoerModel::createBodyLayer);
+
+		EntityRenderers.register(ModEntities.BALLOON, BalloonEntityRenderer::new);
+
+		ModelLayerRegistry.registerModelLayer(MODEL_BALLOON_LAYER, BalloonModel::createBodyLayer);
 	}
 }

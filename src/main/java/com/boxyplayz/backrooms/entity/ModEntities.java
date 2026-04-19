@@ -1,6 +1,7 @@
 package com.boxyplayz.backrooms.entity;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.entity.custom.Balloon.BalloonEntity;
 import com.boxyplayz.backrooms.entity.custom.Partygoer.PartygoerEntity;
 import com.boxyplayz.backrooms.entity.custom.SkinStealer.SkinStealerEntity;
 import com.boxyplayz.backrooms.entity.custom.Smiler.SmilerEntity;
@@ -47,6 +48,14 @@ public class ModEntities {
 			EntityType.Builder.of(PartygoerEntity::new, MobCategory.MONSTER).sized(1f, 2.5f)
 					.build(partygoerKey));
 
+	static ResourceKey<EntityType<?>> balloonKey = ResourceKey.create(
+			BuiltInRegistries.ENTITY_TYPE.key(),
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "balloon"));
+	public static final EntityType<BalloonEntity> BALLOON = Registry.register(BuiltInRegistries.ENTITY_TYPE,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "balloon"),
+			EntityType.Builder.of(BalloonEntity::new, MobCategory.AMBIENT).sized(1f, 2f)
+					.build(balloonKey));
+
 	public static void RegisterModEntities() {
 		FabricDefaultAttributeRegistry.register(SMILER,
 				SmilerEntity.createAttributes());
@@ -59,5 +68,8 @@ public class ModEntities {
 
 		FabricDefaultAttributeRegistry.register(PARTYGOER,
 				PartygoerEntity.createAttributes());
+
+		FabricDefaultAttributeRegistry.register(BALLOON,
+				BalloonEntity.createAttributes());
 	}
 }

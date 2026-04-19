@@ -1,6 +1,7 @@
 package com.boxyplayz.backrooms.world.spawning;
 
 import com.boxyplayz.backrooms.entity.ModEntities;
+import com.boxyplayz.backrooms.entity.custom.Balloon.BalloonEntity;
 import com.boxyplayz.backrooms.entity.custom.Partygoer.PartygoerEntity;
 import com.boxyplayz.backrooms.entity.custom.SkinStealer.SkinStealerEntity;
 import com.boxyplayz.backrooms.entity.custom.Smiler.SmilerEntity;
@@ -47,5 +48,13 @@ public class ModEntitySpawner {
 
 		SpawnPlacements.register(ModEntities.PARTYGOER, SpawnPlacementTypes.ON_GROUND, Types.WORLD_SURFACE,
 				PartygoerEntity::CheckSpawnRules);
+
+		BiomeModifications.addSpawn(
+				BiomeSelectors.includeByKey(
+						ModBiomes.Level1Biomes.AQUILA_BIOME),
+				MobCategory.AMBIENT, ModEntities.BALLOON, 1, 1, 1);
+
+		SpawnPlacements.register(ModEntities.BALLOON, SpawnPlacementTypes.ON_GROUND, Types.WORLD_SURFACE,
+				BalloonEntity::CheckSpawnRules);
 	}
 }

@@ -20,7 +20,8 @@ public class PartygoerEntity extends PathfinderMob {
 			final EntitySpawnReason spawnReason, final BlockPos pos, final RandomSource random) {
 		return !level.getBlockState(pos.below()).isAir()
 				&& level.getBlockState(pos).isAir()
-				&& level.getBlockState(pos.above()).isAir();
+				&& level.getBlockState(pos.above()).isAir()
+				&& level.getBlockState(pos.above(2)).isAir();
 	}
 
 	public PartygoerEntity(EntityType<? extends PathfinderMob> entityType, Level level) {
@@ -46,6 +47,7 @@ public class PartygoerEntity extends PathfinderMob {
 				.add(Attributes.MAX_HEALTH, 60.0D)
 				.add(Attributes.MOVEMENT_SPEED, 0.3D)
 				.add(Attributes.ATTACK_DAMAGE, 16.0D)
+				.add(Attributes.JUMP_STRENGTH, 6D)
 				.add(Attributes.FOLLOW_RANGE, 256.0D);
 	}
 }
