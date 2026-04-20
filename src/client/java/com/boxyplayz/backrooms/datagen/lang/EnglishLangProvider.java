@@ -14,6 +14,7 @@ import com.boxyplayz.backrooms.tags.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.util.Util;
 import net.minecraft.world.item.Item;
 
 public class EnglishLangProvider extends FabricLanguageProvider {
@@ -147,6 +148,9 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 
 		// Enchantments
 		translationBuilder.addEnchantment(ModEnchantments.ANOMALOUS_PROTECTION, "Anomalous Protection");
+		translationBuilder.add(
+				Util.makeDescriptionId("enchantment", ModEnchantments.ANOMALOUS_PROTECTION.identifier()) + ".desc",
+				"Defense from attacks that do not belong");
 
 		// Damage Type
 		translationBuilder.add(getDeathMsg("anomaly_damage"), "ERRORRORRRROORORROORO");
