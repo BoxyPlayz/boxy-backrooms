@@ -36,7 +36,7 @@ public class BlockLootTableProvider extends FabricBlockLootSubProvider {
 		dropSelf(ModBlocks.LEVEL0_CEILING_LIGHT);
 		add(ModBlocks.LEVEL1_CRATE, LootTable.lootTable().withPool(
 				LootPool.lootPool().when(
-						this.hasSilkTouch()).add(LootItem.lootTableItem(ModBlocks.LEVEL1_CRATE.asItem())))
+						this.hasSilkTouch()).add(LootItem.lootTableItem(ModBlocks.LEVEL1_CRATE)))
 				.withPool(LootPool.lootPool().when(this.doesNotHaveSilkTouch())
 						.setRolls(UniformGenerator.between(2, 6))
 						.add(LootItem.lootTableItem(ModItems.GRAY_ALMOND_WATER).setWeight(100))
@@ -47,7 +47,7 @@ public class BlockLootTableProvider extends FabricBlockLootSubProvider {
 						.add(LootItem.lootTableItem(ModItems.SMILER_REPELLANT).setWeight(12))));
 		add(ModBlocks.FUN_CRATE, LootTable.lootTable().withPool(
 				LootPool.lootPool().when(
-						this.hasSilkTouch()).add(LootItem.lootTableItem(ModBlocks.FUN_CRATE.asItem())))
+						this.hasSilkTouch()).add(LootItem.lootTableItem(ModBlocks.FUN_CRATE)))
 				.withPool(LootPool.lootPool().when(this.doesNotHaveSilkTouch())
 						.setRolls(UniformGenerator.between(3, 24))
 						.add(LootItem.lootTableItem(Items.WIND_CHARGE).setWeight(12))

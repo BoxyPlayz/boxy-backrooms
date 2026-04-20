@@ -29,39 +29,39 @@ public class ModCreativeTabs {
 		CreativeModeTabEvents.modifyOutputEvent(ModCreativeTabs.BACKROOMS_ITEM_GROUP_KEY).register(itemGroup -> {
 			// Level 0
 
-			itemGroup.accept(ModBlocks.LEVEL0_WALLPAPER.asItem());
-			itemGroup.accept(ModBlocks.LEVEL0_CARPET.asItem());
-			itemGroup.accept(ModBlocks.LEVEL0_CEILING_TILE.asItem());
-			itemGroup.accept(ModBlocks.LEVEL0_CEILING_LIGHT.asItem());
+			itemGroup.accept(ModBlocks.LEVEL0_WALLPAPER);
+			itemGroup.accept(ModBlocks.LEVEL0_CARPET);
+			itemGroup.accept(ModBlocks.LEVEL0_CEILING_TILE);
+			itemGroup.accept(ModBlocks.LEVEL0_CEILING_LIGHT);
 
 			// Level 1
 
-			itemGroup.accept(ModBlocks.LEVEL1_CEILING_AQUILA.asItem());
-			itemGroup.accept(ModBlocks.LEVEL1_FLOOR_AQUILA.asItem());
-			itemGroup.accept(ModBlocks.LEVEL1_PILLAR_AQUILA.asItem());
-			itemGroup.accept(ModBlocks.LEVEL1_CRATE.asItem());
-			itemGroup.accept(ModBlocks.GOTHIC_CONCRETE.asItem());
-			itemGroup.accept(ModBlocks.PURE_GRASS.asItem());
-			itemGroup.accept(ModBlocks.LEVEL0_CARPET_GLITCHED.asItem());
-			itemGroup.accept(ModBlocks.LEVEL1_CEILING_LIGHT.asItem());
+			itemGroup.accept(ModBlocks.LEVEL1_CEILING_AQUILA);
+			itemGroup.accept(ModBlocks.LEVEL1_FLOOR_AQUILA);
+			itemGroup.accept(ModBlocks.LEVEL1_PILLAR_AQUILA);
+			itemGroup.accept(ModBlocks.LEVEL1_CRATE);
+			itemGroup.accept(ModBlocks.GOTHIC_CONCRETE);
+			itemGroup.accept(ModBlocks.PURE_GRASS);
+			itemGroup.accept(ModBlocks.LEVEL0_CARPET_GLITCHED);
+			itemGroup.accept(ModBlocks.LEVEL1_CEILING_LIGHT);
 
-			itemGroup.accept(ModBlocks.ERRORSLATE.asItem());
-			itemGroup.accept(ModBlocks.OCEAN_TRANSPORTER.asItem());
+			itemGroup.accept(ModBlocks.ERRORSLATE);
+			itemGroup.accept(ModBlocks.OCEAN_TRANSPORTER);
 
-			itemGroup.accept(ModBlocks.AGED_CONCRETE.asItem());
-			itemGroup.accept(ModBlocks.BLACK_TRAMPOLINE.asItem());
-			itemGroup.accept(ModBlocks.FUN_FLOOR.asItem());
-			itemGroup.accept(ModBlocks.FUN_GREEN.asItem());
-			itemGroup.accept(ModBlocks.FUN_PINK.asItem());
-			itemGroup.accept(ModBlocks.FUN_PURPLE.asItem());
-			itemGroup.accept(ModBlocks.FUN_YELLOW.asItem());
-			itemGroup.accept(ModBlocks.INFERIOR_CARPET.asItem());
-			itemGroup.accept(ModBlocks.INFERIOR_CEILING_TILE.asItem());
-			itemGroup.accept(ModBlocks.INFERIOR_WALLPAPER.asItem());
+			itemGroup.accept(ModBlocks.AGED_CONCRETE);
+			itemGroup.accept(ModBlocks.BLACK_TRAMPOLINE);
+			itemGroup.accept(ModBlocks.FUN_FLOOR);
+			itemGroup.accept(ModBlocks.FUN_GREEN);
+			itemGroup.accept(ModBlocks.FUN_PINK);
+			itemGroup.accept(ModBlocks.FUN_PURPLE);
+			itemGroup.accept(ModBlocks.FUN_YELLOW);
+			itemGroup.accept(ModBlocks.INFERIOR_CARPET);
+			itemGroup.accept(ModBlocks.INFERIOR_CEILING_TILE);
+			itemGroup.accept(ModBlocks.INFERIOR_WALLPAPER);
 
-			itemGroup.accept(ModBlocks.PREMIUM_CARPET.asItem());
-			itemGroup.accept(ModBlocks.PREMIUM_CEILING_TILE.asItem());
-			itemGroup.accept(ModBlocks.PREMIUM_WALLPAPER.asItem());
+			itemGroup.accept(ModBlocks.PREMIUM_CARPET);
+			itemGroup.accept(ModBlocks.PREMIUM_CEILING_TILE);
+			itemGroup.accept(ModBlocks.PREMIUM_WALLPAPER);
 
 			itemGroup.accept(ModItems.GRAY_ALMOND_WATER);
 			itemGroup.accept(ModItems.GREEN_ALMOND_WATER);

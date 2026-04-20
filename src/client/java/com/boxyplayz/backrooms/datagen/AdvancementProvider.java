@@ -31,7 +31,7 @@ public class AdvancementProvider extends FabricAdvancementProvider {
 
 		AdvancementHolder theBackrooms = Advancement.Builder.advancement()
 				.display(
-						ModBlocks.LEVEL0_WALLPAPER.asItem(), // The display icon
+						ModBlocks.LEVEL0_WALLPAPER, // The display icon
 						Component.translatable("text.boxys_backrooms.backrooms_title"), // The title
 						Component.translatable("text.boxys_backrooms.backrooms_desc"), // The description
 						Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "block/level0_wallpaper"), // Background
@@ -62,7 +62,7 @@ public class AdvancementProvider extends FabricAdvancementProvider {
 
 		AdvancementHolder darkness = Advancement.Builder.advancement()
 				.display(
-						Blocks.BLACK_CONCRETE.asItem(), // The display icon
+						Blocks.BLACK_CONCRETE, // The display icon
 						Component.translatable("text.boxys_backrooms.darkness_title"), // The title
 						Component.translatable("text.boxys_backrooms.darkness_desc"), // The description
 						null, // Background image for the tab in the advancements page, if this is a root
@@ -97,7 +97,7 @@ public class AdvancementProvider extends FabricAdvancementProvider {
 
 		AdvancementHolder oneWayCavern = Advancement.Builder.advancement()
 				.display(
-						ModBlocks.ERRORSLATE.asItem(), // The display icon
+						ModBlocks.ERRORSLATE, // The display icon
 						Component.translatable("text.boxys_backrooms.oneway_title"), // The title
 						Component.translatable("text.boxys_backrooms.oneway_desc"), // The description
 						null, // Background image for the tab in the advancements page, if this is a root
@@ -114,7 +114,7 @@ public class AdvancementProvider extends FabricAdvancementProvider {
 
 		AdvancementHolder wrongWay = Advancement.Builder.advancement()
 				.display(
-						Blocks.OAK_LOG.asItem(), // The display icon
+						Blocks.OAK_LOG, // The display icon
 						Component.translatable("text.boxys_backrooms.wrongway_title"), // The title
 						Component.translatable("text.boxys_backrooms.wrongway_desc"), // The description
 						null, // Background image for the tab in the advancements page, if this is a root
@@ -131,7 +131,7 @@ public class AdvancementProvider extends FabricAdvancementProvider {
 
 		AdvancementHolder ninetyFour = Advancement.Builder.advancement()
 				.display(
-						Blocks.GRASS_BLOCK.asItem(), // The display icon
+						Blocks.GRASS_BLOCK, // The display icon
 						Component.translatable("text.boxys_backrooms.94_title"), // The title
 						Component.translatable("text.boxys_backrooms.94_desc"), // The description
 						null, // Background image for the tab in the advancements page, if this is a root
@@ -148,7 +148,7 @@ public class AdvancementProvider extends FabricAdvancementProvider {
 
 		AdvancementHolder remodelling = Advancement.Builder.advancement()
 				.display(
-						ModBlocks.PREMIUM_WALLPAPER.asItem(), // The display icon
+						ModBlocks.PREMIUM_WALLPAPER, // The display icon
 						Component.translatable("text.boxys_backrooms.remodelling_title"), // The title
 						Component.translatable("text.boxys_backrooms.remodelling_desc"), // The description
 						null, // Background image for the tab in the advancements page, if this is a root
@@ -165,7 +165,7 @@ public class AdvancementProvider extends FabricAdvancementProvider {
 
 		AdvancementHolder negativeZone = Advancement.Builder.advancement()
 				.display(
-						ModBlocks.INFERIOR_WALLPAPER.asItem(), // The display icon
+						ModBlocks.INFERIOR_WALLPAPER, // The display icon
 						Component.translatable("text.boxys_backrooms.negativezone_title"), // The title
 						Component.translatable("text.boxys_backrooms.negativezone_desc"), // The description
 						null, // Background image for the tab in the advancements page, if this is a root
@@ -183,7 +183,7 @@ public class AdvancementProvider extends FabricAdvancementProvider {
 
 		AdvancementHolder funTime = Advancement.Builder.advancement()
 				.display(
-						ModBlocks.FUN_FLOOR.asItem(), // The display icon
+						ModBlocks.FUN_FLOOR, // The display icon
 						Component.translatable("text.boxys_backrooms.fun_title"), // The title
 						Component.translatable("text.boxys_backrooms.fun_desc"), // The description
 						null, // Background image for the tab in the advancements page, if this is a root

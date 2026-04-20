@@ -78,23 +78,23 @@ public class RecipeDataProvider extends FabricRecipeProvider {
 						.unlockedBy(getHasName(ModItems.SHADOW_DUST), has(ModItems.SHADOW_DUST))
 						.save(output);
 
-				shapeless(RecipeCategory.MISC, Blocks.BARREL.asItem(), 8)
-						.requires(ModBlocks.LEVEL1_CRATE.asItem())
+				shapeless(RecipeCategory.MISC, Blocks.BARREL, 8)
+						.requires(ModBlocks.LEVEL1_CRATE)
 						.requires(Items.COPPER_NUGGET)
-						.unlockedBy(getHasName(ModBlocks.LEVEL1_CRATE.asItem()), has(ModBlocks.LEVEL1_CRATE.asItem()))
+						.unlockedBy(getHasName(ModBlocks.LEVEL1_CRATE), has(ModBlocks.LEVEL1_CRATE))
 						.save(output);
 
-				shapeless(RecipeCategory.MISC, Blocks.CHEST.asItem(), 8)
-						.requires(ModBlocks.LEVEL1_CRATE.asItem())
+				shapeless(RecipeCategory.MISC, Blocks.CHEST, 8)
+						.requires(ModBlocks.LEVEL1_CRATE)
 						.requires(Items.IRON_NUGGET)
-						.unlockedBy(getHasName(ModBlocks.LEVEL1_CRATE.asItem()), has(ModBlocks.LEVEL1_CRATE.asItem()))
+						.unlockedBy(getHasName(ModBlocks.LEVEL1_CRATE), has(ModBlocks.LEVEL1_CRATE))
 						.save(output);
 
 				shapeless(RecipeCategory.DECORATIONS, ModBlocks.PURE_GRASS)
-						.requires(Blocks.GRASS_BLOCK.asItem(), 4)
-						.requires(Blocks.SHORT_GRASS.asItem(), 1)
+						.requires(Blocks.GRASS_BLOCK, 4)
+						.requires(Blocks.SHORT_GRASS, 1)
 						.requires(Items.BONE_MEAL, 4)
-						.unlockedBy(getHasName(Blocks.GRASS_BLOCK.asItem()), has(Blocks.GRASS_BLOCK.asItem()))
+						.unlockedBy(getHasName(Blocks.GRASS_BLOCK), has(Blocks.GRASS_BLOCK))
 						.save(output);
 
 			}
