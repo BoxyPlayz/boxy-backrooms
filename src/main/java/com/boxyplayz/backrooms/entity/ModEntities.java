@@ -53,7 +53,7 @@ public class ModEntities {
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "balloon"));
 	public static final EntityType<BalloonEntity> BALLOON = Registry.register(BuiltInRegistries.ENTITY_TYPE,
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "balloon"),
-			EntityType.Builder.of(BalloonEntity::new, MobCategory.AMBIENT).sized(1f, 2f)
+			EntityType.Builder.of(BalloonEntity::new, MobCategory.CREATURE).sized(1f, 1.6f)
 					.build(balloonKey));
 
 	public static void RegisterModEntities() {

@@ -52,7 +52,7 @@ public class ModEntitySpawner {
 		BiomeModifications.addSpawn(
 				BiomeSelectors.includeByKey(
 						ModBiomes.Level1Biomes.AQUILA_BIOME),
-				MobCategory.AMBIENT, ModEntities.BALLOON, 1, 1, 1);
+				MobCategory.CREATURE, ModEntities.BALLOON, 1, 1, 1);
 
 		SpawnPlacements.register(ModEntities.BALLOON, SpawnPlacementTypes.ON_GROUND, Types.WORLD_SURFACE,
 				BalloonEntity::CheckSpawnRules);

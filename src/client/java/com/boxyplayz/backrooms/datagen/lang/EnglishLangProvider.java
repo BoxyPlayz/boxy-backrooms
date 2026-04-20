@@ -141,6 +141,7 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModEntities.SKINSTEALER, "Skin Stealer");
 		translationBuilder.add(ModEntities.WRETCH, "Wretch");
 		translationBuilder.add(ModEntities.PARTYGOER, "Partygoer");
+		translationBuilder.add(ModEntities.BALLOON, "Party Balloon");
 
 		// Effects
 		translationBuilder.add(ModEffects.GARDENERS_PAIN.value(), "Gardener's Pain");

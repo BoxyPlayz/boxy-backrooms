@@ -80,6 +80,9 @@ public class Level1ChunkGen extends ChunkGenerator {
 
 	public BlockState getBlockAt(SimplexNoise localNoise, PositionalRandomFactory randomFactory, int x, int y, int z,
 			Holder<Biome> biome) {
+		if (y > 7) {
+			return Blocks.BEDROCK.defaultBlockState();
+		}
 		int localX = Math.floorMod(x, 16);
 		int localZ = Math.floorMod(z, 16);
 		int chunkX = Math.floorDiv(x, 16);
