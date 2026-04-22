@@ -46,6 +46,7 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModItems.GREEN_ALMOND_WATER, "Almond Water");
 		translationBuilder.add(ModItems.RED_ALMOND_WATER, "Almond Water");
 		translationBuilder.add(ModItems.ROYAL_RATION, "Royal Ration");
+		translationBuilder.add(ModItems.NEON_WATER, "Neon Water");
 
 		// Other Items
 		translationBuilder.add(ModItems.FIRESALT_SHARD, "Firesalt Shard");

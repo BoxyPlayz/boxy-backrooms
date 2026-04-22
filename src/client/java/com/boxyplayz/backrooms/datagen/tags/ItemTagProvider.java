@@ -32,6 +32,7 @@ public class ItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
 		valueLookupBuilder(ModTags.ALMOND_WATERS)
 				.add(ModItems.GRAY_ALMOND_WATER)
 				.add(ModItems.GREEN_ALMOND_WATER)
+				.add(ModItems.NEON_WATER)
 				.add(ModItems.RED_ALMOND_WATER)
 				.setReplace(false);
 

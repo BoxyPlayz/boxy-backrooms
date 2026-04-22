@@ -65,6 +65,7 @@ public class ModCreativeTabs {
 
 			itemGroup.accept(ModItems.GRAY_ALMOND_WATER);
 			itemGroup.accept(ModItems.GREEN_ALMOND_WATER);
+			itemGroup.accept(ModItems.NEON_WATER);
 			itemGroup.accept(ModItems.RED_ALMOND_WATER);
 			itemGroup.accept(ModItems.ROYAL_RATION);
 			itemGroup.accept(ModItems.FIRESALT_SHARD);
