@@ -1,5 +1,7 @@
 package com.boxyplayz.backrooms.entity.custom.Partygoer;
 
+import com.boxyplayz.backrooms.block.ModBlocks;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntitySpawnReason;
@@ -18,7 +20,7 @@ public class PartygoerEntity extends PathfinderMob {
 
 	public static boolean CheckSpawnRules(final EntityType<PartygoerEntity> type, final ServerLevelAccessor level,
 			final EntitySpawnReason spawnReason, final BlockPos pos, final RandomSource random) {
-		return !level.getBlockState(pos.below()).isAir()
+		return level.getBlockState(pos.below()).is(ModBlocks.FUN_FLOOR)
 				&& level.getBlockState(pos).isAir()
 				&& level.getBlockState(pos.above()).isAir()
 				&& level.getBlockState(pos.above(2)).isAir();
@@ -36,9 +38,8 @@ public class PartygoerEntity extends PathfinderMob {
 		this.targetSelector.addGoal(2, new HurtByTargetGoal(this).setAlertOthers());
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(
 				this, Player.class, false));
-		this.goalSelector.addGoal(4, new FollowMobGoal(this, 1.0, 320, 128));
 		this.goalSelector.addGoal(5, new RandomStrollGoal(this, 1.0D));
-		this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 64.0F));
+		this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 32.0F));
 		this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
 	}
 
@@ -47,7 +48,7 @@ public class PartygoerEntity extends PathfinderMob {
 				.add(Attributes.MAX_HEALTH, 60.0D)
 				.add(Attributes.MOVEMENT_SPEED, 0.3D)
 				.add(Attributes.ATTACK_DAMAGE, 16.0D)
-				.add(Attributes.JUMP_STRENGTH, 6D)
-				.add(Attributes.FOLLOW_RANGE, 256.0D);
+				.add(Attributes.JUMP_STRENGTH, 2D)
+				.add(Attributes.FOLLOW_RANGE, 96.0D);
 	}
 }
