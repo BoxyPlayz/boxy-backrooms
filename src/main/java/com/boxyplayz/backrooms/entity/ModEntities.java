@@ -12,49 +12,45 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.phys.Vec2;
 
 public class ModEntities {
-	static ResourceKey<EntityType<?>> smilerResourceKey = ResourceKey.create(
-			BuiltInRegistries.ENTITY_TYPE.key(),
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "smiler"));
-	public static final EntityType<SmilerEntity> SMILER = Registry.register(BuiltInRegistries.ENTITY_TYPE,
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "smiler"),
-			EntityType.Builder.of(SmilerEntity::new, MobCategory.MONSTER).sized(1, 2)
-					.build(smilerResourceKey));
+	protected static <T extends Entity> EntityType<T> RegisterEntity(EntityType.EntityFactory<T> factory, String id,
+			Vec2 size, MobCategory category) {
+		ResourceKey<EntityType<?>> resourceKey = ResourceKey.create(
+				BuiltInRegistries.ENTITY_TYPE.key(),
+				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, id));
+		return Registry.register(BuiltInRegistries.ENTITY_TYPE,
+				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, id),
+				EntityType.Builder.of(factory, category).sized(size.x, size.y)
+						.build(resourceKey));
+	}
 
-	static ResourceKey<EntityType<?>> skinStealerResourceKey = ResourceKey.create(
-			BuiltInRegistries.ENTITY_TYPE.key(),
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "skinstealer"));
-	public static final EntityType<SkinStealerEntity> SKINSTEALER = Registry.register(BuiltInRegistries.ENTITY_TYPE,
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "skinstealer"),
-			EntityType.Builder.of(SkinStealerEntity::new, MobCategory.MONSTER).sized(1, 2)
-					.build(skinStealerResourceKey));
+	protected static <T extends Entity> EntityType<T> RegisterEntity(EntityType.EntityFactory<T> factory, String id,
+			Vec2 size) {
+		return RegisterEntity(factory, id, size, MobCategory.MONSTER);
+	}
 
-	static ResourceKey<EntityType<?>> wretchResourceKey = ResourceKey.create(
-			BuiltInRegistries.ENTITY_TYPE.key(),
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "wretch"));
-	public static final EntityType<WretchEntity> WRETCH = Registry.register(BuiltInRegistries.ENTITY_TYPE,
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "wretch"),
-			EntityType.Builder.of(WretchEntity::new, MobCategory.MONSTER).sized(1f, 2.5f)
-					.build(wretchResourceKey));
+	protected static <T extends Entity> EntityType<T> RegisterEntity(EntityType.EntityFactory<T> factory, String id) {
+		return RegisterEntity(factory, id, new Vec2(1, 2));
+	}
 
-	static ResourceKey<EntityType<?>> partygoerKey = ResourceKey.create(
-			BuiltInRegistries.ENTITY_TYPE.key(),
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "partygoer"));
-	public static final EntityType<PartygoerEntity> PARTYGOER = Registry.register(BuiltInRegistries.ENTITY_TYPE,
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "partygoer"),
-			EntityType.Builder.of(PartygoerEntity::new, MobCategory.MONSTER).sized(1f, 2.5f)
-					.build(partygoerKey));
+	public static final EntityType<SmilerEntity> SMILER = RegisterEntity(SmilerEntity::new, "smiler");
 
-	static ResourceKey<EntityType<?>> balloonKey = ResourceKey.create(
-			BuiltInRegistries.ENTITY_TYPE.key(),
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "balloon"));
-	public static final EntityType<BalloonEntity> BALLOON = Registry.register(BuiltInRegistries.ENTITY_TYPE,
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "balloon"),
-			EntityType.Builder.of(BalloonEntity::new, MobCategory.CREATURE).sized(1f, 1.6f)
-					.build(balloonKey));
+	public static final EntityType<SkinStealerEntity> SKINSTEALER = RegisterEntity(SkinStealerEntity::new,
+			"skinstealer");
+
+	public static final EntityType<WretchEntity> WRETCH = RegisterEntity(WretchEntity::new, "wretch",
+			new Vec2(1f, 2.5f));
+
+	public static final EntityType<PartygoerEntity> PARTYGOER = RegisterEntity(PartygoerEntity::new, "partygoer",
+			new Vec2(1f, 2.5f));
+
+	public static final EntityType<BalloonEntity> BALLOON = RegisterEntity(BalloonEntity::new, "balloon",
+			new Vec2(1f, 1.6f), MobCategory.CREATURE);
 
 	public static void RegisterModEntities() {
 		FabricDefaultAttributeRegistry.register(SMILER,
