@@ -18,6 +18,16 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.phys.Vec2;
 
 public class ModEntities {
+	/**
+	 * Registers a new entity (type)
+	 * 
+	 * @param <T>      Entity Type
+	 * @param factory  Entity Factory
+	 * @param id       Id of the entity
+	 * @param size     Size of the entity in width and height
+	 * @param category Category of the mob
+	 * @return Entity Type
+	 */
 	protected static <T extends Entity> EntityType<T> RegisterEntity(EntityType.EntityFactory<T> factory, String id,
 			Vec2 size, MobCategory category) {
 		ResourceKey<EntityType<?>> resourceKey = ResourceKey.create(
@@ -29,13 +39,44 @@ public class ModEntities {
 						.build(resourceKey));
 	}
 
+	/**
+	 * Registers a new entity (type)
+	 * 
+	 * @param <T>     Entity Type
+	 * @param factory Entity Factory
+	 * @param id      Id of the entity
+	 * @param size    Size of the entity in width and height
+	 * @return Entity Type
+	 */
 	protected static <T extends Entity> EntityType<T> RegisterEntity(EntityType.EntityFactory<T> factory, String id,
 			Vec2 size) {
 		return RegisterEntity(factory, id, size, MobCategory.MONSTER);
 	}
 
+	/**
+	 * Registers a new entity (type)
+	 * 
+	 * @param <T>     Entity Type
+	 * @param factory Entity Factory
+	 * @param id      Id of the entity
+	 * @return Entity Type
+	 */
 	protected static <T extends Entity> EntityType<T> RegisterEntity(EntityType.EntityFactory<T> factory, String id) {
 		return RegisterEntity(factory, id, new Vec2(1, 2));
+	}
+
+	/**
+	 * Registers a new entity (type)
+	 * 
+	 * @param <T>      Entity Type
+	 * @param factory  Entity Factory
+	 * @param id       Id of the entity
+	 * @param category Category of the mob
+	 * @return Entity Type
+	 */
+	protected static <T extends Entity> EntityType<T> RegisterEntity(EntityType.EntityFactory<T> factory, String id,
+			MobCategory category) {
+		return RegisterEntity(factory, id, new Vec2(1, 2), category);
 	}
 
 	public static final EntityType<SmilerEntity> SMILER = RegisterEntity(SmilerEntity::new, "smiler");

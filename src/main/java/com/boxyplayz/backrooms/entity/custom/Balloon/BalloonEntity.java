@@ -37,9 +37,9 @@ public class BalloonEntity extends PathfinderMob {
 	public static AttributeSupplier.Builder createAttributes() {
 		return PathfinderMob.createMobAttributes()
 				.add(Attributes.MAX_HEALTH, 10.0D)
-				.add(Attributes.MOVEMENT_SPEED, 0.39D)
-				.add(Attributes.ATTACK_DAMAGE, 16.0D)
-				.add(Attributes.FOLLOW_RANGE, 20.0D);
+				.add(Attributes.MOVEMENT_SPEED, 0.01D)
+				.add(Attributes.ATTACK_DAMAGE, 8.0D)
+				.add(Attributes.FOLLOW_RANGE, 1.0D);
 	}
 
 	@Override
