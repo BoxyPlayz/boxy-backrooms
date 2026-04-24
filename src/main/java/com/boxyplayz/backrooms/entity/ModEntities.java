@@ -3,6 +3,7 @@ package com.boxyplayz.backrooms.entity;
 import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.entity.custom.Balloon.BalloonEntity;
 import com.boxyplayz.backrooms.entity.custom.Partygoer.PartygoerEntity;
+import com.boxyplayz.backrooms.entity.custom.Partypooper.PartypooperEntity;
 import com.boxyplayz.backrooms.entity.custom.SkinStealer.SkinStealerEntity;
 import com.boxyplayz.backrooms.entity.custom.Smiler.SmilerEntity;
 import com.boxyplayz.backrooms.entity.custom.Wretch.WretchEntity;
@@ -93,6 +94,9 @@ public class ModEntities {
 	public static final EntityType<BalloonEntity> BALLOON = RegisterEntity(BalloonEntity::new, "balloon",
 			new Vec2(1f, 1.6f), MobCategory.CREATURE);
 
+	public static final EntityType<PartypooperEntity> PARTYPOOPER = RegisterEntity(PartypooperEntity::new,
+			"partypooper", MobCategory.CREATURE);
+
 	public static void RegisterModEntities() {
 		FabricDefaultAttributeRegistry.register(SMILER,
 				SmilerEntity.createAttributes());
@@ -108,5 +112,8 @@ public class ModEntities {
 
 		FabricDefaultAttributeRegistry.register(BALLOON,
 				BalloonEntity.createAttributes());
+
+		FabricDefaultAttributeRegistry.register(PARTYPOOPER,
+				PartypooperEntity.createAttributes());
 	}
 }
