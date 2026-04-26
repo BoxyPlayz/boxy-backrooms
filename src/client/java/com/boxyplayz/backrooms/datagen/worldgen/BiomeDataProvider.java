@@ -244,5 +244,16 @@ public class BiomeDataProvider extends FabricDynamicRegistryProvider {
 		register(context, ModBiomes.LevelFunBiomes.PARTY_ROOMS_BIOME, LevelFun);
 		register(context, ModBiomes.LevelFunBiomes.PLAYROOMS_BIOME, LevelFun);
 		register(context, ModBiomes.LevelFunBiomes.TRAMPOLINE_PARK_BIOME, LevelFun);
+
+		register(context, ModBiomes.PROMISED_BIOME, new Biome.BiomeBuilder()
+				.specialEffects(new BiomeSpecialEffects.Builder()
+						.waterColor(0)
+						.build())
+				.hasPrecipitation(true)
+				.temperature(0.5f)
+				.downfall(0.5f)
+				.mobSpawnSettings(MobSpawnSettings.EMPTY)
+				.generationSettings(BiomeGenerationSettings.EMPTY)
+				.build());
 	}
 }

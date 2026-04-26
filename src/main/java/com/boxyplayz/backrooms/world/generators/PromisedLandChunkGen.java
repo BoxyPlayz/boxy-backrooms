@@ -5,6 +5,7 @@ import java.util.concurrent.CompletableFuture;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.block.ModBlocks;
+import com.boxyplayz.backrooms.world.biome.ModBiomes;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
@@ -19,7 +20,6 @@ import net.minecraft.world.level.NoiseColumn;
 import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeManager;
-import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.FixedBiomeSource;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -109,7 +109,7 @@ public class PromisedLandChunkGen extends ChunkGenerator {
 
 	public static final MapCodec<PromisedLandChunkGen> CODEC = RecordCodecBuilder.mapCodec(
 			instance -> instance.group(
-					RegistryOps.retrieveElement(Biomes.THE_VOID))
+					RegistryOps.retrieveElement(ModBiomes.PROMISED_BIOME))
 					.apply(instance,
 							instance.stable(PromisedLandChunkGen::new)));
 

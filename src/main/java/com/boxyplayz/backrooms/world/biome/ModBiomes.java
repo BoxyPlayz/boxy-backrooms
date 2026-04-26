@@ -36,6 +36,10 @@ public class ModBiomes {
 			Registries.BIOME,
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level6"));
 
+	public static final ResourceKey<Biome> PROMISED_BIOME = ResourceKey.create(
+			Registries.BIOME,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "promised"));
+
 	/**
 	 * Biomes for sections of level 1. Subclass of {@link ModBiomes}
 	 */

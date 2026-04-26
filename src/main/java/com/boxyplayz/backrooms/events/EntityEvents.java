@@ -5,6 +5,7 @@ import java.util.Set;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.effect.ModEffects;
+import com.boxyplayz.backrooms.entity.ModEntities;
 import com.boxyplayz.backrooms.entity.custom.Smiler.SmilerEntity;
 import com.boxyplayz.backrooms.item.ModItems;
 import com.boxyplayz.backrooms.tags.ModTags;
@@ -32,6 +33,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.storage.LevelData.RespawnData;
@@ -71,10 +73,24 @@ public class EntityEvents {
 
 		UseEntityCallback.EVENT.register(
 				(Player player, Level world, InteractionHand hand, Entity entity, EntityHitResult hitResult) -> {
-					if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FIRESALT_SHARD.asItem())
-							|| player.getItemBySlot(EquipmentSlot.OFFHAND)
-									.is(ModItems.FIRESALT_SHARD.asItem())) {
-						entity.setRemainingFireTicks(120);
+					if (!world.isClientSide()) {
+						if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FIRESALT_SHARD.asItem())
+								|| player.getItemBySlot(EquipmentSlot.OFFHAND)
+										.is(ModItems.FIRESALT_SHARD.asItem())) {
+							entity.setRemainingFireTicks(120);
+							return InteractionResult.CONSUME;
+						}
+
+						if (entity.is(ModEntities.PARTYPOOPER)) {
+							ItemStack equipSlot = player.getItemBySlot(EquipmentSlot.MAINHAND);
+							if (equipSlot.is(ModTags.ALMOND_WATERS)) {
+								if (player.getInventory().getFreeSlot() != -1) {
+									equipSlot.shrink(1);
+									player.getInventory().add(new ItemStack(ModItems.NEON_WATER));
+									return InteractionResult.CONSUME;
+								}
+							}
+						}
 					}
 
 					return InteractionResult.PASS;
@@ -139,7 +155,7 @@ public class EntityEvents {
 				}
 
 				if (player.level().dimension() == ModDimensions.PROMISED_LAND_DIMENSION) {
-					if (player.position().y < -10) {
+					if (player.position().y < -20) {
 						ServerLevel target = player.level().getServer().getLevel(Level.OVERWORLD);
 						if (target == null)
 							return;
