@@ -19,6 +19,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.level.ServerPlayer.RespawnConfig;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -33,6 +34,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.storage.LevelData.RespawnData;
 import net.minecraft.world.phys.EntityHitResult;
 
 public class EntityEvents {
@@ -133,6 +135,22 @@ public class EntityEvents {
 						player.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 10 * 20, 20));
 						player.teleportTo(target, player.position().x, 120, player.position().z, Set.of(),
 								player.getYRot(), player.getXRot(), false);
+					}
+				}
+
+				if (player.level().dimension() == ModDimensions.PROMISED_LAND_DIMENSION) {
+					if (player.position().y < -10) {
+						ServerLevel target = player.level().getServer().getLevel(Level.OVERWORLD);
+						if (target == null)
+							return;
+						player.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 20 * 20, 20));
+						player.teleportTo(target, player.position().x, 300, player.position().z, Set.of(),
+								player.getYRot(), player.getXRot(), false);
+						RespawnConfig respawnConfig = new RespawnConfig(
+								RespawnData.DEFAULT,
+								true);
+
+						player.setRespawnPosition(respawnConfig, false);
 					}
 				}
 

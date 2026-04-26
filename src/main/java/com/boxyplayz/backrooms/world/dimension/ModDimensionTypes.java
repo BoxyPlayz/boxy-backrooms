@@ -48,6 +48,10 @@ public class ModDimensionTypes {
 			Registries.DIMENSION_TYPE,
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "levelfun"));
 
+	public static final ResourceKey<DimensionType> PROMISED_LAND_DIMENSION_TYPE = ResourceKey.create(
+			Registries.DIMENSION_TYPE,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "promised_land"));
+
 	public static void RegisterModDimensionTypes() {
 	}
 }

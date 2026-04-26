@@ -97,6 +97,11 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModBlocks.FUN_FLOOR, "Fun Floor");
 		translationBuilder.add(ModBlocks.BLACK_TRAMPOLINE, "Black Trampoline");
 
+		translationBuilder.add(ModBlocks.PROMISED_CEILING_LIGHT, "Promised Ceiling Light");
+		translationBuilder.add(ModBlocks.PROMISED_CARPET, "Promised Carpet");
+		translationBuilder.add(ModBlocks.PROMISED_CEILING_TILE, "Promised Ceiling Tile");
+		translationBuilder.add(ModBlocks.PROMISED_WALLPAPER, "Promised Wallpaper");
+
 		translationBuilder.add(ModBlocks.PURE_BLUE, "Pure Blue");
 
 		// Loot Blocks

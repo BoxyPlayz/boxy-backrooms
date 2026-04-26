@@ -10,7 +10,7 @@ import com.boxyplayz.backrooms.block.custom.Level0GlitchedCarpet;
 import com.boxyplayz.backrooms.block.custom.Level0Wallpaper;
 import com.boxyplayz.backrooms.block.custom.NoFallDamageBlock;
 import com.boxyplayz.backrooms.block.custom.OceanTransporter;
-import com.boxyplayz.backrooms.block.custom.PainBlock;
+import com.boxyplayz.backrooms.block.custom.PainOnBreakBlock;
 import com.boxyplayz.backrooms.block.custom.PremiumCarpet;
 import com.boxyplayz.backrooms.block.custom.TrampolineBlock;
 
@@ -245,8 +245,35 @@ public class ModBlocks {
 
 	public static final Block FUN_CRATE = register(
 			"fun_crate",
-			PainBlock::new,
+			PainOnBreakBlock::new,
 			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).strength(1F).sound(SoundType.WOOD),
+			true);
+
+	public static final Block PROMISED_CEILING_LIGHT = register(
+			"promised_ceiling_light",
+			Block::new,
+			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(1F).sound(SoundType.COPPER)
+					.lightLevel(state -> 15),
+			true);
+
+	public static final Block PROMISED_CEILING_TILE = register(
+			"promised_ceiling_tile",
+			Block::new,
+			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_MAGENTA).strength(1F)
+					.sound(SoundType.GILDED_BLACKSTONE),
+			true);
+
+	public static final Block PROMISED_CARPET = register(
+			"promised_carpet",
+			Block::new,
+			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_MAGENTA).strength(1F)
+					.sound(SoundType.GILDED_BLACKSTONE),
+			true);
+
+	public static final Block PROMISED_WALLPAPER = register(
+			"promised_wallpaper",
+			Block::new,
+			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PINK).strength(0.6F).sound(SoundType.STONE),
 			true);
 
 	public static void RegisterModBlocks() {

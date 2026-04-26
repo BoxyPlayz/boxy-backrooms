@@ -14,9 +14,9 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class PainBlock extends Block {
+public class PainOnBreakBlock extends Block {
 
-	public PainBlock(Properties properties) {
+	public PainOnBreakBlock(Properties properties) {
 		super(properties);
 	}
 
