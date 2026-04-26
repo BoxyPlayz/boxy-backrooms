@@ -63,6 +63,11 @@ public class ModelProvider extends FabricModelProvider {
 		itemModelGenerator.generateFlatItem(ModItems.FIRESTEEL_ALLOY, ModelTemplates.FLAT_ITEM);
 		itemModelGenerator.generateFlatItem(ModItems.FIRESTEEL_SWORD, ModelTemplates.FLAT_HANDHELD_ITEM);
 		itemModelGenerator.generateFlatItem(ModItems.NEON_WATER, ModelTemplates.FLAT_HANDHELD_ITEM);
+		itemModelGenerator.generateFlatItem(ModItems.SMILER_SPAWN_EGG, ModelTemplates.FLAT_HANDHELD_ITEM);
+		itemModelGenerator.generateFlatItem(ModItems.WRETCH_SPAWN_EGG, ModelTemplates.FLAT_HANDHELD_ITEM);
+		itemModelGenerator.generateFlatItem(ModItems.SKINSTEALER_SPAWN_EGG, ModelTemplates.FLAT_HANDHELD_ITEM);
+		itemModelGenerator.generateFlatItem(ModItems.PARTYGOER_SPAWN_EGG, ModelTemplates.FLAT_HANDHELD_ITEM);
+		itemModelGenerator.generateFlatItem(ModItems.PARTYPOOPER_SPAWN_EGG, ModelTemplates.FLAT_HANDHELD_ITEM);
 	}
 
 }

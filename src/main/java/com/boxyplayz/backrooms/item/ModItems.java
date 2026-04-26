@@ -5,6 +5,7 @@ import java.util.function.Function;
 import org.jspecify.annotations.NonNull;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.entity.ModEntities;
 import com.boxyplayz.backrooms.toolMaterials.ModToolMaterials;
 
 import net.minecraft.core.Registry;
@@ -15,6 +16,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.component.Consumables;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.minecraft.world.item.consume_effects.RemoveStatusEffectsConsumeEffect;
@@ -114,6 +116,26 @@ public class ModItems {
 									.onConsume(new ApplyStatusEffectsConsumeEffect(
 											new MobEffectInstance(MobEffects.SATURATION, 480 * 20)))
 									.build()));
+
+	public static final SpawnEggItem SMILER_SPAWN_EGG = registerItem("smiler_spawn_egg",
+			SpawnEggItem::new,
+			new SpawnEggItem.Properties().spawnEgg(ModEntities.SMILER));
+
+	public static final SpawnEggItem WRETCH_SPAWN_EGG = registerItem("wretch_spawn_egg",
+			SpawnEggItem::new,
+			new SpawnEggItem.Properties().spawnEgg(ModEntities.WRETCH));
+
+	public static final SpawnEggItem SKINSTEALER_SPAWN_EGG = registerItem("skinstealer_spawn_egg",
+			SpawnEggItem::new,
+			new SpawnEggItem.Properties().spawnEgg(ModEntities.SKINSTEALER));
+
+	public static final SpawnEggItem PARTYGOER_SPAWN_EGG = registerItem("partygoer_spawn_egg",
+			SpawnEggItem::new,
+			new SpawnEggItem.Properties().spawnEgg(ModEntities.PARTYGOER));
+
+	public static final SpawnEggItem PARTYPOOPER_SPAWN_EGG = registerItem("partypooper_spawn_egg",
+			SpawnEggItem::new,
+			new SpawnEggItem.Properties().spawnEgg(ModEntities.PARTYPOOPER));
 
 	public static void registerModItems() {
 		BoxysBackrooms.LOGGER.debug("Registering items for " + BoxysBackrooms.MOD_ID);

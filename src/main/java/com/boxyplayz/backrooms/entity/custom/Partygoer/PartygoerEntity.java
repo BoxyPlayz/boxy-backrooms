@@ -1,6 +1,7 @@
 package com.boxyplayz.backrooms.entity.custom.Partygoer;
 
 import com.boxyplayz.backrooms.block.ModBlocks;
+import com.boxyplayz.backrooms.entity.custom.Partypooper.PartypooperEntity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
@@ -37,6 +38,8 @@ public class PartygoerEntity extends PathfinderMob {
 		this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.5D, true));
 		this.targetSelector.addGoal(2, new HurtByTargetGoal(this).setAlertOthers());
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(
+				this, PartypooperEntity.class, false));
+		this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(
 				this, Player.class, false));
 		this.goalSelector.addGoal(5, new RandomStrollGoal(this, 1.0D));
 		this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 32.0F));

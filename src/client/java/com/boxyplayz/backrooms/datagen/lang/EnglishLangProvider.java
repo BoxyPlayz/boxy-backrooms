@@ -48,6 +48,13 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModItems.ROYAL_RATION, "Royal Ration");
 		translationBuilder.add(ModItems.NEON_WATER, "Neon Water");
 
+		// Egg
+		translationBuilder.add(ModItems.SMILER_SPAWN_EGG, "Smiler Spawn Egg");
+		translationBuilder.add(ModItems.WRETCH_SPAWN_EGG, "Wretched Spawn Egg");
+		translationBuilder.add(ModItems.SKINSTEALER_SPAWN_EGG, "Skinstealer Spawn Egg");
+		translationBuilder.add(ModItems.PARTYGOER_SPAWN_EGG, "Partygoer Spawn Egg");
+		translationBuilder.add(ModItems.PARTYPOOPER_SPAWN_EGG, "Partypooper Spawn Egg");
+
 		// Other Items
 		translationBuilder.add(ModItems.FIRESALT_SHARD, "Firesalt Shard");
 		translationBuilder.add(ModItems.SHADOW_DUST, "Shadow Dust");

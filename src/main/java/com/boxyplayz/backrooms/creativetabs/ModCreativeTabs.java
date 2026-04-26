@@ -73,6 +73,12 @@ public class ModCreativeTabs {
 			itemGroup.accept(ModItems.SMILER_REPELLANT);
 			itemGroup.accept(ModItems.FIRESTEEL_ALLOY);
 			itemGroup.accept(ModItems.FIRESTEEL_SWORD);
+
+			itemGroup.accept(ModItems.SMILER_SPAWN_EGG);
+			itemGroup.accept(ModItems.WRETCH_SPAWN_EGG);
+			itemGroup.accept(ModItems.SKINSTEALER_SPAWN_EGG);
+			itemGroup.accept(ModItems.PARTYGOER_SPAWN_EGG);
+			itemGroup.accept(ModItems.PARTYPOOPER_SPAWN_EGG);
 		});
 	}
 

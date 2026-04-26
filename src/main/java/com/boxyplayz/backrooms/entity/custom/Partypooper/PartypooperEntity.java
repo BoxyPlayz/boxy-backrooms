@@ -1,15 +1,18 @@
 package com.boxyplayz.backrooms.entity.custom.Partypooper;
 
+import com.boxyplayz.backrooms.entity.custom.Partygoer.PartygoerEntity;
+
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 
@@ -30,19 +33,19 @@ public class PartypooperEntity extends PathfinderMob {
 	protected void registerGoals() {
 		super.registerGoals();
 		this.goalSelector.addGoal(0, new FloatGoal(this));
+		this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.2, true));
+		this.targetSelector.addGoal(2, new HurtByTargetGoal(this,
+				Player.class).setAlertOthers());
+		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(
+				this, PartygoerEntity.class, true));
 
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
 		return PathfinderMob.createMobAttributes()
-				.add(Attributes.MAX_HEALTH, 40.0D)
+				.add(Attributes.MAX_HEALTH, 50.0D)
 				.add(Attributes.MOVEMENT_SPEED, 0.4D)
-				.add(Attributes.ATTACK_DAMAGE, 8.0D)
+				.add(Attributes.ATTACK_DAMAGE, 12.0D)
 				.add(Attributes.FOLLOW_RANGE, 16.0D);
-	}
-
-	@Override
-	public boolean doHurtTarget(ServerLevel level, Entity target) {
-		return super.doHurtTarget(level, target);
 	}
 }
