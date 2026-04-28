@@ -1,38 +1,13 @@
 import './styles/App.css';
-import MiniSearch, { type SearchResult } from 'minisearch';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import modules from "./styles/Modules.module.css"
-
-interface pageData {
-	data: {
-		id: number;
-		title: string;
-		desc: string;
-	}[]
-}
 
 enum Pages {
 	Home,
 }
 
 function App() {
-	const [debug, setDeb] = useState<SearchResult[]>([])
-	const initialized = useRef(false);
-	const minisearchRef = useRef(new MiniSearch({
-		fields: ["title", "desc"],
-		storeFields: ['title', 'desc']
-	}));
-	const [page, setPage] = useState(Pages.Home)
-
-	useEffect(() => {
-		if (initialized.current) return;
-		initialized.current = true;
-		fetch("/boxy-backrooms/PageData.json").then(res => res.json()).then((data: pageData) => {
-			minisearchRef.current.addAllAsync(data.data).then(() => {
-				setDeb(minisearchRef.current.search("homepage"));
-			});
-		})
-	}, []);
+	const [page, setPage] = useState(Pages.Home);
 
 	return (
 		<>
@@ -86,12 +61,7 @@ function App() {
 
 				<section id='spacer' />
 
-				{debug?.map((item, idx) => (
-					<div key={idx}>
-						<h3>{item.title}</h3>
-						<p>{item.desc}</p>
-					</div>
-				))} </> : null
+			</> : null
 			}
 		</>
 	);
