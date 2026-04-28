@@ -12,6 +12,7 @@ import com.boxyplayz.backrooms.block.custom.NoFallDamageBlock;
 import com.boxyplayz.backrooms.block.custom.OceanTransporter;
 import com.boxyplayz.backrooms.block.custom.PainOnBreakBlock;
 import com.boxyplayz.backrooms.block.custom.PremiumCarpet;
+import com.boxyplayz.backrooms.block.custom.PromisedGate;
 import com.boxyplayz.backrooms.block.custom.TrampolineBlock;
 
 import net.minecraft.core.Registry;
@@ -274,6 +275,12 @@ public class ModBlocks {
 			"promised_wallpaper",
 			Block::new,
 			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PINK).strength(0.6F).sound(SoundType.STONE),
+			true);
+
+	public static final Block PROMISED_GATE = register(
+			"promised_gate",
+			PromisedGate::new,
+			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).strength(0.6F).sound(SoundType.AMETHYST),
 			true);
 
 	public static void RegisterModBlocks() {

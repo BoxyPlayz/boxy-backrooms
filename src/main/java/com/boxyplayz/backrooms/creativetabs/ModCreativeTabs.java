@@ -63,6 +63,12 @@ public class ModCreativeTabs {
 			itemGroup.accept(ModBlocks.PREMIUM_CEILING_TILE);
 			itemGroup.accept(ModBlocks.PREMIUM_WALLPAPER);
 
+			itemGroup.accept(ModBlocks.PROMISED_CARPET);
+			itemGroup.accept(ModBlocks.PROMISED_CEILING_LIGHT);
+			itemGroup.accept(ModBlocks.PROMISED_CEILING_TILE);
+			itemGroup.accept(ModBlocks.PROMISED_GATE);
+			itemGroup.accept(ModBlocks.PROMISED_WALLPAPER);
+
 			itemGroup.accept(ModItems.GRAY_ALMOND_WATER);
 			itemGroup.accept(ModItems.GREEN_ALMOND_WATER);
 			itemGroup.accept(ModItems.NEON_WATER);

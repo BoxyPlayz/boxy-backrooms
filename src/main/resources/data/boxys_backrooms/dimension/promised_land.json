@@ -4,7 +4,7 @@
 		"type": "boxys_backrooms:promised_land",
 		"biome_source": {
 			"type": "minecraft:fixed",
-			"biome": "minecraft:the_void"
+			"biome": "boxys_backrooms:promised"
 		}
 	}
 }

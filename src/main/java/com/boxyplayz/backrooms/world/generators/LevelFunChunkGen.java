@@ -205,6 +205,10 @@ public class LevelFunChunkGen extends ChunkGenerator {
 						}
 					}
 				}
+
+				if (blockRandom.nextIntBetweenInclusive(0, 2500) == 3) {
+					return ModBlocks.PROMISED_GATE.defaultBlockState();
+				}
 			}
 		}
 
@@ -282,6 +286,7 @@ public class LevelFunChunkGen extends ChunkGenerator {
 			}
 			if (localCellPos.getY() == 1 && blockRandom.nextIntBetweenInclusive(1, 26) == 1) {
 				return ModBlocks.FUN_CRATE.defaultBlockState();
+
 			}
 		}
 
@@ -341,8 +346,8 @@ public class LevelFunChunkGen extends ChunkGenerator {
 			for (int z = 0; z < 16; z++) {
 				int globalX = chunkMinX + x;
 				int globalZ = chunkMinZ + z;
+				Holder<Biome> biome = chunkAccess.getNoiseBiome(globalX, 0, globalZ);
 				for (int y = minY; y < minY + this.getGenDepth(); y++) {
-					Holder<Biome> biome = chunkAccess.getNoiseBiome(globalX, y, globalZ);
 					BlockState block = getBlockAt(worldSeed, globalX, y, globalZ, biome);
 					chunkAccess.setBlockState(
 							new BlockPos(x, y, z),

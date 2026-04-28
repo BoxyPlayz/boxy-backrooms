@@ -45,7 +45,7 @@ public class ModEntitySpawner {
 		BiomeModifications.addSpawn(
 				BiomeSelectors.includeByKey(
 						ModBiomes.LevelFunBiomes.PARTY_ROOMS_BIOME),
-				MobCategory.MONSTER, ModEntities.PARTYGOER, 2, 3, 8);
+				MobCategory.MONSTER, ModEntities.PARTYGOER, 7, 3, 8);
 
 		SpawnPlacements.register(ModEntities.PARTYGOER, SpawnPlacementTypes.ON_GROUND, Types.WORLD_SURFACE,
 				PartygoerEntity::CheckSpawnRules);
@@ -62,6 +62,11 @@ public class ModEntitySpawner {
 				BiomeSelectors.includeByKey(
 						ModBiomes.PROMISED_BIOME),
 				MobCategory.CREATURE, ModEntities.PARTYPOOPER, 1, 1, 3);
+
+		BiomeModifications.addSpawn(
+				BiomeSelectors.includeByKey(
+						ModBiomes.LevelFunBiomes.HALLWAYS_BIOME),
+				MobCategory.CREATURE, ModEntities.PARTYPOOPER, 1, 1, 1);
 
 		SpawnPlacements.register(ModEntities.PARTYPOOPER, SpawnPlacementTypes.ON_GROUND, Types.WORLD_SURFACE,
 				PartypooperEntity::CheckSpawnRules);

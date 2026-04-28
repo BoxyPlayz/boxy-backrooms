@@ -1,5 +1,6 @@
 package com.boxyplayz.backrooms.datagen;
 
+import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.item.ModItems;
 
@@ -7,8 +8,10 @@ import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.model.ItemModelUtils;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TexturedModel;
+import net.minecraft.resources.Identifier;
 
 public class ModelProvider extends FabricModelProvider {
 
@@ -72,6 +75,9 @@ public class ModelProvider extends FabricModelProvider {
 		itemModelGenerator.generateFlatItem(ModItems.SKINSTEALER_SPAWN_EGG, ModelTemplates.FLAT_HANDHELD_ITEM);
 		itemModelGenerator.generateFlatItem(ModItems.PARTYGOER_SPAWN_EGG, ModelTemplates.FLAT_HANDHELD_ITEM);
 		itemModelGenerator.generateFlatItem(ModItems.PARTYPOOPER_SPAWN_EGG, ModelTemplates.FLAT_HANDHELD_ITEM);
+		itemModelGenerator.itemModelOutput.accept(ModBlocks.PROMISED_GATE.asItem(),
+				ItemModelUtils
+						.plainModel(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "block/promised_gate")));
 	}
 
 }

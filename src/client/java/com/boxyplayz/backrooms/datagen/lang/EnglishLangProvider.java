@@ -101,6 +101,7 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModBlocks.PROMISED_CARPET, "Promised Carpet");
 		translationBuilder.add(ModBlocks.PROMISED_CEILING_TILE, "Promised Ceiling Tile");
 		translationBuilder.add(ModBlocks.PROMISED_WALLPAPER, "Promised Wallpaper");
+		translationBuilder.add(ModBlocks.PROMISED_GATE, "Promised Gateway");
 
 		translationBuilder.add(ModBlocks.PURE_BLUE, "Pure Blue");
 
