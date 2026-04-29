@@ -5,100 +5,37 @@ import java.util.Set;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.effect.ModEffects;
-import com.boxyplayz.backrooms.entity.ModEntities;
-import com.boxyplayz.backrooms.entity.custom.Smiler.SmilerEntity;
-import com.boxyplayz.backrooms.item.ModItems;
-import com.boxyplayz.backrooms.tags.ModTags;
 import com.boxyplayz.backrooms.utils.Misc;
 import com.boxyplayz.backrooms.world.biome.ModBiomes;
 import com.boxyplayz.backrooms.world.dimension.ModDimensions;
 
-import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
-import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.ServerPlayer.RespawnConfig;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.storage.LevelData.RespawnData;
-import net.minecraft.world.phys.EntityHitResult;
 
-public class EntityEvents {
-	public static void RegisterEntityEvents() {
-		ServerLivingEntityEvents.ALLOW_DAMAGE.register((LivingEntity entity, DamageSource source, float amount) -> {
-			if (entity.level().dimension() == ModDimensions.BLUE_CHANNEL_DIMENSION) {
-				if (source.is(ModTags.FIRE_ATTACKS)) {
-					return false;
-				}
-			}
-			if ((entity instanceof SmilerEntity)) {
-				if (source.is(DamageTypes.PLAYER_ATTACK)) {
-					if (source.getEntity() instanceof Player player) {
-						if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FIRESTEEL_SWORD)) {
-							return true;
-						}
-						if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FIRESALT_SHARD.asItem())
-								|| player.getItemBySlot(EquipmentSlot.OFFHAND)
-										.is(ModItems.FIRESALT_SHARD.asItem())) {
-							entity.setRemainingFireTicks(120);
-						}
-					}
-					return false;
-				}
-				if (source.is(DamageTypes.MACE_SMASH)) {
-					return false;
-				}
-				if (source.is(DamageTypes.SPEAR)) {
-					return false;
-				}
-			}
-			return true;
-		});
-
-		UseEntityCallback.EVENT.register(
-				(Player player, Level world, InteractionHand hand, Entity entity, EntityHitResult hitResult) -> {
-					if (!world.isClientSide()) {
-						if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FIRESALT_SHARD.asItem())
-								|| player.getItemBySlot(EquipmentSlot.OFFHAND)
-										.is(ModItems.FIRESALT_SHARD.asItem())) {
-							entity.setRemainingFireTicks(120);
-							return InteractionResult.CONSUME;
-						}
-
-						if (entity.is(ModEntities.PARTYPOOPER)) {
-							ItemStack equipSlot = player.getItemBySlot(EquipmentSlot.MAINHAND);
-							if (equipSlot.is(ModTags.ALMOND_WATERS)) {
-								if (player.getInventory().getFreeSlot() != -1) {
-									equipSlot.shrink(1);
-									player.getInventory().add(new ItemStack(ModItems.NEON_WATER));
-									return InteractionResult.CONSUME;
-								}
-							}
-						}
-					}
-
-					return InteractionResult.PASS;
-				});
-
+public class EntityTickEvents {
+	/**
+	 * Registers the event for {@link ServerTickEvents.StartLevelTick}
+	 */
+	public static void RegisterEntityTickEvents() {
 		ServerTickEvents.START_LEVEL_TICK.register((ServerLevel level) -> {
 			List<ServerPlayer> players = List.copyOf(level.players());
 			players.forEach((ServerPlayer player) -> {
+				if (player.level().dimension() == ModDimensions.LEVEL7_DIMENSION) {
+					if (player.getAirSupply() < player.getMaxAirSupply()) {
+						player.setAirSupply(player.getMaxAirSupply());
+					}
+				}
 				if (Misc.isWretchableBackrooms(player.level())) {
 					if (player.getFoodData().getFoodLevel() < 2) {
 						if (!player.hasEffect(ModEffects.WRETCHED_CYCLE)) {

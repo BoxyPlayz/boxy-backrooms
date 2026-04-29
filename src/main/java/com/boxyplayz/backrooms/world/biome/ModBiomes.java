@@ -12,30 +12,50 @@ import net.minecraft.world.level.biome.Biome;
  */
 public class ModBiomes {
 
+	/**
+	 * Ocean
+	 */
 	public static final ResourceKey<Biome> LEVEL7_OCEAN_BIOME = ResourceKey.create(
 			Registries.BIOME,
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level7_ocean"));
 
+	/**
+	 * Cave Systems
+	 */
 	public static final ResourceKey<Biome> LEVEL8_CAVESYSTEM_BIOME = ResourceKey.create(
 			Registries.BIOME,
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level8_cavesystem"));
-
+	/**
+	 * Motion
+	 */
 	public static final ResourceKey<Biome> LEVEL94_BIOME = ResourceKey.create(
 			Registries.BIOME,
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level94"));
 
+	/**
+	 * Pitfalls
+	 */
 	public static final ResourceKey<Biome> PITFALLS_BIOME = ResourceKey.create(
 			Registries.BIOME,
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "pitfalls"));
 
+	/**
+	 * The Blue Chanel
+	 */
 	public static final ResourceKey<Biome> BLUE_CHANNEL_BIOME = ResourceKey.create(
 			Registries.BIOME,
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "blue_channel"));
 
+	/**
+	 * Lights out
+	 */
 	public static final ResourceKey<Biome> LEVEL6_BIOME = ResourceKey.create(
 			Registries.BIOME,
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level6"));
 
+	/**
+	 * The Promised Land
+	 */
 	public static final ResourceKey<Biome> PROMISED_BIOME = ResourceKey.create(
 			Registries.BIOME,
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "promised"));
@@ -43,7 +63,7 @@ public class ModBiomes {
 	/**
 	 * Biomes for sections of level 1. Subclass of {@link ModBiomes}
 	 */
-	public class Level1Biomes {
+	public static class Level1Biomes {
 		public static final ResourceKey<Biome> AQUILA_BIOME = ResourceKey.create(
 				Registries.BIOME,
 				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level1/aquila"));
@@ -72,16 +92,30 @@ public class ModBiomes {
 	/**
 	 * Biomes for sections of Level 0. Subclass of {@link ModBiomes}
 	 */
-	public class Level0Biomes {
+	public static class Level0Biomes {
+		/**
+		 * Good ol Backrooms
+		 */
 		public static final ResourceKey<Biome> NORMAL_BIOME = ResourceKey.create(
 				Registries.BIOME,
 				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level0/normal"));
+		/**
+		 * Structural Support
+		 */
 		public static final ResourceKey<Biome> COLUMNS_BIOME = ResourceKey.create(
 				Registries.BIOME,
 				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level0/columns"));
+
+		/**
+		 * Danger Zone
+		 */
 		public static final ResourceKey<Biome> BLACKOUT_BIOME = ResourceKey.create(
 				Registries.BIOME,
 				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level0/blackout"));
+
+		/**
+		 * Don't fall in!
+		 */
 		public static final ResourceKey<Biome> PITFALLS_BIOME = ResourceKey.create(
 				Registries.BIOME,
 				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level0/pitfalls"));
@@ -91,7 +125,7 @@ public class ModBiomes {
 	/**
 	 * Biomes for a fun game =)
 	 */
-	public class LevelFunBiomes {
+	public static class LevelFunBiomes {
 		public static final ResourceKey<Biome> HALLWAYS_BIOME = ResourceKey.create(
 				Registries.BIOME,
 				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "levelfun/hallways"));
@@ -109,6 +143,9 @@ public class ModBiomes {
 				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "levelfun/party_rooms"));
 	}
 
+	/**
+	 * Register biome resource keys
+	 */
 	public static void RegisterModBiomes() {
 
 	}

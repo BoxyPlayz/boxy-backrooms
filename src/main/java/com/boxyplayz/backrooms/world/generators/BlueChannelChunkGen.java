@@ -37,7 +37,7 @@ import net.minecraft.world.level.levelgen.synth.SimplexNoise;
 public class BlueChannelChunkGen extends ChunkGenerator {
 	private SimplexNoise noise;
 
-	protected SimplexNoise getNoise(PositionalRandomFactory worldSeed) {
+	private SimplexNoise getNoise(PositionalRandomFactory worldSeed) {
 		if (this.noise == null) {
 			RandomSource random = worldSeed.fromHashOf("blueChannel");
 			this.noise = new SimplexNoise(random);

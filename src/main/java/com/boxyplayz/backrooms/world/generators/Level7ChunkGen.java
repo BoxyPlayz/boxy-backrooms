@@ -35,7 +35,7 @@ public class Level7ChunkGen extends ChunkGenerator {
 
 	private SimplexNoise noise;
 
-	protected SimplexNoise getNoise(PositionalRandomFactory worldSeed) {
+	private SimplexNoise getNoise(PositionalRandomFactory worldSeed) {
 		if (this.noise == null) {
 			RandomSource random = worldSeed.fromHashOf("level0_seed");
 			this.noise = new SimplexNoise(random);
@@ -43,6 +43,15 @@ public class Level7ChunkGen extends ChunkGenerator {
 		return this.noise;
 	}
 
+	/**
+	 * Gets block from coordinates
+	 * 
+	 * @param randomFactory Random Factory
+	 * @param x             X Coordinate
+	 * @param y             Y Coordinate
+	 * @param z             Z Coordinate
+	 * @return Blockstate
+	 */
 	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
 		int minY = getMinY();
 
@@ -89,6 +98,11 @@ public class Level7ChunkGen extends ChunkGenerator {
 		return Blocks.AIR.defaultBlockState();
 	}
 
+	/**
+	 * Chunk Generation
+	 * 
+	 * @param reference Biome
+	 */
 	public Level7ChunkGen(Holder.Reference<Biome> reference) {
 		super(new FixedBiomeSource(reference));
 	}

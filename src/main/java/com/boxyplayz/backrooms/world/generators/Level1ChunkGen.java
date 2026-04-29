@@ -65,7 +65,7 @@ public class Level1ChunkGen extends ChunkGenerator {
 
 	private SimplexNoise noise;
 
-	protected SimplexNoise getNoise(PositionalRandomFactory worldSeed) {
+	private SimplexNoise getNoise(PositionalRandomFactory worldSeed) {
 		if (this.noise == null) {
 			RandomSource random = worldSeed.fromSeed(1);
 			this.noise = new SimplexNoise(random);

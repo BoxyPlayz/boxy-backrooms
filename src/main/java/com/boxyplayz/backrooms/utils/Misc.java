@@ -7,11 +7,15 @@ import com.boxyplayz.backrooms.world.dimension.ModDimensions;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.Level;
 
+/**
+ * Miscellaneous methods
+ */
 public class Misc {
 	/**
 	 * Checks whether a player can get the Wretched Cycle in the dimension
 	 * 
 	 * @param level The dimension to check
+	 * @return Whether the level is in the wretched levels
 	 */
 	public static boolean isWretchableBackrooms(Level level) {
 		List<ResourceKey<Level>> wretchedLevels = List.of(

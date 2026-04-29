@@ -40,11 +40,30 @@ public class LevelFunChunkGen extends ChunkGenerator {
 		return random.nextIntBetweenInclusive(0, 5) == 0;
 	}
 
+	/**
+	 * Gets block from coordinates
+	 * 
+	 * @param randomFactory Random Factory
+	 * @param x             X Coordinate
+	 * @param y             Y Coordinate
+	 * @param z             Z Coordinate
+	 * @return Blockstate
+	 */
 	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
 		Holder<Biome> biome = this.getBiomeSource().getNoiseBiome(x, y, z, null);
 		return getBlockAt(randomFactory, x, y, z, biome);
 	}
 
+	/**
+	 * Gets block from coordinates
+	 * 
+	 * @param randomFactory Random Factory
+	 * @param x             X Coordinate
+	 * @param y             Y Coordinate
+	 * @param z             Z Coordinate
+	 * @param biome         The Biome that the block is within
+	 * @return Blockstate
+	 */
 	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z, Holder<Biome> biome) {
 		long chunkX = Math.floorDiv(x, 16);
 		long chunkZ = Math.floorDiv(z, 16);

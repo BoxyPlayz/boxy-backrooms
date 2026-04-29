@@ -159,6 +159,8 @@ public class DimensionTypeBuilder {
 
 	/**
 	 * Sets the enviornment attributes
+	 * 
+	 * @param map Environment Attributes
 	 */
 	public DimensionTypeBuilder setEnvAttributes(EnvironmentAttributeMap map) {
 		this.attributes = map;

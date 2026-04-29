@@ -15,8 +15,16 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.LevelData.RespawnData;
 
+/**
+ * Wallpaper Block that goes to level 0 from overworld
+ */
 public class Level0Wallpaper extends Block {
 
+	/**
+	 * Creates new Block
+	 * 
+	 * @param properties Block Properties
+	 */
 	public Level0Wallpaper(Properties properties) {
 		super(properties);
 	}

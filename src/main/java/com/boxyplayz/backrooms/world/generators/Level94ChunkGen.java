@@ -31,11 +31,14 @@ import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.blending.Blender;
 import net.minecraft.world.level.levelgen.synth.SimplexNoise;
 
+/**
+ * Chunk Generation for level 94
+ */
 public class Level94ChunkGen extends ChunkGenerator {
 
 	private SimplexNoise noise;
 
-	protected SimplexNoise getNoise(PositionalRandomFactory randomFactory) {
+	private SimplexNoise getNoise(PositionalRandomFactory randomFactory) {
 		if (this.noise == null) {
 			RandomSource random = randomFactory.fromSeed(94);
 			this.noise = new SimplexNoise(random);
@@ -45,6 +48,15 @@ public class Level94ChunkGen extends ChunkGenerator {
 
 	}
 
+	/**
+	 * Gets block from coordinates
+	 * 
+	 * @param randomFactory Random Factory
+	 * @param x             X Coordinate
+	 * @param y             Y Coordinate
+	 * @param z             Z Coordinate
+	 * @return Blockstate
+	 */
 	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
 
 		int height = (int) (getNoise(randomFactory).getValue(x * 0.01, z * 0.01) * 10);
@@ -62,6 +74,9 @@ public class Level94ChunkGen extends ChunkGenerator {
 		super(new FixedBiomeSource(reference));
 	}
 
+	/**
+	 * Chunk Generation Codec
+	 */
 	public static final MapCodec<Level94ChunkGen> CODEC = RecordCodecBuilder.mapCodec(
 			instance -> instance.group(RegistryOps.retrieveElement(ModBiomes.LEVEL94_BIOME)).apply(instance,
 					instance.stable(Level94ChunkGen::new)));

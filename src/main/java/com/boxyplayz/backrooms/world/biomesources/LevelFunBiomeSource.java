@@ -20,7 +20,7 @@ public class LevelFunBiomeSource extends BiomeSource {
 
 	private SimplexNoise noise;
 
-	protected SimplexNoise getNoise(PositionalRandomFactory worldSeed) {
+	private SimplexNoise getNoise(PositionalRandomFactory worldSeed) {
 		if (this.noise == null) {
 			RandomSource random = worldSeed.fromHashOf("levelfun_seed");
 			this.noise = new SimplexNoise(random);

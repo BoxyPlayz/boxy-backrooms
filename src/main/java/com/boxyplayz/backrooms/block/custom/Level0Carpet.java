@@ -12,8 +12,16 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
+/**
+ * Entry to Level 0 from 0.2 or Blue Channel
+ */
 public class Level0Carpet extends Block {
 
+	/**
+	 * New Block
+	 * 
+	 * @param properties Block Properties
+	 */
 	public Level0Carpet(Properties properties) {
 		super(properties);
 	}
