@@ -2,6 +2,8 @@ package com.boxyplayz.backrooms.entity.wretch;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -14,6 +16,7 @@ import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.Entity;
 
+@Environment(EnvType.CLIENT)
 public class WretchModel<T extends Entity> extends EntityModel<WretchRenderState> {
 	// This layer location should be baked with EntityRendererProvider.Context in
 	// the entity renderer and passed into this model's constructor

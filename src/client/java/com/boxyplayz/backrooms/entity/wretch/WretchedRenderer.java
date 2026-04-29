@@ -8,6 +8,10 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.Identifier;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+
+@Environment(EnvType.CLIENT)
 public class WretchedRenderer extends MobRenderer<WretchEntity, WretchRenderState, WretchModel<WretchEntity>> {
 
 	public WretchedRenderer(Context context) {

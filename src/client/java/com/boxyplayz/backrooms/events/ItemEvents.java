@@ -2,10 +2,13 @@ package com.boxyplayz.backrooms.events;
 
 import com.boxyplayz.backrooms.item.ModItems;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 
+@Environment(EnvType.CLIENT)
 public class ItemEvents {
 	public static String getTooltip(Item item) {
 		return item.getDescriptionId() + ".tooltip";

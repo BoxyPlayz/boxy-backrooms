@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.boxyplayz.backrooms.block.ModBlocks;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockColorRegistry;
 import net.minecraft.client.color.block.BlockTintSource;
 import net.minecraft.client.renderer.BiomeColors;
@@ -12,6 +14,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.GrassColor;
 import net.minecraft.world.level.block.state.BlockState;
 
+@Environment(EnvType.CLIENT)
 public class GrassColors {
 	public static void RegisterGrassColors() {
 
