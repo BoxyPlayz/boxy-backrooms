@@ -12,8 +12,16 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
+/**
+ * Worse carpet.
+ */
 public class InferiorCarpet extends Block {
 
+	/**
+	 * Not good enough.
+	 * 
+	 * @param properties Props
+	 */
 	public InferiorCarpet(Properties properties) {
 		super(properties);
 	}

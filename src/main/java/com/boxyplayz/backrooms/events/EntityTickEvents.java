@@ -23,6 +23,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.storage.LevelData.RespawnData;
 
+/**
+ * Tick Entities
+ */
 public class EntityTickEvents {
 	/**
 	 * Registers the event for {@link ServerTickEvents.StartLevelTick}

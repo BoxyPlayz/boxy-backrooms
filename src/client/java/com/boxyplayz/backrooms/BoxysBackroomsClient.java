@@ -24,6 +24,9 @@ import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.resources.Identifier;
 import net.fabricmc.api.EnvType;
 
+/**
+ * Begin Client.
+ */
 @Environment(EnvType.CLIENT)
 public class BoxysBackroomsClient implements ClientModInitializer {
 	public static final ModelLayerLocation MODEL_SMILER_LAYER = new ModelLayerLocation(

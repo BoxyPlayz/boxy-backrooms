@@ -11,8 +11,17 @@ import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 
+/**
+ * Gardener's Pain
+ */
 public class GardenersPainEffect extends MobEffect {
 
+	/**
+	 * Create Effect
+	 * 
+	 * @param category MobCategory
+	 * @param color    Color
+	 */
 	public GardenersPainEffect(MobEffectCategory category, int color) {
 		super(category, color);
 	}

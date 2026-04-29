@@ -4,8 +4,16 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
+/**
+ * Burning item.
+ */
 public class FireSaltItem extends Item {
 
+	/**
+	 * IT BURNS
+	 * 
+	 * @param properties Props
+	 */
 	public FireSaltItem(Properties properties) {
 		super(properties);
 	}

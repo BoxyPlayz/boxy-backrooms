@@ -33,6 +33,9 @@ public class BoxysBackrooms implements ModInitializer {
 	 */
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
+	/**
+	 * Begin.
+	 */
 	@Override
 	public void onInitialize() {
 		ModItems.registerModItems();

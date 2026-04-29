@@ -13,8 +13,14 @@ public class ModEnchantments {
 		return ResourceKey.create(Registries.ENCHANTMENT, id);
 	}
 
+	/**
+	 * Defense from Anomalies
+	 */
 	public static final ResourceKey<Enchantment> ANOMALOUS_PROTECTION = key("anomalous_protection");
 
+	/**
+	 * Register Enchantments
+	 */
 	public static void RegisterModEnchantments() {
 
 	}

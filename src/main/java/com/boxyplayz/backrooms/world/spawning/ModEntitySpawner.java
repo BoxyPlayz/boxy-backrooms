@@ -16,7 +16,13 @@ import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.level.levelgen.Heightmap.Types;
 
+/**
+ * Mob Spawner
+ */
 public class ModEntitySpawner {
+	/**
+	 * Register mob spawns
+	 */
 	public static void RegisterModMobSpawning() {
 		BiomeModifications.addSpawn(
 				BiomeSelectors.includeByKey(ModBiomes.Level0Biomes.BLACKOUT_BIOME,
