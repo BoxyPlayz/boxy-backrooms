@@ -1,6 +1,5 @@
 package com.boxyplayz.backrooms.world.generators;
 
-import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
@@ -14,13 +13,11 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.RegistryOps;
-import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.NoiseColumn;
 import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.BiomeManager;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
@@ -30,7 +27,7 @@ import net.minecraft.world.level.levelgen.PositionalRandomFactory;
 import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.blending.Blender;
 
-public class Level0ChunkGen extends ChunkGenerator {
+public class Level0ChunkGen extends BaseChunkGen {
 
 	private boolean getRandomBool(RandomSource random) {
 		return random.nextIntBetweenInclusive(0, 5) == 0;
@@ -169,20 +166,6 @@ public class Level0ChunkGen extends ChunkGenerator {
 	}
 
 	@Override
-	public void applyCarvers(WorldGenRegion worldGenRegion, long l, RandomState randomState, BiomeManager biomeManager,
-			StructureManager structureManager, ChunkAccess chunkAccess) {
-	}
-
-	@Override
-	public void buildSurface(WorldGenRegion worldGenRegion, StructureManager structureManager, RandomState randomState,
-			ChunkAccess chunkAccess) {
-	}
-
-	@Override
-	public void spawnOriginalMobs(WorldGenRegion worldGenRegion) {
-	}
-
-	@Override
 	public int getGenDepth() {
 		return 32;
 	}
@@ -219,11 +202,6 @@ public class Level0ChunkGen extends ChunkGenerator {
 	}
 
 	@Override
-	public int getSeaLevel() {
-		return 0;
-	}
-
-	@Override
 	public int getMinY() {
 		return -16;
 	}
@@ -257,10 +235,6 @@ public class Level0ChunkGen extends ChunkGenerator {
 
 		return new NoiseColumn(
 				levelHeightAccessor.getMinY(), blocks);
-	}
-
-	@Override
-	public void addDebugScreenInfo(List<String> list, RandomState randomState, BlockPos blockPos) {
 	}
 
 }

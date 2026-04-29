@@ -1,6 +1,5 @@
 package com.boxyplayz.backrooms.world.generators;
 
-import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
@@ -13,13 +12,11 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.RegistryOps;
-import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.NoiseColumn;
 import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.BiomeManager;
 import net.minecraft.world.level.biome.FixedBiomeSource;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -31,7 +28,7 @@ import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.blending.Blender;
 import net.minecraft.world.level.levelgen.synth.SimplexNoise;
 
-public class Level7ChunkGen extends ChunkGenerator {
+public class Level7ChunkGen extends BaseChunkGen {
 
 	private SimplexNoise noise;
 
@@ -117,20 +114,6 @@ public class Level7ChunkGen extends ChunkGenerator {
 	}
 
 	@Override
-	public void applyCarvers(WorldGenRegion worldGenRegion, long l, RandomState randomState, BiomeManager biomeManager,
-			StructureManager structureManager, ChunkAccess chunkAccess) {
-	}
-
-	@Override
-	public void buildSurface(WorldGenRegion worldGenRegion, StructureManager structureManager, RandomState randomState,
-			ChunkAccess chunkAccess) {
-	}
-
-	@Override
-	public void spawnOriginalMobs(WorldGenRegion worldGenRegion) {
-	}
-
-	@Override
 	public int getGenDepth() {
 		return 304;
 	}
@@ -192,10 +175,6 @@ public class Level7ChunkGen extends ChunkGenerator {
 
 		return new NoiseColumn(
 				levelHeightAccessor.getMinY(), blocks);
-	}
-
-	@Override
-	public void addDebugScreenInfo(List<String> list, RandomState randomState, BlockPos blockPos) {
 	}
 
 }
