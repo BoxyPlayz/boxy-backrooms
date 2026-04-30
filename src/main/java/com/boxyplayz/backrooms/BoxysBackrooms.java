@@ -38,6 +38,7 @@ public class BoxysBackrooms implements ModInitializer {
 	 */
 	@Override
 	public void onInitialize() {
+
 		ModItems.registerModItems();
 		ModCreativeTabs.RegisterModCreativeTabs();
 		ModEntities.RegisterModEntities();

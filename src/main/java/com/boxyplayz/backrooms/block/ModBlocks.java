@@ -11,6 +11,7 @@ import com.boxyplayz.backrooms.block.custom.Level0Wallpaper;
 import com.boxyplayz.backrooms.block.custom.NoFallDamageBlock;
 import com.boxyplayz.backrooms.block.custom.OceanTransporter;
 import com.boxyplayz.backrooms.block.custom.PainOnBreakBlock;
+import com.boxyplayz.backrooms.block.custom.PowerOutletBlock;
 import com.boxyplayz.backrooms.block.custom.PremiumCarpet;
 import com.boxyplayz.backrooms.block.custom.PromisedGate;
 import com.boxyplayz.backrooms.block.custom.TrampolineBlock;
@@ -281,6 +282,12 @@ public class ModBlocks {
 			"promised_gate",
 			PromisedGate::new,
 			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).strength(0.6F).sound(SoundType.AMETHYST),
+			true);
+
+	public static final Block POWER_OUTLET_BLOCK = register(
+			"power_outlet",
+			PowerOutletBlock::new,
+			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).strength(2.4F).sound(SoundType.IRON),
 			true);
 
 	public static void RegisterModBlocks() {
