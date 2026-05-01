@@ -37,6 +37,9 @@ public class ModChunkGenerators {
 		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
 				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "promised_land"),
 				PromisedLandChunkGen.CODEC);
+		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
+				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level3"),
+				Level3ChunkGen.CODEC);
 
 	}
 }
