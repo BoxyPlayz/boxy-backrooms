@@ -105,6 +105,8 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 
 		translationBuilder.add(ModBlocks.PURE_BLUE, "Pure Blue");
 
+		translationBuilder.add(ModBlocks.POWER_OUTLET_BLOCK, "Power Outlet");
+
 		// Loot Blocks
 		translationBuilder.add(ModBlocks.LEVEL1_CRATE, "Crate");
 		translationBuilder.add(ModBlocks.FUN_CRATE, "Fun Crate =)");

@@ -68,6 +68,7 @@ public class BlockLootTableProvider extends FabricBlockLootSubProvider {
 		dropSelf(ModBlocks.PROMISED_CEILING_LIGHT);
 		dropSelf(ModBlocks.PROMISED_CEILING_TILE);
 		dropSelf(ModBlocks.PROMISED_WALLPAPER);
+		dropSelf(ModBlocks.POWER_OUTLET_BLOCK);
 
 		dropOther(ModBlocks.PURE_GRASS, Blocks.GRASS_BLOCK);
 		dropOther(ModBlocks.FUN_GREEN, Items.LIME_DYE);

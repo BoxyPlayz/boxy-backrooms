@@ -56,6 +56,7 @@ public class ModelProvider extends FabricModelProvider {
 		blockStateModelGenerator.createTrivialCube(ModBlocks.PROMISED_CEILING_TILE);
 		blockStateModelGenerator.createTrivialCube(ModBlocks.PROMISED_CARPET);
 		blockStateModelGenerator.createTrivialCube(ModBlocks.PROMISED_WALLPAPER);
+		blockStateModelGenerator.createTrivialCube(ModBlocks.POWER_OUTLET_BLOCK);
 	}
 
 	@Override

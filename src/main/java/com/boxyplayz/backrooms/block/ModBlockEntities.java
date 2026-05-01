@@ -23,4 +23,7 @@ public class ModBlockEntities {
 
 	public static final BlockEntityType<PowerOutletBlockEntity> POWER_OUTLET_BLOCK_ENTITY = register("power_outlet",
 			PowerOutletBlockEntity::new, ModBlocks.POWER_OUTLET_BLOCK);
+
+	public static void RegisterModBlockEntities() {
+	}
 }

@@ -5,6 +5,7 @@ import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.boxyplayz.backrooms.block.ModBlockEntities;
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.clock.ModWorldClocks;
 import com.boxyplayz.backrooms.creativetabs.ModCreativeTabs;
@@ -38,7 +39,6 @@ public class BoxysBackrooms implements ModInitializer {
 	 */
 	@Override
 	public void onInitialize() {
-
 		ModItems.registerModItems();
 		ModCreativeTabs.RegisterModCreativeTabs();
 		ModEntities.RegisterModEntities();
@@ -56,5 +56,6 @@ public class BoxysBackrooms implements ModInitializer {
 		ModWorldClocks.RegisterModWorldClocks();
 		ModDamageTypes.RegisterDamageTypes();
 		ModEnchantments.RegisterModEnchantments();
+		ModBlockEntities.RegisterModBlockEntities();
 	}
 }
