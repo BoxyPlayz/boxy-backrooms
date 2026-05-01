@@ -24,8 +24,8 @@ jobs:
           distribution: 'temurin'
       - name: make gradle wrapper executable
         run: chmod +x ./gradlew
-      - name: Datagen
-        run: ./gradlew runDatagen
+      # - name: Datagen
+        # run: ./gradlew runDatagen
       - name: build
         run: ./gradlew build
       - name: capture build artifacts
