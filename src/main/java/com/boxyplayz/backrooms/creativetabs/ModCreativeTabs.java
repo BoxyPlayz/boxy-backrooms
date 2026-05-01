@@ -69,6 +69,8 @@ public class ModCreativeTabs {
 			itemGroup.accept(ModBlocks.PROMISED_GATE);
 			itemGroup.accept(ModBlocks.PROMISED_WALLPAPER);
 
+			itemGroup.accept(ModBlocks.POWER_OUTLET_BLOCK);
+
 			itemGroup.accept(ModItems.GRAY_ALMOND_WATER);
 			itemGroup.accept(ModItems.GREEN_ALMOND_WATER);
 			itemGroup.accept(ModItems.NEON_WATER);

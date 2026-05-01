@@ -1,7 +1,5 @@
 package com.boxyplayz.backrooms.block.entity;
 
-import org.jetbrains.annotations.Nullable;
-
 import com.boxyplayz.backrooms.block.ModBlockEntities;
 
 import net.minecraft.core.BlockPos;
@@ -25,7 +23,6 @@ public class PowerOutletBlockEntity extends BlockEntity {
 			return;
 		}
 		for (Direction dir : Direction.values()) {
-			@Nullable
 			EnergyStorage storage = EnergyStorage.SIDED.find(level, pos.relative(dir), dir.getOpposite());
 			if (storage != null) {
 				EnergyStorageUtil.move(entity.energyStorage, storage, 2L, null);
