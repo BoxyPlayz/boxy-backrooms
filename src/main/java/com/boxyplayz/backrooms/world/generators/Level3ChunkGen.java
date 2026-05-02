@@ -28,9 +28,15 @@ import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.blending.Blender;
 
 public class Level3ChunkGen extends BaseChunkGen {
-
-	private boolean getRandomBool(RandomSource random) {
-		return random.nextIntBetweenInclusive(0, 5) == 0;
+	private BlockState getWallBlock(RandomSource random) {
+		switch (random.nextIntBetweenInclusive(0, 2)) {
+			case 0:
+				return Blocks.IRON_BLOCK.defaultBlockState();
+			case 1:
+				return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
+			default:
+				return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
+		}
 	}
 
 	/**
@@ -44,37 +50,37 @@ public class Level3ChunkGen extends BaseChunkGen {
 	 */
 	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
 		BlockPos cellPos = new BlockPos(Math.floorDiv(x, 4), Math.floorDiv(y, 4), Math.floorDiv(z, 4));
-		RandomSource cellRandom = randomFactory.at(cellPos);
-		int cellType = cellRandom.nextIntBetweenInclusive(1, 4);
 		BlockPos localCellPos = new BlockPos(Math.floorMod(x, 4), Math.floorMod(y, 4),
 				Math.floorMod(z, 4));
-		BlockState cellBaseBlock;
-		switch (cellType) {
-			case 1:
-				cellBaseBlock = Blocks.IRON_BARS.defaultBlockState();
-				break;
 
-			default:
-				cellBaseBlock = ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
-				break;
-		}
 		if (y <= 0) {
 			return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
 		}
+
 		if (y >= 4) {
 			return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
 		}
-		if (localCellPos.getX() == 3 && getRandomBool(cellRandom)) {
-			return cellBaseBlock;
+
+		RandomSource eastRandom = randomFactory.at(cellPos.getX(), 0, cellPos.getZ());
+		RandomSource westRandom = randomFactory.at(cellPos.getX() - 1, 0, cellPos.getZ());
+
+		RandomSource southRandom = randomFactory.at(cellPos.getX(), 1, cellPos.getZ());
+		RandomSource northRandom = randomFactory.at(cellPos.getX(), 1, cellPos.getZ() - 1);
+
+		if (localCellPos.getX() == 3 && eastRandom.nextBoolean()) {
+			return getWallBlock(eastRandom);
 		}
-		if (localCellPos.getX() == 0 && getRandomBool(cellRandom)) {
-			return cellBaseBlock;
+
+		if (localCellPos.getX() == 0 && westRandom.nextBoolean()) {
+			return getWallBlock(westRandom);
 		}
-		if (localCellPos.getZ() == 3 && getRandomBool(cellRandom)) {
-			return cellBaseBlock;
+
+		if (localCellPos.getZ() == 3 && southRandom.nextBoolean()) {
+			return getWallBlock(southRandom);
 		}
-		if (localCellPos.getZ() == 0 && getRandomBool(cellRandom)) {
-			return cellBaseBlock;
+
+		if (localCellPos.getZ() == 0 && northRandom.nextBoolean()) {
+			return getWallBlock(northRandom);
 		}
 
 		return Blocks.AIR.defaultBlockState();
