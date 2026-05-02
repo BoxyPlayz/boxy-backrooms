@@ -13,7 +13,6 @@ import net.minecraft.core.Holder;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.FixedBiomeSource;
@@ -21,7 +20,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraft.world.level.levelgen.PositionalRandomFactory;
 import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.blending.Blender;
@@ -152,12 +150,6 @@ public class Level7ChunkGen extends BaseChunkGen {
 	@Override
 	public int getMinY() {
 		return -64;
-	}
-
-	@Override
-	public int getBaseHeight(int x, int z, Types types, LevelHeightAccessor levelHeightAccessor,
-			RandomState randomState) {
-		return this.getMinY() + 1;
 	}
 
 	@Override

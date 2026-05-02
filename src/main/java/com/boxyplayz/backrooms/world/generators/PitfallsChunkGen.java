@@ -12,7 +12,6 @@ import net.minecraft.core.Holder;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.FixedBiomeSource;
@@ -212,21 +211,6 @@ public class PitfallsChunkGen extends BaseChunkGen {
 	@Override
 	public int getMinY() {
 		return 0;
-	}
-
-	@Override
-	public int getBaseHeight(int x, int z, Types types, LevelHeightAccessor levelHeightAccessor,
-			RandomState randomState) {
-		PositionalRandomFactory worldSeed = randomState.getOrCreateRandomFactory(
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "pitfallsseed"));
-
-		for (int y = getMinY() + getGenDepth() - 1; y >= getMinY(); y--) {
-			if (!getBlockAt(worldSeed, x, y, z).isAir()) {
-				return y + 1;
-			}
-		}
-
-		return this.getMinY();
 	}
 
 	@Override

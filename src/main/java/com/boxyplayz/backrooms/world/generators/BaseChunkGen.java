@@ -15,6 +15,7 @@ import net.minecraft.world.level.biome.BiomeSource;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraft.world.level.levelgen.PositionalRandomFactory;
 import net.minecraft.world.level.levelgen.RandomState;
 
@@ -68,6 +69,22 @@ public abstract class BaseChunkGen extends ChunkGenerator {
 
 		return new NoiseColumn(
 				levelHeightAccessor.getMinY(), blocks);
+	}
+
+	@Override
+	public int getBaseHeight(int x, int z, Types types, LevelHeightAccessor levelHeightAccessor,
+			RandomState randomState) {
+		PositionalRandomFactory worldSeed = randomState.getOrCreateRandomFactory(
+				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, this.getSeed()));
+
+		for (int y = this.getMinY() + this.getGenDepth() - 1; y >= this.getMinY(); y--) {
+			if (!getBlockAt(worldSeed, x, y, z).isAir()) {
+				return y + 1;
+			}
+
+		}
+
+		return this.getMinY();
 	}
 
 }
