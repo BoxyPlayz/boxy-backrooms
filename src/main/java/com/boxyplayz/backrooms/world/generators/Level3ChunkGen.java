@@ -49,7 +49,7 @@ public class Level3ChunkGen extends BaseChunkGen {
 		if (blockRandom.nextIntBetweenInclusive(1, 160) == 3) {
 			return ModBlocks.POWER_OUTLET_BLOCK.defaultBlockState();
 		}
-		return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
+		return ModBlocks.ELECTRICAL_BRICKS.defaultBlockState();
 	}
 
 	private boolean getRandomBool(RandomSource random) {
@@ -70,11 +70,16 @@ public class Level3ChunkGen extends BaseChunkGen {
 		BlockPos localCellPos = new BlockPos(Math.floorMod(x, 4), Math.floorMod(y, 4),
 				Math.floorMod(z, 4));
 
+		RandomSource blockRandom = randomFactory.at(x, y, z);
+
 		if (y <= 0) {
 			return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
 		}
 
 		if (y >= 4) {
+			if (blockRandom.nextIntBetweenInclusive(1, 24) == 2) {
+				return ModBlocks.LEVEL3_CEILING_LIGHT.defaultBlockState();
+			}
 			return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
 		}
 

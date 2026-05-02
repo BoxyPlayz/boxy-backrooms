@@ -287,7 +287,21 @@ public class ModBlocks {
 	public static final Block POWER_OUTLET_BLOCK = register(
 			"power_outlet",
 			PowerOutletBlock::new,
-			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).strength(2.4F).sound(SoundType.IRON),
+			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).strength(2.4F).sound(SoundType.IRON)
+					.lightLevel((state) -> 3),
+			true);
+
+	public static final Block LEVEL3_CEILING_LIGHT = register(
+			"level3_ceiling_light",
+			Block::new,
+			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).strength(2.0F).sound(SoundType.IRON)
+					.lightLevel((state) -> 9),
+			true);
+
+	public static final Block ELECTRICAL_BRICKS = register(
+			"electrical_bricks",
+			Block::new,
+			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_BRICKS),
 			true);
 
 	public static void RegisterModBlocks() {

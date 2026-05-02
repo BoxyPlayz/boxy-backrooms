@@ -1,6 +1,7 @@
 {
   "block.boxys_backrooms.aged_concrete": "Aged Concrete",
   "block.boxys_backrooms.black_trampoline": "Black Trampoline",
+  "block.boxys_backrooms.electrical_bricks": "Electrical Bricks",
   "block.boxys_backrooms.errorslate": "Errorslate",
   "block.boxys_backrooms.fun_crate": "Fun Crate =)",
   "block.boxys_backrooms.fun_floor": "Fun Floor",
@@ -24,6 +25,7 @@
   "block.boxys_backrooms.level1_floor_aquila": "Aquila Sector Floor",
   "block.boxys_backrooms.level1_pillar_aquila": "Aquila Pillar",
   "block.boxys_backrooms.level1_wall_gild": "Gilded Sector Wall",
+  "block.boxys_backrooms.level3_ceiling_light": "Level 3 Ceiling Light",
   "block.boxys_backrooms.ocean_transporter": "Aquatic Transporter",
   "block.boxys_backrooms.power_outlet": "Power Outlet",
   "block.boxys_backrooms.premium_carpet": "Premium Carpet",

@@ -34,6 +34,8 @@ public class BlockLootTableProvider extends FabricBlockLootSubProvider {
 		dropSelf(ModBlocks.LEVEL1_FLOOR_AQUILA);
 		dropSelf(ModBlocks.LEVEL1_PILLAR_AQUILA);
 		dropSelf(ModBlocks.LEVEL0_CEILING_LIGHT);
+		dropSelf(ModBlocks.LEVEL3_CEILING_LIGHT);
+		dropSelf(ModBlocks.ELECTRICAL_BRICKS);
 		add(ModBlocks.LEVEL1_CRATE, LootTable.lootTable().withPool(
 				LootPool.lootPool().when(
 						this.hasSilkTouch()).add(LootItem.lootTableItem(ModBlocks.LEVEL1_CRATE)))

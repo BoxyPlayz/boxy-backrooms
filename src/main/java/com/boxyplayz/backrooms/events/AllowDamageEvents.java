@@ -6,11 +6,16 @@ import com.boxyplayz.backrooms.tags.ModTags;
 import com.boxyplayz.backrooms.world.dimension.ModDimensions;
 
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
+import net.minecraft.core.Holder.Reference;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.item.enchantment.ItemEnchantments;
 
 public class AllowDamageEvents {
 	public static void RegisterAllowDamageEvents() {
@@ -20,7 +25,7 @@ public class AllowDamageEvents {
 					return false;
 				}
 			}
-			if ((entity instanceof SmilerEntity)) {
+			if (entity instanceof SmilerEntity) {
 				if (source.is(DamageTypes.PLAYER_ATTACK)) {
 					if (source.getEntity() instanceof Player player) {
 						if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FIRESTEEL_SWORD)) {
@@ -30,6 +35,16 @@ public class AllowDamageEvents {
 								|| player.getItemBySlot(EquipmentSlot.OFFHAND)
 										.is(ModItems.FIRESALT_SHARD.asItem())) {
 							entity.setRemainingFireTicks(120);
+						}
+						if (!player.getItemBySlot(EquipmentSlot.MAINHAND).getEnchantments().isEmpty()) {
+							ItemEnchantments enchantments = player.getItemBySlot(EquipmentSlot.MAINHAND)
+									.getEnchantments();
+							Reference<Enchantment> fireAspect = entity.level().registryAccess()
+									.lookupOrThrow(Registries.ENCHANTMENT)
+									.getOrThrow(Enchantments.FIRE_ASPECT);
+							if (enchantments.getLevel(fireAspect) > 0) {
+								return true;
+							}
 						}
 					}
 					return false;
