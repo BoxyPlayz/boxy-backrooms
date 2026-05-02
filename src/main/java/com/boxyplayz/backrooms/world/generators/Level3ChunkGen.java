@@ -3,6 +3,7 @@ package com.boxyplayz.backrooms.world.generators;
 import java.util.concurrent.CompletableFuture;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.block.ModBlockEntities;
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.world.biome.ModBiomes;
 import com.mojang.serialization.MapCodec;
@@ -19,6 +20,7 @@ import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.FixedBiomeSource;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkGenerator;
@@ -28,15 +30,21 @@ import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.blending.Blender;
 
 public class Level3ChunkGen extends BaseChunkGen {
-	private BlockState getWallBlock(RandomSource random) {
-		switch (random.nextIntBetweenInclusive(0, 2)) {
+	private BlockState getWallBlock(RandomSource random, BlockPos pos) {
+
+		switch (random.nextIntBetweenInclusive(0, 6)) {
 			case 0:
 				return Blocks.IRON_BLOCK.defaultBlockState();
-			case 1:
-				return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
 			default:
+				if (random.forkPositional().at(pos).nextIntBetweenInclusive(1, 160) == 3) {
+					return ModBlocks.POWER_OUTLET_BLOCK.defaultBlockState();
+				}
 				return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
 		}
+	}
+
+	private boolean getRandomBool(RandomSource random) {
+		return random.nextIntBetweenInclusive(1, 3) == 1;
 	}
 
 	/**
@@ -67,20 +75,20 @@ public class Level3ChunkGen extends BaseChunkGen {
 		RandomSource southRandom = randomFactory.at(cellPos.getX(), 1, cellPos.getZ());
 		RandomSource northRandom = randomFactory.at(cellPos.getX(), 1, cellPos.getZ() - 1);
 
-		if (localCellPos.getX() == 3 && eastRandom.nextBoolean()) {
-			return getWallBlock(eastRandom);
+		if (localCellPos.getX() == 3 && getRandomBool(eastRandom)) {
+			return getWallBlock(eastRandom, new BlockPos(x, y, z));
 		}
 
-		if (localCellPos.getX() == 0 && westRandom.nextBoolean()) {
-			return getWallBlock(westRandom);
+		if (localCellPos.getX() == 0 && getRandomBool(westRandom)) {
+			return getWallBlock(westRandom, new BlockPos(x, y, z));
 		}
 
-		if (localCellPos.getZ() == 3 && southRandom.nextBoolean()) {
-			return getWallBlock(southRandom);
+		if (localCellPos.getZ() == 3 && getRandomBool(southRandom)) {
+			return getWallBlock(southRandom, new BlockPos(x, y, z));
 		}
 
-		if (localCellPos.getZ() == 0 && northRandom.nextBoolean()) {
-			return getWallBlock(northRandom);
+		if (localCellPos.getZ() == 0 && getRandomBool(northRandom)) {
+			return getWallBlock(northRandom, new BlockPos(x, y, z));
 		}
 
 		return Blocks.AIR.defaultBlockState();
@@ -127,6 +135,13 @@ public class Level3ChunkGen extends BaseChunkGen {
 							new BlockPos(x, y, z),
 							block,
 							0);
+					if (block.is(ModBlocks.POWER_OUTLET_BLOCK)) {
+						BlockEntity blockEntity = ModBlockEntities.POWER_OUTLET_BLOCK_ENTITY
+								.create(new BlockPos(globalX, y, globalZ), block);
+						if (blockEntity != null) {
+							chunkAccess.setBlockEntity(blockEntity);
+						}
+					}
 				}
 			}
 		}
