@@ -2,13 +2,20 @@ package com.boxyplayz.backrooms.world.generators;
 
 import java.util.List;
 
+import com.boxyplayz.backrooms.BoxysBackrooms;
+
 import net.minecraft.core.BlockPos;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.WorldGenRegion;
+import net.minecraft.world.level.LevelHeightAccessor;
+import net.minecraft.world.level.NoiseColumn;
 import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.biome.BiomeManager;
 import net.minecraft.world.level.biome.BiomeSource;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.PositionalRandomFactory;
 import net.minecraft.world.level.levelgen.RandomState;
 
 /**
@@ -41,6 +48,26 @@ public abstract class BaseChunkGen extends ChunkGenerator {
 
 	@Override
 	public void spawnOriginalMobs(WorldGenRegion worldGenRegion) {
+	}
+
+	abstract BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z);
+
+	abstract String getSeed();
+
+	@Override
+	public NoiseColumn getBaseColumn(int x, int z, LevelHeightAccessor levelHeightAccessor, RandomState randomState) {
+		PositionalRandomFactory worldSeed = randomState
+				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, this.getSeed()));
+
+		int height = this.getGenDepth();
+		BlockState[] blocks = new BlockState[height];
+
+		for (int y = this.getMinY(); y < height + this.getMinY(); y++) {
+			blocks[y - this.getMinY()] = this.getBlockAt(worldSeed, x, y, z);
+		}
+
+		return new NoiseColumn(
+				levelHeightAccessor.getMinY(), blocks);
 	}
 
 }

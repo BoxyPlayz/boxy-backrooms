@@ -15,7 +15,6 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelHeightAccessor;
-import net.minecraft.world.level.NoiseColumn;
 import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.FixedBiomeSource;
@@ -32,19 +31,30 @@ import net.minecraft.world.level.levelgen.blending.Blender;
 public class Level3ChunkGen extends BaseChunkGen {
 	private BlockState getWallBlock(RandomSource random, BlockPos pos) {
 
-		switch (random.nextIntBetweenInclusive(0, 6)) {
-			case 0:
-				return Blocks.IRON_BLOCK.defaultBlockState();
-			default:
-				if (random.forkPositional().at(pos).nextIntBetweenInclusive(1, 160) == 3) {
-					return ModBlocks.POWER_OUTLET_BLOCK.defaultBlockState();
-				}
-				return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
+		short randomNum = (short) random.nextIntBetweenInclusive(0, 100);
+		if (randomNum < 20) {
+			return Blocks.IRON_BLOCK.defaultBlockState();
 		}
+		if (randomNum < 30) {
+			if (pos.getY() > 2) {
+				return Blocks.IRON_BLOCK.defaultBlockState();
+			}
+			RandomSource horizRandom = random.forkPositional().at(pos.getX(), 0, pos.getZ());
+			byte number = (byte) horizRandom.nextIntBetweenInclusive(0, 3);
+			if (Math.floorMod(pos.getX(), 4) == number || Math.floorMod(pos.getZ(), 4) == number) {
+				return Blocks.AIR.defaultBlockState();
+			}
+			return Blocks.IRON_BLOCK.defaultBlockState();
+		}
+		RandomSource blockRandom = random.forkPositional().at(pos);
+		if (blockRandom.nextIntBetweenInclusive(1, 160) == 3) {
+			return ModBlocks.POWER_OUTLET_BLOCK.defaultBlockState();
+		}
+		return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
 	}
 
 	private boolean getRandomBool(RandomSource random) {
-		return random.nextIntBetweenInclusive(1, 3) == 1;
+		return random.nextIntBetweenInclusive(1, 2) == 1;
 	}
 
 	/**
@@ -70,25 +80,15 @@ public class Level3ChunkGen extends BaseChunkGen {
 		}
 
 		RandomSource eastRandom = randomFactory.at(cellPos.getX(), 0, cellPos.getZ());
-		RandomSource westRandom = randomFactory.at(cellPos.getX() - 1, 0, cellPos.getZ());
 
 		RandomSource southRandom = randomFactory.at(cellPos.getX(), 1, cellPos.getZ());
-		RandomSource northRandom = randomFactory.at(cellPos.getX(), 1, cellPos.getZ() - 1);
 
 		if (localCellPos.getX() == 3 && getRandomBool(eastRandom)) {
 			return getWallBlock(eastRandom, new BlockPos(x, y, z));
 		}
 
-		if (localCellPos.getX() == 0 && getRandomBool(westRandom)) {
-			return getWallBlock(westRandom, new BlockPos(x, y, z));
-		}
-
 		if (localCellPos.getZ() == 3 && getRandomBool(southRandom)) {
 			return getWallBlock(southRandom, new BlockPos(x, y, z));
-		}
-
-		if (localCellPos.getZ() == 0 && getRandomBool(northRandom)) {
-			return getWallBlock(northRandom, new BlockPos(x, y, z));
 		}
 
 		return Blocks.AIR.defaultBlockState();
@@ -172,19 +172,8 @@ public class Level3ChunkGen extends BaseChunkGen {
 	}
 
 	@Override
-	public NoiseColumn getBaseColumn(int x, int z, LevelHeightAccessor levelHeightAccessor, RandomState randomState) {
-		PositionalRandomFactory worldSeed = randomState
-				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "electrikal"));
-
-		int height = this.getGenDepth();
-		BlockState[] blocks = new BlockState[height];
-
-		for (int y = getMinY(); y < height + this.getMinY(); y++) {
-			blocks[y - this.getMinY()] = getBlockAt(worldSeed, x, y, z);
-		}
-
-		return new NoiseColumn(
-				levelHeightAccessor.getMinY(), blocks);
+	String getSeed() {
+		return "level3";
 	}
 
 }

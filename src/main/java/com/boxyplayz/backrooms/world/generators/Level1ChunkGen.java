@@ -17,7 +17,6 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelHeightAccessor;
-import net.minecraft.world.level.NoiseColumn;
 import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
@@ -28,7 +27,6 @@ import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraft.world.level.levelgen.PositionalRandomFactory;
 import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.blending.Blender;
-import net.minecraft.world.level.levelgen.synth.SimplexNoise;
 
 public class Level1ChunkGen extends BaseChunkGen {
 
@@ -60,22 +58,12 @@ public class Level1ChunkGen extends BaseChunkGen {
 		}
 	}
 
-	private SimplexNoise noise;
-
-	private SimplexNoise getNoise(PositionalRandomFactory worldSeed) {
-		if (this.noise == null) {
-			RandomSource random = worldSeed.fromSeed(1);
-			this.noise = new SimplexNoise(random);
-		}
-		return this.noise;
-	}
-
-	public BlockState getBlockAt(SimplexNoise localNoise, PositionalRandomFactory randomFactory, int x, int y, int z) {
+	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
 		Holder<Biome> biome = this.getBiomeSource().getNoiseBiome(x, y, z, null);
-		return getBlockAt(localNoise, randomFactory, x, y, z, biome);
+		return getBlockAt(randomFactory, x, y, z, biome);
 	}
 
-	public BlockState getBlockAt(SimplexNoise localNoise, PositionalRandomFactory randomFactory, int x, int y, int z,
+	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z,
 			Holder<Biome> biome) {
 		if (y > 7) {
 			return Blocks.BEDROCK.defaultBlockState();
@@ -437,7 +425,7 @@ public class Level1ChunkGen extends BaseChunkGen {
 				int globalZ = chunkMinZ + z;
 				for (int y = minY; y < minY + this.getGenDepth(); y++) {
 					Holder<Biome> biome = chunkAccess.getNoiseBiome(globalX, y, globalZ);
-					BlockState block = getBlockAt(this.getNoise(worldSeed), worldSeed, globalX, y, globalZ, biome);
+					BlockState block = getBlockAt(worldSeed, globalX, y, globalZ, biome);
 					chunkAccess.setBlockState(
 							new BlockPos(x, y, z),
 							block,
@@ -463,7 +451,7 @@ public class Level1ChunkGen extends BaseChunkGen {
 				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level1seed"));
 
 		for (int y = getMinY() + getGenDepth() - 1; y >= getMinY(); y--) {
-			if (!getBlockAt(this.getNoise(worldSeed), worldSeed, x, y, z).isAir()) {
+			if (!getBlockAt(worldSeed, x, y, z).isAir()) {
 				return y + 1;
 			}
 
@@ -473,19 +461,8 @@ public class Level1ChunkGen extends BaseChunkGen {
 	}
 
 	@Override
-	public NoiseColumn getBaseColumn(int x, int z, LevelHeightAccessor levelHeightAccessor, RandomState randomState) {
-		PositionalRandomFactory worldSeed = randomState
-				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level1seed"));
-
-		int height = this.getGenDepth();
-		BlockState[] blocks = new BlockState[height];
-
-		for (int y = getMinY(); y < height + this.getMinY(); y++) {
-			blocks[y - this.getMinY()] = getBlockAt(this.getNoise(worldSeed), worldSeed, x, y, z);
-		}
-
-		return new NoiseColumn(
-				levelHeightAccessor.getMinY(), blocks);
+	String getSeed() {
+		return "level1";
 	}
 
 }

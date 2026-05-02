@@ -13,7 +13,6 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelHeightAccessor;
-import net.minecraft.world.level.NoiseColumn;
 import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.FixedBiomeSource;
@@ -231,19 +230,8 @@ public class PitfallsChunkGen extends BaseChunkGen {
 	}
 
 	@Override
-	public NoiseColumn getBaseColumn(int x, int z, LevelHeightAccessor levelHeightAccessor, RandomState randomState) {
-		PositionalRandomFactory worldSeed = randomState
-				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "pitfallsseed"));
-
-		int height = this.getGenDepth();
-		BlockState[] blocks = new BlockState[height];
-
-		for (int y = getMinY(); y < height + this.getMinY(); y++) {
-			blocks[y - this.getMinY()] = getBlockAt(worldSeed, x, y, z);
-		}
-
-		return new NoiseColumn(
-				levelHeightAccessor.getMinY(), blocks);
+	String getSeed() {
+		return "pitfalls";
 	}
 
 }
