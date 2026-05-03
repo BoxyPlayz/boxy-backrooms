@@ -19,6 +19,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.FixedBiomeSource;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkGenerator;
@@ -77,7 +78,7 @@ public class Level3ChunkGen extends BaseChunkGen {
 		}
 
 		if (y >= 4) {
-			if (blockRandom.nextIntBetweenInclusive(1, 24) == 2) {
+			if (y == 4 && blockRandom.nextIntBetweenInclusive(1, 24) == 2) {
 				return ModBlocks.LEVEL3_CEILING_LIGHT.defaultBlockState();
 			}
 			return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
@@ -93,6 +94,25 @@ public class Level3ChunkGen extends BaseChunkGen {
 
 		if (localCellPos.getZ() == 3 && getRandomBool(southRandom)) {
 			return getWallBlock(southRandom, new BlockPos(x, y, z));
+		}
+
+		if (y == 1) {
+			int type = blockRandom.nextIntBetweenInclusive(1, 2400);
+			switch (type) {
+				case 1:
+					return Blocks.CRAFTER.defaultBlockState();
+
+				case 2:
+					return Blocks.BLAST_FURNACE.defaultBlockState();
+
+				case 3:
+					return Blocks.OBSERVER.defaultBlockState();
+
+				case 5:
+					return Blocks.SMOKER.defaultBlockState();
+				default:
+					break;
+			}
 		}
 
 		return Blocks.AIR.defaultBlockState();
@@ -141,6 +161,27 @@ public class Level3ChunkGen extends BaseChunkGen {
 							0);
 					if (block.is(ModBlocks.POWER_OUTLET_BLOCK)) {
 						BlockEntity blockEntity = ModBlockEntities.POWER_OUTLET_BLOCK_ENTITY
+								.create(new BlockPos(globalX, y, globalZ), block);
+						if (blockEntity != null) {
+							chunkAccess.setBlockEntity(blockEntity);
+						}
+					}
+					if (block.is(Blocks.BLAST_FURNACE)) {
+						BlockEntity blockEntity = BlockEntityType.BLAST_FURNACE
+								.create(new BlockPos(globalX, y, globalZ), block);
+						if (blockEntity != null) {
+							chunkAccess.setBlockEntity(blockEntity);
+						}
+					}
+					if (block.is(Blocks.CRAFTER)) {
+						BlockEntity blockEntity = BlockEntityType.CRAFTER
+								.create(new BlockPos(globalX, y, globalZ), block);
+						if (blockEntity != null) {
+							chunkAccess.setBlockEntity(blockEntity);
+						}
+					}
+					if (block.is(Blocks.SMOKER)) {
+						BlockEntity blockEntity = BlockEntityType.SMOKER
 								.create(new BlockPos(globalX, y, globalZ), block);
 						if (blockEntity != null) {
 							chunkAccess.setBlockEntity(blockEntity);

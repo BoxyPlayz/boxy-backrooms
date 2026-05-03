@@ -36,11 +36,13 @@ public class SmilerEntity extends PathfinderMob {
 					&& level.getBlockState(pos).isAir()
 					&& level.getBlockState(pos.above()).isAir()
 					&& (level.getBiome(pos).is(ModBiomes.Level0Biomes.BLACKOUT_BIOME))
+					&& pos.getY() < level.getMaxY()
 					&& level.getBrightness(LightLayer.BLOCK, pos) < 5;
 		}
-		return level.getBlockState(pos.below()).isAir()
+		return !level.getBlockState(pos.below()).isAir()
 				&& level.getBlockState(pos).isAir()
-				&& level.getBlockState(pos.above()).isAir();
+				&& level.getBlockState(pos.above()).isAir()
+				&& pos.getY() < level.getMaxY();
 	}
 
 	public SmilerEntity(EntityType<? extends PathfinderMob> entityType, Level level) {

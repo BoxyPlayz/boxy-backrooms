@@ -25,7 +25,8 @@ public class WretchEntity extends PathfinderMob {
 			final EntitySpawnReason spawnReason, final BlockPos pos, final RandomSource random) {
 		return !level.getBlockState(pos.below()).isAir()
 				&& level.getBlockState(pos).isAir()
-				&& level.getBlockState(pos.above()).isAir();
+				&& level.getBlockState(pos.above()).isAir()
+				&& pos.getY() < level.getMaxY();
 	}
 
 	public WretchEntity(EntityType<? extends PathfinderMob> entityType, Level level) {
@@ -53,7 +54,7 @@ public class WretchEntity extends PathfinderMob {
 	@Override
 	public boolean doHurtTarget(ServerLevel level, Entity target) {
 		if (target instanceof LivingEntity entity) {
-			entity.addEffect(new MobEffectInstance(ModEffects.WRETCHED_CYCLE, 20 * 60));
+			entity.addEffect(new MobEffectInstance(ModEffects.WRETCHED_CYCLE, 20 * 20));
 		}
 		return super.doHurtTarget(level, target);
 	}

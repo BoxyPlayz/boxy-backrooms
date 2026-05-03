@@ -22,6 +22,7 @@ public class BlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
 				.add(ModBlocks.OCEAN_TRANSPORTER)
 				.add(ModBlocks.ERRORSLATE)
 				.add(ModBlocks.FUN_FLOOR)
+				.add(ModBlocks.ELECTRICAL_BRICKS)
 				.setReplace(false);
 
 		valueLookupBuilder(BlockTags.MINEABLE_WITH_AXE)

@@ -42,7 +42,7 @@ public class EntityTickEvents {
 				if (Misc.isWretchableBackrooms(player.level())) {
 					if (player.getFoodData().getFoodLevel() < 2) {
 						if (!player.hasEffect(ModEffects.WRETCHED_CYCLE)) {
-							MobEffectInstance instance = new MobEffectInstance(ModEffects.WRETCHED_CYCLE, 20 * 60 * 5);
+							MobEffectInstance instance = new MobEffectInstance(ModEffects.WRETCHED_CYCLE, 20 * 5);
 							player.addEffect(instance);
 						}
 					}

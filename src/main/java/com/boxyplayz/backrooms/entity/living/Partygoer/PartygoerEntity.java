@@ -24,7 +24,8 @@ public class PartygoerEntity extends PathfinderMob {
 		return level.getBlockState(pos.below()).is(ModBlocks.FUN_FLOOR)
 				&& level.getBlockState(pos).isAir()
 				&& level.getBlockState(pos.above()).isAir()
-				&& level.getBlockState(pos.above(2)).isAir();
+				&& level.getBlockState(pos.above(2)).isAir()
+				&& pos.getY() < level.getMaxY();
 	}
 
 	public PartygoerEntity(EntityType<? extends PathfinderMob> entityType, Level level) {

@@ -76,5 +76,25 @@ public class ModEntitySpawner {
 
 		SpawnPlacements.register(ModEntities.PARTYPOOPER, SpawnPlacementTypes.ON_GROUND, Types.WORLD_SURFACE,
 				PartypooperEntity::CheckSpawnRules);
+
+		BiomeModifications.addSpawn(
+				BiomeSelectors.includeByKey(
+						ModBiomes.LEVEL3_BIOME),
+				MobCategory.CREATURE, ModEntities.BALLOON, 1, 1, 1);
+
+		BiomeModifications.addSpawn(
+				BiomeSelectors.includeByKey(
+						ModBiomes.LEVEL3_BIOME),
+				MobCategory.MONSTER, ModEntities.SKINSTEALER, 12, 1, 1);
+
+		BiomeModifications.addSpawn(
+				BiomeSelectors.includeByKey(
+						ModBiomes.LEVEL3_BIOME),
+				MobCategory.MONSTER, ModEntities.SMILER, 28, 1, 8);
+
+		BiomeModifications.addSpawn(
+				BiomeSelectors.includeByKey(
+						ModBiomes.LEVEL3_BIOME),
+				MobCategory.MONSTER, ModEntities.WRETCH, 14, 1, 3);
 	}
 }

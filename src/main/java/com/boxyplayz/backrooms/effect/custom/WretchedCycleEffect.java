@@ -49,8 +49,8 @@ public class WretchedCycleEffect extends MobEffect {
 								wretchedCycleId, newStrengthAddition,
 								AttributeModifier.Operation.ADD_VALUE));
 
-				if (mob.getHealth() > 5) {
-					mob.setHealth(mob.getHealth() - 5);
+				if (mob.getHealth() > 3) {
+					mob.setHealth(mob.getHealth() - 3);
 				} else {
 					double x = mob.getX();
 					double y = mob.getY();

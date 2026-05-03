@@ -288,7 +288,7 @@ public class ModBlocks {
 			"power_outlet",
 			PowerOutletBlock::new,
 			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).strength(2.4F).sound(SoundType.IRON)
-					.lightLevel((state) -> 3),
+					.lightLevel((state) -> 1),
 			true);
 
 	public static final Block LEVEL3_CEILING_LIGHT = register(

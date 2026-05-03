@@ -5,6 +5,7 @@ import java.util.function.Function;
 import org.jspecify.annotations.NonNull;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.effect.ModEffects;
 import com.boxyplayz.backrooms.entity.ModEntities;
 import com.boxyplayz.backrooms.toolMaterials.ModToolMaterials;
 
@@ -36,7 +37,9 @@ public class ModItems {
 			new Item.Properties()
 					.food(new FoodProperties.Builder().nutrition(5).saturationModifier(1f).build(),
 							Consumables.defaultDrink()
-									.onConsume(new RemoveStatusEffectsConsumeEffect(MobEffects.NAUSEA)).build()));
+									.onConsume(new RemoveStatusEffectsConsumeEffect(MobEffects.NAUSEA))
+									.onConsume(new RemoveStatusEffectsConsumeEffect(ModEffects.WRETCHED_CYCLE))
+									.build()));
 
 	public static final Item ROYAL_RATION = registerItem("royal_ration",
 			Item::new,
@@ -52,6 +55,7 @@ public class ModItems {
 											new MobEffectInstance(MobEffects.SPEED, 10 * 20, 2)))
 									.onConsume(new ApplyStatusEffectsConsumeEffect(
 											new MobEffectInstance(MobEffects.NAUSEA, 11 * 20, 1)))
+									.onConsume(new RemoveStatusEffectsConsumeEffect(ModEffects.WRETCHED_CYCLE))
 									.build()));
 
 	public static final Item RED_ALMOND_WATER = registerItem("red_almond_water",
@@ -67,6 +71,7 @@ public class ModItems {
 											new MobEffectInstance(MobEffects.MINING_FATIGUE, 30 * 20, 1)))
 									.onConsume(new ApplyStatusEffectsConsumeEffect(
 											new MobEffectInstance(MobEffects.WEAKNESS, 30 * 20, 3)))
+									.onConsume(new RemoveStatusEffectsConsumeEffect(ModEffects.WRETCHED_CYCLE))
 									.build()));
 
 	public static final FireSaltItem FIRESALT_SHARD = registerItem("firesalt_shard",
@@ -105,6 +110,7 @@ public class ModItems {
 									.onConsume(new RemoveStatusEffectsConsumeEffect(MobEffects.UNLUCK))
 									.onConsume(new RemoveStatusEffectsConsumeEffect(MobEffects.WEAKNESS))
 									.onConsume(new RemoveStatusEffectsConsumeEffect(MobEffects.WITHER))
+									.onConsume(new RemoveStatusEffectsConsumeEffect(ModEffects.WRETCHED_CYCLE))
 									.onConsume(new ApplyStatusEffectsConsumeEffect(
 											new MobEffectInstance(MobEffects.REGENERATION, 240 * 20, 2)))
 									.onConsume(new ApplyStatusEffectsConsumeEffect(
@@ -139,7 +145,7 @@ public class ModItems {
 
 	public static final LiquidPainItem LIQUID_PAIN = registerItem("liquid_pain",
 			LiquidPainItem::new,
-			new LiquidPainItem.Properties());
+			new LiquidPainItem.Properties().useCooldown(0.6f));
 
 	public static void registerModItems() {
 		BoxysBackrooms.LOGGER.debug("Registering items for " + BoxysBackrooms.MOD_ID);
