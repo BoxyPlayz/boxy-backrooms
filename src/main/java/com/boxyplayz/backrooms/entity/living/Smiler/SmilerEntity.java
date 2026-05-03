@@ -64,9 +64,13 @@ public class SmilerEntity extends PathfinderMob {
 			protected void checkAndPerformAttack(LivingEntity target) {
 				if (this.canPerformAttack(target)) {
 					this.resetAttackCooldown();
-					target.hurtServer(getServerLevel(target),
-							new DamageSource(level().registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE)
-									.getOrThrow(ModDamageTypes.ANOMALY_DAMAGE), null, this.mob),
+					target.hurtServer(
+							getServerLevel(target),
+							new DamageSource(
+									level().registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE)
+											.getOrThrow(ModDamageTypes.ANOMALY_DAMAGE),
+									null,
+									this.mob),
 							((float) this.mob.getAttribute(Attributes.ATTACK_DAMAGE).getValue()));
 				}
 				super.checkAndPerformAttack(target);

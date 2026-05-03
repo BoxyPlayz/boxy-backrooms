@@ -9,6 +9,7 @@ import com.boxyplayz.backrooms.tags.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.minecraft.core.HolderLookup.Provider;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 
@@ -50,6 +51,13 @@ public class ItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
 				.add(Blocks.SOUL_TORCH.asItem())
 				.add(Blocks.COPPER_TORCH.asItem())
 				.setReplace(false);
+
+		valueLookupBuilder(ItemTags.MELEE_WEAPON_ENCHANTABLE)
+				.add(ModItems.FIRESTEEL_SWORD);
+		valueLookupBuilder(ItemTags.SWORDS)
+				.add(ModItems.FIRESTEEL_SWORD);
+		valueLookupBuilder(ItemTags.SHARP_WEAPON_ENCHANTABLE)
+				.add(ModItems.FIRESTEEL_SWORD);
 	}
 
 }
