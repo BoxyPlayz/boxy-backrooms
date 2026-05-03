@@ -2,7 +2,7 @@ package com.boxyplayz.backrooms.effect.custom;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.entity.ModEntities;
-import com.boxyplayz.backrooms.entity.custom.Wretch.WretchEntity;
+import com.boxyplayz.backrooms.entity.living.Wretch.WretchEntity;
 
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;

@@ -1,12 +1,12 @@
 package com.boxyplayz.backrooms.world.spawning;
 
 import com.boxyplayz.backrooms.entity.ModEntities;
-import com.boxyplayz.backrooms.entity.custom.Balloon.BalloonEntity;
-import com.boxyplayz.backrooms.entity.custom.Partygoer.PartygoerEntity;
-import com.boxyplayz.backrooms.entity.custom.Partypooper.PartypooperEntity;
-import com.boxyplayz.backrooms.entity.custom.SkinStealer.SkinStealerEntity;
-import com.boxyplayz.backrooms.entity.custom.Smiler.SmilerEntity;
-import com.boxyplayz.backrooms.entity.custom.Wretch.WretchEntity;
+import com.boxyplayz.backrooms.entity.living.Balloon.BalloonEntity;
+import com.boxyplayz.backrooms.entity.living.Partygoer.PartygoerEntity;
+import com.boxyplayz.backrooms.entity.living.Partypooper.PartypooperEntity;
+import com.boxyplayz.backrooms.entity.living.SkinStealer.SkinStealerEntity;
+import com.boxyplayz.backrooms.entity.living.Smiler.SmilerEntity;
+import com.boxyplayz.backrooms.entity.living.Wretch.WretchEntity;
 import com.boxyplayz.backrooms.world.biome.ModBiomes;
 
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;

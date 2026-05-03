@@ -1,4 +1,4 @@
-package com.boxyplayz.backrooms.entity.custom.Smiler;
+package com.boxyplayz.backrooms.entity.living.Smiler;
 
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.damagetypes.ModDamageTypes;

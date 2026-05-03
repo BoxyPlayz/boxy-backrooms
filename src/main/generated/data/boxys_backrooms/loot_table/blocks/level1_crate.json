@@ -54,31 +54,21 @@
         {
           "type": "minecraft:item",
           "name": "boxys_backrooms:gray_almond_water",
-          "weight": 100
+          "weight": 1000
         },
         {
           "type": "minecraft:item",
           "name": "boxys_backrooms:green_almond_water",
-          "weight": 80
+          "weight": 800
         },
         {
           "type": "minecraft:item",
           "name": "boxys_backrooms:red_almond_water",
-          "weight": 50
+          "weight": 500
         },
         {
           "type": "minecraft:item",
           "name": "boxys_backrooms:royal_ration"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "boxys_backrooms:firesalt_shard",
-          "weight": 5
-        },
-        {
-          "type": "minecraft:item",
-          "name": "boxys_backrooms:smiler_repellant",
-          "weight": 12
         }
       ],
       "rolls": {

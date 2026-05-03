@@ -2,7 +2,7 @@ package com.boxyplayz.backrooms.entity.wretch;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.BoxysBackroomsClient;
-import com.boxyplayz.backrooms.entity.custom.Wretch.WretchEntity;
+import com.boxyplayz.backrooms.entity.living.Wretch.WretchEntity;
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 import net.minecraft.client.renderer.entity.MobRenderer;

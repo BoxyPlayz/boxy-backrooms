@@ -81,6 +81,7 @@ public class ModCreativeTabs {
 			itemGroup.accept(ModItems.SHADOW_DUST);
 			itemGroup.accept(ModItems.SMILER_REPELLANT);
 			itemGroup.accept(ModItems.FIRESTEEL_ALLOY);
+			itemGroup.accept(ModItems.LIQUID_PAIN);
 			itemGroup.accept(ModItems.FIRESTEEL_SWORD);
 
 			itemGroup.accept(ModItems.SMILER_SPAWN_EGG);

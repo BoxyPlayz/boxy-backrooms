@@ -61,6 +61,7 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModItems.SMILER_REPELLANT, "Smiler Repellant");
 		translationBuilder.add(ModItems.FIRESTEEL_ALLOY, "Firesteel Alloy");
 		translationBuilder.add(ModItems.FIRESTEEL_SWORD, "Firesteel Sword");
+		translationBuilder.add(ModItems.LIQUID_PAIN, "Liquid Pain");
 
 		// Noclippable Blocks
 		translationBuilder.add(ModBlocks.ERRORSLATE, "Errorslate");

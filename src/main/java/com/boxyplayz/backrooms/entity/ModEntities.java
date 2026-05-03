@@ -1,12 +1,13 @@
 package com.boxyplayz.backrooms.entity;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
-import com.boxyplayz.backrooms.entity.custom.Balloon.BalloonEntity;
-import com.boxyplayz.backrooms.entity.custom.Partygoer.PartygoerEntity;
-import com.boxyplayz.backrooms.entity.custom.Partypooper.PartypooperEntity;
-import com.boxyplayz.backrooms.entity.custom.SkinStealer.SkinStealerEntity;
-import com.boxyplayz.backrooms.entity.custom.Smiler.SmilerEntity;
-import com.boxyplayz.backrooms.entity.custom.Wretch.WretchEntity;
+import com.boxyplayz.backrooms.entity.living.Balloon.BalloonEntity;
+import com.boxyplayz.backrooms.entity.living.Partygoer.PartygoerEntity;
+import com.boxyplayz.backrooms.entity.living.Partypooper.PartypooperEntity;
+import com.boxyplayz.backrooms.entity.living.SkinStealer.SkinStealerEntity;
+import com.boxyplayz.backrooms.entity.living.Smiler.SmilerEntity;
+import com.boxyplayz.backrooms.entity.living.Wretch.WretchEntity;
+import com.boxyplayz.backrooms.entity.projectile.liquid_pain.LiquidPainProjectile;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.core.Registry;
@@ -88,7 +89,9 @@ public class ModEntities {
 	public static final EntityType<WretchEntity> WRETCH = RegisterEntity(WretchEntity::new, "wretch",
 			new Vec2(1f, 2.5f));
 
-	public static final EntityType<PartygoerEntity> PARTYGOER = RegisterEntity(PartygoerEntity::new, "partygoer",
+	public static final EntityType<PartygoerEntity> PARTYGOER = RegisterEntity(
+			PartygoerEntity::new,
+			"partygoer",
 			new Vec2(1f, 2.5f));
 
 	public static final EntityType<BalloonEntity> BALLOON = RegisterEntity(BalloonEntity::new, "balloon",
@@ -96,6 +99,10 @@ public class ModEntities {
 
 	public static final EntityType<PartypooperEntity> PARTYPOOPER = RegisterEntity(PartypooperEntity::new,
 			"partypooper", MobCategory.CREATURE);
+
+	public static final EntityType<LiquidPainProjectile> LIQUID_PAIN_PROJECTILE = RegisterEntity(
+			LiquidPainProjectile::new, "liquid_pain",
+			new Vec2(0.25f, 0.25f), MobCategory.MISC);
 
 	public static void RegisterModEntities() {
 		FabricDefaultAttributeRegistry.register(SMILER,

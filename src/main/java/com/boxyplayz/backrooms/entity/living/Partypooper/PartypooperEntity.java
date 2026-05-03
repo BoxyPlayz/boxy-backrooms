@@ -1,6 +1,6 @@
-package com.boxyplayz.backrooms.entity.custom.Partypooper;
+package com.boxyplayz.backrooms.entity.living.Partypooper;
 
-import com.boxyplayz.backrooms.entity.custom.Partygoer.PartygoerEntity;
+import com.boxyplayz.backrooms.entity.living.Partygoer.PartygoerEntity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;

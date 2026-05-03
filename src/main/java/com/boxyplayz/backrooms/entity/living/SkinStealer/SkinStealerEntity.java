@@ -1,4 +1,4 @@
-package com.boxyplayz.backrooms.entity.custom.SkinStealer;
+package com.boxyplayz.backrooms.entity.living.SkinStealer;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.mojang.serialization.Codec;

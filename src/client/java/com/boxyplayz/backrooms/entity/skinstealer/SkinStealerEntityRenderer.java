@@ -2,7 +2,7 @@ package com.boxyplayz.backrooms.entity.skinstealer;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.BoxysBackroomsClient;
-import com.boxyplayz.backrooms.entity.custom.SkinStealer.SkinStealerEntity;
+import com.boxyplayz.backrooms.entity.living.SkinStealer.SkinStealerEntity;
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;

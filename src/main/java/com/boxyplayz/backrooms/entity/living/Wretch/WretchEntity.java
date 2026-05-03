@@ -1,4 +1,4 @@
-package com.boxyplayz.backrooms.entity.custom.Wretch;
+package com.boxyplayz.backrooms.entity.living.Wretch;
 
 import com.boxyplayz.backrooms.effect.ModEffects;
 

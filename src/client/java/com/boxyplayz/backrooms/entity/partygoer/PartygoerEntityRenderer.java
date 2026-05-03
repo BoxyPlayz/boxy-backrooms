@@ -2,7 +2,7 @@ package com.boxyplayz.backrooms.entity.partygoer;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.BoxysBackroomsClient;
-import com.boxyplayz.backrooms.entity.custom.Partygoer.PartygoerEntity;
+import com.boxyplayz.backrooms.entity.living.Partygoer.PartygoerEntity;
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;

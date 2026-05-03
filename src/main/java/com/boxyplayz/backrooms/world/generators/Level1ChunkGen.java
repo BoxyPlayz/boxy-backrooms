@@ -373,7 +373,7 @@ public class Level1ChunkGen extends BaseChunkGen {
 
 		if (Math.floorMod(y, 7) == 1) {
 			RandomSource random = randomFactory.at(x, y, z);
-			if (random.nextIntBetweenInclusive(0, 1000) == 1) {
+			if (random.nextIntBetweenInclusive(0, 4000) == 1) {
 				return ModBlocks.LEVEL1_CRATE.defaultBlockState();
 			}
 		}

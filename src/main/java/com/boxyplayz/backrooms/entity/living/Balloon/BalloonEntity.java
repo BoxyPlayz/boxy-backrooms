@@ -1,4 +1,4 @@
-package com.boxyplayz.backrooms.entity.custom.Balloon;
+package com.boxyplayz.backrooms.entity.living.Balloon;
 
 import java.util.Set;
 import com.boxyplayz.backrooms.world.dimension.ModDimensions;

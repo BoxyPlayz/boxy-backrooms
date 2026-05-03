@@ -1,7 +1,7 @@
-package com.boxyplayz.backrooms.entity.custom.Partygoer;
+package com.boxyplayz.backrooms.entity.living.Partygoer;
 
 import com.boxyplayz.backrooms.block.ModBlocks;
-import com.boxyplayz.backrooms.entity.custom.Partypooper.PartypooperEntity;
+import com.boxyplayz.backrooms.entity.living.Partypooper.PartypooperEntity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;

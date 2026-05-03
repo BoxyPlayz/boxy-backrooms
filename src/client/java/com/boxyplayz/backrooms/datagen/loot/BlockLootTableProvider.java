@@ -41,12 +41,10 @@ public class BlockLootTableProvider extends FabricBlockLootSubProvider {
 						this.hasSilkTouch()).add(LootItem.lootTableItem(ModBlocks.LEVEL1_CRATE)))
 				.withPool(LootPool.lootPool().when(this.doesNotHaveSilkTouch())
 						.setRolls(UniformGenerator.between(2, 6))
-						.add(LootItem.lootTableItem(ModItems.GRAY_ALMOND_WATER).setWeight(100))
-						.add(LootItem.lootTableItem(ModItems.GREEN_ALMOND_WATER).setWeight(80))
-						.add(LootItem.lootTableItem(ModItems.RED_ALMOND_WATER).setWeight(50))
-						.add(LootItem.lootTableItem(ModItems.ROYAL_RATION).setWeight(1))
-						.add(LootItem.lootTableItem(ModItems.FIRESALT_SHARD).setWeight(5))
-						.add(LootItem.lootTableItem(ModItems.SMILER_REPELLANT).setWeight(12))));
+						.add(LootItem.lootTableItem(ModItems.GRAY_ALMOND_WATER).setWeight(1000))
+						.add(LootItem.lootTableItem(ModItems.GREEN_ALMOND_WATER).setWeight(800))
+						.add(LootItem.lootTableItem(ModItems.RED_ALMOND_WATER).setWeight(500))
+						.add(LootItem.lootTableItem(ModItems.ROYAL_RATION).setWeight(1))));
 		add(ModBlocks.FUN_CRATE, LootTable.lootTable().withPool(
 				LootPool.lootPool().when(
 						this.hasSilkTouch()).add(LootItem.lootTableItem(ModBlocks.FUN_CRATE)))

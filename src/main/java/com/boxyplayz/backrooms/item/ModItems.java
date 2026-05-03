@@ -137,6 +137,10 @@ public class ModItems {
 			SpawnEggItem::new,
 			new SpawnEggItem.Properties().spawnEgg(ModEntities.PARTYPOOPER));
 
+	public static final LiquidPainItem LIQUID_PAIN = registerItem("liquid_pain",
+			LiquidPainItem::new,
+			new LiquidPainItem.Properties());
+
 	public static void registerModItems() {
 		BoxysBackrooms.LOGGER.debug("Registering items for " + BoxysBackrooms.MOD_ID);
 	}
