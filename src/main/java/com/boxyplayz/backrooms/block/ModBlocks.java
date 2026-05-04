@@ -24,6 +24,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
@@ -288,7 +289,8 @@ public class ModBlocks {
 			"power_outlet",
 			PowerOutletBlock::new,
 			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).strength(2.4F).sound(SoundType.IRON)
-					.lightLevel((state) -> 1),
+					.lightLevel((state) -> 1)
+					.isRedstoneConductor(Blocks::never),
 			true);
 
 	public static final Block LEVEL3_CEILING_LIGHT = register(
