@@ -1,0 +1,12 @@
+{
+  "type": "boxys_backrooms:blending",
+  "baseItem": [
+    "boxys_backrooms:red_almond_water",
+    "boxys_backrooms:gray_almond_water",
+    "boxys_backrooms:green_almond_water"
+  ],
+  "blendItem": "boxys_backrooms:shadow_dust",
+  "result": {
+    "id": "boxys_backrooms:smiler_repellant"
+  }
+}

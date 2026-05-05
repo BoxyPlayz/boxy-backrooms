@@ -4,6 +4,7 @@ import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.datagen.lang.EnglishLangProvider;
 import com.boxyplayz.backrooms.datagen.loot.BlockLootTableProvider;
 import com.boxyplayz.backrooms.datagen.loot.EntityLootTableProvider;
+import com.boxyplayz.backrooms.datagen.recipe.RecipeDataProvider;
 import com.boxyplayz.backrooms.datagen.tags.BlockTagProvider;
 import com.boxyplayz.backrooms.datagen.tags.ItemTagProvider;
 import com.boxyplayz.backrooms.datagen.worldgen.BiomeDataProvider;

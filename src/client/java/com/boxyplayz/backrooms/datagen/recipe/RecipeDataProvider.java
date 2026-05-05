@@ -1,8 +1,9 @@
-package com.boxyplayz.backrooms.datagen;
+package com.boxyplayz.backrooms.datagen.recipe;
 
 import java.util.concurrent.CompletableFuture;
 
 import com.boxyplayz.backrooms.block.ModBlocks;
+import com.boxyplayz.backrooms.datagen.recipe.builders.BlendingRecipeBuilder;
 import com.boxyplayz.backrooms.item.ModItems;
 import com.boxyplayz.backrooms.tags.ModTags;
 
@@ -96,6 +97,12 @@ public class RecipeDataProvider extends FabricRecipeProvider {
 						.requires(Items.BONE_MEAL, 4)
 						.unlockedBy(getHasName(Blocks.GRASS_BLOCK), has(Blocks.GRASS_BLOCK))
 						.save(output);
+
+				BlendingRecipeBuilder.blending(Ingredient.of(ModItems.RED_ALMOND_WATER, ModItems.GRAY_ALMOND_WATER,
+						ModItems.GREEN_ALMOND_WATER), Ingredient.of(ModItems.SHADOW_DUST), RecipeCategory.MISC,
+						ModItems.SMILER_REPELLANT)
+						.unlockedBy(getHasName(ModItems.SHADOW_DUST), has(ModItems.SHADOW_DUST))
+						.save(output, getItemName(ModItems.SHADOW_DUST) + "_blending");
 
 			}
 		};
