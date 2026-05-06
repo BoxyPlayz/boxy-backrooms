@@ -91,6 +91,9 @@ public class ModelProvider extends FabricModelProvider {
 		itemModelGenerator.itemModelOutput.accept(ModBlocks.PROMISED_GATE.asItem(),
 				ItemModelUtils
 						.plainModel(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "block/promised_gate")));
+		itemModelGenerator.itemModelOutput.accept(ModBlocks.BLENDER.asItem(),
+				ItemModelUtils
+						.plainModel(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "block/blender")));
 	}
 
 }

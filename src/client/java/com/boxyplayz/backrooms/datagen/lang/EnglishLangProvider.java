@@ -110,6 +110,8 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModBlocks.LEVEL3_CEILING_LIGHT, "Level 3 Ceiling Light");
 		translationBuilder.add(ModBlocks.ELECTRICAL_BRICKS, "Electrical Bricks");
 
+		translationBuilder.add(ModBlocks.BLENDER, "Blender");
+
 		// Loot Blocks
 		translationBuilder.add(ModBlocks.LEVEL1_CRATE, "Crate");
 		translationBuilder.add(ModBlocks.FUN_CRATE, "Fun Crate =)");

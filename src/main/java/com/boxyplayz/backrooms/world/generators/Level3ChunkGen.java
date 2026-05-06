@@ -97,7 +97,7 @@ public class Level3ChunkGen extends BaseChunkGen {
 		}
 
 		if (y == 1) {
-			int type = blockRandom.nextIntBetweenInclusive(1, 2400);
+			int type = blockRandom.nextIntBetweenInclusive(1, 3000);
 			switch (type) {
 				case 1:
 					return Blocks.CRAFTER.defaultBlockState();
@@ -110,6 +110,9 @@ public class Level3ChunkGen extends BaseChunkGen {
 
 				case 5:
 					return Blocks.SMOKER.defaultBlockState();
+
+				case 8:
+					return ModBlocks.BLENDER.defaultBlockState();
 				default:
 					break;
 			}

@@ -1,6 +1,7 @@
 package com.boxyplayz.backrooms;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.recipe.v1.sync.RecipeSynchronization;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -59,5 +60,7 @@ public class BoxysBackrooms implements ModInitializer {
 		ModEnchantments.RegisterModEnchantments();
 		ModBlockEntities.RegisterModBlockEntities();
 		ModRecipes.RegisterModRecipes();
+
+		RecipeSynchronization.synchronizeRecipeSerializer(ModRecipes.BLENDING_RECIPE_SERIALIZER);
 	}
 }

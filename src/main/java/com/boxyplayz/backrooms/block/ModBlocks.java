@@ -3,6 +3,7 @@ package com.boxyplayz.backrooms.block;
 import java.util.function.Function;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.block.custom.BlenderBlock;
 import com.boxyplayz.backrooms.block.custom.ErrorSlateBlock;
 import com.boxyplayz.backrooms.block.custom.InferiorCarpet;
 import com.boxyplayz.backrooms.block.custom.Level0Carpet;
@@ -282,7 +283,8 @@ public class ModBlocks {
 	public static final Block PROMISED_GATE = register(
 			"promised_gate",
 			PromisedGate::new,
-			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).strength(0.6F).sound(SoundType.AMETHYST),
+			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).strength(0.6F).sound(SoundType.AMETHYST)
+					.noOcclusion(),
 			true);
 
 	public static final Block POWER_OUTLET_BLOCK = register(
@@ -304,6 +306,13 @@ public class ModBlocks {
 			"electrical_bricks",
 			Block::new,
 			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_BRICKS),
+			true);
+
+	public static final Block BLENDER = register(
+			"blender",
+			BlenderBlock::new,
+			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.GLASS)
+					.noOcclusion(),
 			true);
 
 	public static void RegisterModBlocks() {

@@ -15,10 +15,13 @@ import com.boxyplayz.backrooms.entity.wretch.WretchModel;
 import com.boxyplayz.backrooms.entity.wretch.WretchedRenderer;
 import com.boxyplayz.backrooms.events.GrassColors;
 import com.boxyplayz.backrooms.events.ItemEvents;
+import com.boxyplayz.backrooms.recipe.ModRecipes;
+import com.boxyplayz.backrooms.screen.BlendingScreen;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.ModelLayerRegistry;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
@@ -79,5 +82,7 @@ public class BoxysBackroomsClient implements ClientModInitializer {
 		ModelLayerRegistry.registerModelLayer(MODEL_PARTYPOOPER_LAYER, PartyPooperModel::createBodyLayer);
 
 		EntityRenderers.register(ModEntities.LIQUID_PAIN_PROJECTILE, ThrownItemRenderer::new);
+
+		MenuScreens.register(ModRecipes.BLENDING_MENU_TYPE, BlendingScreen::new);
 	}
 }

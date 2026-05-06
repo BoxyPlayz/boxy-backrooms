@@ -89,6 +89,8 @@ public class ModCreativeTabs {
 			itemGroup.accept(ModItems.SKINSTEALER_SPAWN_EGG);
 			itemGroup.accept(ModItems.PARTYGOER_SPAWN_EGG);
 			itemGroup.accept(ModItems.PARTYPOOPER_SPAWN_EGG);
+
+			itemGroup.accept(ModBlocks.BLENDER);
 		});
 	}
 

@@ -5,7 +5,6 @@ import java.util.concurrent.CompletableFuture;
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.datagen.recipe.builders.BlendingRecipeBuilder;
 import com.boxyplayz.backrooms.item.ModItems;
-import com.boxyplayz.backrooms.tags.ModTags;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
@@ -73,11 +72,11 @@ public class RecipeDataProvider extends FabricRecipeProvider {
 						.unlockedBy(getHasName(Items.AMETHYST_SHARD), has(Items.AMETHYST_SHARD))
 						.save(output);
 
-				shapeless(RecipeCategory.MISC, ModItems.SMILER_REPELLANT)
-						.requires(ModItems.SHADOW_DUST)
-						.requires(ModTags.ALMOND_WATERS)
-						.unlockedBy(getHasName(ModItems.SHADOW_DUST), has(ModItems.SHADOW_DUST))
-						.save(output);
+				// shapeless(RecipeCategory.MISC, ModItems.SMILER_REPELLANT)
+				// .requires(ModItems.SHADOW_DUST)
+				// .requires(ModTags.ALMOND_WATERS)
+				// .unlockedBy(getHasName(ModItems.SHADOW_DUST), has(ModItems.SHADOW_DUST))
+				// .save(output);
 
 				shapeless(RecipeCategory.MISC, Blocks.BARREL, 8)
 						.requires(ModBlocks.LEVEL1_CRATE)
