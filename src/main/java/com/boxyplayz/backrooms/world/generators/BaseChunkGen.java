@@ -1,6 +1,7 @@
 package com.boxyplayz.backrooms.world.generators;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
 
@@ -18,6 +19,7 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraft.world.level.levelgen.PositionalRandomFactory;
 import net.minecraft.world.level.levelgen.RandomState;
+import net.minecraft.world.level.levelgen.blending.Blender;
 
 /**
  * Chunk Generator class to eliminate boilerplate code
@@ -81,10 +83,39 @@ public abstract class BaseChunkGen extends ChunkGenerator {
 			if (!getBlockAt(worldSeed, x, y, z).isAir()) {
 				return y + 1;
 			}
-
 		}
 
 		return this.getMinY();
+	}
+
+	@Override
+	public CompletableFuture<ChunkAccess> fillFromNoise(Blender blender, RandomState randomState,
+			StructureManager structureManager, ChunkAccess chunkAccess) {
+		PositionalRandomFactory worldSeed = randomState
+				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, this.getSeed()));
+
+		int minY = this.getMinY();
+
+		int chunkMinX = chunkAccess.getPos().getMinBlockX();
+		int chunkMinZ = chunkAccess.getPos().getMinBlockZ();
+
+		for (int x = 0; x < 16; x++) {
+			for (int z = 0; z < 16; z++) {
+				int globalX = chunkMinX + x;
+				int globalZ = chunkMinZ + z;
+				for (int y = minY; y < minY + this.getGenDepth(); y++) {
+					BlockState block = getBlockAt(worldSeed, globalX, y, globalZ);
+					chunkAccess.setBlockState(
+							new BlockPos(x, y, z),
+							block,
+							0);
+				}
+			}
+		}
+
+		chunkAccess.getOrCreateHeightmapUnprimed(Types.WORLD_SURFACE_WG);
+		chunkAccess.getOrCreateHeightmapUnprimed(Types.OCEAN_FLOOR_WG);
+		return CompletableFuture.completedFuture(chunkAccess);
 	}
 
 }

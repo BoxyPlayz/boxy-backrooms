@@ -1,29 +1,19 @@
 package com.boxyplayz.backrooms.world.generators;
 
-import java.util.concurrent.CompletableFuture;
-
-import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.world.biome.ModBiomes;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.FixedBiomeSource;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraft.world.level.levelgen.PositionalRandomFactory;
-import net.minecraft.world.level.levelgen.RandomState;
-import net.minecraft.world.level.levelgen.blending.Blender;
 
 public class Level6ChunkGen extends BaseChunkGen {
 
@@ -32,11 +22,6 @@ public class Level6ChunkGen extends BaseChunkGen {
 	}
 
 	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
-		Holder<Biome> biome = this.getBiomeSource().getNoiseBiome(x, y, z, null);
-		return getBlockAt(randomFactory, x, y, z, biome);
-	}
-
-	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z, Holder<Biome> biome) {
 		long chunkX = Math.floorDiv(x, 16);
 		long chunkZ = Math.floorDiv(z, 16);
 		RandomSource blockNoVerticalRandom = randomFactory.at(x, 0, z);
@@ -100,37 +85,6 @@ public class Level6ChunkGen extends BaseChunkGen {
 	@Override
 	public int getGenDepth() {
 		return 32;
-	}
-
-	@Override
-	public CompletableFuture<ChunkAccess> fillFromNoise(Blender blender, RandomState randomState,
-			StructureManager structureManager, ChunkAccess chunkAccess) {
-		PositionalRandomFactory worldSeed = randomState
-				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "l6"));
-
-		int minY = getMinY();
-
-		int chunkMinX = chunkAccess.getPos().getMinBlockX();
-		int chunkMinZ = chunkAccess.getPos().getMinBlockZ();
-
-		for (int x = 0; x < 16; x++) {
-			for (int z = 0; z < 16; z++) {
-				int globalX = chunkMinX + x;
-				int globalZ = chunkMinZ + z;
-				for (int y = minY; y < minY + this.getGenDepth(); y++) {
-					Holder<Biome> biome = chunkAccess.getNoiseBiome(globalX, y, globalZ);
-					BlockState block = getBlockAt(worldSeed, globalX, y, globalZ, biome);
-					chunkAccess.setBlockState(
-							new BlockPos(x, y, z),
-							block,
-							0);
-				}
-			}
-		}
-
-		chunkAccess.getOrCreateHeightmapUnprimed(Types.WORLD_SURFACE_WG);
-		chunkAccess.getOrCreateHeightmapUnprimed(Types.OCEAN_FLOOR_WG);
-		return CompletableFuture.completedFuture(chunkAccess);
 	}
 
 	@Override

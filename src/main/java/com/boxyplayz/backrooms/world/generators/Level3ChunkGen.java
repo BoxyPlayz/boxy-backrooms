@@ -145,7 +145,7 @@ public class Level3ChunkGen extends BaseChunkGen {
 	public CompletableFuture<ChunkAccess> fillFromNoise(Blender blender, RandomState randomState,
 			StructureManager structureManager, ChunkAccess chunkAccess) {
 		PositionalRandomFactory worldSeed = randomState
-				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "electrikal"));
+				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, this.getSeed()));
 
 		int minY = getMinY();
 
@@ -206,7 +206,7 @@ public class Level3ChunkGen extends BaseChunkGen {
 
 	@Override
 	String getSeed() {
-		return "level3";
+		return "elektric";
 	}
 
 }

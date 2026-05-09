@@ -1,28 +1,19 @@
 package com.boxyplayz.backrooms.world.generators;
 
-import java.util.concurrent.CompletableFuture;
-
-import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.world.biome.ModBiomes;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.FixedBiomeSource;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.PositionalRandomFactory;
-import net.minecraft.world.level.levelgen.RandomState;
-import net.minecraft.world.level.levelgen.blending.Blender;
 import net.minecraft.world.level.levelgen.synth.SimplexNoise;
 
 public class Level7ChunkGen extends BaseChunkGen {
@@ -113,33 +104,6 @@ public class Level7ChunkGen extends BaseChunkGen {
 	@Override
 	public int getGenDepth() {
 		return 304;
-	}
-
-	@Override
-	public CompletableFuture<ChunkAccess> fillFromNoise(Blender blender, RandomState randomState,
-			StructureManager structureManager, ChunkAccess chunkAccess) {
-		PositionalRandomFactory worldSeed = randomState
-				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level0seed"));
-		int minY = getMinY();
-		int maxY = minY + getGenDepth();
-
-		int chunkMinX = chunkAccess.getPos().getMinBlockX();
-		int chunkMinZ = chunkAccess.getPos().getMinBlockZ();
-
-		for (int x = 0; x < 16; x++) {
-			for (int z = 0; z < 16; z++) {
-				int globalX = chunkMinX + x;
-				int globalZ = chunkMinZ + z;
-				for (int y = minY; y < maxY; y++) {
-					BlockState block = getBlockAt(worldSeed, globalX, y, globalZ);
-					chunkAccess.setBlockState(
-							new BlockPos(x, y, z),
-							block,
-							0);
-				}
-			}
-		}
-		return CompletableFuture.completedFuture(chunkAccess);
 	}
 
 	@Override
