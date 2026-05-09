@@ -68,6 +68,13 @@ public class ModBiomes {
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "promised"));
 
 	/**
+	 * Error 500
+	 */
+	public static final ResourceKey<Biome> BROKEN_BIOME = ResourceKey.create(
+			Registries.BIOME,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "broken"));
+
+	/**
 	 * Biomes for sections of level 1. Subclass of {@link ModBiomes}
 	 */
 	public static class Level1Biomes {

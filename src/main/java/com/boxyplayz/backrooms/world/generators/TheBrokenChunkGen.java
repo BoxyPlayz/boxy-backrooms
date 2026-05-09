@@ -1,6 +1,8 @@
 package com.boxyplayz.backrooms.world.generators;
 
-import com.boxyplayz.backrooms.block.ModBlocks;
+import java.util.HashSet;
+
+import com.boxyplayz.backrooms.world.biome.ModBiomes;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
@@ -8,69 +10,65 @@ import net.minecraft.core.Holder;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.FixedBiomeSource;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.PositionalRandomFactory;
+import net.minecraft.world.level.levelgen.synth.SimplexNoise;
 
 public class TheBrokenChunkGen extends BaseChunkGen {
-	Level7ChunkGen level7ChunkGen;
-	Level94ChunkGen level94ChunkGen;
+
+	HashSet<Block> blocks = new HashSet<>();
+
+	private SimplexNoise noise;
+
+	private SimplexNoise getNoise(PositionalRandomFactory randomFactory) {
+		if (this.noise == null) {
+			RandomSource random = randomFactory.fromHashOf(this.getSeed());
+			this.noise = new SimplexNoise(random);
+		}
+
+		return this.noise;
+
+	}
 
 	protected BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
-		RandomSource random = randomFactory
-				.fromSeed(Math.floorDiv(x, 16) * 341873128712L + Math.floorDiv(z, 16) * 132897987541L);
+		int randomHeight = randomFactory.at(x, 3253, z).nextIntBetweenInclusive(1, 40);
+		int noiseHeight = (int) (getNoise(randomFactory).getValue(x * 0.01, z * 0.01) * 30);
+		int height = Math.floorDiv(randomHeight + (noiseHeight * 2), 3);
 
-		int chunkId = random.nextIntBetweenInclusive(1, 4);
-
-		switch (chunkId) {
-			case 1:
-				if (Math.abs(Math.floorMod(x, 128) + Math.floorMod(z, 128)) == y) {
-					return Blocks.STONE.defaultBlockState();
+		if (y <= height) {
+			BlockState state = Blocks.BLACK_CONCRETE.defaultBlockState();
+			RandomSource blockRandom = randomFactory.at(x, y, z);
+			for (Block b : blocks) {
+				if (blockRandom.nextIntBetweenInclusive(0, 5) == 3) {
+					state = b.defaultBlockState();
 				}
-
-				break;
-
-			case 2:
-				switch (Math.floorMod(y, 5)) {
-					case 0:
-						RandomSource blockRandom = randomFactory.at(x, y, z);
-						if (y == 0 && blockRandom.nextIntBetweenInclusive(0, 800) == 0) {
-							return ModBlocks.LEVEL0_CARPET_GLITCHED.defaultBlockState();
-						}
-						return ModBlocks.LEVEL0_CARPET.defaultBlockState();
-
-					case 4:
-						return ModBlocks.LEVEL0_CEILING_TILE.defaultBlockState();
-
-					default:
-						if (Math.floorMod(x, 4) == 0 && Math.floorMod(z, 4) == 0) {
-							return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
-						}
-						return Blocks.AIR.defaultBlockState();
-				}
-
-			case 3:
-				return level7ChunkGen.getBlockAt(randomFactory, x, y, z);
-
-			case 4:
-				return level94ChunkGen.getBlockAt(randomFactory, x, y, z);
-			default:
-				return Blocks.AIR.defaultBlockState();
+			}
+			return state;
 		}
 		return Blocks.AIR.defaultBlockState();
 	}
 
 	public TheBrokenChunkGen(Holder.Reference<Biome> reference) {
 		super(new FixedBiomeSource(reference));
-		level7ChunkGen = new Level7ChunkGen(reference);
-		level94ChunkGen = new Level94ChunkGen(reference);
+		blocks.add(Blocks.RED_CONCRETE);
+		blocks.add(Blocks.ORANGE_CONCRETE);
+		blocks.add(Blocks.YELLOW_CONCRETE);
+		blocks.add(Blocks.LIME_CONCRETE);
+		blocks.add(Blocks.GREEN_CONCRETE);
+		blocks.add(Blocks.CYAN_CONCRETE);
+		blocks.add(Blocks.BLUE_CONCRETE);
+		blocks.add(Blocks.PURPLE_CONCRETE);
+		blocks.add(Blocks.MAGENTA_CONCRETE);
+		blocks.add(Blocks.LIGHT_BLUE_CONCRETE);
+		blocks.add(Blocks.PINK_CONCRETE);
 	}
 
 	public static final MapCodec<TheBrokenChunkGen> CODEC = RecordCodecBuilder.mapCodec(
-			instance -> instance.group(RegistryOps.retrieveElement(Biomes.THE_VOID)).apply(instance,
+			instance -> instance.group(RegistryOps.retrieveElement(ModBiomes.BROKEN_BIOME)).apply(instance,
 					instance.stable(TheBrokenChunkGen::new)));
 
 	@Override

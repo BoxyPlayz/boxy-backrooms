@@ -25,7 +25,7 @@ public class Level94ChunkGen extends BaseChunkGen {
 
 	private SimplexNoise getNoise(PositionalRandomFactory randomFactory) {
 		if (this.noise == null) {
-			RandomSource random = randomFactory.fromSeed(94);
+			RandomSource random = randomFactory.fromHashOf(this.getSeed());
 			this.noise = new SimplexNoise(random);
 		}
 
