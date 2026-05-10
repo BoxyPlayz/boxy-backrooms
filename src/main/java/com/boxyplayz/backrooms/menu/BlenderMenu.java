@@ -37,8 +37,8 @@ public class BlenderMenu extends AbstractContainerMenu {
 
 		this.level = inventory.player.level();
 
-		addSlot(new Slot(input, 0, 27, 47));
-		addSlot(new Slot(input, 1, 76, 47));
+		addSlot(new Slot(input, 0, 76, 47));
+		addSlot(new Slot(input, 1, 76, 15));
 
 		addSlot(new Slot(output, 0, 134, 47) {
 			@Override
