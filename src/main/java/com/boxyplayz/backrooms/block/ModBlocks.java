@@ -315,6 +315,12 @@ public class ModBlocks {
 					.noOcclusion(),
 			true);
 
+	public static final Block LEVEL2_PIPE = register(
+			"level2_pipe",
+			Block::new,
+			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).strength(3.0F).sound(SoundType.METAL),
+			true);
+
 	public static void RegisterModBlocks() {
 	}
 }

@@ -75,6 +75,13 @@ public class ModBiomes {
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "broken"));
 
 	/**
+	 * Pipe Dreams
+	 */
+	public static final ResourceKey<Biome> LEVEL2_BIOME = ResourceKey.create(
+			Registries.BIOME,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level2"));
+
+	/**
 	 * Biomes for sections of level 1. Subclass of {@link ModBiomes}
 	 */
 	public static class Level1Biomes {

@@ -1,0 +1,76 @@
+package com.boxyplayz.backrooms.world.generators;
+
+import org.apache.commons.lang3.Range;
+
+import com.boxyplayz.backrooms.block.ModBlocks;
+import com.boxyplayz.backrooms.world.biome.ModBiomes;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+
+import net.minecraft.core.Holder;
+import net.minecraft.resources.RegistryOps;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.FixedBiomeSource;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.PositionalRandomFactory;
+
+public class Level2ChunkGen extends BaseChunkGen {
+
+	public static final MapCodec<Level2ChunkGen> CODEC = RecordCodecBuilder.mapCodec(
+			instance -> instance.group(
+					RegistryOps.retrieveElement(ModBiomes.LEVEL2_BIOME))
+					.apply(instance,
+							instance.stable(Level2ChunkGen::new)));
+
+	public Level2ChunkGen(Holder.Reference<Biome> biome) {
+		super(new FixedBiomeSource(biome));
+	}
+
+	@Override
+	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
+		int localX = Math.floorMod(x, 16);
+		int localZ = Math.floorMod(z, 16);
+		Range<Integer> horizontalRange = Range.of(6, 10);
+		Range<Integer> horizontalRangeSmol = Range.of(7, 9);
+		if (y > 4) {
+			return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
+		}
+		if (y < 0) {
+			return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
+		}
+		if (!(horizontalRange.contains(localX) || horizontalRange.contains(localZ))) {
+			return ModBlocks.AGED_CONCRETE.defaultBlockState();
+		}
+
+		if (Math.floorMod(y, 2) == 0) {
+			if (((localX == 6 || localX == 10) && !horizontalRangeSmol.contains(localZ)
+					|| (localZ == 6 || localZ == 10) && !horizontalRangeSmol.contains(localX))) {
+				return ModBlocks.LEVEL2_PIPE.defaultBlockState();
+			}
+		}
+		return Blocks.AIR.defaultBlockState();
+	}
+
+	@Override
+	public String getSeed() {
+		return "pipedreams";
+	}
+
+	@Override
+	protected MapCodec<? extends ChunkGenerator> codec() {
+		return CODEC;
+	}
+
+	@Override
+	public int getGenDepth() {
+		return 32;
+	}
+
+	@Override
+	public int getMinY() {
+		return -16;
+	}
+
+}

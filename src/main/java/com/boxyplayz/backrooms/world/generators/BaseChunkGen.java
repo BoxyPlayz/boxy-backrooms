@@ -53,9 +53,9 @@ public abstract class BaseChunkGen extends ChunkGenerator {
 	public void spawnOriginalMobs(WorldGenRegion worldGenRegion) {
 	}
 
-	abstract BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z);
+	public abstract BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z);
 
-	abstract String getSeed();
+	public abstract String getSeed();
 
 	@Override
 	public NoiseColumn getBaseColumn(int x, int z, LevelHeightAccessor levelHeightAccessor, RandomState randomState) {

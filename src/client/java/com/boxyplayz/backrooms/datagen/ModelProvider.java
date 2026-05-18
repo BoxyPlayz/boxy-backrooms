@@ -68,6 +68,7 @@ public class ModelProvider extends FabricModelProvider {
 							.put(TextureSlot.END, TextureMapping.getBlockTexture(ModBlocks.ELECTRICAL_BRICKS));
 				},
 						ModelTemplates.CUBE_COLUMN));
+		blockStateModelGenerator.createTrivialCube(ModBlocks.LEVEL2_PIPE);
 	}
 
 	@Override

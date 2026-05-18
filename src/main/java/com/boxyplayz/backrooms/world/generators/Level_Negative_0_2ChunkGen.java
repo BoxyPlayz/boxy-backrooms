@@ -134,7 +134,7 @@ public class Level_Negative_0_2ChunkGen extends BaseChunkGen {
 	}
 
 	@Override
-	String getSeed() {
+	public String getSeed() {
 		return "level-0.2";
 	}
 

@@ -161,7 +161,7 @@ public class Level0ChunkGen extends BaseChunkGen {
 	}
 
 	@Override
-	String getSeed() {
+	public String getSeed() {
 		return "level0_maze";
 	}
 

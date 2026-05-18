@@ -34,7 +34,7 @@ public class TheBrokenChunkGen extends BaseChunkGen {
 
 	}
 
-	protected BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
+	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
 		int randomHeight = randomFactory.at(x, 3253, z).nextIntBetweenInclusive(1, 40);
 		int noiseHeight = (int) (getNoise(randomFactory).getValue(x * 0.01, z * 0.01) * 30);
 		int height = Math.floorDiv(randomHeight + (noiseHeight * 2), 3);
@@ -87,7 +87,7 @@ public class TheBrokenChunkGen extends BaseChunkGen {
 	}
 
 	@Override
-	String getSeed() {
+	public String getSeed() {
 		return "fduhjsabh";
 	}
 

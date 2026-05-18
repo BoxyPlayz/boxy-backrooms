@@ -91,6 +91,8 @@ public class ModCreativeTabs {
 			itemGroup.accept(ModItems.PARTYPOOPER_SPAWN_EGG);
 
 			itemGroup.accept(ModBlocks.BLENDER);
+
+			itemGroup.accept(ModBlocks.LEVEL2_PIPE);
 		});
 	}
 

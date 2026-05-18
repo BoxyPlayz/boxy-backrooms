@@ -205,7 +205,7 @@ public class Level3ChunkGen extends BaseChunkGen {
 	}
 
 	@Override
-	String getSeed() {
+	public String getSeed() {
 		return "elektric";
 	}
 

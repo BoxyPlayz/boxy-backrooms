@@ -172,7 +172,7 @@ public class Level0_2ChunkGen extends BaseChunkGen {
 	}
 
 	@Override
-	String getSeed() {
+	public String getSeed() {
 		return "level0.2";
 	}
 

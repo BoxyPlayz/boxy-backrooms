@@ -181,7 +181,7 @@ public class BlueChannelChunkGen extends BaseChunkGen {
 	}
 
 	@Override
-	String getSeed() {
+	public String getSeed() {
 		return "bluechannel";
 	}
 

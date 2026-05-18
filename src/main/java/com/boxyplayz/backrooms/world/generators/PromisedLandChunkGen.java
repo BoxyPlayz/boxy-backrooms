@@ -109,7 +109,7 @@ public class PromisedLandChunkGen extends BaseChunkGen {
 	}
 
 	@Override
-	String getSeed() {
+	public String getSeed() {
 		return "imadeapromise";
 	}
 

@@ -168,7 +168,7 @@ public class PitfallsChunkGen extends BaseChunkGen {
 	}
 
 	@Override
-	String getSeed() {
+	public String getSeed() {
 		return "pitfalls";
 	}
 

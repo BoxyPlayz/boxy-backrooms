@@ -314,7 +314,7 @@ public class LevelFunChunkGen extends BaseChunkGen {
 	}
 
 	@Override
-	String getSeed() {
+	public String getSeed() {
 		return "funandgames";
 	}
 
