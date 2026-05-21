@@ -18,7 +18,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class Level2FireExitBlock extends Block {
+public class Level2Door extends Block {
 
 	@Override
 	protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
@@ -27,7 +27,7 @@ public class Level2FireExitBlock extends Block {
 				1, 2, 0.6));
 	}
 
-	public Level2FireExitBlock(Properties properties) {
+	public Level2Door(Properties properties) {
 		super(properties);
 	}
 
@@ -41,7 +41,7 @@ public class Level2FireExitBlock extends Block {
 				return;
 		}
 
-		ServerLevel target = entity.level().getServer().getLevel(ModDimensions.LEVEL3_DIMENSION);
+		ServerLevel target = entity.level().getServer().getLevel(ModDimensions.LEVEL2_DIMENSION);
 		if (target == null)
 			return;
 

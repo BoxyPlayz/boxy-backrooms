@@ -361,6 +361,9 @@ public class Level1ChunkGen extends BaseChunkGen {
 			if (random.nextIntBetweenInclusive(0, 4000) == 1) {
 				return ModBlocks.LEVEL1_CRATE.defaultBlockState();
 			}
+			if (random.nextIntBetweenInclusive(0, 13400) == 1) {
+				return ModBlocks.LEVEL2_DOOR.defaultBlockState();
+			}
 		}
 
 		return Blocks.AIR.defaultBlockState();

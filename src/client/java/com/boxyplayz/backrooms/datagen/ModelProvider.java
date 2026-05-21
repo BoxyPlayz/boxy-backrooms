@@ -98,6 +98,9 @@ public class ModelProvider extends FabricModelProvider {
 		itemModelGenerator.itemModelOutput.accept(ModBlocks.LEVEL2_FIRE_EXIT.asItem(),
 				ItemModelUtils
 						.plainModel(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "block/level2_fire_exit")));
+		itemModelGenerator.itemModelOutput.accept(ModBlocks.LEVEL2_DOOR.asItem(),
+				ItemModelUtils
+						.plainModel(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "block/level2_door")));
 	}
 
 }

@@ -113,6 +113,7 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModBlocks.BLENDER, "Blender");
 
 		translationBuilder.add(ModBlocks.LEVEL2_PIPE, "Level 2 Pipe");
+		translationBuilder.add(ModBlocks.LEVEL2_DOOR, "Level 2 Door");
 		translationBuilder.add(ModBlocks.LEVEL2_FIRE_EXIT, "Level 2 Fire Exit");
 
 		// Loot Blocks

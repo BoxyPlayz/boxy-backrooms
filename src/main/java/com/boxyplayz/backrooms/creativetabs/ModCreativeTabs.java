@@ -94,6 +94,7 @@ public class ModCreativeTabs {
 
 			itemGroup.accept(ModBlocks.LEVEL2_PIPE);
 			itemGroup.accept(ModBlocks.LEVEL2_FIRE_EXIT);
+			itemGroup.accept(ModBlocks.LEVEL2_DOOR);
 		});
 	}
 
