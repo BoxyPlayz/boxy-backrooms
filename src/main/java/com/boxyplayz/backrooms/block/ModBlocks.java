@@ -9,6 +9,7 @@ import com.boxyplayz.backrooms.block.custom.InferiorCarpet;
 import com.boxyplayz.backrooms.block.custom.Level0Carpet;
 import com.boxyplayz.backrooms.block.custom.Level0GlitchedCarpet;
 import com.boxyplayz.backrooms.block.custom.Level0Wallpaper;
+import com.boxyplayz.backrooms.block.custom.Level2FireExitBlock;
 import com.boxyplayz.backrooms.block.custom.NoFallDamageBlock;
 import com.boxyplayz.backrooms.block.custom.OceanTransporter;
 import com.boxyplayz.backrooms.block.custom.PainOnBreakBlock;
@@ -319,6 +320,13 @@ public class ModBlocks {
 			"level2_pipe",
 			Block::new,
 			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).strength(3.0F).sound(SoundType.METAL),
+			true);
+
+	public static final Block LEVEL2_FIRE_EXIT = register(
+			"level2_fire_exit",
+			Level2FireExitBlock::new,
+			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).strength(3.0F).sound(SoundType.METAL)
+					.noOcclusion(),
 			true);
 
 	public static void RegisterModBlocks() {

@@ -95,6 +95,9 @@ public class ModelProvider extends FabricModelProvider {
 		itemModelGenerator.itemModelOutput.accept(ModBlocks.BLENDER.asItem(),
 				ItemModelUtils
 						.plainModel(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "block/blender")));
+		itemModelGenerator.itemModelOutput.accept(ModBlocks.LEVEL2_FIRE_EXIT.asItem(),
+				ItemModelUtils
+						.plainModel(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "block/level2_fire_exit")));
 	}
 
 }

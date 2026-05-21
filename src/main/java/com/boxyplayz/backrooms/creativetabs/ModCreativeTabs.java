@@ -93,6 +93,7 @@ public class ModCreativeTabs {
 			itemGroup.accept(ModBlocks.BLENDER);
 
 			itemGroup.accept(ModBlocks.LEVEL2_PIPE);
+			itemGroup.accept(ModBlocks.LEVEL2_FIRE_EXIT);
 		});
 	}
 
