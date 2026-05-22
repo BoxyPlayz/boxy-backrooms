@@ -33,7 +33,7 @@ public class BlenderMenu extends AbstractContainerMenu {
 	private final Level level;
 
 	public BlenderMenu(int i, Inventory inventory) {
-		super(ModRecipes.BLENDING_MENU_TYPE, i);
+		super(MenuTypes.BLENDING_MENU_TYPE, i);
 
 		this.level = inventory.player.level();
 

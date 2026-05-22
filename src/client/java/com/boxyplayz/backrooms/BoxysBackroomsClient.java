@@ -15,7 +15,7 @@ import com.boxyplayz.backrooms.entity.wretch.WretchModel;
 import com.boxyplayz.backrooms.entity.wretch.WretchedRenderer;
 import com.boxyplayz.backrooms.events.GrassColors;
 import com.boxyplayz.backrooms.events.ItemEvents;
-import com.boxyplayz.backrooms.recipe.ModRecipes;
+import com.boxyplayz.backrooms.menu.MenuTypes;
 import com.boxyplayz.backrooms.screen.BlendingScreen;
 
 import net.fabricmc.api.ClientModInitializer;
@@ -83,6 +83,6 @@ public class BoxysBackroomsClient implements ClientModInitializer {
 
 		EntityRenderers.register(ModEntities.LIQUID_PAIN_PROJECTILE, ThrownItemRenderer::new);
 
-		MenuScreens.register(ModRecipes.BLENDING_MENU_TYPE, BlendingScreen::new);
+		MenuScreens.register(MenuTypes.BLENDING_MENU_TYPE, BlendingScreen::new);
 	}
 }

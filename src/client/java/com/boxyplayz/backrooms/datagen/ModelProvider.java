@@ -69,6 +69,7 @@ public class ModelProvider extends FabricModelProvider {
 				},
 						ModelTemplates.CUBE_COLUMN));
 		blockStateModelGenerator.createTrivialCube(ModBlocks.LEVEL2_PIPE);
+
 	}
 
 	@Override
@@ -88,6 +89,7 @@ public class ModelProvider extends FabricModelProvider {
 		itemModelGenerator.generateFlatItem(ModItems.SKINSTEALER_SPAWN_EGG, ModelTemplates.FLAT_HANDHELD_ITEM);
 		itemModelGenerator.generateFlatItem(ModItems.PARTYGOER_SPAWN_EGG, ModelTemplates.FLAT_HANDHELD_ITEM);
 		itemModelGenerator.generateFlatItem(ModItems.PARTYPOOPER_SPAWN_EGG, ModelTemplates.FLAT_HANDHELD_ITEM);
+		itemModelGenerator.generateFlatItem(ModBlocks.ELEVATOR.asItem(), ModelTemplates.FLAT_HANDHELD_ITEM);
 		itemModelGenerator.generateFlatItem(ModItems.LIQUID_PAIN, ModelTemplates.FLAT_HANDHELD_ITEM);
 		itemModelGenerator.itemModelOutput.accept(ModBlocks.PROMISED_GATE.asItem(),
 				ItemModelUtils
@@ -102,5 +104,4 @@ public class ModelProvider extends FabricModelProvider {
 				ItemModelUtils
 						.plainModel(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "block/level2_door")));
 	}
-
 }

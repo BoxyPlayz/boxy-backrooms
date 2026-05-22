@@ -4,6 +4,7 @@ import java.util.function.Function;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.block.custom.BlenderBlock;
+import com.boxyplayz.backrooms.block.custom.ElevatorBlock;
 import com.boxyplayz.backrooms.block.custom.ErrorSlateBlock;
 import com.boxyplayz.backrooms.block.custom.InferiorCarpet;
 import com.boxyplayz.backrooms.block.custom.Level0Carpet;
@@ -334,6 +335,13 @@ public class ModBlocks {
 			"level2_door",
 			Level2Door::new,
 			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).strength(3.0F).sound(SoundType.STONE)
+					.noOcclusion(),
+			true);
+
+	public static final Block ELEVATOR = register(
+			"elevator",
+			ElevatorBlock::new,
+			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).strength(3.0F).sound(SoundType.METAL)
 					.noOcclusion(),
 			true);
 

@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"top=false": {
+			"model": "boxys_backrooms:block/elevator"
+		},
+		"top=true": {
+			"model": "boxys_backrooms:block/elevator_top"
+		}
+	}
+}

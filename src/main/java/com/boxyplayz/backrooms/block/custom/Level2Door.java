@@ -69,5 +69,4 @@ public class Level2Door extends Block {
 		}
 		entity.teleportTo(target, x + 0.5, y, z + 0.5, Set.of(), entity.getYRot(), entity.getXRot(), false);
 	}
-
 }
