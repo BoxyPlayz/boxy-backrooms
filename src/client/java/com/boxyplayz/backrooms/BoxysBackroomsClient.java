@@ -17,6 +17,7 @@ import com.boxyplayz.backrooms.events.GrassColors;
 import com.boxyplayz.backrooms.events.ItemEvents;
 import com.boxyplayz.backrooms.menu.MenuTypes;
 import com.boxyplayz.backrooms.screen.BlendingScreen;
+import com.boxyplayz.backrooms.screen.ElevatorScreen;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.Environment;
@@ -84,5 +85,7 @@ public class BoxysBackroomsClient implements ClientModInitializer {
 		EntityRenderers.register(ModEntities.LIQUID_PAIN_PROJECTILE, ThrownItemRenderer::new);
 
 		MenuScreens.register(MenuTypes.BLENDING_MENU_TYPE, BlendingScreen::new);
+
+		MenuScreens.register(MenuTypes.ELEVATOR_MENU_TYPE, ElevatorScreen::new);
 	}
 }

@@ -5,5 +5,6 @@ public class ModEvents {
 		EntityTickEvents.RegisterEntityTickEvents();
 		UseEvents.RegisterUseEvents();
 		AllowDamageEvents.RegisterAllowDamageEvents();
+		ServerPlayNetworkingEvents.RegisterServerPlayNetworking();
 	}
 }

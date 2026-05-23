@@ -17,6 +17,7 @@ import com.boxyplayz.backrooms.entity.ModEntities;
 import com.boxyplayz.backrooms.events.ModEvents;
 import com.boxyplayz.backrooms.item.ModItems;
 import com.boxyplayz.backrooms.loot.ModLootTables;
+import com.boxyplayz.backrooms.networking.ModPayloads;
 import com.boxyplayz.backrooms.recipe.ModRecipes;
 import com.boxyplayz.backrooms.tags.ModTags;
 import com.boxyplayz.backrooms.toolMaterials.ModToolMaterials;
@@ -47,8 +48,10 @@ public class BoxysBackrooms implements ModInitializer {
 		ModBlocks.RegisterModBlocks();
 		ModDimensionTypes.RegisterModDimensionTypes();
 		ModDimensions.RegisterModDimensions();
-		ModEvents.RegisterModEvents();
+		ModRecipes.RegisterModRecipes();
+		ModPayloads.RegsiterModPayloads();
 		ModChunkGenerators.registerModChunkGenerators();
+		ModEvents.RegisterModEvents();
 		ModLootTables.RegisterLootTables();
 		ModBiomes.RegisterModBiomes();
 		ModTags.RegisterModTags();
@@ -59,7 +62,6 @@ public class BoxysBackrooms implements ModInitializer {
 		ModDamageTypes.RegisterDamageTypes();
 		ModEnchantments.RegisterModEnchantments();
 		ModBlockEntities.RegisterModBlockEntities();
-		ModRecipes.RegisterModRecipes();
 
 		RecipeSynchronization.synchronizeRecipeSerializer(ModRecipes.BLENDING_RECIPE_SERIALIZER);
 	}

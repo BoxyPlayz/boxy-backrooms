@@ -34,4 +34,9 @@ public class Misc {
 		}
 		return false;
 	}
+
+	public static enum ElevatorDestination {
+		EMPTY,
+		LEVEL1
+	}
 }
