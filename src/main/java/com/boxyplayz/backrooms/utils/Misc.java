@@ -4,9 +4,7 @@ import java.util.List;
 
 import com.boxyplayz.backrooms.world.dimension.ModDimensions;
 
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.util.Util;
 import net.minecraft.world.level.Level;
 
 /**

@@ -96,5 +96,15 @@ public class ModEntitySpawner {
 				BiomeSelectors.includeByKey(
 						ModBiomes.LEVEL3_BIOME),
 				MobCategory.MONSTER, ModEntities.WRETCH, 14, 1, 3);
+
+		BiomeModifications.addSpawn(
+				BiomeSelectors.includeByKey(
+						ModBiomes.LEVEL2_BIOME),
+				MobCategory.MONSTER, ModEntities.SKINSTEALER, 7, 1, 1);
+
+		BiomeModifications.addSpawn(
+				BiomeSelectors.includeByKey(
+						ModBiomes.LEVEL2_BIOME),
+				MobCategory.MONSTER, ModEntities.SMILER, 23, 1, 4);
 	}
 }

@@ -52,7 +52,7 @@ public class ElevatorScreen extends AbstractContainerScreen<ElevatorMenu> {
 									Minecraft.getInstance().player.getId());
 							ClientPlayNetworking.send(payload);
 						})
-				.bounds(this.leftPos + 5, this.topPos + 60, 60, 20).build();
+				.bounds(this.leftPos + 5, this.topPos + 50, 60, 20).build();
 		addRenderableWidget(levelTwoButton);
 
 		Button levelThreeButton = Button
@@ -62,7 +62,7 @@ public class ElevatorScreen extends AbstractContainerScreen<ElevatorMenu> {
 									Minecraft.getInstance().player.getId());
 							ClientPlayNetworking.send(payload);
 						})
-				.bounds(this.leftPos + 5, this.topPos + 100, 60, 20).build();
+				.bounds(this.leftPos + 5, this.topPos + 80, 60, 20).build();
 		addRenderableWidget(levelThreeButton);
 	}
 

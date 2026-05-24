@@ -5,6 +5,7 @@ import java.util.concurrent.CompletableFuture;
 import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.block.ModBlockEntities;
 import com.boxyplayz.backrooms.block.ModBlocks;
+import com.boxyplayz.backrooms.block.custom.ElevatorBlock;
 import com.boxyplayz.backrooms.world.biome.ModBiomes;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -115,6 +116,15 @@ public class Level3ChunkGen extends BaseChunkGen {
 					return ModBlocks.BLENDER.defaultBlockState();
 				default:
 					break;
+			}
+		}
+
+		if (randomFactory.at(x, 12, z).nextInt(6000) == 3) {
+			if (y == 1) {
+				return ModBlocks.ELEVATOR.defaultBlockState();
+			}
+			if (y == 2) {
+				return ModBlocks.ELEVATOR.defaultBlockState().setValue(ElevatorBlock.TOP, true);
 			}
 		}
 

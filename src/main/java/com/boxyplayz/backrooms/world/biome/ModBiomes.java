@@ -33,7 +33,7 @@ public class ModBiomes {
 			Registries.BIOME,
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level94"));
 	/**
-	 * Electical
+	 * Electical Station
 	 */
 	public static final ResourceKey<Biome> LEVEL3_BIOME = ResourceKey.create(
 			Registries.BIOME,
