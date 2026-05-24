@@ -97,6 +97,7 @@ public class ModCreativeTabs {
 			itemGroup.accept(ModBlocks.LEVEL2_DOOR);
 
 			itemGroup.accept(ModBlocks.ELEVATOR);
+			itemGroup.accept(ModBlocks.LEVEL4_CARPET);
 		});
 	}
 

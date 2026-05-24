@@ -1,0 +1,40 @@
+{
+  "parent": "boxys_backrooms:the_habitable_zone",
+  "criteria": {
+    "garden_habit": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "boxys_backrooms:level1/garden"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "text.boxys_backrooms.garden_hab_desc"
+    },
+    "hidden": true,
+    "icon": {
+      "id": "minecraft:rose_bush"
+    },
+    "title": {
+      "translate": "text.boxys_backrooms.garden_hab_title"
+    }
+  },
+  "requirements": [
+    [
+      "garden_habit"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -345,6 +345,13 @@ public class ModBlocks {
 					.noOcclusion(),
 			true);
 
+	public static final Block LEVEL4_CARPET = register("level4_carpet", Block::new,
+			BlockBehaviour.Properties.of().strength(20f).sound(SoundType.WOOL), true);
+
+	public static final Block PURE_WHITE_GLOW = register("pure_white_glow", Block::new,
+			BlockBehaviour.Properties.of().strength(70f).sound(SoundType.GILDED_BLACKSTONE).lightLevel((state) -> 15),
+			true);
+
 	public static void RegisterModBlocks() {
 	}
 }

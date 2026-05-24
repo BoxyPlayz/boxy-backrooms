@@ -69,6 +69,8 @@ public class ModelProvider extends FabricModelProvider {
 				},
 						ModelTemplates.CUBE_COLUMN));
 		blockStateModelGenerator.createTrivialCube(ModBlocks.LEVEL2_PIPE);
+		blockStateModelGenerator.createTrivialCube(ModBlocks.LEVEL4_CARPET);
+		blockStateModelGenerator.createTrivialCube(ModBlocks.PURE_WHITE_GLOW);
 
 	}
 

@@ -1,9 +1,9 @@
 {
-  "parent": "boxys_backrooms:office",
+  "parent": "boxys_backrooms:the_backrooms",
   "criteria": {
-    "level6": {
+    "level_one_habitable": {
       "conditions": {
-        "to": "boxys_backrooms:level6"
+        "to": "boxys_backrooms:level1"
       },
       "trigger": "minecraft:changed_dimension"
     }
@@ -11,19 +11,19 @@
   "display": {
     "announce_to_chat": false,
     "description": {
-      "translate": "text.boxys_backrooms.darkness_desc"
+      "translate": "text.boxys_backrooms.habitable_desc"
     },
     "hidden": true,
     "icon": {
-      "id": "minecraft:black_concrete"
+      "id": "boxys_backrooms:gothic_concrete"
     },
     "title": {
-      "translate": "text.boxys_backrooms.darkness_title"
+      "translate": "text.boxys_backrooms.habitable_title"
     }
   },
   "requirements": [
     [
-      "level6"
+      "level_one_habitable"
     ]
   ],
   "sends_telemetry_event": true

@@ -60,6 +60,10 @@ public class ModDimensionTypes {
 			Registries.DIMENSION_TYPE,
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level2"));
 
+	public static final ResourceKey<DimensionType> LEVEL4_DIMENSION_TYPE = ResourceKey.create(
+			Registries.DIMENSION_TYPE,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level4"));
+
 	public static void RegisterModDimensionTypes() {
 	}
 }

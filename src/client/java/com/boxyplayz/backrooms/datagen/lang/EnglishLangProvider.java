@@ -122,6 +122,9 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModBlocks.LEVEL2_DOOR, "Level 2 Door");
 		translationBuilder.add(ModBlocks.LEVEL2_FIRE_EXIT, "Level 2 Fire Exit");
 
+		translationBuilder.add(ModBlocks.LEVEL4_CARPET, "Level 4 Carpet");
+		translationBuilder.add(ModBlocks.PURE_WHITE_GLOW, "Pure White Glow");
+
 		// Loot Blocks
 		translationBuilder.add(ModBlocks.LEVEL1_CRATE, "Crate");
 		translationBuilder.add(ModBlocks.FUN_CRATE, "Fun Crate =)");
@@ -153,6 +156,21 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 
 		translationBuilder.add(getText("fun_title"), "Level Fun");
 		translationBuilder.add(getText("fun_desc"), "=)");
+
+		translationBuilder.add(getText("habitable_title"), "Habitable Zone");
+		translationBuilder.add(getText("habitable_desc"), "Finally, food!");
+
+		translationBuilder.add(getText("pipe_title"), "Pipe Dreams");
+		translationBuilder.add(getText("pipe_desc"), "This is stinky.");
+
+		translationBuilder.add(getText("elec_title"), "Electrical Station");
+		translationBuilder.add(getText("elec_desc"), "I HAVE WIFI HERE!!!!");
+
+		translationBuilder.add(getText("garden_hab_title"), "The Garden");
+		translationBuilder.add(getText("garden_hab_desc"), "I have a bad feeling about this...");
+
+		translationBuilder.add(getText("office_title"), "The Abandoned Offices");
+		translationBuilder.add(getText("office_desc"), "Temporary Safe Place");
 
 		// Tags
 		translationBuilder.add(ModTags.NOCLIPPABLES, "Noclippable Blocks");
@@ -186,7 +204,7 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 				"Defense from attacks that do not belong");
 
 		// Damage Type
-		translationBuilder.add(getDeathMsg("anomaly_damage"), "ERRORRORRRROORORROORO");
+		translationBuilder.add(getDeathMsg("anomaly_damage"), "You died.");
 
 		// Elevators
 		translationBuilder.add(Misc.getElevatorLangId(Misc.ElevatorDestination.LEVEL1.name()), "One");

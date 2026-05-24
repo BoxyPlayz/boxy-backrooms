@@ -38,6 +38,12 @@ public class ModBiomes {
 	public static final ResourceKey<Biome> LEVEL3_BIOME = ResourceKey.create(
 			Registries.BIOME,
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level3"));
+	/**
+	 * Abandoned Offices
+	 */
+	public static final ResourceKey<Biome> LEVEL4_BIOME = ResourceKey.create(
+			Registries.BIOME,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level4"));
 
 	/**
 	 * Pitfalls
