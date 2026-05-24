@@ -28,6 +28,16 @@ public class ServerPlayNetworkingEvents {
 						targetY = 1;
 						break;
 
+					case LEVEL2:
+						target = livingEntity.level().getServer().getLevel(ModDimensions.LEVEL2_DIMENSION);
+						targetY = 1;
+						break;
+
+					case LEVEL3:
+						target = livingEntity.level().getServer().getLevel(ModDimensions.LEVEL2_DIMENSION);
+						targetY = 1;
+						break;
+
 					default:
 						return;
 				}

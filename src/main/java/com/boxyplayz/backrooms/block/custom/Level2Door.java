@@ -47,18 +47,18 @@ public class Level2Door extends Block {
 
 		int x = entity.blockPosition().getX();
 		int z = entity.blockPosition().getZ();
-		int y = 1;
+		int y = 0;
 
 		BlockPos center = new BlockPos(x, y, z);
 
-		byte searchSize = 32;
+		byte searchSize = 48;
 
 		searchLoop: for (byte dx = (byte) -searchSize; dx <= searchSize; dx++) {
 			for (byte dz = (byte) -searchSize; dz <= searchSize; dz++) {
 				BlockPos newPos = center.offset(dx, 0, dz);
 				if (target.getBlockState(newPos).isAir()) {
-					if (!target.getBlockState(newPos.below()).isAir()) {
-						if (target.getBlockState(newPos.above()).isAir()) {
+					if (target.getBlockState(newPos.above()).isAir()) {
+						if (!target.getBlockState(newPos.below()).isAir()) {
 							x = newPos.getX();
 							z = newPos.getZ();
 							break searchLoop;

@@ -48,6 +48,9 @@ public class Level2ChunkGen extends BaseChunkGen {
 		Range<Integer> horizontalRangeSmol = Range.of(7,
 				maxR - 1);
 		if (y > 4) {
+			if (randomFactory.at(x, y, z).nextBoolean()) {
+				return ModBlocks.LEVEL3_CEILING_LIGHT.defaultBlockState();
+			}
 			return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
 		}
 		if (y < 0) {
@@ -87,11 +90,6 @@ public class Level2ChunkGen extends BaseChunkGen {
 								&& !horizontalRangeSmol.contains(localX))) {
 					return ModBlocks.LEVEL2_PIPE.defaultBlockState();
 				}
-			}
-		}
-		if (y == 4) {
-			if (randomFactory.at(x, y, z).nextBoolean()) {
-				return ModBlocks.LEVEL3_CEILING_LIGHT.defaultBlockState();
 			}
 		}
 		if (y == 0) {

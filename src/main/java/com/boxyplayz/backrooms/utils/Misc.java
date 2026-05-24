@@ -4,7 +4,9 @@ import java.util.List;
 
 import com.boxyplayz.backrooms.world.dimension.ModDimensions;
 
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.util.Util;
 import net.minecraft.world.level.Level;
 
 /**
@@ -37,6 +39,12 @@ public class Misc {
 
 	public static enum ElevatorDestination {
 		EMPTY,
-		LEVEL1
+		LEVEL1,
+		LEVEL2,
+		LEVEL3
+	}
+
+	public static String getElevatorLangId(String id) {
+		return "elevator." + id;
 	}
 }

@@ -1,7 +1,9 @@
 package com.boxyplayz.backrooms.screen;
 
+import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.menu.ElevatorMenu;
 import com.boxyplayz.backrooms.networking.ElevatorPayload;
+import com.boxyplayz.backrooms.utils.Misc;
 import com.boxyplayz.backrooms.utils.Misc.ElevatorDestination;
 
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
@@ -17,7 +19,7 @@ import net.minecraft.world.entity.player.Inventory;
 public class ElevatorScreen extends AbstractContainerScreen<ElevatorMenu> {
 
 	private static final Identifier CONTAINER_TEXTURE = Identifier
-			.withDefaultNamespace("textures/gui/container/dispenser.png");
+			.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "textures/gui/elevator.png");
 
 	public ElevatorScreen(ElevatorMenu menu, Inventory inventory, Component title) {
 		super(menu, inventory, title);
@@ -33,11 +35,40 @@ public class ElevatorScreen extends AbstractContainerScreen<ElevatorMenu> {
 	@Override
 	protected void init() {
 		super.init();
-		addRenderableWidget(Button.builder(Component.literal("One"), (final Button button) -> {
-			ElevatorPayload payload = new ElevatorPayload(ElevatorDestination.LEVEL1.name(),
-					Minecraft.getInstance().player.getId());
-			ClientPlayNetworking.send(payload);
-		}).bounds(this.leftPos + 10, this.topPos + 20, 60, 20).build());
+		Button levelOneButton = Button
+				.builder(Component.translatable(Misc.getElevatorLangId(Misc.ElevatorDestination.LEVEL1.name())),
+						(final Button button) -> {
+							ElevatorPayload payload = new ElevatorPayload(ElevatorDestination.LEVEL1.name(),
+									Minecraft.getInstance().player.getId());
+							ClientPlayNetworking.send(payload);
+						})
+				.bounds(this.leftPos + 5, this.topPos + 20, 60, 20).build();
+		addRenderableWidget(levelOneButton);
+
+		Button levelTwoButton = Button
+				.builder(Component.translatable(Misc.getElevatorLangId(Misc.ElevatorDestination.LEVEL2.name())),
+						(final Button button) -> {
+							ElevatorPayload payload = new ElevatorPayload(ElevatorDestination.LEVEL2.name(),
+									Minecraft.getInstance().player.getId());
+							ClientPlayNetworking.send(payload);
+						})
+				.bounds(this.leftPos + 5, this.topPos + 60, 60, 20).build();
+		addRenderableWidget(levelTwoButton);
+
+		Button levelThreeButton = Button
+				.builder(Component.translatable(Misc.getElevatorLangId(Misc.ElevatorDestination.LEVEL3.name())),
+						(final Button button) -> {
+							ElevatorPayload payload = new ElevatorPayload(ElevatorDestination.LEVEL3.name(),
+									Minecraft.getInstance().player.getId());
+							ClientPlayNetworking.send(payload);
+						})
+				.bounds(this.leftPos + 5, this.topPos + 100, 60, 20).build();
+		addRenderableWidget(levelThreeButton);
+	}
+
+	@Override
+	protected void extractLabels(GuiGraphicsExtractor graphics, int xm, int ym) {
+		graphics.text(this.font, this.title, this.titleLabelX, this.titleLabelY, -12566464, false);
 	}
 
 }

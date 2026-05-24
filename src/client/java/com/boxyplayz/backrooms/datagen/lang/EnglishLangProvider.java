@@ -10,6 +10,7 @@ import com.boxyplayz.backrooms.enchantments.ModEnchantments;
 import com.boxyplayz.backrooms.entity.ModEntities;
 import com.boxyplayz.backrooms.item.ModItems;
 import com.boxyplayz.backrooms.tags.ModTags;
+import com.boxyplayz.backrooms.utils.Misc;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -18,6 +19,9 @@ import net.minecraft.util.Util;
 import net.minecraft.world.item.Item;
 
 public class EnglishLangProvider extends FabricLanguageProvider {
+
+	String ElevatorId = "elevator";
+
 	public String getText(String id) {
 		return "text." + BoxysBackrooms.MOD_ID + "." + id;
 	}
@@ -38,6 +42,7 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 
 	@Override
 	public void generateTranslations(HolderLookup.Provider holderLookup, TranslationBuilder translationBuilder) {
+
 		// Metadata
 		translationBuilder.add(ModCreativeTabs.BACKROOMS_ITEM_GROUP_KEY, "Boxy's Backrooms");
 
@@ -182,6 +187,11 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 
 		// Damage Type
 		translationBuilder.add(getDeathMsg("anomaly_damage"), "ERRORRORRRROORORROORO");
+
+		// Elevators
+		translationBuilder.add(Misc.getElevatorLangId(Misc.ElevatorDestination.LEVEL1.name()), "One");
+		translationBuilder.add(Misc.getElevatorLangId(Misc.ElevatorDestination.LEVEL2.name()), "Two");
+		translationBuilder.add(Misc.getElevatorLangId(Misc.ElevatorDestination.LEVEL3.name()), "Three");
 
 		// Other
 		translationBuilder.add(getText("level8bed"), "You may not rest here. THEY are nearby.");
