@@ -11,6 +11,7 @@ import com.boxyplayz.backrooms.world.biome.ModBiomes;
 
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.SpawnPlacements;
@@ -81,6 +82,11 @@ public class ModEntitySpawner {
 				BiomeSelectors.includeByKey(
 						ModBiomes.LEVEL3_BIOME),
 				MobCategory.CREATURE, ModEntities.BALLOON, 1, 1, 1);
+
+		BiomeModifications.addSpawn(
+				BiomeSelectors.includeByKey(
+						ModBiomes.Level1Biomes.GOTHIC_BIOME),
+				MobCategory.CREATURE, EntityType.SPIDER, 1, 1, 2);
 
 		BiomeModifications.addSpawn(
 				BiomeSelectors.includeByKey(
