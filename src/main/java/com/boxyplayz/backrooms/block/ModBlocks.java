@@ -19,6 +19,7 @@ import com.boxyplayz.backrooms.block.custom.PowerOutletBlock;
 import com.boxyplayz.backrooms.block.custom.PremiumCarpet;
 import com.boxyplayz.backrooms.block.custom.PromisedGate;
 import com.boxyplayz.backrooms.block.custom.TrampolineBlock;
+import com.boxyplayz.backrooms.block.custom.WaterFountainBlock;
 
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -350,6 +351,10 @@ public class ModBlocks {
 
 	public static final Block PURE_WHITE_GLOW = register("pure_white_glow", Block::new,
 			BlockBehaviour.Properties.of().strength(70f).sound(SoundType.GILDED_BLACKSTONE).lightLevel((state) -> 15),
+			true);
+
+	public static final Block WATER_FOUNTAIN = register("water_fountain", WaterFountainBlock::new,
+			BlockBehaviour.Properties.of().strength(9999f).sound(SoundType.METAL).noOcclusion(),
 			true);
 
 	public static void RegisterModBlocks() {

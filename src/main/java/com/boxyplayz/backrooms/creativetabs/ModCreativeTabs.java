@@ -79,6 +79,7 @@ public class ModCreativeTabs {
 			itemGroup.accept(ModItems.ROYAL_RATION);
 			itemGroup.accept(ModItems.FIRESALT_SHARD);
 			itemGroup.accept(ModItems.SHADOW_DUST);
+			itemGroup.accept(ModItems.EMPTY_ALMOND_WATER);
 			itemGroup.accept(ModItems.SMILER_REPELLANT);
 			itemGroup.accept(ModItems.FIRESTEEL_ALLOY);
 			itemGroup.accept(ModItems.LIQUID_PAIN);
@@ -91,6 +92,7 @@ public class ModCreativeTabs {
 			itemGroup.accept(ModItems.PARTYPOOPER_SPAWN_EGG);
 
 			itemGroup.accept(ModBlocks.BLENDER);
+			itemGroup.accept(ModBlocks.WATER_FOUNTAIN);
 
 			itemGroup.accept(ModBlocks.LEVEL2_PIPE);
 			itemGroup.accept(ModBlocks.LEVEL2_FIRE_EXIT);

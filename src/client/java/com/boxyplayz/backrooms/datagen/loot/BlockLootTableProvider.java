@@ -51,7 +51,8 @@ public class BlockLootTableProvider extends FabricBlockLootSubProvider {
 				.withPool(LootPool.lootPool().when(this.doesNotHaveSilkTouch())
 						.setRolls(UniformGenerator.between(3, 24))
 						.add(LootItem.lootTableItem(Items.WIND_CHARGE).setWeight(12))
-						.add(LootItem.lootTableItem(ModBlocks.BLACK_TRAMPOLINE).setWeight(3))));
+						.add(LootItem.lootTableItem(ModItems.LIQUID_PAIN).setWeight(3))
+						.add(LootItem.lootTableItem(ModItems.EMPTY_ALMOND_WATER).setWeight(36))));
 		dropSelf(ModBlocks.LEVEL1_WALL_GILD);
 		dropSelf(ModBlocks.LEVEL1_CEILING_LIGHT);
 		dropSelf(ModBlocks.GOTHIC_CONCRETE);

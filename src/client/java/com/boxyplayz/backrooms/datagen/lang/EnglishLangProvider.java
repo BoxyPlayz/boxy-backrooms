@@ -52,6 +52,7 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModItems.RED_ALMOND_WATER, "Almond Water");
 		translationBuilder.add(ModItems.ROYAL_RATION, "Royal Ration");
 		translationBuilder.add(ModItems.NEON_WATER, "Neon Water");
+		translationBuilder.add(ModItems.EMPTY_ALMOND_WATER, "Empty Water Bottle");
 
 		// Egg
 		translationBuilder.add(ModItems.SMILER_SPAWN_EGG, "Smiler Spawn Egg");
@@ -117,6 +118,7 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModBlocks.ELECTRICAL_BRICKS, "Electrical Bricks");
 
 		translationBuilder.add(ModBlocks.BLENDER, "Blender");
+		translationBuilder.add(ModBlocks.WATER_FOUNTAIN, "Water Fountain");
 
 		translationBuilder.add(ModBlocks.LEVEL2_PIPE, "Level 2 Pipe");
 		translationBuilder.add(ModBlocks.LEVEL2_DOOR, "Level 2 Door");

@@ -93,6 +93,7 @@ public class ModelProvider extends FabricModelProvider {
 		itemModelGenerator.generateFlatItem(ModItems.PARTYPOOPER_SPAWN_EGG, ModelTemplates.FLAT_HANDHELD_ITEM);
 		itemModelGenerator.generateFlatItem(ModBlocks.ELEVATOR.asItem(), ModelTemplates.FLAT_HANDHELD_ITEM);
 		itemModelGenerator.generateFlatItem(ModItems.LIQUID_PAIN, ModelTemplates.FLAT_HANDHELD_ITEM);
+		itemModelGenerator.generateFlatItem(ModItems.EMPTY_ALMOND_WATER, ModelTemplates.FLAT_HANDHELD_ITEM);
 		itemModelGenerator.itemModelOutput.accept(ModBlocks.PROMISED_GATE.asItem(),
 				ItemModelUtils
 						.plainModel(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "block/promised_gate")));
@@ -105,5 +106,8 @@ public class ModelProvider extends FabricModelProvider {
 		itemModelGenerator.itemModelOutput.accept(ModBlocks.LEVEL2_DOOR.asItem(),
 				ItemModelUtils
 						.plainModel(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "block/level2_door")));
+		itemModelGenerator.itemModelOutput.accept(ModBlocks.WATER_FOUNTAIN.asItem(),
+				ItemModelUtils
+						.plainModel(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "block/water_fountain")));
 	}
 }

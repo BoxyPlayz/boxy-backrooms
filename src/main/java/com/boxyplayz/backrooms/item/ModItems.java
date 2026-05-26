@@ -32,6 +32,8 @@ public class ModItems {
 		return Registry.register(BuiltInRegistries.ITEM, id, item);
 	}
 
+	public static final Item EMPTY_ALMOND_WATER = registerItem("empty_almond_water", Item::new, new Item.Properties());
+
 	public static final Item GRAY_ALMOND_WATER = registerItem("gray_almond_water",
 			Item::new,
 			new Item.Properties()
@@ -39,7 +41,8 @@ public class ModItems {
 							Consumables.defaultDrink()
 									.onConsume(new RemoveStatusEffectsConsumeEffect(MobEffects.NAUSEA))
 									.onConsume(new RemoveStatusEffectsConsumeEffect(ModEffects.WRETCHED_CYCLE))
-									.build()));
+									.build())
+					.usingConvertsTo(EMPTY_ALMOND_WATER));
 
 	public static final Item ROYAL_RATION = registerItem("royal_ration",
 			Item::new,
@@ -56,7 +59,8 @@ public class ModItems {
 									.onConsume(new ApplyStatusEffectsConsumeEffect(
 											new MobEffectInstance(MobEffects.NAUSEA, 11 * 20, 1)))
 									.onConsume(new RemoveStatusEffectsConsumeEffect(ModEffects.WRETCHED_CYCLE))
-									.build()));
+									.build())
+					.usingConvertsTo(EMPTY_ALMOND_WATER));
 
 	public static final Item RED_ALMOND_WATER = registerItem("red_almond_water",
 			Item::new,
@@ -72,7 +76,8 @@ public class ModItems {
 									.onConsume(new ApplyStatusEffectsConsumeEffect(
 											new MobEffectInstance(MobEffects.WEAKNESS, 30 * 20, 3)))
 									.onConsume(new RemoveStatusEffectsConsumeEffect(ModEffects.WRETCHED_CYCLE))
-									.build()));
+									.build())
+					.usingConvertsTo(EMPTY_ALMOND_WATER));
 
 	public static final FireSaltItem FIRESALT_SHARD = registerItem("firesalt_shard",
 			FireSaltItem::new, new Item.Properties());

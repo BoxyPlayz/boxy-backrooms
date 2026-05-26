@@ -58,8 +58,13 @@
         },
         {
           "type": "minecraft:item",
-          "name": "boxys_backrooms:black_trampoline",
+          "name": "boxys_backrooms:liquid_pain",
           "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "boxys_backrooms:empty_almond_water",
+          "weight": 36
         }
       ],
       "rolls": {

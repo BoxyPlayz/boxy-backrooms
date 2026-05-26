@@ -1,0 +1,19 @@
+{
+	"variants": {
+		"facing=north": {
+			"model": "boxys_backrooms:block/water_fountain"
+		},
+		"facing=south": {
+			"model": "boxys_backrooms:block/water_fountain",
+			"y": 180
+		},
+		"facing=east": {
+			"model": "boxys_backrooms:block/water_fountain",
+			"y": 90
+		},
+		"facing=west": {
+			"model": "boxys_backrooms:block/water_fountain",
+			"y": 270
+		}
+	}
+}
