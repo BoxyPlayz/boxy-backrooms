@@ -28,7 +28,7 @@ public class Level6ChunkGen extends BaseChunkGen {
 
 		// Floor
 		if (y <= 0) {
-			if (blockNoVerticalRandom.nextIntBetweenInclusive(1, 256) == 4 && y != getMinY()) {
+			if (blockNoVerticalRandom.nextIntBetweenInclusive(1, 4324) == 4 && y != getMinY()) {
 				return Blocks.WATER.defaultBlockState();
 			}
 			return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();

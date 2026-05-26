@@ -94,8 +94,6 @@ public abstract class BaseChunkGen extends ChunkGenerator {
 		PositionalRandomFactory worldSeed = randomState
 				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, this.getSeed()));
 
-		int minY = this.getMinY();
-
 		int chunkMinX = chunkAccess.getPos().getMinBlockX();
 		int chunkMinZ = chunkAccess.getPos().getMinBlockZ();
 
@@ -103,7 +101,7 @@ public abstract class BaseChunkGen extends ChunkGenerator {
 			for (int z = 0; z < 16; z++) {
 				int globalX = chunkMinX + x;
 				int globalZ = chunkMinZ + z;
-				for (int y = minY; y < minY + this.getGenDepth(); y++) {
+				for (int y = this.getMinY(); y < this.getMinY() + this.getGenDepth(); y++) {
 					BlockState block = getBlockAt(worldSeed, globalX, y, globalZ);
 					chunkAccess.setBlockState(
 							new BlockPos(x, y, z),

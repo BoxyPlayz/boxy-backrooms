@@ -28,6 +28,14 @@ public class Level7ChunkGen extends BaseChunkGen {
 		return this.noise;
 	}
 
+	private SimplexNoise getNoise(PositionalRandomFactory worldSeed, String seedExpand) {
+		if (this.noise == null) {
+			RandomSource random = worldSeed.fromHashOf("level0_seed" + seedExpand);
+			this.noise = new SimplexNoise(random);
+		}
+		return this.noise;
+	}
+
 	/**
 	 * Gets block from coordinates
 	 * 
@@ -38,18 +46,16 @@ public class Level7ChunkGen extends BaseChunkGen {
 	 * @return Blockstate
 	 */
 	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
-		int minY = getMinY();
-
 		RandomSource chunkId = randomFactory.fromSeed(x * 341873128712L + z * 132897987541L + y * 1328712L);
 
 		// Bedrock Floor
-		if (y == minY) {
+		if (y <= this.getMinY() + 2) {
 			return Blocks.BEDROCK.defaultBlockState();
 		}
 
 		// Main Deepslate Layer
-		if (y < 20) {
-			boolean isErrorSlate = (chunkId.nextIntBetweenInclusive(1, 80) == 1);
+		if (y < -54) {
+			boolean isErrorSlate = (chunkId.nextIntBetweenInclusive(1, 20000) == 1);
 			if (isErrorSlate) {
 				return ModBlocks.ERRORSLATE.defaultBlockState();
 			} else {
@@ -58,25 +64,26 @@ public class Level7ChunkGen extends BaseChunkGen {
 		}
 
 		// Water
-		if (y < this.getSeaLevel()) {
-			double noiseValue = getNoise(randomFactory).getValue(x * 0.002, z * 0.002) * 140;
-			if (noiseValue + 20 >= y) {
-				if (y > 110) {
-					return Blocks.SAND.defaultBlockState();
-				}
-				if (y > 100) {
-					return Blocks.GRAVEL.defaultBlockState();
-				}
-				if (y > 60) {
-					return Blocks.STONE.defaultBlockState();
-				}
-				boolean isErrorSlate = (chunkId.nextIntBetweenInclusive(1, 120) == 1);
-				if (isErrorSlate) {
-					return ModBlocks.ERRORSLATE.defaultBlockState();
-				} else {
-					return Blocks.DEEPSLATE.defaultBlockState();
-				}
+		double baseNoiseValue = (getNoise(randomFactory).getValue(x * 0.002, z * 0.002)
+				+ getNoise(randomFactory, "grug").getValue(x * 0.02, z * 0.02)
+				+ getNoise(randomFactory, "beans").getValue(x * -0.002, z * -0.002)) * 100;
+		double noiseValue = baseNoiseValue;
+		if (noiseValue >= y) {
+			if (y > this.getSeaLevel() + 4) {
+				return Blocks.MOSS_BLOCK.defaultBlockState();
 			}
+			if (y > 110) {
+				return Blocks.SAND.defaultBlockState();
+			}
+			if (y > 100) {
+				return Blocks.GRAVEL.defaultBlockState();
+			}
+			if (y > 60) {
+				return Blocks.STONE.defaultBlockState();
+			}
+			return Blocks.DEEPSLATE.defaultBlockState();
+		}
+		if (y < this.getSeaLevel()) {
 			return Blocks.WATER.defaultBlockState();
 		}
 

@@ -60,6 +60,7 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 
 		register(context, ModDimensionTypes.LEVEL7_OCEAN_DIMENSION_TYPE, new DimensionTypeBuilder()
 				.setHeight(304)
+				.setMinY(-64)
 				.setFixedTime(false)
 				.setAmbientLight(0.2f)
 				.setSkylight(true)
