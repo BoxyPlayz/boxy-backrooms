@@ -42,5 +42,4 @@ public class WaterFountainBlock extends Block {
 		}
 		return super.useItemOn(itemStack, state, level, pos, player, hand, hitResult);
 	}
-
 }

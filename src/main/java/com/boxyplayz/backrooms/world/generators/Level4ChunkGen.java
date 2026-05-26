@@ -1,6 +1,8 @@
 package com.boxyplayz.backrooms.world.generators;
 
 import com.boxyplayz.backrooms.block.ModBlocks;
+import com.boxyplayz.backrooms.block.custom.ElevatorBlock;
+import com.boxyplayz.backrooms.block.custom.WaterFountainBlock;
 import com.boxyplayz.backrooms.world.biome.ModBiomes;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -119,7 +121,23 @@ public class Level4ChunkGen extends BaseChunkGen {
 				}
 				return ModBlocks.LEVEL1_PILLAR_AQUILA.defaultBlockState();
 			}
+			if (y == 1) {
+				if (randomFactory.at(x, 23, z).nextInt(140) == 4) {
+					return ModBlocks.WATER_FOUNTAIN.defaultBlockState().setValue(WaterFountainBlock.FACING,
+							Direction.Plane.HORIZONTAL.getRandomDirection(chunkRandom));
+				}
+			}
 		}
+
+		if (randomFactory.at(x, 12, z).nextInt(40000) == 4) {
+			if (y == 1) {
+				return ModBlocks.ELEVATOR.defaultBlockState();
+			}
+			if (y == 2) {
+				return ModBlocks.ELEVATOR.defaultBlockState().setValue(ElevatorBlock.TOP, true);
+			}
+		}
+
 		return Blocks.AIR.defaultBlockState();
 	}
 

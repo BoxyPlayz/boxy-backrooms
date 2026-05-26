@@ -64,6 +64,16 @@ public class ElevatorScreen extends AbstractContainerScreen<ElevatorMenu> {
 						})
 				.bounds(this.leftPos + 5, this.topPos + 80, 60, 20).build();
 		addRenderableWidget(levelThreeButton);
+
+		Button levelFourButton = Button
+				.builder(Component.translatable(Misc.getElevatorLangId(Misc.ElevatorDestination.LEVEL4.name())),
+						(final Button button) -> {
+							ElevatorPayload payload = new ElevatorPayload(ElevatorDestination.LEVEL4.name(),
+									Minecraft.getInstance().player.getId());
+							ClientPlayNetworking.send(payload);
+						})
+				.bounds(this.leftPos + 5, this.topPos + 110, 60, 20).build();
+		addRenderableWidget(levelFourButton);
 	}
 
 	@Override

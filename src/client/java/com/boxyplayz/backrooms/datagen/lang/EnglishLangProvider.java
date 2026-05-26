@@ -153,6 +153,9 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(getText("negativezone_title"), "Subzero");
 		translationBuilder.add(getText("negativezone_desc"), "Find the negative levels.");
 
+		translationBuilder.add(getText("fountain_title"), "Replenished Water");
+		translationBuilder.add(getText("fountain_desc"), "Use a water fountain");
+
 		translationBuilder.add(getText("darkness_title"), "Pitch Black");
 		translationBuilder.add(getText("darkness_desc"), "You can find no light on level 6.");
 
@@ -212,6 +215,7 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(Misc.getElevatorLangId(Misc.ElevatorDestination.LEVEL1.name()), "One");
 		translationBuilder.add(Misc.getElevatorLangId(Misc.ElevatorDestination.LEVEL2.name()), "Two");
 		translationBuilder.add(Misc.getElevatorLangId(Misc.ElevatorDestination.LEVEL3.name()), "Three");
+		translationBuilder.add(Misc.getElevatorLangId(Misc.ElevatorDestination.LEVEL4.name()), "Four");
 
 		// Other
 		translationBuilder.add(getText("level8bed"), "You may not rest here. THEY are nearby.");

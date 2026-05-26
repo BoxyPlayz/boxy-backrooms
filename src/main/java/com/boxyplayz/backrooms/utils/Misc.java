@@ -21,6 +21,8 @@ public class Misc {
 		List<ResourceKey<Level>> wretchedLevels = List.of(
 				ModDimensions.LEVEL0_2_DIMENSION,
 				ModDimensions.LEVEL1_DIMENSION,
+				ModDimensions.LEVEL2_DIMENSION,
+				ModDimensions.LEVEL3_DIMENSION,
 				ModDimensions.LEVEL_NEGATIVE_0_2_DIMENSION,
 				ModDimensions.PITFALLS_DIMENSION,
 				ModDimensions.LEVEL7_DIMENSION,
@@ -39,7 +41,8 @@ public class Misc {
 		EMPTY,
 		LEVEL1,
 		LEVEL2,
-		LEVEL3
+		LEVEL3,
+		LEVEL4
 	}
 
 	public static String getElevatorLangId(String id) {
