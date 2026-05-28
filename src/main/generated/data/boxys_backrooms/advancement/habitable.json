@@ -1,7 +1,7 @@
 {
   "parent": "boxys_backrooms:the_backrooms",
   "criteria": {
-    "level_one_habitable": {
+    "habitable": {
       "conditions": {
         "to": "boxys_backrooms:level1"
       },
@@ -23,7 +23,7 @@
   },
   "requirements": [
     [
-      "level_one_habitable"
+      "habitable"
     ]
   ],
   "sends_telemetry_event": true

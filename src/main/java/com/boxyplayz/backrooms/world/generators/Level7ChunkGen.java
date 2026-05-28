@@ -66,19 +66,22 @@ public class Level7ChunkGen extends BaseChunkGen {
 		// Water
 		double baseNoiseValue = (getNoise(randomFactory).getValue(x * 0.002, z * 0.002)
 				+ getNoise(randomFactory, "grug").getValue(x * 0.02, z * 0.02)
-				+ getNoise(randomFactory, "beans").getValue(x * -0.002, z * -0.002)) * 100;
+				+ getNoise(randomFactory, "beans").getValue(x * -0.002, z * -0.002)) * 120;
 		double noiseValue = baseNoiseValue;
 		if (noiseValue >= y) {
-			if (y > this.getSeaLevel() + 4) {
+			if (y > this.getSeaLevel() + 4 + randomFactory.at(x, 3, z).nextIntBetweenInclusive(-1, 1)) {
 				return Blocks.MOSS_BLOCK.defaultBlockState();
 			}
-			if (y > 110) {
+			if (y > 160 + randomFactory.at(x, 3, z).nextIntBetweenInclusive(-2, 2)) {
+				return Blocks.ROOTED_DIRT.defaultBlockState();
+			}
+			if (y > 110 + randomFactory.at(x, 3, z).nextIntBetweenInclusive(-2, 2)) {
 				return Blocks.SAND.defaultBlockState();
 			}
-			if (y > 100) {
+			if (y > 100 + randomFactory.at(x, 3, z).nextIntBetweenInclusive(-2, 2)) {
 				return Blocks.GRAVEL.defaultBlockState();
 			}
-			if (y > 60) {
+			if (y > 60 + randomFactory.at(x, 3, z).nextIntBetweenInclusive(-2, 2)) {
 				return Blocks.STONE.defaultBlockState();
 			}
 			return Blocks.DEEPSLATE.defaultBlockState();

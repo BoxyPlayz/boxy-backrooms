@@ -1,7 +1,7 @@
 {
   "parent": "boxys_backrooms:elec_station",
   "criteria": {
-    "level_office": {
+    "office": {
       "conditions": {
         "to": "boxys_backrooms:level4"
       },
@@ -23,7 +23,7 @@
   },
   "requirements": [
     [
-      "level_office"
+      "office"
     ]
   ],
   "sends_telemetry_event": true

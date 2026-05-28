@@ -11,14 +11,14 @@
   "display": {
     "announce_to_chat": false,
     "description": {
-      "translate": "text.boxys_backrooms.94_desc"
+      "translate": "text.boxys_backrooms.level_94_desc"
     },
     "hidden": true,
     "icon": {
       "id": "minecraft:grass_block"
     },
     "title": {
-      "translate": "text.boxys_backrooms.94_title"
+      "translate": "text.boxys_backrooms.level_94_title"
     }
   },
   "requirements": [

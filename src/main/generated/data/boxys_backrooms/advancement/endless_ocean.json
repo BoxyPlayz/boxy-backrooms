@@ -1,7 +1,7 @@
 {
   "parent": "boxys_backrooms:darkness",
   "criteria": {
-    "level_7_ocean": {
+    "ocean": {
       "conditions": {
         "to": "boxys_backrooms:level7_ocean"
       },
@@ -23,7 +23,7 @@
   },
   "requirements": [
     [
-      "level_7_ocean"
+      "ocean"
     ]
   ],
   "sends_telemetry_event": true

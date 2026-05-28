@@ -1,6 +1,6 @@
 {
   "criteria": {
-    "level_zero_maze": {
+    "backrooms": {
       "conditions": {
         "to": "boxys_backrooms:level0_maze"
       },
@@ -23,7 +23,7 @@
   },
   "requirements": [
     [
-      "level_zero_maze"
+      "backrooms"
     ]
   ],
   "sends_telemetry_event": true

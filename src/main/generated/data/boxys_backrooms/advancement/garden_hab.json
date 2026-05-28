@@ -1,7 +1,7 @@
 {
-  "parent": "boxys_backrooms:the_habitable_zone",
+  "parent": "boxys_backrooms:habitable",
   "criteria": {
-    "garden_habit": {
+    "garden_hab": {
       "conditions": {
         "player": [
           {
@@ -33,7 +33,7 @@
   },
   "requirements": [
     [
-      "garden_habit"
+      "garden_hab"
     ]
   ],
   "sends_telemetry_event": true

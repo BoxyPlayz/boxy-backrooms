@@ -1,7 +1,7 @@
 {
   "parent": "boxys_backrooms:endless_ocean",
   "criteria": {
-    "level_eight_cavern": {
+    "oneway": {
       "conditions": {
         "to": "boxys_backrooms:level8_cavesystem"
       },
@@ -23,7 +23,7 @@
   },
   "requirements": [
     [
-      "level_eight_cavern"
+      "oneway"
     ]
   ],
   "sends_telemetry_event": true

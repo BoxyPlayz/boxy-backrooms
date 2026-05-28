@@ -1,7 +1,7 @@
 {
-  "parent": "boxys_backrooms:the_habitable_zone",
+  "parent": "boxys_backrooms:habitable",
   "criteria": {
-    "level_pipe_dream": {
+    "pipe_dream": {
       "conditions": {
         "to": "boxys_backrooms:level2"
       },
@@ -11,19 +11,19 @@
   "display": {
     "announce_to_chat": false,
     "description": {
-      "translate": "text.boxys_backrooms.pipe_desc"
+      "translate": "text.boxys_backrooms.pipe_dream_desc"
     },
     "hidden": true,
     "icon": {
       "id": "boxys_backrooms:level2_pipe"
     },
     "title": {
-      "translate": "text.boxys_backrooms.pipe_title"
+      "translate": "text.boxys_backrooms.pipe_dream_title"
     }
   },
   "requirements": [
     [
-      "level_pipe_dream"
+      "pipe_dream"
     ]
   ],
   "sends_telemetry_event": true

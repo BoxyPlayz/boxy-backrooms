@@ -141,8 +141,8 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(getText("ocean_title"), "Endless Ocean");
 		translationBuilder.add(getText("ocean_desc"), "There's really no end.");
 
-		translationBuilder.add(getText("94_title"), "Rolling Hills");
-		translationBuilder.add(getText("94_desc"), "Peaceful..?");
+		translationBuilder.add(getText("level_94_title"), "Rolling Hills");
+		translationBuilder.add(getText("level_94_desc"), "Peaceful..?");
 
 		translationBuilder.add(getText("wrongway_title"), "Wrong Direction");
 		translationBuilder.add(getText("wrongway_desc"), "Take the wrong way.");
@@ -165,8 +165,8 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(getText("habitable_title"), "Habitable Zone");
 		translationBuilder.add(getText("habitable_desc"), "Finally, food!");
 
-		translationBuilder.add(getText("pipe_title"), "Pipe Dreams");
-		translationBuilder.add(getText("pipe_desc"), "This is stinky.");
+		translationBuilder.add(getText("pipe_dream_title"), "Pipe Dreams");
+		translationBuilder.add(getText("pipe_dream_desc"), "This is stinky.");
 
 		translationBuilder.add(getText("elec_title"), "Electrical Station");
 		translationBuilder.add(getText("elec_desc"), "I HAVE WIFI HERE!!!!");

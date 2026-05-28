@@ -1,7 +1,7 @@
 {
   "parent": "boxys_backrooms:pipe_dreams",
   "criteria": {
-    "level_elec_station": {
+    "elec": {
       "conditions": {
         "to": "boxys_backrooms:level3"
       },
@@ -23,7 +23,7 @@
   },
   "requirements": [
     [
-      "level_elec_station"
+      "elec"
     ]
   ],
   "sends_telemetry_event": true

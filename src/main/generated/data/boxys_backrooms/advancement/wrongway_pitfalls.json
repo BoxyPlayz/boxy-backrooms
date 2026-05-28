@@ -1,7 +1,7 @@
 {
   "parent": "boxys_backrooms:the_backrooms",
   "criteria": {
-    "level_pitfalls": {
+    "wrongway": {
       "conditions": {
         "to": "boxys_backrooms:pitfalls"
       },
@@ -23,7 +23,7 @@
   },
   "requirements": [
     [
-      "level_pitfalls"
+      "wrongway"
     ]
   ],
   "sends_telemetry_event": true

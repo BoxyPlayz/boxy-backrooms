@@ -1,7 +1,7 @@
 {
   "parent": "boxys_backrooms:office",
   "criteria": {
-    "level6": {
+    "darkness": {
       "conditions": {
         "to": "boxys_backrooms:level6"
       },
@@ -23,7 +23,7 @@
   },
   "requirements": [
     [
-      "level6"
+      "darkness"
     ]
   ],
   "sends_telemetry_event": true
