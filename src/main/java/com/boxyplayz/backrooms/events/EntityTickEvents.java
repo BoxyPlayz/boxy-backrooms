@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.dataattachments.DataAttachments;
 import com.boxyplayz.backrooms.effect.ModEffects;
 import com.boxyplayz.backrooms.utils.Misc;
 import com.boxyplayz.backrooms.world.biome.ModBiomes;
@@ -100,7 +101,14 @@ public class EntityTickEvents {
 						if (target == null)
 							return;
 						player.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 20 * 20, 20));
-						player.teleportTo(target, player.position().x, 300, player.position().z, Set.of(),
+						BlockPos teleportPos = new BlockPos(0, 400, 0);
+						if (player.hasAttached(DataAttachments.PLAYER_BACKROOMS_ENTRY_POINT)) {
+							BlockPos attachPos = player.getAttached(DataAttachments.PLAYER_BACKROOMS_ENTRY_POINT);
+							teleportPos = new BlockPos(attachPos.getX(), 400, attachPos.getZ());
+
+							player.removeAttached(DataAttachments.PLAYER_BACKROOMS_ENTRY_POINT);
+						}
+						player.teleportTo(target, teleportPos.getX(), teleportPos.getY(), teleportPos.getZ(), Set.of(),
 								player.getYRot(), player.getXRot(), false);
 						RespawnConfig respawnConfig = new RespawnConfig(
 								RespawnData.DEFAULT,
