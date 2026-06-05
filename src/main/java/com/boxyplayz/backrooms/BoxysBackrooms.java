@@ -21,10 +21,10 @@ import com.boxyplayz.backrooms.networking.ModPayloads;
 import com.boxyplayz.backrooms.recipe.ModRecipes;
 import com.boxyplayz.backrooms.tags.ModTags;
 import com.boxyplayz.backrooms.toolMaterials.ModToolMaterials;
+import com.boxyplayz.backrooms.world.ModChunkGenerators;
 import com.boxyplayz.backrooms.world.biome.ModBiomes;
 import com.boxyplayz.backrooms.world.dimension.ModDimensionTypes;
 import com.boxyplayz.backrooms.world.dimension.ModDimensions;
-import com.boxyplayz.backrooms.world.generators.ModChunkGenerators;
 import com.boxyplayz.backrooms.world.spawning.ModEntitySpawner;
 
 public class BoxysBackrooms implements ModInitializer {

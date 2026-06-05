@@ -1,6 +1,22 @@
-package com.boxyplayz.backrooms.world.generators;
+package com.boxyplayz.backrooms.world;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.world.generators.BlueChannelChunkGen;
+import com.boxyplayz.backrooms.world.generators.Level0ChunkGen;
+import com.boxyplayz.backrooms.world.generators.Level0_2ChunkGen;
+import com.boxyplayz.backrooms.world.generators.Level1ChunkGen;
+import com.boxyplayz.backrooms.world.generators.Level2ChunkGen;
+import com.boxyplayz.backrooms.world.generators.Level3ChunkGen;
+import com.boxyplayz.backrooms.world.generators.Level4ChunkGen;
+import com.boxyplayz.backrooms.world.generators.Level5ChunkGen;
+import com.boxyplayz.backrooms.world.generators.Level6ChunkGen;
+import com.boxyplayz.backrooms.world.generators.Level7ChunkGen;
+import com.boxyplayz.backrooms.world.generators.Level94ChunkGen;
+import com.boxyplayz.backrooms.world.generators.LevelFunChunkGen;
+import com.boxyplayz.backrooms.world.generators.Level_Negative_0_2ChunkGen;
+import com.boxyplayz.backrooms.world.generators.PitfallsChunkGen;
+import com.boxyplayz.backrooms.world.generators.PromisedLandChunkGen;
+import com.boxyplayz.backrooms.world.generators.TheBrokenChunkGen;
 
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -53,6 +69,9 @@ public class ModChunkGenerators {
 		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
 				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level4"),
 				Level4ChunkGen.CODEC);
+		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
+				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level5"),
+				Level5ChunkGen.CODEC);
 
 	}
 }
