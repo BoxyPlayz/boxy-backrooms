@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "boxys_backrooms:block/level5_carpet_1"
+  }
+}

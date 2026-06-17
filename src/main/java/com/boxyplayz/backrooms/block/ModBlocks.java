@@ -12,6 +12,7 @@ import com.boxyplayz.backrooms.block.custom.Level0GlitchedCarpet;
 import com.boxyplayz.backrooms.block.custom.Level0Wallpaper;
 import com.boxyplayz.backrooms.block.custom.Level2Door;
 import com.boxyplayz.backrooms.block.custom.Level2FireExitBlock;
+import com.boxyplayz.backrooms.block.custom.Level5CarpetBlock;
 import com.boxyplayz.backrooms.block.custom.NoFallDamageBlock;
 import com.boxyplayz.backrooms.block.custom.OceanTransporter;
 import com.boxyplayz.backrooms.block.custom.PainOnBreakBlock;
@@ -355,6 +356,10 @@ public class ModBlocks {
 
 	public static final Block WATER_FOUNTAIN = register("water_fountain", WaterFountainBlock::new,
 			BlockBehaviour.Properties.of().strength(9999f).sound(SoundType.METAL).noOcclusion(),
+			true);
+
+	public static final Block LEVEL5_CARPET = register("level5_carpet", Level5CarpetBlock::new,
+			BlockBehaviour.Properties.of().strength(70f).sound(SoundType.WOOL),
 			true);
 
 	public static void RegisterModBlocks() {

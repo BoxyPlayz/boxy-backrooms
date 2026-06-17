@@ -1,0 +1,13 @@
+{
+	"variants": {
+		"carpet_type=0": {
+			"model": "boxys_backrooms:block/level5_carpet"
+		},
+		"carpet_type=1": {
+			"model": "boxys_backrooms:block/level5_carpet_1"
+		},
+		"carpet_type=2": {
+			"model": "boxys_backrooms:block/level5_carpet_2"
+		}
+	}
+}

@@ -109,5 +109,8 @@ public class ModelProvider extends FabricModelProvider {
 		itemModelGenerator.itemModelOutput.accept(ModBlocks.WATER_FOUNTAIN.asItem(),
 				ItemModelUtils
 						.plainModel(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "block/water_fountain")));
+		itemModelGenerator.itemModelOutput.accept(ModBlocks.LEVEL5_CARPET.asItem(),
+				ItemModelUtils
+						.plainModel(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "block/level5_carpet")));
 	}
 }
