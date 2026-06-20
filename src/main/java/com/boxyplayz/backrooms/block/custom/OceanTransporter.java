@@ -37,7 +37,7 @@ public class OceanTransporter extends Block {
 
 		int x = player.blockPosition().getX();
 		int z = player.blockPosition().getZ();
-		int y = 90;
+		int y = 300;
 
 		player.teleportTo(target, x + 0.5, y, z + 0.5, Set.of(), player.getYRot(), player.getXRot(), false);
 	}
