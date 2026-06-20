@@ -102,6 +102,7 @@ public class ModCreativeTabs {
 			itemGroup.accept(ModBlocks.LEVEL4_CARPET);
 
 			itemGroup.accept(ModBlocks.LEVEL5_CARPET);
+			itemGroup.accept(ModBlocks.LEVEL6_ENTRY);
 		});
 	}
 

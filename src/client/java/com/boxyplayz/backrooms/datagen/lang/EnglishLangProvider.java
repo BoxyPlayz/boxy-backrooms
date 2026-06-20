@@ -128,6 +128,7 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModBlocks.PURE_WHITE_GLOW, "Pure White Glow");
 
 		translationBuilder.add(ModBlocks.LEVEL5_CARPET, "Level 5 Carpet");
+		translationBuilder.add(ModBlocks.LEVEL6_ENTRY, "Level 6 Entry Point");
 
 		// Loot Blocks
 		translationBuilder.add(ModBlocks.LEVEL1_CRATE, "Crate");
