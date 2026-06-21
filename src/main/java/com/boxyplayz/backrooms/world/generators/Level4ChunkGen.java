@@ -129,7 +129,7 @@ public class Level4ChunkGen extends BaseChunkGen {
 			}
 		}
 
-		if (randomFactory.at(x, 12, z).nextInt(40000) == 4) {
+		if (randomFactory.at(x, 12, z).nextInt(4000) == 4) {
 			if (y == 1) {
 				return ModBlocks.ELEVATOR.defaultBlockState();
 			}
@@ -138,7 +138,7 @@ public class Level4ChunkGen extends BaseChunkGen {
 			}
 		}
 
-		if (randomFactory.at(x, 54, z).nextInt(300000) == 2) {
+		if (randomFactory.at(x, 54, z).nextInt(30000) == 2) {
 			if (y == 1)
 				return ModBlocks.LEVEL5_ENTRY_TABLE.defaultBlockState();
 		}
