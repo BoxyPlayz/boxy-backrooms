@@ -13,6 +13,7 @@ import com.boxyplayz.backrooms.block.custom.Level0Wallpaper;
 import com.boxyplayz.backrooms.block.custom.Level2Door;
 import com.boxyplayz.backrooms.block.custom.Level2FireExitBlock;
 import com.boxyplayz.backrooms.block.custom.Level5CarpetBlock;
+import com.boxyplayz.backrooms.block.custom.Level5EntryTable;
 import com.boxyplayz.backrooms.block.custom.Level6EntryBlock;
 import com.boxyplayz.backrooms.block.custom.NoFallDamageBlock;
 import com.boxyplayz.backrooms.block.custom.OceanTransporter;
@@ -364,6 +365,9 @@ public class ModBlocks {
 			true);
 
 	public static final Block LEVEL6_ENTRY = register("level6_entry", Level6EntryBlock::new,
+			BlockBehaviour.Properties.of().noOcclusion().isRedstoneConductor(Blocks::never), true);
+
+	public static final Block LEVEL5_ENTRY_TABLE = register("level5_entry_table", Level5EntryTable::new,
 			BlockBehaviour.Properties.of().noOcclusion().isRedstoneConductor(Blocks::never), true);
 
 	public static void RegisterModBlocks() {

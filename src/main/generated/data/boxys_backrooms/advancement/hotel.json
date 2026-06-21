@@ -1,9 +1,9 @@
 {
-  "parent": "boxys_backrooms:hotel",
+  "parent": "boxys_backrooms:office",
   "criteria": {
-    "darkness": {
+    "hotel": {
       "conditions": {
-        "to": "boxys_backrooms:level6"
+        "to": "boxys_backrooms:level5"
       },
       "trigger": "minecraft:changed_dimension"
     }
@@ -11,19 +11,19 @@
   "display": {
     "announce_to_chat": false,
     "description": {
-      "translate": "text.boxys_backrooms.darkness_desc"
+      "translate": "text.boxys_backrooms.hotel_desc"
     },
     "hidden": true,
     "icon": {
-      "id": "minecraft:black_concrete"
+      "id": "boxys_backrooms:level5_entry_table"
     },
     "title": {
-      "translate": "text.boxys_backrooms.darkness_title"
+      "translate": "text.boxys_backrooms.hotel_title"
     }
   },
   "requirements": [
     [
-      "darkness"
+      "hotel"
     ]
   ],
   "sends_telemetry_event": true

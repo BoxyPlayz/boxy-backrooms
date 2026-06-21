@@ -100,10 +100,10 @@ public class ModCreativeTabs {
 
 			itemGroup.accept(ModBlocks.ELEVATOR);
 			itemGroup.accept(ModBlocks.LEVEL4_CARPET);
+			itemGroup.accept(ModBlocks.LEVEL5_ENTRY_TABLE);
 
 			itemGroup.accept(ModBlocks.LEVEL5_CARPET);
 			itemGroup.accept(ModBlocks.LEVEL6_ENTRY);
 		});
 	}
-
 }

@@ -50,6 +50,11 @@ public class AdvancementProvider extends FabricAdvancementProvider {
 	@Override
 	public void generateAdvancement(HolderLookup.Provider wrapperLookup, Consumer<AdvancementHolder> consumer) {
 
+		AdvancementHolder no = generateAdvancement(Blocks.BLACK_CONCRETE, "no",
+				Identifier.withDefaultNamespace("block/black_concrete"),
+				ChangeDimensionTrigger.TriggerInstance.changedDimensionTo(ModDimensions.BROKEN_DIMENSION))
+				.save(consumer, BoxysBackrooms.MOD_ID + ":no");
+
 		AdvancementHolder theBackrooms = generateAdvancement(ModBlocks.LEVEL0_WALLPAPER, "backrooms",
 				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "block/level0_wallpaper"),
 				ChangeDimensionTrigger.TriggerInstance.changedDimensionTo(ModDimensions.LEVEL0_DIMENSION))
@@ -81,10 +86,15 @@ public class AdvancementProvider extends FabricAdvancementProvider {
 				.parent(elecStation)
 				.save(consumer, BoxysBackrooms.MOD_ID + ":office");
 
+		AdvancementHolder hotel = generateAdvancement(ModBlocks.LEVEL5_ENTRY_TABLE, "hotel", null,
+				ChangeDimensionTrigger.TriggerInstance.changedDimensionTo(ModDimensions.LEVEL5_DIMENSION))
+				.parent(offices)
+				.save(consumer, BoxysBackrooms.MOD_ID + ":hotel");
+
 		AdvancementHolder darkness = generateAdvancement(Blocks.BLACK_CONCRETE, "darkness", null,
 				ChangeDimensionTrigger.TriggerInstance
 						.changedDimensionTo(ModDimensions.LEVEL6_DIMENSION))
-				.parent(offices)
+				.parent(hotel)
 				.save(consumer, BoxysBackrooms.MOD_ID + ":darkness");
 
 		AdvancementHolder neverEndingOcean = generateAdvancement(Items.WATER_BUCKET, "ocean", null,

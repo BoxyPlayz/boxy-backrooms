@@ -126,6 +126,7 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 
 		translationBuilder.add(ModBlocks.LEVEL4_CARPET, "Level 4 Carpet");
 		translationBuilder.add(ModBlocks.PURE_WHITE_GLOW, "Pure White Glow");
+		translationBuilder.add(ModBlocks.LEVEL5_ENTRY_TABLE, "Level 5 Entry Table");
 
 		translationBuilder.add(ModBlocks.LEVEL5_CARPET, "Level 5 Carpet");
 		translationBuilder.add(ModBlocks.LEVEL6_ENTRY, "Level 6 Entry Point");
@@ -179,6 +180,12 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 
 		translationBuilder.add(getText("office_title"), "The Abandoned Offices");
 		translationBuilder.add(getText("office_desc"), "Temporary Safe Place");
+
+		translationBuilder.add(getText("hotel_title"), "The Hotel");
+		translationBuilder.add(getText("hotel_desc"), "Fancy!");
+
+		translationBuilder.add(getText("no_title"), "TURN BACK NOW");
+		translationBuilder.add(getText("no_desc"), "Read 'TO ENTER THE ROOMS:' on the modrinth page.");
 
 		// Tags
 		translationBuilder.add(ModTags.NOCLIPPABLES, "Noclippable Blocks");
