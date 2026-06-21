@@ -56,6 +56,7 @@
   "elevator.LEVEL2": "Two",
   "elevator.LEVEL3": "Three",
   "elevator.LEVEL4": "Four",
+  "elevator.SHADE_GRAY": "TH3 SH4DY GR4Y",
   "enchantment.boxys_backrooms.anomalous_protection": "Anomalous Protection",
   "enchantment.boxys_backrooms.anomalous_protection.desc": "Defense from attacks that do not belong",
   "entity.boxys_backrooms.balloon": "Party Balloon",

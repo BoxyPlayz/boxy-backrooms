@@ -1,6 +1,7 @@
 package com.boxyplayz.backrooms.screen;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.dataattachments.DataAttachments;
 import com.boxyplayz.backrooms.menu.ElevatorMenu;
 import com.boxyplayz.backrooms.networking.ElevatorPayload;
 import com.boxyplayz.backrooms.utils.Misc;
@@ -11,6 +12,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
@@ -36,7 +38,7 @@ public class ElevatorScreen extends AbstractContainerScreen<ElevatorMenu> {
 	protected void init() {
 		super.init();
 		Button levelOneButton = Button
-				.builder(Component.translatable(Misc.getElevatorLangId(Misc.ElevatorDestination.LEVEL1.name())),
+				.builder(Component.translatable(Misc.getElevatorLangId(ElevatorDestination.LEVEL1.name())),
 						(final Button button) -> {
 							ElevatorPayload payload = new ElevatorPayload(ElevatorDestination.LEVEL1.name(),
 									Minecraft.getInstance().player.getId());
@@ -46,7 +48,7 @@ public class ElevatorScreen extends AbstractContainerScreen<ElevatorMenu> {
 		addRenderableWidget(levelOneButton);
 
 		Button levelTwoButton = Button
-				.builder(Component.translatable(Misc.getElevatorLangId(Misc.ElevatorDestination.LEVEL2.name())),
+				.builder(Component.translatable(Misc.getElevatorLangId(ElevatorDestination.LEVEL2.name())),
 						(final Button button) -> {
 							ElevatorPayload payload = new ElevatorPayload(ElevatorDestination.LEVEL2.name(),
 									Minecraft.getInstance().player.getId());
@@ -56,7 +58,7 @@ public class ElevatorScreen extends AbstractContainerScreen<ElevatorMenu> {
 		addRenderableWidget(levelTwoButton);
 
 		Button levelThreeButton = Button
-				.builder(Component.translatable(Misc.getElevatorLangId(Misc.ElevatorDestination.LEVEL3.name())),
+				.builder(Component.translatable(Misc.getElevatorLangId(ElevatorDestination.LEVEL3.name())),
 						(final Button button) -> {
 							ElevatorPayload payload = new ElevatorPayload(ElevatorDestination.LEVEL3.name(),
 									Minecraft.getInstance().player.getId());
@@ -66,7 +68,7 @@ public class ElevatorScreen extends AbstractContainerScreen<ElevatorMenu> {
 		addRenderableWidget(levelThreeButton);
 
 		Button levelFourButton = Button
-				.builder(Component.translatable(Misc.getElevatorLangId(Misc.ElevatorDestination.LEVEL4.name())),
+				.builder(Component.translatable(Misc.getElevatorLangId(ElevatorDestination.LEVEL4.name())),
 						(final Button button) -> {
 							ElevatorPayload payload = new ElevatorPayload(ElevatorDestination.LEVEL4.name(),
 									Minecraft.getInstance().player.getId());
@@ -74,6 +76,27 @@ public class ElevatorScreen extends AbstractContainerScreen<ElevatorMenu> {
 						})
 				.bounds(this.leftPos + 5, this.topPos + 110, 60, 20).build();
 		addRenderableWidget(levelFourButton);
+
+		if (this.minecraft != null && this.minecraft.player != null) {
+			LocalPlayer player = this.minecraft.player;
+			if (player.hasAttached(DataAttachments.ACCESS_GRAY)) {
+				if (player.getAttached(DataAttachments.ACCESS_GRAY)) {
+					Button shadeGrayButton = Button
+							.builder(
+									Component.translatable(
+											Misc.getElevatorLangId(ElevatorDestination.SHADE_GRAY.name())),
+									(final Button button) -> {
+										ElevatorPayload payload = new ElevatorPayload(
+												ElevatorDestination.SHADE_GRAY.name(),
+												Minecraft.getInstance().player.getId());
+										ClientPlayNetworking.send(payload);
+									})
+							.bounds(this.leftPos + 5, this.topPos + 140, 90, 20).build();
+					addRenderableWidget(shadeGrayButton);
+				}
+			}
+		}
+
 	}
 
 	@Override

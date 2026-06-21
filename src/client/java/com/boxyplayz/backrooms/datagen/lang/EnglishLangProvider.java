@@ -226,6 +226,7 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(Misc.getElevatorLangId(Misc.ElevatorDestination.LEVEL2.name()), "Two");
 		translationBuilder.add(Misc.getElevatorLangId(Misc.ElevatorDestination.LEVEL3.name()), "Three");
 		translationBuilder.add(Misc.getElevatorLangId(Misc.ElevatorDestination.LEVEL4.name()), "Four");
+		translationBuilder.add(Misc.getElevatorLangId(Misc.ElevatorDestination.SHADE_GRAY.name()), "TH3 SH4DY GR4Y");
 
 		// Other
 		translationBuilder.add(getText("level8bed"), "You may not rest here. THEY are nearby.");

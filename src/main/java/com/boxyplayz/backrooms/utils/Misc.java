@@ -42,7 +42,8 @@ public class Misc {
 		LEVEL1,
 		LEVEL2,
 		LEVEL3,
-		LEVEL4
+		LEVEL4,
+		SHADE_GRAY
 	}
 
 	public static String getElevatorLangId(String id) {
