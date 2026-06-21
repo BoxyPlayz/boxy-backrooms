@@ -6,5 +6,6 @@ public class ModEvents {
 		UseEvents.RegisterUseEvents();
 		AllowDamageEvents.RegisterAllowDamageEvents();
 		ServerPlayNetworkingEvents.RegisterServerPlayNetworking();
+		AfterDamageEvents.RegisterAfterDamageEvents();
 	}
 }
