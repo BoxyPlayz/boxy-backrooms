@@ -174,5 +174,15 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 				.setCeiling(true)
 				.build());
 
+		register(context, ModDimensionTypes.LEVEL11_DIMENSION_TYPE, new DimensionTypeBuilder()
+				.setHeight(256)
+				.setMinY(-16)
+				.setSkybox(Skybox.OVERWORLD)
+				.setFixedTime(true)
+				.setAmbientLight(0.2f)
+				.setSkylight(true)
+				.setCeiling(false)
+				.build());
+
 	}
 }
