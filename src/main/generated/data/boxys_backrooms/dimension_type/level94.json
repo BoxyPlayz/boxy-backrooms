@@ -1,6 +1,7 @@
 {
   "ambient_light": 0.0,
   "coordinate_scale": 1.0,
+  "default_clock": "boxys_backrooms:level94",
   "has_ceiling": false,
   "has_ender_dragon_fight": false,
   "has_skylight": true,

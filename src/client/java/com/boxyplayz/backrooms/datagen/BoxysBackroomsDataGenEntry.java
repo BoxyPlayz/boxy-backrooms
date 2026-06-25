@@ -1,6 +1,7 @@
 package com.boxyplayz.backrooms.datagen;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.datagen.clocks.WorldClockProvider;
 import com.boxyplayz.backrooms.datagen.lang.EnglishLangProvider;
 import com.boxyplayz.backrooms.datagen.loot.BlockLootTableProvider;
 import com.boxyplayz.backrooms.datagen.loot.EntityLootTableProvider;

@@ -1,4 +1,4 @@
-package com.boxyplayz.backrooms.datagen;
+package com.boxyplayz.backrooms.datagen.clocks;
 
 import java.util.concurrent.CompletableFuture;
 

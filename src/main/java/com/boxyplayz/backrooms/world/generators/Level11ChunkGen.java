@@ -25,6 +25,9 @@ public class Level11ChunkGen extends BaseChunkGen {
 
 	@Override
 	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
+		if (y < 4) {
+			return Blocks.SMOOTH_STONE.defaultBlockState();
+		}
 		return Blocks.AIR.defaultBlockState();
 	}
 
