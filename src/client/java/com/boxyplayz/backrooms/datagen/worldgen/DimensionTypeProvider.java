@@ -4,6 +4,7 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
 import com.boxyplayz.backrooms.clock.ModWorldClocks;
+import com.boxyplayz.backrooms.datagen.DataUtils;
 import com.boxyplayz.backrooms.utils.DimensionTypeBuilder;
 import com.boxyplayz.backrooms.world.dimension.ModDimensionTypes;
 
@@ -26,6 +27,7 @@ import net.minecraft.world.level.dimension.DimensionType.Skybox;
 import net.minecraft.world.timeline.Timelines;
 
 public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
+
 	private static void register(BootstrapContext<DimensionType> context, ResourceKey<DimensionType> key,
 			DimensionType type) {
 		context.register(key, type);
@@ -84,8 +86,9 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 				.setAmbientLight(0)
 				.setSkylight(true)
 				.setCeiling(false)
-				.setClock(context.lookup(Registries.WORLD_CLOCK).get(ModWorldClocks.LEVEL_94_CLOCK)
-						.map(holder -> (Holder<WorldClock>) holder))
+				.setClock(
+						Optional.of(
+								DataUtils.getHolder(context, Registries.WORLD_CLOCK, ModWorldClocks.LEVEL_94_CLOCK)))
 				.build());
 
 		register(context, ModDimensionTypes.THE_BROKEN_DIMENSION_TYPE, new DimensionTypeBuilder()
@@ -203,8 +206,9 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 								.set(EnvironmentAttributes.BED_RULE,
 										new BedRule(BedRule.Rule.ALWAYS, BedRule.Rule.ALWAYS, false, Optional.empty()))
 								.build())
-				.setTimelines(HolderSet.direct(context.lookup(Registries.TIMELINE).getOrThrow(Timelines.MOON),
-						context.lookup(Registries.TIMELINE).getOrThrow(Timelines.OVERWORLD_DAY)))
+				.setTimelines(HolderSet.direct(
+						DataUtils.getHolder(context, Registries.TIMELINE, Timelines.MOON),
+						DataUtils.getHolder(context, Registries.TIMELINE, Timelines.OVERWORLD_DAY)))
 				.build());
 
 	}
