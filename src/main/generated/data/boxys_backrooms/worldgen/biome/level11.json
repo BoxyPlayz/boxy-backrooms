@@ -1,11 +1,11 @@
 {
   "carvers": [],
-  "downfall": 0.0,
+  "downfall": 1.0,
   "effects": {
     "water_color": "#0011ff"
   },
   "features": [],
-  "has_precipitation": false,
+  "has_precipitation": true,
   "spawn_costs": {},
   "spawners": {
     "ambient": [],
@@ -17,5 +17,5 @@
     "water_ambient": [],
     "water_creature": []
   },
-  "temperature": 1.0
+  "temperature": 0.5
 }

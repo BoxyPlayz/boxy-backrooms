@@ -6,6 +6,7 @@ import com.boxyplayz.backrooms.world.biome.ModBiomes;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
+import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.util.RandomSource;
@@ -13,6 +14,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.FixedBiomeSource;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.LadderBlock;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
@@ -24,6 +26,7 @@ public class Level11ChunkGen extends BaseChunkGen {
 	int thisChunkSize = 17;
 
 	Range<Integer> buildingBounds = Range.of(1, 15);
+	Range<Integer> lightRange = Range.of(2, 14);
 
 	public Level11ChunkGen(Holder.Reference<Biome> biome) {
 		super(new FixedBiomeSource(biome));
@@ -49,7 +52,13 @@ public class Level11ChunkGen extends BaseChunkGen {
 					return Blocks.SMOOTH_STONE.defaultBlockState();
 				}
 				if (y <= buildingHeightMul * floorHeight) {
-					if (isWalls(x, z)) {
+					if (chunkX == 15 && chunkZ == 14) {
+						return Blocks.IRON_BLOCK.defaultBlockState();
+					} else if (chunkX == 14 && chunkZ == 14) {
+						if (y == 6)
+							return Blocks.GRAY_CONCRETE.defaultBlockState();
+						return Blocks.LADDER.defaultBlockState().setValue(LadderBlock.FACING, Direction.WEST);
+					} else if (isWalls(x, z)) {
 						if (chunkX == chunkZ || (chunkX == 15 && chunkZ == 1) || (chunkX == 1 && chunkZ == 15)) {
 							return Blocks.IRON_BLOCK.defaultBlockState();
 						}
@@ -61,15 +70,19 @@ public class Level11ChunkGen extends BaseChunkGen {
 										DoubleBlockHalf.UPPER);
 							}
 						}
-						if (floorY == 0 || floorY == floorHeight - 1) {
-							return Blocks.STONE.defaultBlockState();
+						if (floorY == 0) {
+							return Blocks.GRAY_CONCRETE.defaultBlockState();
+						} else if (floorY == floorHeight - 1) {
+							return Blocks.GRAY_CONCRETE.defaultBlockState();
 						}
-						return Blocks.GLASS.defaultBlockState();
-					}
-					if (floorY == 0) {
-						return Blocks.SMOOTH_STONE.defaultBlockState();
+						return Blocks.LIGHT_BLUE_STAINED_GLASS.defaultBlockState();
+					} else if (floorY == 0) {
+						return Blocks.GRAY_CONCRETE.defaultBlockState();
 					} else if (floorY == floorHeight - 1) {
-						return Blocks.QUARTZ_BLOCK.defaultBlockState();
+						if (Math.floorMod(chunkZ, 4) == 0 && lightRange.contains(chunkX)) {
+							return Blocks.SEA_LANTERN.defaultBlockState();
+						}
+						return Blocks.LIGHT_GRAY_CONCRETE.defaultBlockState();
 					}
 				}
 			} else {

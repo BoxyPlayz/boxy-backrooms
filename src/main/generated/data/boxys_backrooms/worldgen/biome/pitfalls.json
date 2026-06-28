@@ -3,7 +3,7 @@
     "minecraft:visual/sky_color": "#f5c211"
   },
   "carvers": [],
-  "downfall": 1.0,
+  "downfall": 0.5,
   "effects": {
     "water_color": "#3f76e4"
   },
@@ -20,5 +20,5 @@
     "water_ambient": [],
     "water_creature": []
   },
-  "temperature": 0.6
+  "temperature": 0.5
 }
