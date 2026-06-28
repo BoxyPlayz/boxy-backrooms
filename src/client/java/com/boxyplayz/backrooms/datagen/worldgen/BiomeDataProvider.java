@@ -45,8 +45,8 @@ public class BiomeDataProvider extends FabricDynamicRegistryProvider {
 				.specialEffects(new BiomeSpecialEffects.Builder().waterColor(4159204).build())
 				.setAttribute(EnvironmentAttributes.SKY_COLOR, 16106001)
 				.hasPrecipitation(false)
-				.temperature(0.5f)
-				.downfall(0.5f)
+				.temperature(0.6f)
+				.downfall(1f)
 				.mobSpawnSettings(MobSpawnSettings.EMPTY)
 				.generationSettings(BiomeGenerationSettings.EMPTY)
 				.build());

@@ -21,7 +21,9 @@ import net.minecraft.world.level.levelgen.PositionalRandomFactory;
 
 public class Level11ChunkGen extends BaseChunkGen {
 
-	Range<Integer> buildingBounds = Range.of(0, 14);
+	int thisChunkSize = 17;
+
+	Range<Integer> buildingBounds = Range.of(1, 15);
 
 	public Level11ChunkGen(Holder.Reference<Biome> biome) {
 		super(new FixedBiomeSource(biome));
@@ -33,12 +35,13 @@ public class Level11ChunkGen extends BaseChunkGen {
 
 	@Override
 	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
-		int chunkX = Math.floorMod(x, 16);
-		int chunkZ = Math.floorMod(z, 16);
+		int chunkX = Math.floorMod(x, thisChunkSize);
+		int chunkZ = Math.floorMod(z, thisChunkSize);
 		if (inBuildingChunk(x, z)) {
 
 			if (withinBuilding(x, z)) {
-				RandomSource buildingRandom = randomFactory.at(Math.floorDiv(x, 16), 0, Math.floorDiv(z, 16));
+				RandomSource buildingRandom = randomFactory.at(Math.floorDiv(x, thisChunkSize), 0,
+						Math.floorDiv(z, thisChunkSize));
 				int buildingHeightMul = buildingRandom.nextIntBetweenInclusive(8, 36);
 				int floorHeight = 6;
 				int floorY = Math.floorMod(y, floorHeight);
@@ -47,7 +50,10 @@ public class Level11ChunkGen extends BaseChunkGen {
 				}
 				if (y <= buildingHeightMul * floorHeight) {
 					if (isWalls(x, z)) {
-						if (chunkX == 4 && chunkZ == 14) {
+						if (chunkX == chunkZ || (chunkX == 15 && chunkZ == 1) || (chunkX == 1 && chunkZ == 15)) {
+							return Blocks.IRON_BLOCK.defaultBlockState();
+						}
+						if (chunkX == 2 && chunkZ == 15) {
 							if (y == 7) {
 								return Blocks.OAK_DOOR.defaultBlockState();
 							} else if (y == 8) {
@@ -73,13 +79,13 @@ public class Level11ChunkGen extends BaseChunkGen {
 					else
 						return Blocks.DIRT.defaultBlockState();
 				}
-				if (chunkX == 4 && chunkZ == 15) {
-					if (y == 6)
+				if (y == 6)
+					if (chunkX == 2 && chunkZ == 16) {
 						return Blocks.STONE_STAIRS.defaultBlockState();
-				} else if (y == 6 || y == 7) {
-					return Blocks.CHERRY_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true);
-
-				}
+					} else if (!((chunkX == 1 || chunkX == 3) && chunkZ == 16)) {
+						return Blocks.FLOWERING_AZALEA_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT,
+								true);
+					}
 			}
 		} else {
 			if (y <= 5) {
@@ -92,17 +98,19 @@ public class Level11ChunkGen extends BaseChunkGen {
 	}
 
 	private boolean withinBuilding(int x, int z) {
-		return buildingBounds.contains(Math.floorMod(x, 16)) && buildingBounds.contains(Math.floorMod(z, 16));
+		return buildingBounds.contains(Math.floorMod(x, thisChunkSize))
+				&& buildingBounds.contains(Math.floorMod(z, thisChunkSize));
 	}
 
 	private boolean inBuildingChunk(int x, int z) {
-		return Math.floorMod(Math.floorDiv(x, 16), 2) == 0 && Math.floorMod(Math.floorDiv(z, 16), 2) == 0;
+		return Math.floorMod(Math.floorDiv(x, thisChunkSize), 2) == 1
+				&& Math.floorMod(Math.floorDiv(z, thisChunkSize), 2) == 1;
 
 	}
 
 	private boolean isWalls(int x, int z) {
-		int chunkX = Math.floorMod(x, 16);
-		int chunkZ = Math.floorMod(z, 16);
+		int chunkX = Math.floorMod(x, thisChunkSize);
+		int chunkZ = Math.floorMod(z, thisChunkSize);
 
 		return chunkX == buildingBounds.getMinimum() || chunkZ == buildingBounds.getMinimum()
 				|| chunkX == buildingBounds.getMaximum() || chunkZ == buildingBounds.getMaximum();

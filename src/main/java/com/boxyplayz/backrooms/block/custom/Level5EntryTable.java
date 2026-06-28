@@ -35,24 +35,8 @@ public class Level5EntryTable extends Block {
 		int z = player.blockPosition().getZ();
 		int y = 36;
 
-		BlockPos center = new BlockPos(x, y, z);
-
-		byte searchSize = 32;
-
-		searchLoop: for (byte dx = (byte) -searchSize; dx <= searchSize; dx++) {
-			for (byte dz = (byte) -searchSize; dz <= searchSize; dz++) {
-				BlockPos newPos = center.offset(dx, 0, dz);
-				if (target.getBlockState(newPos).isAir()) {
-					if (!target.getBlockState(pos.below()).isAir()) {
-						if (target.getBlockState(pos.above()).isAir()) {
-							x = newPos.getX();
-							z = newPos.getZ();
-							break searchLoop;
-						}
-					}
-				}
-			}
-		}
+		x = Math.floorDiv(x, 24) * 24 + 1;
+		z = Math.floorDiv(z, 48) * 48 + 1;
 
 		player.teleportTo(target, x + 0.5, y, z + 0.5, Set.of(), player.getYRot(), player.getXRot(), false);
 		return InteractionResult.SUCCESS;
