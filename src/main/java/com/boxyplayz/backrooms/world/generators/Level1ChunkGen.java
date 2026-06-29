@@ -48,7 +48,7 @@ public class Level1ChunkGen extends BaseChunkGen {
 	}
 
 	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
-		Holder<Biome> biome = this.getBiomeSource().getNoiseBiome(x, y, z, null);
+		Holder<Biome> biome = this.getBiomeSource().getNoiseBiome(x >> 2, y >> 2, z >> 2, null);
 		if (y > 7) {
 			return Blocks.BEDROCK.defaultBlockState();
 		}

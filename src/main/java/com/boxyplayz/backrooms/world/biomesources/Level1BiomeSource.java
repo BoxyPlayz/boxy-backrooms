@@ -77,8 +77,8 @@ public class Level1BiomeSource extends BiomeSource {
 	public Holder<Biome> getNoiseBiome(int x, int y, int z, Sampler sampler) {
 		PositionalRandomFactory randomFactory = new LegacyPositionalRandomFactory(1);
 
-		long chunkX = Math.floorDiv(x, 16);
-		long chunkZ = Math.floorDiv(z, 16);
+		long chunkX = Math.floorDiv(x, 4);
+		long chunkZ = Math.floorDiv(z, 4);
 
 		double noiseValue = getNoise(randomFactory).getValue(chunkX * 0.02,
 				chunkZ * 0.02);

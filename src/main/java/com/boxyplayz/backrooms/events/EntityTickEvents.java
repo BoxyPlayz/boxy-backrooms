@@ -118,29 +118,26 @@ public class EntityTickEvents {
 					}
 				}
 
-				if (player.level().dimension() == ModDimensions.LEVEL1_DIMENSION) {
-					if (player.level().getBiome(new BlockPos(
-							((int) Math.floor(player.position().x)),
-							((int) Math.floor(player.position().y)),
-							((int) Math.floor(player.position().z))))
-							.is(ModBiomes.Level1Biomes.GARDEN_BIOME)) {
-						if (!(player.hasEffect(ModEffects.GARDENERS_PAIN))) {
+				if (player.level().dimension() == ModDimensions.LEVEL1_DIMENSION
+						&& player.level().getBiome(player.blockPosition())
+								.is(ModBiomes.Level1Biomes.GARDEN_BIOME)) {
+					if (!(player.hasEffect(ModEffects.GARDENERS_PAIN))) {
+						player.addEffect(new MobEffectInstance(ModEffects.GARDENERS_PAIN, 15 * 20));
+					} else {
+						if (player.getEffect(ModEffects.GARDENERS_PAIN).getDuration() < 10 * 20) {
 							player.addEffect(new MobEffectInstance(ModEffects.GARDENERS_PAIN, 15 * 20));
-						} else {
-							if (player.getEffect(ModEffects.GARDENERS_PAIN).getDuration() < 10 * 20) {
-								player.addEffect(new MobEffectInstance(ModEffects.GARDENERS_PAIN, 15 * 20));
-							}
 						}
 					}
-				}
-
-				AttributeInstance attribute = player.getAttribute(Attributes.MAX_HEALTH);
-				Identifier gardenersPainId = Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID,
-						"gardeners_pain");
-				if (!(player.hasEffect(ModEffects.GARDENERS_PAIN))) {
-					if (attribute.hasModifier(gardenersPainId)) {
-						attribute.removeModifier(gardenersPainId);
+				} else {
+					AttributeInstance attribute = player.getAttribute(Attributes.MAX_HEALTH);
+					Identifier gardenersPainId = Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID,
+							"gardeners_pain");
+					if (!(player.hasEffect(ModEffects.GARDENERS_PAIN))) {
+						if (attribute.hasModifier(gardenersPainId)) {
+							attribute.removeModifier(gardenersPainId);
+						}
 					}
+
 				}
 
 			});

@@ -36,7 +36,7 @@ public class LevelFunChunkGen extends BaseChunkGen {
 	 * @return Blockstate
 	 */
 	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
-		Holder<Biome> biome = this.getBiomeSource().getNoiseBiome(x, y, z, null);
+		Holder<Biome> biome = this.getBiomeSource().getNoiseBiome(x >> 2, y >> 2, z >> 2, null);
 		long chunkX = Math.floorDiv(x, 16);
 		long chunkZ = Math.floorDiv(z, 16);
 

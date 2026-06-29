@@ -100,10 +100,8 @@ public class Level11ChunkGen extends BaseChunkGen {
 								true);
 					}
 			}
-		} else {
-			if (y <= 5) {
-				return Blocks.BLACKSTONE.defaultBlockState();
-			}
+		} else if (y <= 5) {
+			return Blocks.BLACKSTONE.defaultBlockState();
 		}
 
 		return Blocks.AIR.defaultBlockState();
