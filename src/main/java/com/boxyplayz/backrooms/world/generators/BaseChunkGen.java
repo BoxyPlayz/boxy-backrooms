@@ -53,7 +53,8 @@ public abstract class BaseChunkGen extends ChunkGenerator {
 	public void spawnOriginalMobs(WorldGenRegion worldGenRegion) {
 	}
 
-	public abstract BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z);
+	public abstract BlockState getBlockAt(final PositionalRandomFactory randomFactory, final int x, final int y,
+			final int z);
 
 	public abstract String getSeed();
 
@@ -62,7 +63,7 @@ public abstract class BaseChunkGen extends ChunkGenerator {
 		PositionalRandomFactory worldSeed = randomState
 				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, this.getSeed()));
 
-		int height = this.getGenDepth();
+		final int height = this.getGenDepth();
 		BlockState[] blocks = new BlockState[height];
 
 		for (int y = this.getMinY(); y < height + this.getMinY(); y++) {
