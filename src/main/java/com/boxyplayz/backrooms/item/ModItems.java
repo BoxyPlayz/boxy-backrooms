@@ -152,6 +152,10 @@ public class ModItems {
 			LiquidPainItem::new,
 			new LiquidPainItem.Properties().useCooldown(0.6f));
 
+	public static final Item GRAY_KEY = registerItem("gray_key",
+			Item::new,
+			new Item.Properties());
+
 	public static void registerModItems() {
 		BoxysBackrooms.LOGGER.debug("Registering items for " + BoxysBackrooms.MOD_ID);
 	}

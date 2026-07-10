@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "boxys_backrooms:item/gray_key"
+  }
+}

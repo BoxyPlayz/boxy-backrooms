@@ -104,6 +104,8 @@ public class ModCreativeTabs {
 
 			itemGroup.accept(ModBlocks.LEVEL5_CARPET);
 			itemGroup.accept(ModBlocks.LEVEL6_ENTRY);
+
+			itemGroup.accept(ModItems.GRAY_KEY);
 		});
 	}
 }

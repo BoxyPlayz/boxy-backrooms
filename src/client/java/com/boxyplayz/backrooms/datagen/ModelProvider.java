@@ -94,6 +94,7 @@ public class ModelProvider extends FabricModelProvider {
 		itemModelGenerator.generateFlatItem(ModItems.PARTYPOOPER_SPAWN_EGG, ModelTemplates.FLAT_HANDHELD_ITEM);
 		itemModelGenerator.generateFlatItem(ModBlocks.ELEVATOR.asItem(), ModelTemplates.FLAT_HANDHELD_ITEM);
 		itemModelGenerator.generateFlatItem(ModItems.LIQUID_PAIN, ModelTemplates.FLAT_HANDHELD_ITEM);
+		itemModelGenerator.generateFlatItem(ModItems.GRAY_KEY.asItem(), ModelTemplates.FLAT_HANDHELD_ITEM);
 		itemModelGenerator.generateFlatItem(ModItems.EMPTY_ALMOND_WATER, ModelTemplates.FLAT_HANDHELD_ITEM);
 		itemModelGenerator.itemModelOutput.accept(ModBlocks.PROMISED_GATE.asItem(),
 				ItemModelUtils
