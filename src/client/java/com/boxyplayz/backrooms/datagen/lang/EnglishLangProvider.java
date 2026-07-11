@@ -200,6 +200,7 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(getTooltip(ModItems.RED_ALMOND_WATER), "Tastes bitter.");
 		translationBuilder.add(getTooltip(ModItems.FIRESTEEL_SWORD), "Fire, Magic, and Steel.");
 		translationBuilder.add(getTooltip(ModItems.FIRESTEEL_ALLOY), "Fire and Steel.");
+		translationBuilder.add(getTooltip(ModItems.GRAY_KEY), "Useless, for now.");
 
 		// Entities
 		translationBuilder.add(ModEntities.SMILER, "Smiler");

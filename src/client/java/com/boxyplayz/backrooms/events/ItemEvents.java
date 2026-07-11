@@ -31,6 +31,9 @@ public class ItemEvents {
 			if (itemStack.is(ModItems.FIRESTEEL_ALLOY)) {
 				list.add(Component.translatable(getTooltip(itemStack.getItem())));
 			}
+			if (itemStack.is(ModItems.GRAY_KEY)) {
+				list.add(Component.translatable(getTooltip(itemStack.getItem())));
+			}
 		});
 	}
 }
