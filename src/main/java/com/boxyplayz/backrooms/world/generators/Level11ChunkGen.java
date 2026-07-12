@@ -25,6 +25,7 @@ import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.LadderBlock;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.SnowyBlock;
+import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -223,7 +224,8 @@ public class Level11ChunkGen extends BaseChunkGen {
 					if (blockRandom.nextBoolean()) {
 						return Optional.ofNullable(switch (blockRandom.nextIntBetweenInclusive(1, 4)) {
 							case 1 -> Blocks.OAK_PLANKS.defaultBlockState();
-							case 2 -> Blocks.OAK_STAIRS.defaultBlockState();
+							case 2 -> Blocks.OAK_STAIRS.defaultBlockState().setValue(StairBlock.FACING,
+									Direction.Plane.HORIZONTAL.getRandomDirection(blockRandom));
 							case 3 -> Blocks.OAK_LOG.defaultBlockState();
 							default -> Blocks.OAK_SLAB.defaultBlockState();
 						});
@@ -232,7 +234,8 @@ public class Level11ChunkGen extends BaseChunkGen {
 					if (blockRandom.nextInt(7) == 3) {
 						return Optional.ofNullable(switch (blockRandom.nextIntBetweenInclusive(1, 4)) {
 							case 1 -> Blocks.SPRUCE_PLANKS.defaultBlockState();
-							case 2 -> Blocks.SPRUCE_STAIRS.defaultBlockState();
+							case 2 -> Blocks.SPRUCE_STAIRS.defaultBlockState().setValue(StairBlock.FACING,
+									Direction.Plane.HORIZONTAL.getRandomDirection(blockRandom));
 							case 3 -> Blocks.SPRUCE_LOG.defaultBlockState();
 							default -> Blocks.SPRUCE_SLAB.defaultBlockState();
 						});
