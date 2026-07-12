@@ -25,7 +25,6 @@ import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.LadderBlock;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.SnowyBlock;
-import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -193,11 +192,74 @@ public class Level11ChunkGen extends BaseChunkGen {
 		int floorId = Math.floorDiv(y, floorHeight);
 		RandomSource floorRandom = randomFactory.at(chunkX, floorId, chunkZ);
 		RandomSource blockRandom = randomFactory.at(x, y, z);
+		int roomType = floorRandom.nextIntBetweenInclusive(1, 5);
 
-		boolean wallN = floorRandom.nextInt(5) == 3;
-		boolean wallE = floorRandom.nextInt(5) == 3;
-		boolean wallS = floorRandom.nextInt(5) == 3;
-		boolean wallW = floorRandom.nextInt(5) == 3;
+		boolean wallN = false;
+		boolean wallE = false;
+		boolean wallS = false;
+		boolean wallW = false;
+
+		switch (roomType) {
+			case 1:
+				if (Math.floorMod(localX, 3) == 1) {
+					if (floorY == 1) {
+						int zed = Math.floorMod(localZ, 5);
+						if (zed == 2) {
+							return Optional.of(Blocks.RED_WOOL.defaultBlockState());
+
+						} else if (zed == 3) {
+							return Optional.of(Blocks.RED_WOOL.defaultBlockState());
+						}
+					} else if (floorY == 2) {
+						if (Math.floorMod(localZ, 5) == 2) {
+							return Optional.of(Blocks.WHITE_CARPET.defaultBlockState());
+						}
+					}
+				}
+				break;
+
+			case 2:
+				if (floorY == 1) {
+					if (blockRandom.nextBoolean()) {
+						return Optional.ofNullable(switch (blockRandom.nextIntBetweenInclusive(1, 4)) {
+							case 1 -> Blocks.OAK_PLANKS.defaultBlockState();
+							case 2 -> Blocks.OAK_STAIRS.defaultBlockState();
+							case 3 -> Blocks.OAK_LOG.defaultBlockState();
+							default -> Blocks.OAK_SLAB.defaultBlockState();
+						});
+					}
+				} else if (floorY == 2) {
+					if (blockRandom.nextInt(7) == 3) {
+						return Optional.ofNullable(switch (blockRandom.nextIntBetweenInclusive(1, 4)) {
+							case 1 -> Blocks.SPRUCE_PLANKS.defaultBlockState();
+							case 2 -> Blocks.SPRUCE_STAIRS.defaultBlockState();
+							case 3 -> Blocks.SPRUCE_LOG.defaultBlockState();
+							default -> Blocks.SPRUCE_SLAB.defaultBlockState();
+						});
+					}
+				} else if (floorY == 3) {
+					if (blockRandom.nextInt(20) == 6) {
+						return Optional.ofNullable(switch (blockRandom.nextIntBetweenInclusive(1, 6)) {
+							case 1 -> Blocks.SPRUCE_SAPLING.defaultBlockState();
+							case 2 -> Blocks.JUNGLE_SAPLING.defaultBlockState();
+							case 3 -> Blocks.DARK_OAK_SAPLING.defaultBlockState();
+							case 4 -> Blocks.BIRCH_SAPLING.defaultBlockState();
+							case 5 -> Blocks.ACACIA_SAPLING.defaultBlockState();
+							default -> Blocks.OAK_SAPLING.defaultBlockState();
+						});
+					}
+				}
+				break;
+
+			case 3:
+				wallN = floorRandom.nextInt(7) == 3;
+				wallS = floorRandom.nextInt(7) == 3;
+				wallE = floorRandom.nextInt(7) == 3;
+				wallW = floorRandom.nextInt(7) == 3;
+
+			default:
+				break;
+		}
 
 		if (wallN) {
 			if (localX == 9 && localZ >= 9) {
@@ -221,11 +283,6 @@ public class Level11ChunkGen extends BaseChunkGen {
 			if (localZ == 9 && localX <= 9) {
 				return Optional.of(Blocks.LIGHT_GRAY_CONCRETE.defaultBlockState());
 			}
-		}
-
-		if (floorY == 1 && blockRandom.nextInt(5) == 3) {
-			return Optional.of(Blocks.ACACIA_STAIRS.defaultBlockState().setValue(StairBlock.FACING,
-					Direction.Plane.HORIZONTAL.getRandomDirection(blockRandom)));
 		}
 
 		return Optional.empty();

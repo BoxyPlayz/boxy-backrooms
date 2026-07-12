@@ -154,7 +154,7 @@ public class ModItems {
 
 	public static final Item GRAY_KEY = registerItem("gray_key",
 			Item::new,
-			new Item.Properties());
+			new Item.Properties().stacksTo(1));
 
 	public static void registerModItems() {
 		BoxysBackrooms.LOGGER.debug("Registering items for " + BoxysBackrooms.MOD_ID);
