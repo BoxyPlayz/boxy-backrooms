@@ -232,5 +232,6 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 
 		// Other
 		translationBuilder.add(getText("level8bed"), "You may not rest here. THEY are nearby.");
+		translationBuilder.add("generator.boxys_backrooms.city", "City Life");
 	}
 }

@@ -122,7 +122,7 @@ public class Level11ChunkGen extends BaseChunkGen {
 					} else if (Math.floorMod(localChunkX, 4) != 2 && Math.floorMod(localChunkZ, 4) != 2
 							&& gardenedRooftop) {
 						return Blocks.GRASS_BLOCK.defaultBlockState().setValue(SnowyBlock.SNOWY, true);
-					} else if (blockRandom.nextInt(100) == 3 && gardenedRooftop) {
+					} else if (blockRandom.nextInt(20) == 3 && gardenedRooftop) {
 						return Blocks.CHEST.defaultBlockState();
 					}
 
@@ -259,6 +259,40 @@ public class Level11ChunkGen extends BaseChunkGen {
 				wallS = floorRandom.nextInt(7) == 3;
 				wallE = floorRandom.nextInt(7) == 3;
 				wallW = floorRandom.nextInt(7) == 3;
+				break;
+
+			case 4:
+				if (floorY == 1) {
+					if (blockRandom.nextBoolean()) {
+						return Optional.ofNullable(switch (blockRandom.nextIntBetweenInclusive(1, 4)) {
+							case 1 -> Blocks.DEEPSLATE.defaultBlockState();
+							case 2 -> Blocks.GRANITE.defaultBlockState();
+							case 3 -> Blocks.TUFF.defaultBlockState();
+							default -> Blocks.TERRACOTTA.defaultBlockState();
+						});
+					}
+				} else if (floorY == 2) {
+					if (blockRandom.nextInt(7) == 3) {
+						return Optional.ofNullable(switch (blockRandom.nextIntBetweenInclusive(1, 4)) {
+							case 1 -> Blocks.GRAVEL.defaultBlockState();
+							case 2 -> Blocks.STONE.defaultBlockState();
+							case 3 -> Blocks.ANDESITE.defaultBlockState();
+							default -> Blocks.DIORITE.defaultBlockState();
+						});
+					}
+				} else if (floorY == 3) {
+					if (blockRandom.nextInt(20) == 6) {
+						return Optional.ofNullable(switch (blockRandom.nextIntBetweenInclusive(1, 6)) {
+							case 1 -> Blocks.DIRT.defaultBlockState();
+							case 2 -> Blocks.DEEPSLATE_COAL_ORE.defaultBlockState();
+							case 3 -> Blocks.WAXED_COPPER_BLOCK.defaultBlockState();
+							case 4 -> Blocks.OBSIDIAN.defaultBlockState();
+							case 5 -> Blocks.REDSTONE_ORE.defaultBlockState();
+							default -> Blocks.SAND.defaultBlockState();
+						});
+					}
+				}
+				break;
 
 			default:
 				break;

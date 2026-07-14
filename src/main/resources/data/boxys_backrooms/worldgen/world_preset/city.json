@@ -1,0 +1,24 @@
+{
+	"dimensions": {
+		"minecraft:overworld": {
+			"type": "boxys_backrooms:level11",
+			"generator": {
+				"type": "boxys_backrooms:level11",
+				"biome_source": {
+					"type": "minecraft:fixed",
+					"biome": "boxys_backrooms:level11"
+				}
+			}
+		},
+		"minecraft:the_nether": {
+			"type": "boxys_backrooms:level3",
+			"generator": {
+				"type": "boxys_backrooms:level3",
+				"biome_source": {
+					"type": "minecraft:fixed",
+					"biome": "minecraft:the_void"
+				}
+			}
+		}
+	}
+}
