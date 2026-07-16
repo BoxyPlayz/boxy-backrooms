@@ -264,7 +264,7 @@ public class Level11ChunkGen extends BaseChunkGen {
 			case 4:
 				if (floorY == 1) {
 					if (blockRandom.nextBoolean()) {
-						return Optional.ofNullable(switch (blockRandom.nextIntBetweenInclusive(1, 4)) {
+						return Optional.of(switch (blockRandom.nextIntBetweenInclusive(1, 4)) {
 							case 1 -> Blocks.DEEPSLATE.defaultBlockState();
 							case 2 -> Blocks.GRANITE.defaultBlockState();
 							case 3 -> Blocks.TUFF.defaultBlockState();
@@ -273,7 +273,7 @@ public class Level11ChunkGen extends BaseChunkGen {
 					}
 				} else if (floorY == 2) {
 					if (blockRandom.nextInt(7) == 3) {
-						return Optional.ofNullable(switch (blockRandom.nextIntBetweenInclusive(1, 4)) {
+						return Optional.of(switch (blockRandom.nextIntBetweenInclusive(1, 4)) {
 							case 1 -> Blocks.GRAVEL.defaultBlockState();
 							case 2 -> Blocks.STONE.defaultBlockState();
 							case 3 -> Blocks.ANDESITE.defaultBlockState();
@@ -282,7 +282,7 @@ public class Level11ChunkGen extends BaseChunkGen {
 					}
 				} else if (floorY == 3) {
 					if (blockRandom.nextInt(20) == 6) {
-						return Optional.ofNullable(switch (blockRandom.nextIntBetweenInclusive(1, 6)) {
+						return Optional.of(switch (blockRandom.nextIntBetweenInclusive(1, 6)) {
 							case 1 -> Blocks.DIRT.defaultBlockState();
 							case 2 -> Blocks.DEEPSLATE_COAL_ORE.defaultBlockState();
 							case 3 -> Blocks.WAXED_COPPER_BLOCK.defaultBlockState();

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:jigsaw",
+  "biomes": "boxys_backrooms:level11",
+  "max_distance_from_center": 80,
+  "size": 1,
+  "spawn_overrides": {},
+  "start_height": {
+    "absolute": 5
+  },
+  "start_pool": "boxys_backrooms:level7_access",
+  "step": "surface_structures",
+  "terrain_adaptation": "beard_thin",
+  "use_expansion_hack": false
+}
