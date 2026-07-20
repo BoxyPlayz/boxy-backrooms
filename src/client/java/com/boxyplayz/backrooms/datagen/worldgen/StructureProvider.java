@@ -60,10 +60,8 @@ public class StructureProvider extends FabricDynamicRegistryProvider {
 						.build(),
 				context.lookup(Registries.TEMPLATE_POOL).getOrThrow(ModStructures.LEVEL7_ACCESS_TEMPLATE_POOL),
 				1,
-				ConstantHeight.of(VerticalAnchor.absolute(6)),
-				false
-
-		));
+				ConstantHeight.of(VerticalAnchor.absolute(7)),
+				false));
 
 	}
 

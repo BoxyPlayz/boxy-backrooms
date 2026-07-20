@@ -153,6 +153,27 @@ public class Level11ChunkGen extends BaseChunkGen {
 				}
 			}
 		} else if (y <= 5) {
+			if (Math.floorMod(Math.floorDiv(x, thisChunkSize), 2) == 1) {
+				if (Math.floorMod(Math.floorDiv(x, 4), 2) == 1) {
+					if (Math.floorMod(z, thisChunkSize) == 8) {
+						return Blocks.YELLOW_CONCRETE.defaultBlockState();
+					}
+				}
+			} else if (Math.floorMod(Math.floorDiv(z, thisChunkSize), 2) == 1) {
+				if (Math.floorMod(Math.floorDiv(z, 4), 2) == 1) {
+					if (Math.floorMod(x, thisChunkSize) == 8) {
+						return Blocks.YELLOW_CONCRETE.defaultBlockState();
+					}
+				}
+			} else {
+				Range<Integer> intRoad = Range.of(6, 10);
+				if ((Math.floorMod(x, thisChunkSize) == 8
+						&& (Math.floorMod(Math.floorDiv(z, 2), 2) == 1 || intRoad.contains(localChunkZ)))
+						|| (Math.floorMod(z, thisChunkSize) == 8
+								&& (Math.floorMod(Math.floorDiv(x, 2), 2) == 1 || intRoad.contains(localChunkX)))) {
+					return Blocks.YELLOW_CONCRETE.defaultBlockState();
+				}
+			}
 			return Blocks.BLACKSTONE.defaultBlockState();
 		}
 

@@ -5,7 +5,7 @@
   "size": 1,
   "spawn_overrides": {},
   "start_height": {
-    "absolute": 5
+    "absolute": 7
   },
   "start_pool": "boxys_backrooms:level7_access",
   "step": "surface_structures",
