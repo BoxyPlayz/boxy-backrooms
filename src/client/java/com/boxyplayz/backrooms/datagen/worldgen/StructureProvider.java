@@ -102,7 +102,7 @@ public class StructureProvider extends FabricDynamicRegistryProvider {
 
 		context.register(ModStructures.LEVEL9_HOUSE_STRUCTURE_SET, new StructureSet(
 				context.lookup(Registries.STRUCTURE).getOrThrow(ModStructures.LEVEL9_HOUSE_0_STRUCTURE),
-				new RandomSpreadStructurePlacement(3, 1, RandomSpreadType.LINEAR, 3)));
+				new RandomSpreadStructurePlacement(3, 1, RandomSpreadType.TRIANGULAR, 3)));
 	}
 
 }
