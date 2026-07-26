@@ -35,7 +35,7 @@ public class Level9ChunkGen extends BaseChunkGen {
 
 	@Override
 	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
-		int noiseVal = (int) Math.floor((getNoise(randomFactory).getValue(x * 0.001, z * 0.001) * 4) + 48);
+		int noiseVal = (int) Math.floor((getNoise(randomFactory).getValue(x * 0.0003, z * 0.0003)) + 48);
 		if (y < noiseVal) {
 			if (y + 1 < noiseVal) {
 				return Blocks.DIRT.defaultBlockState();
