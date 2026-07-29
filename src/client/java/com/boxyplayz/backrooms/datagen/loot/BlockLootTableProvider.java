@@ -76,6 +76,7 @@ public class BlockLootTableProvider extends FabricBlockLootSubProvider {
 		dropOther(ModBlocks.FUN_PINK, Items.PINK_DYE);
 		dropOther(ModBlocks.FUN_YELLOW, Items.YELLOW_DYE);
 		dropOther(ModBlocks.FUN_PURPLE, Items.PURPLE_DYE);
+		dropOther(ModBlocks.LEVEL11_CONCRETE, Blocks.GRAY_CONCRETE);
 		dropOther(ModBlocks.FUN_FLOOR, Items.RED_WOOL);
 		add(ModBlocks.BLACK_TRAMPOLINE, LootTable.lootTable().withPool(
 				LootPool.lootPool().when(

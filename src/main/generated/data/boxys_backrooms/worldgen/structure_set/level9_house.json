@@ -8,8 +8,12 @@
   },
   "structures": [
     {
-      "structure": "boxys_backrooms:level9_house_0",
+      "structure": "boxys_backrooms:level11_tower",
       "weight": 1
+    },
+    {
+      "structure": "boxys_backrooms:level9_house_0",
+      "weight": 400
     }
   ]
 }

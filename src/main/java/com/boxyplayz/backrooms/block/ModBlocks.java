@@ -10,6 +10,7 @@ import com.boxyplayz.backrooms.block.custom.InferiorCarpet;
 import com.boxyplayz.backrooms.block.custom.Level0Carpet;
 import com.boxyplayz.backrooms.block.custom.Level0GlitchedCarpet;
 import com.boxyplayz.backrooms.block.custom.Level0Wallpaper;
+import com.boxyplayz.backrooms.block.custom.Level11Concrete;
 import com.boxyplayz.backrooms.block.custom.Level2Door;
 import com.boxyplayz.backrooms.block.custom.Level2FireExitBlock;
 import com.boxyplayz.backrooms.block.custom.Level5CarpetBlock;
@@ -369,6 +370,9 @@ public class ModBlocks {
 
 	public static final Block LEVEL5_ENTRY_TABLE = register("level5_entry_table", Level5EntryTable::new,
 			BlockBehaviour.Properties.of().noOcclusion().isRedstoneConductor(Blocks::never), true);
+
+	public static final Block LEVEL11_CONCRETE = register("level11_concrete", Level11Concrete::new,
+			BlockBehaviour.Properties.of().strength(20), true);
 
 	public static void RegisterModBlocks() {
 	}

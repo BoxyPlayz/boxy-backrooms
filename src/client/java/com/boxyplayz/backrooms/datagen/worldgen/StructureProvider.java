@@ -1,5 +1,6 @@
 package com.boxyplayz.backrooms.datagen.worldgen;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import com.boxyplayz.backrooms.structures.ModStructures;
@@ -76,6 +77,18 @@ public class StructureProvider extends FabricDynamicRegistryProvider {
 				BiasedToBottomHeight.of(VerticalAnchor.aboveBottom(48), VerticalAnchor.belowTop(53), 15),
 				false));
 
+		context.register(ModStructures.LEVEL11_ENTRY_TOWER_STRUCTURE, new JigsawStructure(
+				new StructureSettings.Builder(
+						HolderSet.direct(biomes.getOrThrow(ModBiomes.LEVEL9_BIOME)))
+						.generationStep(Decoration.SURFACE_STRUCTURES)
+						.terrainAdapation(
+								TerrainAdjustment.BEARD_THIN)
+						.build(),
+				context.lookup(Registries.TEMPLATE_POOL).getOrThrow(ModStructures.LEVEL11_TOWER_TEMPLATE_POOL),
+				1,
+				BiasedToBottomHeight.of(VerticalAnchor.aboveBottom(48), VerticalAnchor.belowTop(53), 15),
+				false));
+
 	}
 
 	public static void templBoot(BootstrapContext<StructureTemplatePool> context) {
@@ -93,6 +106,12 @@ public class StructureProvider extends FabricDynamicRegistryProvider {
 						Pair.of(StructurePoolElement.single("boxys_backrooms:level9_house_0"), 1)),
 
 				StructureTemplatePool.Projection.TERRAIN_MATCHING));
+
+		context.register(ModStructures.LEVEL11_TOWER_TEMPLATE_POOL, new StructureTemplatePool(emptyPool,
+				ImmutableList.of(
+						Pair.of(StructurePoolElement.single("boxys_backrooms:level11_tower"), 1)),
+
+				StructureTemplatePool.Projection.TERRAIN_MATCHING));
 	}
 
 	public static void setBoot(BootstrapContext<StructureSet> context) {
@@ -101,7 +120,15 @@ public class StructureProvider extends FabricDynamicRegistryProvider {
 				new RandomSpreadStructurePlacement(17, 7, RandomSpreadType.TRIANGULAR, 3)));
 
 		context.register(ModStructures.LEVEL9_HOUSE_STRUCTURE_SET, new StructureSet(
-				context.lookup(Registries.STRUCTURE).getOrThrow(ModStructures.LEVEL9_HOUSE_0_STRUCTURE),
+				List.of(
+						StructureSet.entry(
+								context.lookup(Registries.STRUCTURE)
+										.getOrThrow(ModStructures.LEVEL11_ENTRY_TOWER_STRUCTURE),
+								1),
+						StructureSet.entry(
+								context.lookup(Registries.STRUCTURE)
+										.getOrThrow(ModStructures.LEVEL9_HOUSE_0_STRUCTURE),
+								400)),
 				new RandomSpreadStructurePlacement(3, 1, RandomSpreadType.TRIANGULAR, 3)));
 	}
 
