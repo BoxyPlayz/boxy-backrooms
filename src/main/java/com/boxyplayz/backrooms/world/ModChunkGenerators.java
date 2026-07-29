@@ -4,6 +4,7 @@ import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.world.generators.BlueChannelChunkGen;
 import com.boxyplayz.backrooms.world.generators.Level0ChunkGen;
 import com.boxyplayz.backrooms.world.generators.Level0_2ChunkGen;
+import com.boxyplayz.backrooms.world.generators.Level10ChunkGen;
 import com.boxyplayz.backrooms.world.generators.Level11ChunkGen;
 import com.boxyplayz.backrooms.world.generators.Level1ChunkGen;
 import com.boxyplayz.backrooms.world.generators.Level2ChunkGen;
@@ -80,6 +81,9 @@ public class ModChunkGenerators {
 		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
 				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level9"),
 				Level9ChunkGen.CODEC);
+		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
+				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level10"),
+				Level10ChunkGen.CODEC);
 
 	}
 }

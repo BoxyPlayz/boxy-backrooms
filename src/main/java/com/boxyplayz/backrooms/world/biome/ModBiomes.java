@@ -108,6 +108,13 @@ public class ModBiomes {
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level9"));
 
 	/**
+	 * Wheat Field
+	 */
+	public static final ResourceKey<Biome> LEVEL10_BIOME = ResourceKey.create(
+			Registries.BIOME,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level10"));
+
+	/**
 	 * Biomes for sections of level 1. Subclass of {@link ModBiomes}
 	 */
 	public static class Level1Biomes {

@@ -231,5 +231,26 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 				.setCeiling(false)
 				.build());
 
+		register(context, ModDimensionTypes.LEVEL10_DIMENSION_TYPE, new DimensionTypeBuilder()
+				.setHeight(128)
+				.setMinY(-16)
+				.setEnvAttributes(
+						EnvironmentAttributeMap.builder()
+								.set(EnvironmentAttributes.SKY_LIGHT_LEVEL, 1f)
+								.set(EnvironmentAttributes.SKY_COLOR, 387068)
+								.set(EnvironmentAttributes.BED_RULE,
+										new BedRule(BedRule.Rule.ALWAYS, BedRule.Rule.ALWAYS, false, Optional.empty()))
+								.set(EnvironmentAttributes.SKY_LIGHT_COLOR, 16777215)
+								.set(EnvironmentAttributes.SKY_LIGHT_FACTOR, 1f)
+								.set(EnvironmentAttributes.SUN_ANGLE, 360f)
+								.set(EnvironmentAttributes.FOG_COLOR, 13721868)
+								.build())
+				.setSkybox(Skybox.OVERWORLD)
+				.setFixedTime(true)
+				.setAmbientLight(0f)
+				.setSkylight(true)
+				.setCeiling(false)
+				.build());
+
 	}
 }

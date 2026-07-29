@@ -1,0 +1,81 @@
+package com.boxyplayz.backrooms.world.generators;
+
+import com.boxyplayz.backrooms.world.biome.ModBiomes;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+
+import net.minecraft.core.Holder;
+import net.minecraft.resources.RegistryOps;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.FixedBiomeSource;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.level.block.FarmlandBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.PositionalRandomFactory;
+import net.minecraft.world.level.levelgen.synth.SimplexNoise;
+
+public class Level10ChunkGen extends BaseChunkGen {
+
+	private SimplexNoise noise;
+
+	private SimplexNoise getNoise(PositionalRandomFactory randomFactory) {
+		if (this.noise == null) {
+			RandomSource random = randomFactory.fromHashOf(this.getSeed());
+			this.noise = new SimplexNoise(random);
+		}
+
+		return this.noise;
+
+	}
+
+	public Level10ChunkGen(Holder<Biome> biome) {
+		super(new FixedBiomeSource(biome));
+	}
+
+	@Override
+	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
+		int noiseVal = (int) Math.floor((getNoise(randomFactory).getValue(x * 0.0003, z * 0.0003)) + 16);
+		boolean isWaterSource = (Math.floorMod(x, 7) == 1 && Math.floorMod(z, 7) == 1);
+		if (y < noiseVal) {
+			if (y + 1 < noiseVal) {
+				return Blocks.DIRT.defaultBlockState();
+			} else {
+				if (isWaterSource) {
+					return Blocks.WATER.defaultBlockState();
+				}
+				return Blocks.FARMLAND.defaultBlockState().setValue(FarmlandBlock.MOISTURE, 7);
+			}
+		} else if (!isWaterSource && y < noiseVal + 1) {
+			return Blocks.WHEAT.defaultBlockState().setValue(CropBlock.AGE, 7);
+		}
+		return Blocks.AIR.defaultBlockState();
+	}
+
+	@Override
+	public String getSeed() {
+		return "farmingarea";
+	}
+
+	public static final MapCodec<Level10ChunkGen> CODEC = RecordCodecBuilder.mapCodec(
+			instance -> instance.group(RegistryOps.retrieveElement(ModBiomes.LEVEL10_BIOME)).apply(instance,
+					instance.stable(Level10ChunkGen::new)));
+
+	@Override
+	protected MapCodec<? extends ChunkGenerator> codec() {
+		return CODEC;
+	}
+
+	@Override
+	public int getGenDepth() {
+		return 128;
+	}
+
+	@Override
+	public int getMinY() {
+		return -16;
+	}
+
+}
