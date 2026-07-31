@@ -31,6 +31,21 @@ public class Level10ChunkGen extends BaseChunkGen {
 
 	}
 
+	@Override
+	public int getSeaLevel() {
+		return 15;
+	}
+
+	private SimplexNoise getNoise(PositionalRandomFactory randomFactory, String seed) {
+		if (this.noise == null) {
+			RandomSource random = randomFactory.fromHashOf(seed);
+			this.noise = new SimplexNoise(random);
+		}
+
+		return this.noise;
+
+	}
+
 	public Level10ChunkGen(Holder<Biome> biome) {
 		super(new FixedBiomeSource(biome));
 	}
@@ -38,17 +53,35 @@ public class Level10ChunkGen extends BaseChunkGen {
 	@Override
 	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
 		int noiseVal = (int) Math.floor((getNoise(randomFactory).getValue(x * 0.0003, z * 0.0003)) + 16);
+		boolean grassy = getNoise(randomFactory, this.getSeed() + "gloobyandnevergroovy").getValue(x * 0.005,
+				z * 0.005) > 0.8;
 		boolean isWaterSource = (Math.floorMod(x, 7) == 1 && Math.floorMod(z, 7) == 1);
+		double lakeValue = getNoise(randomFactory, this.getSeed() + "hyperdeath").getValue(x * 0.003,
+				z * 0.003);
+		if (lakeValue > 0.8) {
+			double lakeVal = (1 - lakeValue) * 4.8 * 14;
+			if (y < this.getSeaLevel())
+				if (y > lakeVal) {
+					return Blocks.WATER.defaultBlockState();
+				} else {
+					return getGroundBlock(y, true);
+				}
+
+			return Blocks.AIR.defaultBlockState();
+		}
 		if (y < noiseVal) {
 			if (y + 1 < noiseVal) {
-				return Blocks.DIRT.defaultBlockState();
+				return getGroundBlock(y, false);
 			} else {
+				if (grassy) {
+					return Blocks.GRASS_BLOCK.defaultBlockState();
+				}
 				if (isWaterSource) {
 					return Blocks.WATER.defaultBlockState();
 				}
 				return Blocks.FARMLAND.defaultBlockState().setValue(FarmlandBlock.MOISTURE, 7);
 			}
-		} else if (!isWaterSource && y < noiseVal + 1) {
+		} else if (!grassy && !isWaterSource && y < noiseVal + 1) {
 			return Blocks.WHEAT.defaultBlockState().setValue(CropBlock.AGE, 7);
 		}
 		return Blocks.AIR.defaultBlockState();
@@ -76,6 +109,19 @@ public class Level10ChunkGen extends BaseChunkGen {
 	@Override
 	public int getMinY() {
 		return -16;
+	}
+
+	public BlockState getGroundBlock(int y, boolean water) {
+		if (water) {
+			if (y > 10) {
+				return Blocks.SAND.defaultBlockState();
+			} else if (y > 6) {
+				return Blocks.GRAVEL.defaultBlockState();
+			}
+		} else if (y > 8) {
+			return Blocks.DIRT.defaultBlockState();
+		}
+		return Blocks.STONE.defaultBlockState();
 	}
 
 }
