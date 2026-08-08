@@ -2,6 +2,7 @@ package com.boxyplayz.backrooms.world.spawning;
 
 import com.boxyplayz.backrooms.entity.ModEntities;
 import com.boxyplayz.backrooms.entity.living.Balloon.BalloonEntity;
+import com.boxyplayz.backrooms.entity.living.NeighborhoodWatch.NeighborhoodWatchEntity;
 import com.boxyplayz.backrooms.entity.living.Partygoer.PartygoerEntity;
 import com.boxyplayz.backrooms.entity.living.Partypooper.PartypooperEntity;
 import com.boxyplayz.backrooms.entity.living.SkinStealer.SkinStealerEntity;
@@ -112,5 +113,13 @@ public class ModEntitySpawner {
 				BiomeSelectors.includeByKey(
 						ModBiomes.LEVEL2_BIOME),
 				MobCategory.MONSTER, ModEntities.SMILER, 23, 1, 4);
+
+		BiomeModifications.addSpawn(
+				BiomeSelectors.includeByKey(
+						ModBiomes.LEVEL9_BIOME),
+				MobCategory.MONSTER, ModEntities.NEIGHBORHOOD_WATCH, 28, 1, 1);
+
+		SpawnPlacements.register(ModEntities.NEIGHBORHOOD_WATCH, SpawnPlacementTypes.ON_GROUND, Types.WORLD_SURFACE,
+				NeighborhoodWatchEntity::CheckSpawnRules);
 	}
 }

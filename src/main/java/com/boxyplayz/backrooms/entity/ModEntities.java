@@ -2,6 +2,7 @@ package com.boxyplayz.backrooms.entity;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.entity.living.Balloon.BalloonEntity;
+import com.boxyplayz.backrooms.entity.living.NeighborhoodWatch.NeighborhoodWatchEntity;
 import com.boxyplayz.backrooms.entity.living.Partygoer.PartygoerEntity;
 import com.boxyplayz.backrooms.entity.living.Partypooper.PartypooperEntity;
 import com.boxyplayz.backrooms.entity.living.SkinStealer.SkinStealerEntity;
@@ -100,6 +101,10 @@ public class ModEntities {
 	public static final EntityType<PartypooperEntity> PARTYPOOPER = RegisterEntity(PartypooperEntity::new,
 			"partypooper", MobCategory.CREATURE);
 
+	public static final EntityType<NeighborhoodWatchEntity> NEIGHBORHOOD_WATCH = RegisterEntity(
+			NeighborhoodWatchEntity::new,
+			"neighborhood_watch", new Vec2(1.4f, 1.8f), MobCategory.MONSTER);
+
 	public static final EntityType<LiquidPainProjectile> LIQUID_PAIN_PROJECTILE = RegisterEntity(
 			LiquidPainProjectile::new, "liquid_pain",
 			new Vec2(0.25f, 0.25f), MobCategory.MISC);
@@ -122,5 +127,8 @@ public class ModEntities {
 
 		FabricDefaultAttributeRegistry.register(PARTYPOOPER,
 				PartypooperEntity.createAttributes());
+
+		FabricDefaultAttributeRegistry.register(NEIGHBORHOOD_WATCH,
+				NeighborhoodWatchEntity.createAttributes());
 	}
 }

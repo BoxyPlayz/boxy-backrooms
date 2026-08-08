@@ -148,6 +148,10 @@ public class ModItems {
 			SpawnEggItem::new,
 			new SpawnEggItem.Properties().spawnEgg(ModEntities.PARTYPOOPER));
 
+	public static final SpawnEggItem NEIGHBORHOOD_WATCH_SPAWN_EGG = registerItem("neighborhood_watch_spawn_egg",
+			SpawnEggItem::new,
+			new SpawnEggItem.Properties().spawnEgg(ModEntities.NEIGHBORHOOD_WATCH));
+
 	public static final LiquidPainItem LIQUID_PAIN = registerItem("liquid_pain",
 			LiquidPainItem::new,
 			new LiquidPainItem.Properties().useCooldown(0.6f));

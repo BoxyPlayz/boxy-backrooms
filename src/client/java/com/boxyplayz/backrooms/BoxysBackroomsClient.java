@@ -3,6 +3,8 @@ package com.boxyplayz.backrooms;
 import com.boxyplayz.backrooms.entity.ModEntities;
 import com.boxyplayz.backrooms.entity.balloon.BalloonEntityRenderer;
 import com.boxyplayz.backrooms.entity.balloon.BalloonModel;
+import com.boxyplayz.backrooms.entity.neighborhood_watch.NeighborhoodWatchModel;
+import com.boxyplayz.backrooms.entity.neighborhood_watch.NeighborhoodWatchRenderer;
 import com.boxyplayz.backrooms.entity.partygoer.PartygoerEntityRenderer;
 import com.boxyplayz.backrooms.entity.partygoer.PartygoerModel;
 import com.boxyplayz.backrooms.entity.partypooper.PartyPooperEntityRenderer;
@@ -52,6 +54,9 @@ public class BoxysBackroomsClient implements ClientModInitializer {
 	public static final ModelLayerLocation MODEL_PARTYPOOPER_LAYER = new ModelLayerLocation(
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "partypoopwe"), "main");
 
+	public static final ModelLayerLocation MODEL_NEIGHBORHOOD_WATCH_LAYER = new ModelLayerLocation(
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "neighborhood_watch"), "main");
+
 	@Override
 	public void onInitializeClient() {
 		ItemEvents.RegisterItemEvents();
@@ -83,6 +88,10 @@ public class BoxysBackroomsClient implements ClientModInitializer {
 		ModelLayerRegistry.registerModelLayer(MODEL_PARTYPOOPER_LAYER, PartyPooperModel::createBodyLayer);
 
 		EntityRenderers.register(ModEntities.LIQUID_PAIN_PROJECTILE, ThrownItemRenderer::new);
+
+		ModelLayerRegistry.registerModelLayer(MODEL_NEIGHBORHOOD_WATCH_LAYER, NeighborhoodWatchModel::createBodyLayer);
+
+		EntityRenderers.register(ModEntities.NEIGHBORHOOD_WATCH, NeighborhoodWatchRenderer::new);
 
 		MenuScreens.register(MenuTypes.BLENDING_MENU_TYPE, BlendingScreen::new);
 

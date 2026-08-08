@@ -60,6 +60,7 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModItems.SKINSTEALER_SPAWN_EGG, "Skinstealer Spawn Egg");
 		translationBuilder.add(ModItems.PARTYGOER_SPAWN_EGG, "Partygoer Spawn Egg");
 		translationBuilder.add(ModItems.PARTYPOOPER_SPAWN_EGG, "Partypooper Spawn Egg");
+		translationBuilder.add(ModItems.NEIGHBORHOOD_WATCH_SPAWN_EGG, "Neighborhood Watch Spawn Egg");
 
 		// Other Items
 		translationBuilder.add(ModItems.FIRESALT_SHARD, "Firesalt Shard");
@@ -211,6 +212,7 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModEntities.PARTYGOER, "Partygoer");
 		translationBuilder.add(ModEntities.PARTYPOOPER, "Partypooper");
 		translationBuilder.add(ModEntities.BALLOON, "Party Balloon");
+		translationBuilder.add(ModEntities.NEIGHBORHOOD_WATCH, "The Neighborhood Watch");
 
 		// Effects
 		translationBuilder.add(ModEffects.GARDENERS_PAIN.value(), "Gardener's Pain");

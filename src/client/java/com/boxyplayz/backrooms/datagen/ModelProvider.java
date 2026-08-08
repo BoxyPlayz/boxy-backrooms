@@ -118,5 +118,6 @@ public class ModelProvider extends FabricModelProvider {
 				ItemModelUtils
 						.plainModel(
 								Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "block/level5_entry_table")));
+		itemModelGenerator.generateFlatItem(ModItems.NEIGHBORHOOD_WATCH_SPAWN_EGG, ModelTemplates.FLAT_HANDHELD_ITEM);
 	}
 }
