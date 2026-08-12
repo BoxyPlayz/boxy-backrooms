@@ -22,6 +22,7 @@ import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.GenerationStep.Decoration;
 import net.minecraft.world.level.levelgen.heightproviders.BiasedToBottomHeight;
 import net.minecraft.world.level.levelgen.heightproviders.ConstantHeight;
+import net.minecraft.world.level.levelgen.structure.BuiltinStructures;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureSet;
 import net.minecraft.world.level.levelgen.structure.TerrainAdjustment;
@@ -130,6 +131,14 @@ public class StructureProvider extends FabricDynamicRegistryProvider {
 										.getOrThrow(ModStructures.LEVEL9_HOUSE_0_STRUCTURE),
 								1000)),
 				new RandomSpreadStructurePlacement(3, 1, RandomSpreadType.TRIANGULAR, 3)));
+
+		context.register(ModStructures.LEVEL10_STRUCTURE_SET, new StructureSet(
+				List.of(
+						StructureSet.entry(
+								context.lookup(Registries.STRUCTURE)
+										.getOrThrow(BuiltinStructures.PILLAGER_OUTPOST),
+								3)),
+				new RandomSpreadStructurePlacement(16, 4, RandomSpreadType.TRIANGULAR, 9)));
 	}
 
 }

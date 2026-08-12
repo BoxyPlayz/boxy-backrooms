@@ -7,6 +7,7 @@ import com.boxyplayz.backrooms.datagen.loot.BlockLootTableProvider;
 import com.boxyplayz.backrooms.datagen.loot.ChestLootTableProvider;
 import com.boxyplayz.backrooms.datagen.loot.EntityLootTableProvider;
 import com.boxyplayz.backrooms.datagen.recipe.RecipeDataProvider;
+import com.boxyplayz.backrooms.datagen.tags.BiomeTagProvider;
 import com.boxyplayz.backrooms.datagen.tags.BlockTagProvider;
 import com.boxyplayz.backrooms.datagen.tags.ItemTagProvider;
 import com.boxyplayz.backrooms.datagen.worldgen.BiomeDataProvider;
@@ -36,6 +37,7 @@ public class BoxysBackroomsDataGenEntry implements DataGeneratorEntrypoint {
 		pack.addProvider(ItemTagProvider::new);
 		pack.addProvider(BlockTagProvider::new);
 		pack.addProvider(DamageTypeTagProvider::new);
+		pack.addProvider(BiomeTagProvider::new);
 
 		pack.addProvider(BlockLootTableProvider::new);
 		pack.addProvider(EntityLootTableProvider::new);

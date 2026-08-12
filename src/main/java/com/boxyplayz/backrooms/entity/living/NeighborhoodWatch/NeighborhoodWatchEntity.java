@@ -28,13 +28,13 @@ public class NeighborhoodWatchEntity extends PathfinderMob {
 				&& level.getBlockState(pos).isAir()
 				&& level.getBlockState(pos.above()).isAir()
 				&& pos.getY() < level.getMaxY()
-				&& level.getBrightness(LightLayer.BLOCK, pos) < 5;
+				&& level.getBrightness(LightLayer.BLOCK, pos) < 3;
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
 		return PathfinderMob.createMobAttributes()
 				.add(Attributes.MAX_HEALTH, 120.0D)
-				.add(Attributes.MOVEMENT_SPEED, 0.7D)
+				.add(Attributes.MOVEMENT_SPEED, 0.5D)
 				.add(Attributes.ATTACK_DAMAGE, 12.0D)
 				.add(Attributes.FOLLOW_RANGE, 140.0D);
 	}
