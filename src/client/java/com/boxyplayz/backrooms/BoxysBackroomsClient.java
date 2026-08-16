@@ -17,6 +17,7 @@ import com.boxyplayz.backrooms.entity.wretch.WretchModel;
 import com.boxyplayz.backrooms.entity.wretch.WretchedRenderer;
 import com.boxyplayz.backrooms.events.GrassColors;
 import com.boxyplayz.backrooms.events.ItemEvents;
+import com.boxyplayz.backrooms.keybinds.ModKeybinds;
 import com.boxyplayz.backrooms.menu.MenuTypes;
 import com.boxyplayz.backrooms.screen.BlendingScreen;
 import com.boxyplayz.backrooms.screen.ElevatorScreen;
@@ -96,5 +97,7 @@ public class BoxysBackroomsClient implements ClientModInitializer {
 		MenuScreens.register(MenuTypes.BLENDING_MENU_TYPE, BlendingScreen::new);
 
 		MenuScreens.register(MenuTypes.ELEVATOR_MENU_TYPE, ElevatorScreen::new);
+
+		ModKeybinds.init();
 	}
 }

@@ -2,6 +2,7 @@ package com.boxyplayz.backrooms.datagen.tags;
 
 import java.util.concurrent.CompletableFuture;
 
+import com.boxyplayz.backrooms.tags.ModTags;
 import com.boxyplayz.backrooms.world.biome.ModBiomes;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
@@ -22,6 +23,9 @@ public class BiomeTagProvider extends FabricTagsProvider<Biome> {
 	protected void addTags(Provider registries) {
 		builder(BiomeTags.HAS_PILLAGER_OUTPOST)
 				.add(ModBiomes.LEVEL10_BIOME);
+
+		builder(ModTags.DASH_ENABLED)
+				.add(ModBiomes.LEVEL9_BIOME);
 	}
 
 }

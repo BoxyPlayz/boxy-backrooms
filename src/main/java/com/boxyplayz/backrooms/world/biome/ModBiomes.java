@@ -101,7 +101,7 @@ public class ModBiomes {
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level11"));
 
 	/**
-	 * Endless City
+	 * Neighborhood
 	 */
 	public static final ResourceKey<Biome> LEVEL9_BIOME = ResourceKey.create(
 			Registries.BIOME,

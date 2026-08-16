@@ -9,7 +9,11 @@
   "structures": [
     {
       "structure": "minecraft:pillager_outpost",
-      "weight": 3
+      "weight": 12
+    },
+    {
+      "structure": "boxys_backrooms:level11_tower",
+      "weight": 1
     }
   ]
 }

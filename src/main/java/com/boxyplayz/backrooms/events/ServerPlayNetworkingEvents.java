@@ -2,15 +2,19 @@ package com.boxyplayz.backrooms.events;
 
 import java.util.Set;
 
+import com.boxyplayz.backrooms.networking.DashPayload;
 import com.boxyplayz.backrooms.networking.ElevatorPayload;
 import com.boxyplayz.backrooms.utils.Misc.ElevatorDestination;
 import com.boxyplayz.backrooms.world.dimension.ModDimensions;
 
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.phys.Vec3;
 
 public class ServerPlayNetworkingEvents {
 	public static void RegisterServerPlayNetworking() {
@@ -75,6 +79,26 @@ public class ServerPlayNetworkingEvents {
 				livingEntity.teleportTo(target, x + 0.5, y, z + 0.5, Set.of(), livingEntity.getYRot(),
 						livingEntity.getXRot(), false);
 			}
+		});
+
+		ServerPlayNetworking.registerGlobalReceiver(DashPayload.TYPE, (payload, context) -> {
+			ServerPlayer player = context.player();
+
+			context.server().execute(() -> {
+				if (player.getFoodData().getFoodLevel() >= 8) {
+					player.getFoodData().addExhaustion(6);
+					Vec3 look = player.getLookAngle();
+
+					Vec3 dash = new Vec3(
+							look.x,
+							0,
+							look.z).normalize().scale(5).add(0, 1, 0);
+
+					player.setDeltaMovement(player.getDeltaMovement().add(dash));
+					player.hurtMarked = true;
+					player.connection.send(new ClientboundSetEntityMotionPacket(player));
+				}
+			});
 		});
 	}
 }

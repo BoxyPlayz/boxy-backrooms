@@ -7,6 +7,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 
 public class ModTags {
@@ -34,6 +35,9 @@ public class ModTags {
 
 	public static final TagKey<Block> FUN_BLOCKS = TagKey.create(Registries.BLOCK,
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "fun_blocks"));
+
+	public static final TagKey<Biome> DASH_ENABLED = TagKey.create(Registries.BIOME,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "dash_enabled"));
 
 	public static void RegisterModTags() {
 

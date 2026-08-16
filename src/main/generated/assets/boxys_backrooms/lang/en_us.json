@@ -94,6 +94,8 @@
   "item.boxys_backrooms.smiler_spawn_egg": "Smiler Spawn Egg",
   "item.boxys_backrooms.wretch_spawn_egg": "Wretched Spawn Egg",
   "itemGroup.boxys_backrooms": "Boxy's Backrooms",
+  "key.boxys_backrooms.dash": "Leap",
+  "key.category.boxys_backrooms.backrooms_keybinds": "Boxy's Backrooms",
   "tag.item.boxys_backrooms.almond_waters": "Almond Waters",
   "tag.item.boxys_backrooms.firesteel_repair_items": "Firesteel Repair Items",
   "tag.item.boxys_backrooms.light_blocks": "Light Blocks",

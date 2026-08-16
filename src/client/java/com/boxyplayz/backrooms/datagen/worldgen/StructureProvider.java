@@ -137,7 +137,11 @@ public class StructureProvider extends FabricDynamicRegistryProvider {
 						StructureSet.entry(
 								context.lookup(Registries.STRUCTURE)
 										.getOrThrow(BuiltinStructures.PILLAGER_OUTPOST),
-								3)),
+								12),
+						StructureSet.entry(
+								context.lookup(Registries.STRUCTURE)
+										.getOrThrow(ModStructures.LEVEL11_ENTRY_TOWER_STRUCTURE),
+								1)),
 				new RandomSpreadStructurePlacement(16, 4, RandomSpreadType.TRIANGULAR, 9)));
 	}
 
