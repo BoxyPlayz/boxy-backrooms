@@ -22,6 +22,7 @@ import com.boxyplayz.backrooms.menu.MenuTypes;
 import com.boxyplayz.backrooms.screen.BlendingScreen;
 import com.boxyplayz.backrooms.screen.ElevatorScreen;
 
+import fuzs.forgeconfigapiport.fabric.api.v5.ConfigRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.ModelLayerRegistry;
@@ -30,6 +31,7 @@ import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.resources.Identifier;
+import net.neoforged.fml.config.ModConfig;
 import net.fabricmc.api.EnvType;
 
 /**
@@ -60,6 +62,8 @@ public class BoxysBackroomsClient implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
+		ConfigRegistry.INSTANCE.register("boxys_backrooms", ModConfig.Type.CLIENT, BoxysBackroomsClientConfig.SPEC);
+
 		ItemEvents.RegisterItemEvents();
 
 		GrassColors.RegisterGrassColors();

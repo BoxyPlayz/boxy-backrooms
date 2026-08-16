@@ -92,7 +92,7 @@ public class ServerPlayNetworkingEvents {
 					Vec3 dash = new Vec3(
 							look.x,
 							0,
-							look.z).normalize().scale(5).add(0, 1, 0);
+							look.z).normalize().scale(3).add(0, 0.6, 0);
 
 					player.setDeltaMovement(player.getDeltaMovement().add(dash));
 					player.hurtMarked = true;

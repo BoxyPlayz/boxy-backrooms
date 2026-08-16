@@ -18,8 +18,9 @@ fabricApi {
 
 repositories {
 	maven {
-         name = 'ParchmentMC'
-         url = 'https://maven.parchmentmc.org'
+        name = "Fuzs Mod Resources"
+        url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/"
+
      }
 }
 
@@ -45,6 +46,8 @@ dependencies {
 	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
 	include implementation("teamreborn:energy:${project.energy_reborn_version}")
+
+	include implementation("fuzs.forgeconfigapiport:forgeconfigapiport-fabric:${forge_config_api_version}")
 }
 
 processResources {

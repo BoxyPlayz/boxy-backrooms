@@ -1,6 +1,7 @@
 package com.boxyplayz.backrooms.keybinds;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.BoxysBackroomsClientConfig;
 import com.boxyplayz.backrooms.networking.DashPayload;
 import com.boxyplayz.backrooms.tags.ModTags;
 import com.mojang.blaze3d.platform.InputConstants;
@@ -8,7 +9,13 @@ import com.mojang.blaze3d.platform.InputConstants;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.hud.VanillaHudElements;
+import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.KeyMapping;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.resources.Identifier;
 
 public class ModKeybinds {
@@ -24,6 +31,9 @@ public class ModKeybinds {
 			));
 
 	public static void init() {
+		HudElementRegistry.attachElementBefore(VanillaHudElements.CHAT,
+				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "custom_hud"), ModKeybinds::extractHudRenderer);
+
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
 			if (client.player != null) {
 				if (client.player.level().getBiome(client.player.blockPosition()).is(ModTags.DASH_ENABLED)) {
@@ -36,5 +46,26 @@ public class ModKeybinds {
 				}
 			}
 		});
+	}
+
+	public static void extractHudRenderer(GuiGraphicsExtractor graphics, DeltaTracker tickCounter) {
+		int black = 0xFF000000;
+		int white = 0xFFFFFFFF;
+
+		Minecraft minecraft = Minecraft.getInstance();
+		if (minecraft != null) {
+			LocalPlayer player = minecraft.player;
+			if (player != null)
+				if (player.level().getBiome(player.blockPosition())
+						.is(ModTags.DASH_ENABLED))
+					if (BoxysBackroomsClientConfig.ADD_DASH_HINT.get()) {
+						String dashHint = "Press " + dashKey.getTranslatedKeyMessage().getString() + " to dash!";
+
+						graphics.fill(0, 0, minecraft.font.width(dashHint) + 4,
+								minecraft.font.lineHeight + 4, white);
+
+						graphics.text(minecraft.font, dashHint, 2, 2, black, false);
+					}
+		}
 	}
 }
