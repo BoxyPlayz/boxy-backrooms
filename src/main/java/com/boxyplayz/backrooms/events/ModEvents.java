@@ -7,5 +7,6 @@ public class ModEvents {
 		AllowDamageEvents.RegisterAllowDamageEvents();
 		ServerPlayNetworkingEvents.RegisterServerPlayNetworking();
 		AfterDamageEvents.RegisterAfterDamageEvents();
+		LevelChangeEvents.init();
 	}
 }

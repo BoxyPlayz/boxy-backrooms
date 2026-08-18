@@ -135,6 +135,8 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 
 		translationBuilder.add(ModBlocks.LEVEL11_CONCRETE, "Level 11 Concrete");
 
+		translationBuilder.add(ModBlocks.LEVEL9_ENTRY, "Level 9 Entry House");
+
 		// Loot Blocks
 		translationBuilder.add(ModBlocks.LEVEL1_CRATE, "Crate");
 		translationBuilder.add(ModBlocks.FUN_CRATE, "Fun Crate =)");

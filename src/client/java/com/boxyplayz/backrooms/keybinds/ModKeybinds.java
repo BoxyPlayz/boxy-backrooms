@@ -56,9 +56,9 @@ public class ModKeybinds {
 		if (minecraft != null) {
 			LocalPlayer player = minecraft.player;
 			if (player != null)
-				if (player.level().getBiome(player.blockPosition())
-						.is(ModTags.DASH_ENABLED))
-					if (BoxysBackroomsClientConfig.ADD_DASH_HINT.get()) {
+				if (BoxysBackroomsClientConfig.ADD_HINTS.get()) {
+					if (player.level().getBiome(player.blockPosition())
+							.is(ModTags.DASH_ENABLED)) {
 						String dashHint = "Press " + dashKey.getTranslatedKeyMessage().getString() + " to dash!";
 
 						graphics.fill(0, 0, minecraft.font.width(dashHint) + 4,
@@ -66,6 +66,17 @@ public class ModKeybinds {
 
 						graphics.text(minecraft.font, dashHint, 2, 2, black, false);
 					}
+					if (player.level().getBiome(player.blockPosition())
+							.is(ModTags.LARGE_JUMP)) {
+						String dashHint = "The gravity is lighter here.";
+
+						graphics.fill(0, 0, minecraft.font.width(dashHint) + 4,
+								minecraft.font.lineHeight + 4, white);
+
+						graphics.text(minecraft.font, dashHint, 2, 2, black, false);
+					}
+				}
 		}
 	}
+
 }

@@ -39,6 +39,9 @@ public class ModTags {
 	public static final TagKey<Biome> DASH_ENABLED = TagKey.create(Registries.BIOME,
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "dash_enabled"));
 
+	public static final TagKey<Biome> LARGE_JUMP = TagKey.create(Registries.BIOME,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "large_jump"));
+
 	public static void RegisterModTags() {
 
 	}

@@ -16,6 +16,7 @@ import com.boxyplayz.backrooms.block.custom.Level2FireExitBlock;
 import com.boxyplayz.backrooms.block.custom.Level5CarpetBlock;
 import com.boxyplayz.backrooms.block.custom.Level5EntryTable;
 import com.boxyplayz.backrooms.block.custom.Level6EntryBlock;
+import com.boxyplayz.backrooms.block.custom.Level9EntryHouse;
 import com.boxyplayz.backrooms.block.custom.NoFallDamageBlock;
 import com.boxyplayz.backrooms.block.custom.OceanTransporter;
 import com.boxyplayz.backrooms.block.custom.PainOnBreakBlock;
@@ -373,6 +374,9 @@ public class ModBlocks {
 
 	public static final Block LEVEL11_CONCRETE = register("level11_concrete", Level11Concrete::new,
 			BlockBehaviour.Properties.of().strength(20), true);
+
+	public static final Block LEVEL9_ENTRY = register("level9_entry_house", Level9EntryHouse::new,
+			BlockBehaviour.Properties.of().strength(40).noOcclusion(), true);
 
 	public static void RegisterModBlocks() {
 	}

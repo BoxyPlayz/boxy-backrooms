@@ -26,6 +26,9 @@ public class BiomeTagProvider extends FabricTagsProvider<Biome> {
 
 		builder(ModTags.DASH_ENABLED)
 				.add(ModBiomes.LEVEL9_BIOME);
+
+		builder(ModTags.LARGE_JUMP)
+				.add(ModBiomes.LEVEL8_CAVESYSTEM_BIOME);
 	}
 
 }
