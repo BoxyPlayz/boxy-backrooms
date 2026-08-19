@@ -55,7 +55,7 @@ public class BoxysBackroomsClient implements ClientModInitializer {
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "balloon"), "main");
 
 	public static final ModelLayerLocation MODEL_PARTYPOOPER_LAYER = new ModelLayerLocation(
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "partypoopwe"), "main");
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "partypooper"), "main");
 
 	public static final ModelLayerLocation MODEL_NEIGHBORHOOD_WATCH_LAYER = new ModelLayerLocation(
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "neighborhood_watch"), "main");
