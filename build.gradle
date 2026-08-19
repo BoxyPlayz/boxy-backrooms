@@ -47,7 +47,8 @@ dependencies {
 
 	include implementation("teamreborn:energy:${project.energy_reborn_version}")
 
-	include implementation("fuzs.forgeconfigapiport:forgeconfigapiport-fabric:${forge_config_api_version}")
+	runtimeOnly("fuzs.forgeconfigapiport:forgeconfigapiport-fabric:${forge_config_api_version}")
+	compileOnly("fuzs.forgeconfigapiport:forgeconfigapiport-fabric:${forge_config_api_version}")
 }
 
 processResources {
