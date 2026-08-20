@@ -12,6 +12,7 @@ import com.boxyplayz.backrooms.datagen.tags.BlockTagProvider;
 import com.boxyplayz.backrooms.datagen.tags.ItemTagProvider;
 import com.boxyplayz.backrooms.datagen.worldgen.BiomeDataProvider;
 import com.boxyplayz.backrooms.datagen.worldgen.DimensionTypeProvider;
+import com.boxyplayz.backrooms.datagen.worldgen.FeatureGenerator;
 import com.boxyplayz.backrooms.datagen.worldgen.StructureProvider;
 import com.boxyplayz.backrooms.datagen.tags.DamageTypeTagProvider;
 
@@ -46,6 +47,7 @@ public class BoxysBackroomsDataGenEntry implements DataGeneratorEntrypoint {
 		pack.addProvider(DimensionTypeProvider::new);
 		pack.addProvider(BiomeDataProvider::new);
 		pack.addProvider(StructureProvider::new);
+		pack.addProvider(FeatureGenerator::new);
 
 		pack.addProvider(WorldClockProvider::new);
 
@@ -64,6 +66,8 @@ public class BoxysBackroomsDataGenEntry implements DataGeneratorEntrypoint {
 		registryBuilder.add(Registries.TEMPLATE_POOL, StructureProvider::templBoot);
 		registryBuilder.add(Registries.STRUCTURE, StructureProvider::structBoot);
 		registryBuilder.add(Registries.STRUCTURE_SET, StructureProvider::setBoot);
+		registryBuilder.add(Registries.CONFIGURED_FEATURE, FeatureGenerator::configureFeatures);
+		registryBuilder.add(Registries.PLACED_FEATURE, FeatureGenerator::placeFeatures);
 	}
 
 }

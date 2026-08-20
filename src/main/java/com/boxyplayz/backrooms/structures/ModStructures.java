@@ -5,6 +5,8 @@ import com.boxyplayz.backrooms.BoxysBackrooms;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureSet;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
@@ -21,6 +23,14 @@ public class ModStructures {
 	public static final ResourceKey<StructureSet> LEVEL7_ACCESS_STRUCTURE_SET = ResourceKey.create(
 			Registries.STRUCTURE_SET,
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level7_access"));
+
+	// Level 8
+	public static final ResourceKey<ConfiguredFeature<?, ?>> LEVEL9_ENTRY_HOUSE_CONFIGURED_KEY = ResourceKey.create(
+			Registries.CONFIGURED_FEATURE,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level9_entry_house"));
+	public static final ResourceKey<PlacedFeature> LEVEL9_ENTRY_HOUSE_PLACED_KEY = ResourceKey.create(
+			Registries.PLACED_FEATURE,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level9_entry_house"));
 
 	// Level 9
 	public static final ResourceKey<Structure> LEVEL9_HOUSE_0_STRUCTURE = ResourceKey.create(Registries.STRUCTURE,

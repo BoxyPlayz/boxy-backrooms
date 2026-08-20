@@ -17,9 +17,9 @@ public class LevelChangeEvents {
 		ServerEntityLevelChangeEvents.AFTER_PLAYER_CHANGE_LEVEL.register((player, origin, destination) -> {
 			if (destination.getBiome(player.blockPosition()).is(ModTags.LARGE_JUMP)) {
 				player.getAttribute(Attributes.JUMP_STRENGTH)
-						.addOrUpdateTransientModifier(new AttributeModifier(level8BoostId, 0.8, Operation.ADD_VALUE));
+						.addOrReplacePermanentModifier(new AttributeModifier(level8BoostId, 0.8, Operation.ADD_VALUE));
 				player.getAttribute(Attributes.MOVEMENT_SPEED)
-						.addOrUpdateTransientModifier(new AttributeModifier(level8BoostId, 0.1, Operation.ADD_VALUE));
+						.addOrReplacePermanentModifier(new AttributeModifier(level8BoostId, 0.1, Operation.ADD_VALUE));
 			} else {
 				player.getAttribute(Attributes.JUMP_STRENGTH).removeModifier(level8BoostId);
 				player.getAttribute(Attributes.MOVEMENT_SPEED).removeModifier(level8BoostId);

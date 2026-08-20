@@ -3,6 +3,7 @@ package com.boxyplayz.backrooms.datagen.worldgen;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
+import com.boxyplayz.backrooms.structures.ModStructures;
 import com.boxyplayz.backrooms.world.biome.ModBiomes;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
@@ -19,6 +20,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeGenerationSettings;
 import net.minecraft.world.level.biome.BiomeSpecialEffects;
 import net.minecraft.world.level.biome.MobSpawnSettings;
+import net.minecraft.world.level.levelgen.GenerationStep.Decoration;
 
 public class BiomeDataProvider extends FabricDynamicRegistryProvider {
 	private static void register(BootstrapContext<Biome> context, ResourceKey<Biome> key,
@@ -113,7 +115,10 @@ public class BiomeDataProvider extends FabricDynamicRegistryProvider {
 				.temperature(0.5f)
 				.downfall(0.5f)
 				.mobSpawnSettings(MobSpawnSettings.EMPTY)
-				.generationSettings(BiomeGenerationSettings.EMPTY)
+				.generationSettings(new BiomeGenerationSettings.Builder(context.lookup(Registries.PLACED_FEATURE),
+						context.lookup(Registries.CONFIGURED_CARVER))
+						.addFeature(Decoration.UNDERGROUND_STRUCTURES, ModStructures.LEVEL9_ENTRY_HOUSE_PLACED_KEY)
+						.build())
 				.build());
 
 		Biome level0 = new Biome.BiomeBuilder()
