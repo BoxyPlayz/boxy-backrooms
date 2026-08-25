@@ -22,6 +22,9 @@ repositories {
         url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/"
 
      }
+
+
+    maven { url 'https://maven.blamejared.com' }
 }
 
 loom {
@@ -46,6 +49,9 @@ dependencies {
 	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
 	include implementation("teamreborn:energy:${project.energy_reborn_version}")
+
+	runtimeOnly("vazkii.patchouli:patchouli-fabric:${patchouli_version}")
+	compileOnly("vazkii.patchouli:patchouli-fabric:${patchouli_version}")
 
 	runtimeOnly("fuzs.forgeconfigapiport:forgeconfigapiport-fabric:${forge_config_api_version}")
 	compileOnly("fuzs.forgeconfigapiport:forgeconfigapiport-fabric:${forge_config_api_version}")
