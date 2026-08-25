@@ -1,5 +1,6 @@
 package com.boxyplayz.backrooms.world.generators;
 
+import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.world.biome.ModBiomes;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -42,6 +43,8 @@ public class Level9ChunkGen extends BaseChunkGen {
 			} else {
 				return Blocks.GRASS_BLOCK.defaultBlockState();
 			}
+		} else if (y - 1 < noiseVal && randomFactory.at(x, y, z).nextInt(70000) == 4) {
+			return ModBlocks.FALSE_WHEAT.defaultBlockState();
 		}
 		return Blocks.AIR.defaultBlockState();
 	}

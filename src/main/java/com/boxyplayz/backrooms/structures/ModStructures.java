@@ -56,6 +56,10 @@ public class ModStructures {
 			Registries.STRUCTURE_SET,
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level10"));
 
+	public static final ResourceKey<Structure> LEVEL11_ENTRY_TOWER_STRUCTURE_10 = ResourceKey.create(
+			Registries.STRUCTURE,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level11_tower_10"));
+
 	public static void RegisterStructures() {
 
 	}

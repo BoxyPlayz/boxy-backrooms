@@ -12,8 +12,10 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.food.FoodData;
 import net.minecraft.world.phys.Vec3;
 
 public class ServerPlayNetworkingEvents {
@@ -85,8 +87,16 @@ public class ServerPlayNetworkingEvents {
 			ServerPlayer player = context.player();
 
 			context.server().execute(() -> {
-				if (player.getFoodData().getFoodLevel() >= 8) {
-					player.getFoodData().addExhaustion(6);
+				FoodData data = player.getFoodData();
+				if (data.getFoodLevel() >= 8) {
+					if (!player.hasEffect(MobEffects.SATURATION)) {
+						if (data.getSaturationLevel() > 8) {
+							data.setSaturation(data.getSaturationLevel() - 8);
+						} else {
+							data.setFoodLevel(data.getFoodLevel() - 8);
+						}
+					}
+					player.getFoodData().addExhaustion(8);
 					Vec3 look = player.getLookAngle();
 
 					Vec3 dash = new Vec3(

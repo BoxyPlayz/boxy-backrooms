@@ -109,6 +109,8 @@ public class ModCreativeTabs {
 			itemGroup.accept(ModItems.GRAY_KEY);
 
 			itemGroup.accept(ModBlocks.LEVEL11_CONCRETE);
+
+			itemGroup.accept(ModBlocks.FALSE_WHEAT);
 		});
 	}
 }

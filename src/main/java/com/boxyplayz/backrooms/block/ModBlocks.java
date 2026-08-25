@@ -6,6 +6,7 @@ import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.block.custom.BlenderBlock;
 import com.boxyplayz.backrooms.block.custom.ElevatorBlock;
 import com.boxyplayz.backrooms.block.custom.ErrorSlateBlock;
+import com.boxyplayz.backrooms.block.custom.FalseWheat;
 import com.boxyplayz.backrooms.block.custom.InferiorCarpet;
 import com.boxyplayz.backrooms.block.custom.Level0Carpet;
 import com.boxyplayz.backrooms.block.custom.Level0GlitchedCarpet;
@@ -377,6 +378,9 @@ public class ModBlocks {
 
 	public static final Block LEVEL9_ENTRY = register("level9_entry_house", Level9EntryHouse::new,
 			BlockBehaviour.Properties.of().strength(40).noOcclusion(), true);
+
+	public static final Block FALSE_WHEAT = register("false_wheat", FalseWheat::new,
+			BlockBehaviour.Properties.of().strength(1).noOcclusion().noCollision(), true);
 
 	public static void RegisterModBlocks() {
 	}

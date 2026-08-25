@@ -90,6 +90,18 @@ public class StructureProvider extends FabricDynamicRegistryProvider {
 				BiasedToBottomHeight.of(VerticalAnchor.aboveBottom(48), VerticalAnchor.belowTop(53), 15),
 				false));
 
+		context.register(ModStructures.LEVEL11_ENTRY_TOWER_STRUCTURE_10, new JigsawStructure(
+				new StructureSettings.Builder(
+						HolderSet.direct(biomes.getOrThrow(ModBiomes.LEVEL10_BIOME)))
+						.generationStep(Decoration.SURFACE_STRUCTURES)
+						.terrainAdapation(
+								TerrainAdjustment.NONE)
+						.build(),
+				context.lookup(Registries.TEMPLATE_POOL).getOrThrow(ModStructures.LEVEL11_TOWER_TEMPLATE_POOL),
+				1,
+				BiasedToBottomHeight.of(VerticalAnchor.absolute(1), VerticalAnchor.absolute(2), 15),
+				false));
+
 	}
 
 	public static void templBoot(BootstrapContext<StructureTemplatePool> context) {
@@ -140,7 +152,7 @@ public class StructureProvider extends FabricDynamicRegistryProvider {
 								12),
 						StructureSet.entry(
 								context.lookup(Registries.STRUCTURE)
-										.getOrThrow(ModStructures.LEVEL11_ENTRY_TOWER_STRUCTURE),
+										.getOrThrow(ModStructures.LEVEL11_ENTRY_TOWER_STRUCTURE_10),
 								1)),
 				new RandomSpreadStructurePlacement(16, 4, RandomSpreadType.TRIANGULAR, 9)));
 	}

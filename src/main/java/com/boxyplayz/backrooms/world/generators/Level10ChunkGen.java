@@ -82,7 +82,16 @@ public class Level10ChunkGen extends BaseChunkGen {
 				return Blocks.FARMLAND.defaultBlockState().setValue(FarmlandBlock.MOISTURE, 7);
 			}
 		} else if (!grassy && !isWaterSource && y < noiseVal + 1) {
-			return Blocks.WHEAT.defaultBlockState().setValue(CropBlock.AGE, 7);
+			double wheatValue = getNoise(randomFactory, this.getSeed() + "breadyummyyummy").getValue(x * 0.03,
+					z * 0.03);
+			if (wheatValue > 0.2) {
+				return Blocks.WHEAT.defaultBlockState().setValue(CropBlock.AGE, 7);
+			} else {
+				RandomSource blockRandom = randomFactory.at(x, y, z);
+				if (blockRandom.nextInt(400) == 8) {
+					return Blocks.PUMPKIN.defaultBlockState();
+				}
+			}
 		}
 		return Blocks.AIR.defaultBlockState();
 	}
