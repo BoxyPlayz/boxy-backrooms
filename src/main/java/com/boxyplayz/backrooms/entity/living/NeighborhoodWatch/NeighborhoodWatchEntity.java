@@ -26,9 +26,10 @@ public class NeighborhoodWatchEntity extends PathfinderMob {
 			final EntitySpawnReason spawnReason, final BlockPos pos, final RandomSource random) {
 		return !level.getBlockState(pos.below()).isAir()
 				&& level.getBlockState(pos).isAir()
+				&& random.nextInt(20) == 3
 				&& level.getBlockState(pos.above()).isAir()
 				&& pos.getY() < level.getMaxY()
-				&& level.getBrightness(LightLayer.BLOCK, pos) < 3;
+				&& level.getBrightness(LightLayer.BLOCK, pos) < 9;
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {

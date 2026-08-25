@@ -212,6 +212,11 @@ public class Level11ChunkGen extends BaseChunkGen {
 		 */
 		int floorY = Math.floorMod(y, floorHeight);
 		int floorId = Math.floorDiv(y, floorHeight);
+
+		if (floorId <= 2) {
+			return Optional.empty();
+		}
+
 		RandomSource floorRandom = randomFactory.at(chunkX, floorId, chunkZ);
 		RandomSource blockRandom = randomFactory.at(x, y, z);
 		int roomType = floorRandom.nextIntBetweenInclusive(1, 5);
