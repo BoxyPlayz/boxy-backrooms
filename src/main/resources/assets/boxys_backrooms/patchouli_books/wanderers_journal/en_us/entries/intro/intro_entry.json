@@ -1,0 +1,17 @@
+{
+	"name": "Beginning",
+	"icon": "minecraft:writable_book",
+	"category": "boxys_backrooms:intro",
+	"pages": [
+		{
+			"type": "patchouli:text",
+			"text": "Welcome to Boxy's Backrooms! You can think of this as your 'tutorial' or 'wiki' if you wish."
+		},
+		{
+			"type": "patchouli:crafting",
+			"recipe": "boxys_backrooms:level0_wallpaper",
+			"title": "Getting into the rooms",
+			"text": "I know you wanna enter the backrooms as fast as you can, so just craft this, crouch on top of it, and bring anything you will need! Because (page incomplete. continue on boxys_backrooms:levels/level0)"
+		}
+	]
+}

@@ -1,0 +1,14 @@
+{
+	"name": "Hostile Entities",
+	"icon": "boxys_backrooms:firesteel_sword",
+	"category": "boxys_backrooms:entities",
+	"advancement": "boxys_backrooms:the_backrooms",
+	"pages": [
+		{
+			"type": "patchouli:entity",
+			"entity": "boxys_backrooms:smiler",
+			"text": "A Smiler is one of the more dangerous entity to encounter, as they bypass most physical attacks. Swords, axes, even maces are useless against it. The kinetic energy from arrows are only partially effective. You will likely have to kill it with fire or another external force. One good thing about them is they have low health.",
+			"name": "The Smiler"
+		}
+	]
+}

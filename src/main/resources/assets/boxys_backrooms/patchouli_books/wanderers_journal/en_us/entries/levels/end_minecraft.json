@@ -1,0 +1,11 @@
+{
+	"name": "The End",
+	"icon": "minecraft:writable_book",
+	"category": "boxys_backrooms:levels",
+	"pages": [
+		{
+			"type": "patchouli:text",
+			"text": "The End is a space-like void containing floating islands. Signs of life are low."
+		}
+	]
+}
