@@ -18,8 +18,10 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.ServerPlayer.RespawnConfig;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.storage.LevelData.RespawnData;
@@ -43,6 +45,30 @@ public class EntityTickEvents {
 						player.teleportTo(target, 0, 120, 0, Set.of(),
 								player.getYRot(), player.getXRot(),
 								false);
+					}
+				}
+				if (player.level().dimension() == ModDimensions.BROKEN_DIMENSION) {
+					if (player.position().y < -10) {
+						ServerLevel target = level.getServer().getLevel(ModDimensions.ABYSS_DIMENSION);
+						if (target == null)
+							return;
+						player.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 20 * 30, 9));
+						player.teleportTo(target, 0, 300, 0, Set.of(),
+								player.getYRot(), player.getXRot(),
+								false);
+					}
+				}
+				if (player.level().dimension() == ModDimensions.ABYSS_DIMENSION) {
+					if (player.level().getBiome(player.blockPosition()).is(ModBiomes.ABYSS_COLD_BIOME)) {
+						if (!(player.getItemBySlot(EquipmentSlot.BODY).is(Items.LEATHER_CHESTPLATE)
+								&& player.getItemBySlot(EquipmentSlot.HEAD).is(Items.LEATHER_HELMET)
+								&& player.getItemBySlot(EquipmentSlot.LEGS).is(Items.LEATHER_LEGGINGS)
+								&& player.getItemBySlot(EquipmentSlot.FEET).is(Items.LEATHER_BOOTS))) {
+							player.setTicksFrozen(player.getTicksFrozen() + 1);
+						} else {
+							player.setTicksFrozen(
+									Math.max(0, player.getTicksFrozen() - 2));
+						}
 					}
 				}
 

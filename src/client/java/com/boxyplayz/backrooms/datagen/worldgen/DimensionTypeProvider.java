@@ -252,5 +252,18 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 				.setCeiling(false)
 				.build());
 
+		register(context, ModDimensionTypes.THE_ABYSS_DIMENSION_TYPE, new DimensionTypeBuilder()
+				.setHeight(256)
+				.setMinY(-16)
+				.setSkybox(Skybox.NONE)
+				.setEnvAttributes(
+						EnvironmentAttributeMap.builder()
+								.set(EnvironmentAttributes.SKY_LIGHT_LEVEL, 0.7f).build())
+				.setFixedTime(true)
+				.setAmbientLight(0.5f)
+				.setSkylight(true)
+				.setCeiling(false)
+				.build());
+
 	}
 }

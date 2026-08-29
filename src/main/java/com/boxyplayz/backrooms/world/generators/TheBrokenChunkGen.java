@@ -3,6 +3,7 @@ package com.boxyplayz.backrooms.world.generators;
 import java.util.HashSet;
 
 import com.boxyplayz.backrooms.block.ModBlocks;
+import com.boxyplayz.backrooms.utils.Misc;
 import com.boxyplayz.backrooms.world.biome.ModBiomes;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -36,7 +37,7 @@ public class TheBrokenChunkGen extends BaseChunkGen {
 	}
 
 	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
-		int faraway = (int) Math.floor(Math.sqrt(Math.pow(x, 2) + Math.pow(z, 2)) / 10);
+		int faraway = (int) Math.floor(Misc.normalizeValues(x, z) / 10);
 		int maxDiff = 50 - faraway;
 		if (maxDiff < 1) {
 			maxDiff = 1;

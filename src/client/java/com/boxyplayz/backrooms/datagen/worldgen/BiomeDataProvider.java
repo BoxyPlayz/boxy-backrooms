@@ -348,5 +348,49 @@ public class BiomeDataProvider extends FabricDynamicRegistryProvider {
 				.mobSpawnSettings(MobSpawnSettings.EMPTY)
 				.generationSettings(BiomeGenerationSettings.EMPTY)
 				.build());
+
+		register(context, ModBiomes.ABYSS_BIOME, new Biome.BiomeBuilder()
+				.specialEffects(new BiomeSpecialEffects.Builder()
+						.waterColor(1315862)
+						.build())
+				.hasPrecipitation(false)
+				.temperature(0.5f)
+				.downfall(0f)
+				.mobSpawnSettings(MobSpawnSettings.EMPTY)
+				.generationSettings(BiomeGenerationSettings.EMPTY)
+				.build());
+
+		register(context, ModBiomes.ABYSS_COLD_BIOME, new Biome.BiomeBuilder()
+				.specialEffects(new BiomeSpecialEffects.Builder()
+						.waterColor(86878)
+						.build())
+				.hasPrecipitation(true)
+				.temperature(0.1f)
+				.downfall(0f)
+				.mobSpawnSettings(MobSpawnSettings.EMPTY)
+				.generationSettings(BiomeGenerationSettings.EMPTY)
+				.build());
+
+		register(context, ModBiomes.ABYSS_HOT_BIOME, new Biome.BiomeBuilder()
+				.specialEffects(new BiomeSpecialEffects.Builder()
+						.waterColor(68702)
+						.build())
+				.hasPrecipitation(false)
+				.temperature(0.9f)
+				.downfall(0f)
+				.mobSpawnSettings(MobSpawnSettings.EMPTY)
+				.generationSettings(BiomeGenerationSettings.EMPTY)
+				.build());
+
+		register(context, ModBiomes.ABYSS_END_BIOME, new Biome.BiomeBuilder()
+				.specialEffects(new BiomeSpecialEffects.Builder()
+						.waterColor(8883365)
+						.build())
+				.hasPrecipitation(false)
+				.temperature(0.5f)
+				.downfall(0f)
+				.mobSpawnSettings(MobSpawnSettings.EMPTY)
+				.generationSettings(BiomeGenerationSettings.EMPTY)
+				.build());
 	}
 }

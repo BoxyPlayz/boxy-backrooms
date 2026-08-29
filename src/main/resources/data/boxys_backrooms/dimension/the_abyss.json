@@ -1,0 +1,10 @@
+{
+	"type": "boxys_backrooms:the_abyss",
+	"generator": {
+		"type": "boxys_backrooms:the_abyss",
+		"biome_source": {
+			"type": "minecraft:fixed",
+			"biome": "boxys_backrooms:the_abyss"
+		}
+	}
+}

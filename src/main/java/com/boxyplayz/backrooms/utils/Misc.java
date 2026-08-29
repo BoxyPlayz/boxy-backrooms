@@ -37,6 +37,10 @@ public class Misc {
 		return false;
 	}
 
+	public static double normalizeValues(double x, double y) {
+		return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+	}
+
 	public static enum ElevatorDestination {
 		EMPTY,
 		LEVEL1,

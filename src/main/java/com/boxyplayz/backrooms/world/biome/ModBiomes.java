@@ -115,6 +115,34 @@ public class ModBiomes {
 			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level10"));
 
 	/**
+	 * Somewhere else
+	 */
+	public static final ResourceKey<Biome> ABYSS_BIOME = ResourceKey.create(
+			Registries.BIOME,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "the_abyss"));
+
+	/**
+	 * Somewhere cold
+	 */
+	public static final ResourceKey<Biome> ABYSS_COLD_BIOME = ResourceKey.create(
+			Registries.BIOME,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "cold_abyss"));
+
+	/**
+	 * Somewhere warm
+	 */
+	public static final ResourceKey<Biome> ABYSS_HOT_BIOME = ResourceKey.create(
+			Registries.BIOME,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "hot_abyss"));
+
+	/**
+	 * Somewhere at the end
+	 */
+	public static final ResourceKey<Biome> ABYSS_END_BIOME = ResourceKey.create(
+			Registries.BIOME,
+			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "end_abyss"));
+
+	/**
 	 * Biomes for sections of level 1. Subclass of {@link ModBiomes}
 	 */
 	public static class Level1Biomes {
