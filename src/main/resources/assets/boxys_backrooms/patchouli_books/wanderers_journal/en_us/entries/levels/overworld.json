@@ -1,6 +1,6 @@
 {
 	"name": "The Overworld",
-	"icon": "minecraft:writable_book",
+	"icon": "minecraft:grass_block",
 	"category": "boxys_backrooms:levels",
 	"pages": [
 		{

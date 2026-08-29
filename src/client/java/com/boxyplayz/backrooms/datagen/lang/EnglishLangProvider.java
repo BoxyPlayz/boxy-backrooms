@@ -190,8 +190,9 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(getText("hotel_title"), "The Hotel");
 		translationBuilder.add(getText("hotel_desc"), "Fancy!");
 
-		translationBuilder.add(getText("no_title"), "TURN BACK NOW");
-		translationBuilder.add(getText("no_desc"), "Read 'TO ENTER THE ROOMS:' on the modrinth page.");
+		translationBuilder.add(getText("broken_place_title"), "NULL");
+		translationBuilder.add(getText("broken_place_desc"),
+				"this, is bad.");
 
 		// Tags
 		translationBuilder.add(ModTags.NOCLIPPABLES, "Noclippable Blocks");

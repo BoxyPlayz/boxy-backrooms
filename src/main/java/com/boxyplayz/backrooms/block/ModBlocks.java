@@ -24,6 +24,7 @@ import com.boxyplayz.backrooms.block.custom.PainOnBreakBlock;
 import com.boxyplayz.backrooms.block.custom.PowerOutletBlock;
 import com.boxyplayz.backrooms.block.custom.PremiumCarpet;
 import com.boxyplayz.backrooms.block.custom.PromisedGate;
+import com.boxyplayz.backrooms.block.custom.PureBlue;
 import com.boxyplayz.backrooms.block.custom.TrampolineBlock;
 import com.boxyplayz.backrooms.block.custom.WaterFountainBlock;
 
@@ -217,8 +218,9 @@ public class ModBlocks {
 
 	public static final Block PURE_BLUE = register(
 			"pure_blue",
-			Block::new,
-			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).strength(999F).sound(SoundType.AMETHYST),
+			PureBlue::new,
+			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).strength(-1.0F, 3600000.0F)
+					.sound(SoundType.AMETHYST),
 			true);
 
 	public static final Block FUN_PINK = register(

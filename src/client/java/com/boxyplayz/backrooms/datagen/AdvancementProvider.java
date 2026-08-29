@@ -50,10 +50,10 @@ public class AdvancementProvider extends FabricAdvancementProvider {
 	@Override
 	public void generateAdvancement(HolderLookup.Provider wrapperLookup, Consumer<AdvancementHolder> consumer) {
 
-		AdvancementHolder no = generateAdvancement(Blocks.BLACK_CONCRETE, "no",
+		AdvancementHolder broken_place = generateAdvancement(Blocks.BLACK_CONCRETE, "broken_place",
 				Identifier.withDefaultNamespace("block/black_concrete"),
 				ChangeDimensionTrigger.TriggerInstance.changedDimensionTo(ModDimensions.BROKEN_DIMENSION))
-				.save(consumer, BoxysBackrooms.MOD_ID + ":no");
+				.save(consumer, BoxysBackrooms.MOD_ID + ":broken_place");
 
 		AdvancementHolder theBackrooms = generateAdvancement(ModBlocks.LEVEL0_WALLPAPER, "backrooms",
 				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "block/level0_wallpaper"),

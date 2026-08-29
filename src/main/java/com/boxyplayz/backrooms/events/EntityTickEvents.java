@@ -35,6 +35,17 @@ public class EntityTickEvents {
 		ServerTickEvents.START_LEVEL_TICK.register((ServerLevel level) -> {
 			List<ServerPlayer> players = List.copyOf(level.players());
 			players.forEach((ServerPlayer player) -> {
+				if (player.level().dimension() == ModDimensions.BLUE_CHANNEL_DIMENSION) {
+					if (player.position().y < -10) {
+						ServerLevel target = level.getServer().getLevel(ModDimensions.BROKEN_DIMENSION);
+						if (target == null)
+							return;
+						player.teleportTo(target, 0, 120, 0, Set.of(),
+								player.getYRot(), player.getXRot(),
+								false);
+					}
+				}
+
 				if (player.level().dimension() == ModDimensions.LEVEL7_DIMENSION) {
 					if (player.getAirSupply() < player.getMaxAirSupply()) {
 						player.setAirSupply(player.getMaxAirSupply());

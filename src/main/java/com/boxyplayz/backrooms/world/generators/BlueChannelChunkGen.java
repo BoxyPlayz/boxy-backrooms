@@ -1,5 +1,7 @@
 package com.boxyplayz.backrooms.world.generators;
 
+import java.util.HashSet;
+
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.world.biome.ModBiomes;
 import com.mojang.serialization.MapCodec;
@@ -10,28 +12,21 @@ import net.minecraft.resources.RegistryOps;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.FixedBiomeSource;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.PositionalRandomFactory;
-import net.minecraft.world.level.levelgen.synth.SimplexNoise;
 
 /**
  * Chunk Generation for The Blue Channel
  */
 public class BlueChannelChunkGen extends BaseChunkGen {
-	private SimplexNoise noise;
 
-	private SimplexNoise getNoise(PositionalRandomFactory worldSeed) {
-		if (this.noise == null) {
-			RandomSource random = worldSeed.fromHashOf("blueChannel");
-			this.noise = new SimplexNoise(random);
-		}
-		return this.noise;
-	}
+	HashSet<Block> blocks = new HashSet<>();
 
 	private boolean getRandomBool(RandomSource random) {
-		return random.nextIntBetweenInclusive(0, 5) == 0;
+		return random.nextIntBetweenInclusive(0, 3) == 0;
 	}
 
 	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
@@ -39,24 +34,17 @@ public class BlueChannelChunkGen extends BaseChunkGen {
 		int chunkZ = Math.floorDiv(z, 16);
 		RandomSource chunkRandom = randomFactory.at(chunkX, 0, chunkZ);
 
-		if (chunkRandom.nextIntBetweenInclusive(0, 40) == 5) {
-			int chunkType = chunkRandom.nextIntBetweenInclusive(1, 4);
+		if (chunkRandom.nextIntBetweenInclusive(0, 160) == 5) {
+			int chunkType = chunkRandom.nextIntBetweenInclusive(1, 2);
 			int cellX;
 			int cellZ;
 			int localX;
 			int localZ;
 			RandomSource cellRandom;
-			RandomSource blockRandom = randomFactory.at(x, y, z);
 			switch (chunkType) {
 				case 1:
 					if (y <= 40) {
 						return ModBlocks.LEVEL0_CARPET.defaultBlockState();
-					}
-					if (y >= 44) {
-						if (Math.floorMod(x, 4) == 2 && Math.floorMod(z, 4) == 2) {
-							return ModBlocks.LEVEL0_CEILING_LIGHT.defaultBlockState();
-						}
-						return ModBlocks.LEVEL0_CEILING_TILE.defaultBlockState();
 					}
 					cellX = Math.floorDiv(Math.floorMod(x, 16), 4);
 					cellZ = Math.floorDiv(Math.floorMod(z, 16), 4);
@@ -84,64 +72,11 @@ public class BlueChannelChunkGen extends BaseChunkGen {
 					break;
 
 				case 2:
-					if (y <= 40) {
-						return ModBlocks.INFERIOR_CARPET.defaultBlockState();
+					RandomSource thingSource = randomFactory.at(x, Math.floorDiv(y, 5), z);
+					if (thingSource.nextInt(20) == 3) {
+						return this.getRandomConcrete(thingSource);
 					}
-					if (y >= 44) {
-						if (Math.floorMod(x, 4) == 2 && Math.floorMod(z, 4) == 2) {
-							return ModBlocks.LEVEL1_CEILING_LIGHT.defaultBlockState();
-						}
-						return ModBlocks.INFERIOR_CEILING_TILE.defaultBlockState();
-					}
-					cellX = Math.floorDiv(Math.floorMod(x, 16), 4);
-					cellZ = Math.floorDiv(Math.floorMod(z, 16), 4);
-
-					localX = Math.abs(Math.floorMod(x, 4));
-					localZ = Math.abs(Math.floorMod(z, 4));
-
-					cellRandom = randomFactory.at(
-							(int) (chunkX * 4 + cellX),
-							0,
-							(int) (chunkZ * 4 + cellZ));
-
-					if (getRandomBool(cellRandom) && localZ == 0) {
-						return ModBlocks.INFERIOR_WALLPAPER.defaultBlockState();
-					}
-					if (getRandomBool(cellRandom) && localZ == 3) {
-						return ModBlocks.INFERIOR_WALLPAPER.defaultBlockState();
-					}
-					if (getRandomBool(cellRandom) && localX == 0) {
-						return ModBlocks.INFERIOR_WALLPAPER.defaultBlockState();
-					}
-					if (getRandomBool(cellRandom) && localX == 3) {
-						return ModBlocks.INFERIOR_WALLPAPER.defaultBlockState();
-					}
-					break;
-
-				case 3:
-					if (y <= 40) {
-						if (y <= 20) {
-							return ModBlocks.OCEAN_TRANSPORTER.defaultBlockState();
-						}
-						return Blocks.WATER.defaultBlockState();
-					}
-					break;
-
-				case 4:
-					double recievedValue = this.getNoise(randomFactory).getValue(x * 0.1, y * 0.1, z * 0.1);
-					if (recievedValue > 0.2) {
-						if (blockRandom.nextIntBetweenInclusive(0, 10) == 1) {
-							return ModBlocks.ERRORSLATE.defaultBlockState();
-						} else {
-							return Blocks.DEEPSLATE.defaultBlockState();
-						}
-					} else {
-						if (y < 5) {
-							return ModBlocks.PURE_BLUE.defaultBlockState();
-						} else {
-							return Blocks.AIR.defaultBlockState();
-						}
-					}
+					return Blocks.AIR.defaultBlockState();
 
 				default:
 					return Blocks.AIR.defaultBlockState();
@@ -157,6 +92,27 @@ public class BlueChannelChunkGen extends BaseChunkGen {
 
 	public BlueChannelChunkGen(Holder.Reference<Biome> biome) {
 		super(new FixedBiomeSource(biome));
+		blocks.add(Blocks.RED_CONCRETE);
+		blocks.add(Blocks.ORANGE_CONCRETE);
+		blocks.add(Blocks.YELLOW_CONCRETE);
+		blocks.add(Blocks.LIME_CONCRETE);
+		blocks.add(Blocks.GREEN_CONCRETE);
+		blocks.add(Blocks.CYAN_CONCRETE);
+		blocks.add(Blocks.BLUE_CONCRETE);
+		blocks.add(Blocks.PURPLE_CONCRETE);
+		blocks.add(Blocks.MAGENTA_CONCRETE);
+		blocks.add(Blocks.LIGHT_BLUE_CONCRETE);
+		blocks.add(Blocks.PINK_CONCRETE);
+	}
+
+	private BlockState getRandomConcrete(RandomSource random) {
+		BlockState state = Blocks.BLACK_CONCRETE.defaultBlockState();
+		for (Block b : blocks) {
+			if (random.nextIntBetweenInclusive(0, 5) == 3) {
+				state = b.defaultBlockState();
+			}
+		}
+		return state;
 	}
 
 	public static final MapCodec<BlueChannelChunkGen> CODEC = RecordCodecBuilder.mapCodec(

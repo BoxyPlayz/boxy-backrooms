@@ -1,0 +1,12 @@
+{
+	"name": "somewhere else",
+	"icon": "minecraft:black_concrete",
+	"category": "boxys_backrooms:levels",
+	"advancement": "boxys_backrooms:broken_place",
+	"pages": [
+		{
+			"type": "patchouli:text",
+			"text": "Okay, HOW did you get here? Well that doesn't matter much now, 1000 blocks in any direction. See the blue, walk on through. Don't fall."
+		}
+	]
+}

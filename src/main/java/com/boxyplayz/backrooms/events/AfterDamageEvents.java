@@ -8,8 +8,6 @@ import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageTypes;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.Level;
 
 public class AfterDamageEvents {
@@ -24,8 +22,7 @@ public class AfterDamageEvents {
 							ServerLevel target = entity.level().getServer().getLevel(ModDimensions.BROKEN_DIMENSION);
 							if (target == null)
 								return;
-							entity.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 10 * 20, 20));
-							entity.teleportTo(target, entity.position().x, 120, entity.position().z, Set.of(),
+							entity.teleportTo(target, 0, 120, 0, Set.of(),
 									entity.getYRot(), entity.getXRot(),
 									false);
 						}

@@ -25,6 +25,11 @@ public class AllowDamageEvents {
 					return false;
 				}
 			}
+			if (entity.level().dimension() == ModDimensions.BROKEN_DIMENSION) {
+				if (source.is(DamageTypes.FALL)) {
+					return false;
+				}
+			}
 			if (entity instanceof SmilerEntity) {
 				if (source.is(DamageTypes.PLAYER_ATTACK)) {
 					if (source.getEntity() instanceof Player player) {

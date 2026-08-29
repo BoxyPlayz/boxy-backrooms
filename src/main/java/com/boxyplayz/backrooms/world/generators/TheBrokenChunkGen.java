@@ -2,6 +2,7 @@ package com.boxyplayz.backrooms.world.generators;
 
 import java.util.HashSet;
 
+import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.world.biome.ModBiomes;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -35,16 +36,25 @@ public class TheBrokenChunkGen extends BaseChunkGen {
 	}
 
 	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
-		int randomHeight = randomFactory.at(x, 3253, z).nextIntBetweenInclusive(1, 40);
+		int faraway = (int) Math.floor(Math.sqrt(Math.pow(x, 2) + Math.pow(z, 2)) / 10);
+		int maxDiff = 50 - faraway;
+		if (maxDiff < 1) {
+			maxDiff = 1;
+		}
+		int randomHeight = randomFactory.at(x, 3253, z).nextIntBetweenInclusive(1, maxDiff);
 		int noiseHeight = (int) (getNoise(randomFactory).getValue(x * 0.01, z * 0.01) * 30);
 		int height = Math.floorDiv(randomHeight + (noiseHeight * 2), 3);
 
 		if (y <= height) {
 			BlockState state = Blocks.BLACK_CONCRETE.defaultBlockState();
-			RandomSource blockRandom = randomFactory.at(x, y, z);
-			for (Block b : blocks) {
-				if (blockRandom.nextIntBetweenInclusive(0, 5) == 3) {
-					state = b.defaultBlockState();
+			if (faraway > 100) {
+				state = ModBlocks.PURE_BLUE.defaultBlockState();
+			} else {
+				RandomSource blockRandom = randomFactory.at(x, y, z);
+				for (Block b : blocks) {
+					if (blockRandom.nextIntBetweenInclusive(0, 5) == 3) {
+						state = b.defaultBlockState();
+					}
 				}
 			}
 			return state;
