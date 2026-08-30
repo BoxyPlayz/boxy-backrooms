@@ -34,6 +34,38 @@ public class EntityTickEvents {
 	 * Registers the event for {@link ServerTickEvents.StartLevelTick}
 	 */
 	public static void RegisterEntityTickEvents() {
+
+		ServerTickEvents.END_LEVEL_TICK.register((ServerLevel level) -> {
+			List<ServerPlayer> players = List.copyOf(level.players());
+			players.forEach((ServerPlayer player) -> {
+				if (player.level().dimension() == ModDimensions.ABYSS_DIMENSION) {
+					boolean fullLeather = player.getItemBySlot(EquipmentSlot.CHEST).is(Items.LEATHER_CHESTPLATE)
+							&& player.getItemBySlot(EquipmentSlot.HEAD).is(Items.LEATHER_HELMET)
+							&& player.getItemBySlot(EquipmentSlot.LEGS).is(Items.LEATHER_LEGGINGS)
+							&& player.getItemBySlot(EquipmentSlot.FEET).is(Items.LEATHER_BOOTS);
+
+					if (!fullLeather) {
+						if (player.level().getBiome(player.blockPosition()).is(ModBiomes.ABYSS_COLD_BIOME)) {
+							player.setTicksFrozen(
+									Math.min(player.getTicksFrozen() + 4, player.getTicksRequiredToFreeze()));
+
+							if (player.getTicksFrozen() >= player.getTicksRequiredToFreeze()
+									&& player.tickCount % 40 == 0) {
+								player.hurtServer(
+										level,
+										player.damageSources().freeze(),
+										1.0F);
+							}
+
+						} else {
+							player.setTicksFrozen(
+									Math.max(0, player.getTicksFrozen() - 2));
+						}
+					}
+				}
+			});
+		});
+
 		ServerTickEvents.START_LEVEL_TICK.register((ServerLevel level) -> {
 			List<ServerPlayer> players = List.copyOf(level.players());
 			players.forEach((ServerPlayer player) -> {
@@ -56,19 +88,6 @@ public class EntityTickEvents {
 						player.teleportTo(target, 0, 300, 0, Set.of(),
 								player.getYRot(), player.getXRot(),
 								false);
-					}
-				}
-				if (player.level().dimension() == ModDimensions.ABYSS_DIMENSION) {
-					if (player.level().getBiome(player.blockPosition()).is(ModBiomes.ABYSS_COLD_BIOME)) {
-						if (!(player.getItemBySlot(EquipmentSlot.BODY).is(Items.LEATHER_CHESTPLATE)
-								&& player.getItemBySlot(EquipmentSlot.HEAD).is(Items.LEATHER_HELMET)
-								&& player.getItemBySlot(EquipmentSlot.LEGS).is(Items.LEATHER_LEGGINGS)
-								&& player.getItemBySlot(EquipmentSlot.FEET).is(Items.LEATHER_BOOTS))) {
-							player.setTicksFrozen(player.getTicksFrozen() + 1);
-						} else {
-							player.setTicksFrozen(
-									Math.max(0, player.getTicksFrozen() - 2));
-						}
 					}
 				}
 
