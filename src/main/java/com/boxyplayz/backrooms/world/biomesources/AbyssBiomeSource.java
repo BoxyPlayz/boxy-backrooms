@@ -4,6 +4,7 @@ import java.util.stream.Stream;
 
 import com.boxyplayz.backrooms.utils.Misc;
 import com.boxyplayz.backrooms.world.biome.ModBiomes;
+import com.boxyplayz.backrooms.world.generators.AbyssChunkGen;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
@@ -54,15 +55,18 @@ public class AbyssBiomeSource extends BiomeSource {
 
 		int deepness = (int) Math.floor(Misc.normalizeValues(x, z));
 
-		if (deepness <= 200) {
+		int i = AbyssChunkGen.START_SIZE;
+		if (deepness <= i) {
 			return this.startHolder;
 		}
 
-		if (deepness <= 500) {
+		i += AbyssChunkGen.COLD_SIZE;
+		if (deepness <= i) {
 			return this.coldHolder;
 		}
 
-		if (deepness <= 700) {
+		i += AbyssChunkGen.HOT_SIZE;
+		if (deepness <= i) {
 			return this.hotHolder;
 		}
 
