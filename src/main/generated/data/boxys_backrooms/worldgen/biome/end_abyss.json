@@ -1,4 +1,10 @@
 {
+  "attributes": {
+    "minecraft:visual/fog_color": "#110016",
+    "minecraft:visual/sky_color": "#110016",
+    "minecraft:visual/star_angle": 0.638,
+    "minecraft:visual/star_brightness": 0.7
+  },
   "carvers": [],
   "downfall": 0.0,
   "effects": {

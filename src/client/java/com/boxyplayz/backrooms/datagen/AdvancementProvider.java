@@ -134,6 +134,12 @@ public class AdvancementProvider extends FabricAdvancementProvider {
 				.parent(theBackrooms)
 				.save(consumer, BoxysBackrooms.MOD_ID + ":fun");
 
+		AdvancementHolder abyss = generateAdvancement(Blocks.OBSIDIAN, "abyss", null,
+				ChangeDimensionTrigger.TriggerInstance
+						.changedDimensionTo(ModDimensions.ABYSS_DIMENSION))
+				.parent(broken_place)
+				.save(consumer, BoxysBackrooms.MOD_ID + ":abyss");
+
 	}
 
 }

@@ -37,10 +37,11 @@ public class AbyssChunkGen extends BaseChunkGen {
 
 	@Override
 	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
-		if (y == getMinY()) {
+		int deepness = (int) Math.floor(Misc.normalizeValues(x, z));
+
+		if (y == getMinY() && deepness <= 700) {
 			return Blocks.BEDROCK.defaultBlockState();
 		}
-		int deepness = (int) Math.floor(Misc.normalizeValues(x, z));
 
 		if (deepness <= 200) {
 			if (y <= getNoise(randomFactory).getValue(x * 0.01, z * 0.01) * 8 + 16) {
@@ -55,9 +56,29 @@ public class AbyssChunkGen extends BaseChunkGen {
 				if (y + 2 <= noiseVal) {
 					return Blocks.DIRT.defaultBlockState();
 				}
+				if (y + 1 > noiseVal) {
+					if (randomFactory.at(x, y, z).nextInt(20) == 3) {
+						return Blocks.PACKED_ICE.defaultBlockState();
+					}
+				}
 				return Blocks.SNOW_BLOCK.defaultBlockState();
 			}
 			return Blocks.AIR.defaultBlockState();
+		}
+
+		if (deepness <= 700) {
+			double noiseVal = getNoise(randomFactory).getValue(x * 0.01, z * 0.01) * 8 + 16;
+			if (y <= noiseVal) {
+				return Blocks.BLACKSTONE.defaultBlockState();
+			}
+			return Blocks.AIR.defaultBlockState();
+		}
+
+		if (deepness <= 1000) {
+			double noiseVal = getNoise(randomFactory).getValue(x * 0.01, z * 0.01) * 8 + 16;
+			if (y <= noiseVal) {
+				return Blocks.END_STONE.defaultBlockState();
+			}
 		}
 
 		return Blocks.AIR.defaultBlockState();
@@ -72,7 +93,7 @@ public class AbyssChunkGen extends BaseChunkGen {
 			instance -> instance.group(
 					RegistryOps.retrieveElement(ModBiomes.ABYSS_BIOME),
 					RegistryOps.retrieveElement(ModBiomes.ABYSS_COLD_BIOME),
-					RegistryOps.retrieveElement(ModBiomes.ABYSS_COLD_BIOME),
+					RegistryOps.retrieveElement(ModBiomes.ABYSS_HOT_BIOME),
 					RegistryOps.retrieveElement(ModBiomes.ABYSS_END_BIOME))
 					.apply(instance,
 							instance.stable(AbyssChunkGen::new)));

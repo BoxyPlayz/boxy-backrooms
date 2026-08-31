@@ -1,6 +1,6 @@
 {
 	"name": "Level 0",
-	"icon": "minecraft:writable_book",
+	"icon": "boxys_backrooms:level0_wallpaper",
 	"category": "boxys_backrooms:levels",
 	"advancement": "boxys_backrooms:the_backrooms",
 	"pages": [

@@ -1,0 +1,14 @@
+{
+	"required": true,
+	"package": "com.boxyplayz.backrooms.mixin",
+	"compatibilityLevel": "JAVA_25",
+	"client": [
+		"SkyRendererMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}

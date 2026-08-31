@@ -1,0 +1,30 @@
+{
+  "parent": "boxys_backrooms:broken_place",
+  "criteria": {
+    "abyss": {
+      "conditions": {
+        "to": "boxys_backrooms:the_abyss"
+      },
+      "trigger": "minecraft:changed_dimension"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "text.boxys_backrooms.abyss_desc"
+    },
+    "hidden": true,
+    "icon": {
+      "id": "minecraft:obsidian"
+    },
+    "title": {
+      "translate": "text.boxys_backrooms.abyss_title"
+    }
+  },
+  "requirements": [
+    [
+      "abyss"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

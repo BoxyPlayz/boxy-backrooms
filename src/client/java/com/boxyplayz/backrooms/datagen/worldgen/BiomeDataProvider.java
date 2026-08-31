@@ -350,6 +350,8 @@ public class BiomeDataProvider extends FabricDynamicRegistryProvider {
 				.build());
 
 		register(context, ModBiomes.ABYSS_BIOME, new Biome.BiomeBuilder()
+				.setAttribute(EnvironmentAttributes.SKY_COLOR, 460551)
+				.setAttribute(EnvironmentAttributes.FOG_COLOR, 460551)
 				.specialEffects(new BiomeSpecialEffects.Builder()
 						.waterColor(1315862)
 						.build())
@@ -361,6 +363,8 @@ public class BiomeDataProvider extends FabricDynamicRegistryProvider {
 				.build());
 
 		register(context, ModBiomes.ABYSS_COLD_BIOME, new Biome.BiomeBuilder()
+				.setAttribute(EnvironmentAttributes.SKY_COLOR, 8649976)
+				.setAttribute(EnvironmentAttributes.FOG_COLOR, 8649976)
 				.specialEffects(new BiomeSpecialEffects.Builder()
 						.waterColor(86878)
 						.build())
@@ -372,6 +376,8 @@ public class BiomeDataProvider extends FabricDynamicRegistryProvider {
 				.build());
 
 		register(context, ModBiomes.ABYSS_HOT_BIOME, new Biome.BiomeBuilder()
+				.setAttribute(EnvironmentAttributes.SKY_COLOR, 16521477)
+				.setAttribute(EnvironmentAttributes.FOG_COLOR, 16521477)
 				.specialEffects(new BiomeSpecialEffects.Builder()
 						.waterColor(68702)
 						.build())
@@ -383,6 +389,10 @@ public class BiomeDataProvider extends FabricDynamicRegistryProvider {
 				.build());
 
 		register(context, ModBiomes.ABYSS_END_BIOME, new Biome.BiomeBuilder()
+				.setAttribute(EnvironmentAttributes.SKY_COLOR, 1114134)
+				.setAttribute(EnvironmentAttributes.FOG_COLOR, 1114134)
+				.setAttribute(EnvironmentAttributes.STAR_ANGLE, 0.638f)
+				.setAttribute(EnvironmentAttributes.STAR_BRIGHTNESS, 0.7f)
 				.specialEffects(new BiomeSpecialEffects.Builder()
 						.waterColor(8883365)
 						.build())

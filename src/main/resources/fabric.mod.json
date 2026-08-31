@@ -40,5 +40,11 @@
 				"modmenu.discord": "https://discord.com/invite/T9abqkRdk6"
 			}
 		}
-	}
+	},
+	"mixins": [
+		{
+			"config": "boxys_backrooms.client.mixins.json",
+			"environment": "client"
+		}
+	]
 }

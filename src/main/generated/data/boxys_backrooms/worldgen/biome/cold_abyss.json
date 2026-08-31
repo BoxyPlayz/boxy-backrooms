@@ -1,4 +1,8 @@
 {
+  "attributes": {
+    "minecraft:visual/fog_color": "#83fcf8",
+    "minecraft:visual/sky_color": "#83fcf8"
+  },
   "carvers": [],
   "downfall": 0.0,
   "effects": {

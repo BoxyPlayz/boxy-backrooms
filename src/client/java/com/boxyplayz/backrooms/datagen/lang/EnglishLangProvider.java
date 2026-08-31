@@ -194,6 +194,9 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(getText("broken_place_desc"),
 				"this, is bad.");
 
+		translationBuilder.add(getText("abyss_title"), "The Abyss");
+		translationBuilder.add(getText("abyss_desc"), "Your goal wasn't the rooms, was it?");
+
 		// Tags
 		translationBuilder.add(ModTags.NOCLIPPABLES, "Noclippable Blocks");
 		translationBuilder.add(ModTags.ALMOND_WATERS, "Almond Waters");
