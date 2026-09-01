@@ -44,6 +44,11 @@ public class EntityTickEvents {
 							&& player.getItemBySlot(EquipmentSlot.LEGS).is(Items.LEATHER_LEGGINGS)
 							&& player.getItemBySlot(EquipmentSlot.FEET).is(Items.LEATHER_BOOTS);
 
+					boolean noArmor = player.getItemBySlot(EquipmentSlot.CHEST).isEmpty()
+							&& player.getItemBySlot(EquipmentSlot.HEAD).isEmpty()
+							&& player.getItemBySlot(EquipmentSlot.LEGS).isEmpty()
+							&& player.getItemBySlot(EquipmentSlot.FEET).isEmpty();
+
 					if (!fullLeather) {
 						if (player.level().getBiome(player.blockPosition()).is(ModBiomes.ABYSS_COLD_BIOME)) {
 							player.setTicksFrozen(
@@ -60,6 +65,15 @@ public class EntityTickEvents {
 						} else {
 							player.setTicksFrozen(
 									Math.max(0, player.getTicksFrozen() - 2));
+						}
+					}
+					if (player.level().getBiome(player.blockPosition()).is(ModBiomes.ABYSS_HOT_BIOME)) {
+						if (!noArmor) {
+							if (fullLeather) {
+								player.setRemainingFireTicks(20 * 20);
+							} else {
+								player.setRemainingFireTicks(4 * 20);
+							}
 						}
 					}
 				}

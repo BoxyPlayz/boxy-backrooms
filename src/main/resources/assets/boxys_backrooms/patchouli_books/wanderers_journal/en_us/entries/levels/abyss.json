@@ -7,6 +7,14 @@
 		{
 			"type": "patchouli:text",
 			"text": "It's just you. Alone in eternity."
+		},
+		{
+			"type": "patchouli:empty",
+			"draw_filler": false
+		},
+		{
+			"type": "patchouli:text",
+			"text": "In the cold, a coat of leather could keep you warm. In the hot, 1 piece of armor is enough to overheat. In the end, welcome to your new home."
 		}
 	]
 }
