@@ -102,7 +102,6 @@ public class RecipeDataProvider extends FabricRecipeProvider {
 						ModItems.SMILER_REPELLANT)
 						.unlockedBy(getHasName(ModItems.SHADOW_DUST), has(ModItems.SHADOW_DUST))
 						.save(output, getItemName(ModItems.SHADOW_DUST) + "_blending");
-
 			}
 		};
 	}

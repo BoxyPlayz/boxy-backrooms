@@ -2,6 +2,7 @@ package com.boxyplayz.backrooms.world.generators;
 
 import java.util.HashSet;
 
+import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.utils.Misc;
 import com.boxyplayz.backrooms.world.biome.ModBiomes;
 import com.boxyplayz.backrooms.world.biomesources.AbyssBiomeSource;
@@ -106,6 +107,10 @@ public class AbyssChunkGen extends BaseChunkGen {
 				return Blocks.END_STONE.defaultBlockState();
 			}
 			return Blocks.AIR.defaultBlockState();
+		}
+
+		if (y == this.getMinY()) {
+			return ModBlocks.STEP_VISIBLE.defaultBlockState();
 		}
 
 		return Blocks.AIR.defaultBlockState();

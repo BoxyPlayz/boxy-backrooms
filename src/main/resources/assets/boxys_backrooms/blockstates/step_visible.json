@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"activated=false": {
+			"model": "boxys_backrooms:block/step_visible_off"
+		},
+		"activated=true": {
+			"model": "boxys_backrooms:block/step_visible_on"
+		}
+	}
+}

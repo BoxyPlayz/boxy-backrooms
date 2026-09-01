@@ -25,6 +25,7 @@ import com.boxyplayz.backrooms.block.custom.PowerOutletBlock;
 import com.boxyplayz.backrooms.block.custom.PremiumCarpet;
 import com.boxyplayz.backrooms.block.custom.PromisedGate;
 import com.boxyplayz.backrooms.block.custom.PureBlue;
+import com.boxyplayz.backrooms.block.custom.StepVisibleBlock;
 import com.boxyplayz.backrooms.block.custom.TrampolineBlock;
 import com.boxyplayz.backrooms.block.custom.WaterFountainBlock;
 
@@ -383,6 +384,9 @@ public class ModBlocks {
 
 	public static final Block FALSE_WHEAT = register("false_wheat", FalseWheat::new,
 			BlockBehaviour.Properties.of().strength(1).noOcclusion().noCollision(), true);
+
+	public static final Block STEP_VISIBLE = register("step_visible", StepVisibleBlock::new,
+			BlockBehaviour.Properties.of().strength(1).noOcclusion(), true);
 
 	public static void RegisterModBlocks() {
 	}
