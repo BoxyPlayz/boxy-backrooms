@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_power_outlet": {
+      "conditions": {
+        "to": "boxys_backrooms:level3"
+      },
+      "trigger": "minecraft:changed_dimension"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "boxys_backrooms:blender_shapeless"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_power_outlet"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "boxys_backrooms:blender_shapeless"
+    ]
+  }
+}

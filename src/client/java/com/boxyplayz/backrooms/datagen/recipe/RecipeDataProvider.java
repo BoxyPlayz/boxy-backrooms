@@ -5,9 +5,11 @@ import java.util.concurrent.CompletableFuture;
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.datagen.recipe.builders.BlendingRecipeBuilder;
 import com.boxyplayz.backrooms.item.ModItems;
+import com.boxyplayz.backrooms.world.dimension.ModDimensions;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.advancements.criterion.ChangeDimensionTrigger;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.core.registries.Registries;
@@ -102,6 +104,14 @@ public class RecipeDataProvider extends FabricRecipeProvider {
 						ModItems.SMILER_REPELLANT)
 						.unlockedBy(getHasName(ModItems.SHADOW_DUST), has(ModItems.SHADOW_DUST))
 						.save(output, getItemName(ModItems.SHADOW_DUST) + "_blending");
+
+				shapeless(RecipeCategory.REDSTONE, ModBlocks.BLENDER)
+						.requires(Blocks.BREWING_STAND)
+						.requires(ModBlocks.POWER_OUTLET_BLOCK)
+						.unlockedBy(getHasName(ModBlocks.POWER_OUTLET_BLOCK),
+								ChangeDimensionTrigger.TriggerInstance
+										.changedDimensionTo(ModDimensions.LEVEL3_DIMENSION))
+						.save(output, getItemName(ModBlocks.BLENDER) + "_shapeless");
 			}
 		};
 	}
