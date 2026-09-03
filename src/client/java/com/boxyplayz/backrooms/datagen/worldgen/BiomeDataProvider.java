@@ -376,8 +376,8 @@ public class BiomeDataProvider extends FabricDynamicRegistryProvider {
 				.build());
 
 		register(context, ModBiomes.ABYSS_HOT_BIOME, new Biome.BiomeBuilder()
-				.setAttribute(EnvironmentAttributes.SKY_COLOR, 16521477)
-				.setAttribute(EnvironmentAttributes.FOG_COLOR, 16521477)
+				.setAttribute(EnvironmentAttributes.SKY_COLOR, 9833729)
+				.setAttribute(EnvironmentAttributes.FOG_COLOR, 9833729)
 				.specialEffects(new BiomeSpecialEffects.Builder()
 						.waterColor(68702)
 						.build())
