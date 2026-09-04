@@ -1,0 +1,30 @@
+{
+  "parent": "boxys_backrooms:neighbors",
+  "criteria": {
+    "huit": {
+      "conditions": {
+        "to": "boxys_backrooms:level10"
+      },
+      "trigger": "minecraft:changed_dimension"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "text.boxys_backrooms.huit_desc"
+    },
+    "hidden": true,
+    "icon": {
+      "id": "boxys_backrooms:false_wheat"
+    },
+    "title": {
+      "translate": "text.boxys_backrooms.huit_title"
+    }
+  },
+  "requirements": [
+    [
+      "huit"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

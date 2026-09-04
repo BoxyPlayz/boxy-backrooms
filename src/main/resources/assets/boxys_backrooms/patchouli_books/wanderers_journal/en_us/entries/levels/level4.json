@@ -1,0 +1,12 @@
+{
+	"name": "Level 4",
+	"icon": "boxys_backrooms:elevator",
+	"category": "boxys_backrooms:levels",
+	"advancement": "boxys_backrooms:office",
+	"pages": [
+		{
+			"type": "patchouli:text",
+			"text": "Welcome to your first safe level! It's pretty empty here, so no real worries. Just find and click on a table."
+		}
+	]
+}

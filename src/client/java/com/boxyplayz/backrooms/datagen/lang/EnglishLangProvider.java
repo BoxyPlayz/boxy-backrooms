@@ -199,6 +199,16 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(getText("abyss_title"), "The Abyss");
 		translationBuilder.add(getText("abyss_desc"), "Your goal wasn't the rooms, was it?");
 
+		translationBuilder.add(getText("neighbors_title"), "You're neighbors!");
+		translationBuilder.add(getText("neighbors_desc"), "Just dash away from them CALMLY.");
+
+		translationBuilder.add(getText("huit_title"), "A french eight");
+		translationBuilder.add(getText("huit_desc"), "Did you get the joke?");
+
+		translationBuilder.add(getText("big_city_title"), "Infinite City");
+		translationBuilder.add(getText("big_city_desc"),
+				"There's lots of resources, maybe you could become a big shot here?");
+
 		// Tags
 		translationBuilder.add(ModTags.NOCLIPPABLES, "Noclippable Blocks");
 		translationBuilder.add(ModTags.ALMOND_WATERS, "Almond Waters");

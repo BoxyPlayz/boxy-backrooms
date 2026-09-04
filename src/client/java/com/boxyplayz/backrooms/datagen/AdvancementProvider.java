@@ -134,6 +134,24 @@ public class AdvancementProvider extends FabricAdvancementProvider {
 				.parent(theBackrooms)
 				.save(consumer, BoxysBackrooms.MOD_ID + ":fun");
 
+		AdvancementHolder neighbors = generateAdvancement(ModBlocks.LEVEL9_ENTRY, "neighbors", null,
+				ChangeDimensionTrigger.TriggerInstance
+						.changedDimensionTo(ModDimensions.LEVEL9_DIMENSION))
+				.parent(oneWayCavern)
+				.save(consumer, BoxysBackrooms.MOD_ID + ":neighbors");
+
+		AdvancementHolder eightFrench = generateAdvancement(ModBlocks.FALSE_WHEAT, "huit", null,
+				ChangeDimensionTrigger.TriggerInstance
+						.changedDimensionTo(ModDimensions.LEVEL10_DIMENSION))
+				.parent(neighbors)
+				.save(consumer, BoxysBackrooms.MOD_ID + ":huit");
+
+		AdvancementHolder oneBigCity = generateAdvancement(ModBlocks.FALSE_WHEAT, "big_city", null,
+				ChangeDimensionTrigger.TriggerInstance
+						.changedDimensionTo(ModDimensions.LEVEL10_DIMENSION))
+				.parent(eightFrench)
+				.save(consumer, BoxysBackrooms.MOD_ID + ":big_city");
+
 		AdvancementHolder abyss = generateAdvancement(Blocks.OBSIDIAN, "abyss", null,
 				ChangeDimensionTrigger.TriggerInstance
 						.changedDimensionTo(ModDimensions.ABYSS_DIMENSION))

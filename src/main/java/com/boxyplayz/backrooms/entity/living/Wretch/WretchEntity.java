@@ -24,6 +24,7 @@ public class WretchEntity extends PathfinderMob {
 	public static boolean CheckSpawnRules(final EntityType<WretchEntity> type, final ServerLevelAccessor level,
 			final EntitySpawnReason spawnReason, final BlockPos pos, final RandomSource random) {
 		return !level.getBlockState(pos.below()).isAir()
+				&& random.nextInt(40) == 4
 				&& level.getBlockState(pos).isAir()
 				&& level.getBlockState(pos.above()).isAir()
 				&& pos.getY() < level.getMaxY();

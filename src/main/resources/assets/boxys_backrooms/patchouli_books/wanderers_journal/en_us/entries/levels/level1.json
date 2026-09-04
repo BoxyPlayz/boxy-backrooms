@@ -1,0 +1,17 @@
+{
+	"name": "Level 1",
+	"icon": "boxys_backrooms:level1_pillar_aquila",
+	"category": "boxys_backrooms:levels",
+	"advancement": "boxys_backrooms:habitable",
+	"pages": [
+		{
+			"type": "patchouli:text",
+			"text": "So, you made it out of there. Congrats. Well what are you waiting for? This ain't exactly the safest place!"
+		},
+		{
+			"type": "patchouli:text",
+			"text": "get out of there.",
+			"advancement": "garden_hab"
+		}
+	]
+}

@@ -1,0 +1,30 @@
+{
+  "parent": "boxys_backrooms:huit",
+  "criteria": {
+    "big_city": {
+      "conditions": {
+        "to": "boxys_backrooms:level10"
+      },
+      "trigger": "minecraft:changed_dimension"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "text.boxys_backrooms.big_city_desc"
+    },
+    "hidden": true,
+    "icon": {
+      "id": "boxys_backrooms:false_wheat"
+    },
+    "title": {
+      "translate": "text.boxys_backrooms.big_city_title"
+    }
+  },
+  "requirements": [
+    [
+      "big_city"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

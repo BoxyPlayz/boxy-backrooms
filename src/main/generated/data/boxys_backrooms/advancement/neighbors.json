@@ -1,0 +1,30 @@
+{
+  "parent": "boxys_backrooms:one_way_cavern",
+  "criteria": {
+    "neighbors": {
+      "conditions": {
+        "to": "boxys_backrooms:level9"
+      },
+      "trigger": "minecraft:changed_dimension"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "text.boxys_backrooms.neighbors_desc"
+    },
+    "hidden": true,
+    "icon": {
+      "id": "boxys_backrooms:level9_entry_house"
+    },
+    "title": {
+      "translate": "text.boxys_backrooms.neighbors_title"
+    }
+  },
+  "requirements": [
+    [
+      "neighbors"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

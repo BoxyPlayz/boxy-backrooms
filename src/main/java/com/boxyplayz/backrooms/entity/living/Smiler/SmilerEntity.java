@@ -41,6 +41,7 @@ public class SmilerEntity extends PathfinderMob {
 		}
 		return !level.getBlockState(pos.below()).isAir()
 				&& level.getBlockState(pos).isAir()
+				&& random.nextInt(40) == 4
 				&& level.getBlockState(pos.above()).isAir()
 				&& pos.getY() < level.getMaxY();
 	}

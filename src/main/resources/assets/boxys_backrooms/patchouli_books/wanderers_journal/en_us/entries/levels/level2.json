@@ -1,0 +1,12 @@
+{
+	"name": "Level 2",
+	"icon": "boxys_backrooms:level2_door",
+	"category": "boxys_backrooms:levels",
+	"advancement": "boxys_backrooms:pipe_dreams",
+	"pages": [
+		{
+			"type": "patchouli:text",
+			"text": "STOP READING AND RUN!"
+		}
+	]
+}

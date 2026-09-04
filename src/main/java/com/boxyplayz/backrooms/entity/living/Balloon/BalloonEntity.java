@@ -22,6 +22,7 @@ public class BalloonEntity extends PathfinderMob {
 			final EntitySpawnReason spawnReason, final BlockPos pos, final RandomSource random) {
 		return !level.getBlockState(pos.below()).isAir()
 				&& level.getBlockState(pos).isAir()
+				&& random.nextInt(160) == 4
 				&& level.getBlockState(pos.above()).isAir()
 				&& pos.getY() < level.getMaxY();
 	}
