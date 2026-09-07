@@ -1,0 +1,16 @@
+{
+  "dimensions": {
+    "minecraft:overworld": {
+      "type": "boxys_backrooms:level11",
+      "generator": {
+        "type": "boxys_backrooms:level11"
+      }
+    },
+    "minecraft:the_nether": {
+      "type": "boxys_backrooms:level3",
+      "generator": {
+        "type": "boxys_backrooms:level3"
+      }
+    }
+  }
+}

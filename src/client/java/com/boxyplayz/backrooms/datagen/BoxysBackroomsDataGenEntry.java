@@ -15,6 +15,7 @@ import com.boxyplayz.backrooms.datagen.worldgen.DimensionTypeProvider;
 import com.boxyplayz.backrooms.datagen.worldgen.FeatureGenerator;
 import com.boxyplayz.backrooms.datagen.worldgen.LevelStemProvider;
 import com.boxyplayz.backrooms.datagen.worldgen.StructureProvider;
+import com.boxyplayz.backrooms.datagen.worldgen.WorldPresetGenerator;
 import com.boxyplayz.backrooms.datagen.tags.DamageTypeTagProvider;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
@@ -50,6 +51,7 @@ public class BoxysBackroomsDataGenEntry implements DataGeneratorEntrypoint {
 		pack.addProvider(StructureProvider::new);
 		pack.addProvider(FeatureGenerator::new);
 		pack.addProvider(LevelStemProvider::new);
+		pack.addProvider(WorldPresetGenerator::new);
 
 		pack.addProvider(WorldClockProvider::new);
 
@@ -71,6 +73,7 @@ public class BoxysBackroomsDataGenEntry implements DataGeneratorEntrypoint {
 		registryBuilder.add(Registries.CONFIGURED_FEATURE, FeatureGenerator::configureFeatures);
 		registryBuilder.add(Registries.PLACED_FEATURE, FeatureGenerator::placeFeatures);
 		registryBuilder.add(Registries.LEVEL_STEM, LevelStemProvider::bootstrap);
+		registryBuilder.add(Registries.WORLD_PRESET, WorldPresetGenerator::bootstrap);
 	}
 
 }
