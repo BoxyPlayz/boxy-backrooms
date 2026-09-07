@@ -26,7 +26,6 @@ import com.boxyplayz.backrooms.toolMaterials.ModToolMaterials;
 import com.boxyplayz.backrooms.world.ModChunkGenerators;
 import com.boxyplayz.backrooms.world.ModDimensions;
 import com.boxyplayz.backrooms.world.biome.ModBiomes;
-import com.boxyplayz.backrooms.world.dimension.ModDimensionTypes;
 import com.boxyplayz.backrooms.world.spawning.ModEntitySpawner;
 
 public class BoxysBackrooms implements ModInitializer {
@@ -48,7 +47,6 @@ public class BoxysBackrooms implements ModInitializer {
 		ModCreativeTabs.RegisterModCreativeTabs();
 		ModEntities.RegisterModEntities();
 		ModBlocks.RegisterModBlocks();
-		ModDimensionTypes.RegisterModDimensionTypes();
 		ModDimensions.RegisterModDimensions();
 		ModRecipes.RegisterModRecipes();
 		ModPayloads.RegsiterModPayloads();

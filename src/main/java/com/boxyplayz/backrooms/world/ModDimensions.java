@@ -6,6 +6,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.dimension.DimensionType;
 
 public class ModDimensions {
 
@@ -57,10 +58,14 @@ public class ModDimensions {
 
         public static class DimensionInstance {
                 public final ResourceKey<Level> level;
+                public final ResourceKey<DimensionType> type;
 
                 public DimensionInstance(String id) {
                         this.level = ResourceKey.create(
                                         Registries.DIMENSION,
+                                        Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, id));
+                        this.type = ResourceKey.create(
+                                        Registries.DIMENSION_TYPE,
                                         Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, id));
                 }
         }

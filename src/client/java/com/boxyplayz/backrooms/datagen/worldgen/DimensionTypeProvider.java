@@ -6,7 +6,7 @@ import java.util.concurrent.CompletableFuture;
 import com.boxyplayz.backrooms.clock.ModWorldClocks;
 import com.boxyplayz.backrooms.datagen.DataUtils;
 import com.boxyplayz.backrooms.utils.DimensionTypeBuilder;
-import com.boxyplayz.backrooms.world.dimension.ModDimensionTypes;
+import com.boxyplayz.backrooms.world.ModDimensions;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
@@ -48,12 +48,12 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 	}
 
 	public static void bootstrap(BootstrapContext<DimensionType> context) {
-		register(context, ModDimensionTypes.PITFALLS_DIMENSION_TYPE, new DimensionTypeBuilder()
+		register(context, ModDimensions.PITFALLS.type, new DimensionTypeBuilder()
 				.setHeight(80)
 				.setFixedTime(true)
 				.build());
 
-		register(context, ModDimensionTypes.LEVEL0_DIMENSION_TYPE, new DimensionTypeBuilder()
+		register(context, ModDimensions.LEVEL0.type, new DimensionTypeBuilder()
 				.setHeight(32)
 				.setFixedTime(true)
 				.setMinY(-16)
@@ -62,7 +62,7 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 				.setCeiling(true)
 				.build());
 
-		register(context, ModDimensionTypes.LEVEL1_DIMENSION_TYPE, new DimensionTypeBuilder()
+		register(context, ModDimensions.LEVEL1.type, new DimensionTypeBuilder()
 				.setHeight(64)
 				.setFixedTime(true)
 				.setAmbientLight(0.3f)
@@ -70,7 +70,7 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 				.setCeiling(true)
 				.build());
 
-		register(context, ModDimensionTypes.LEVEL7_OCEAN_DIMENSION_TYPE, new DimensionTypeBuilder()
+		register(context, ModDimensions.LEVEL7.type, new DimensionTypeBuilder()
 				.setHeight(304)
 				.setMinY(-64)
 				.setFixedTime(false)
@@ -79,7 +79,7 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 				.setCeiling(false)
 				.build());
 
-		register(context, ModDimensionTypes.LEVEL94_DIMENSION_TYPE, new DimensionTypeBuilder()
+		register(context, ModDimensions.LEVEL94.type, new DimensionTypeBuilder()
 				.setHeight(256)
 				.setSkybox(Skybox.OVERWORLD)
 				.setFixedTime(false)
@@ -91,7 +91,7 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 								DataUtils.getHolder(context, Registries.WORLD_CLOCK, ModWorldClocks.LEVEL_94_CLOCK)))
 				.build());
 
-		register(context, ModDimensionTypes.THE_BROKEN_DIMENSION_TYPE, new DimensionTypeBuilder()
+		register(context, ModDimensions.THE_BROKEN.type, new DimensionTypeBuilder()
 				.setHeight(256)
 				.setSkybox(Skybox.NONE)
 				.setFixedTime(true)
@@ -100,7 +100,7 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 				.setCeiling(true)
 				.build());
 
-		register(context, ModDimensionTypes.LEVEL8_CAVESYSTEM_DIMENSION_TYPE, new DimensionTypeBuilder()
+		register(context, ModDimensions.LEVEL8.type, new DimensionTypeBuilder()
 				.setHeight(256)
 				.setSkybox(Skybox.NONE)
 				.setFixedTime(true)
@@ -109,7 +109,7 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 				.setCeiling(true)
 				.build());
 
-		register(context, ModDimensionTypes.BLUE_CHANNEL_DIMENSION_TYPE, new DimensionTypeBuilder()
+		register(context, ModDimensions.BLUE_CHANNEL.type, new DimensionTypeBuilder()
 				.setHeight(256)
 				.setSkybox(Skybox.OVERWORLD)
 				.setFixedTime(true)
@@ -119,7 +119,7 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 				.setInfiniburn(BlockTags.ICE)
 				.build());
 
-		register(context, ModDimensionTypes.LEVEL6_DIMENSION_TYPE, new DimensionTypeBuilder()
+		register(context, ModDimensions.LEVEL6.type, new DimensionTypeBuilder()
 				.setHeight(32)
 				.setMinY(-16)
 				.setSkybox(Skybox.OVERWORLD)
@@ -129,7 +129,7 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 				.setCeiling(true)
 				.build());
 
-		register(context, ModDimensionTypes.LEVELFUN_DIMENSION_TYPE, new DimensionTypeBuilder()
+		register(context, ModDimensions.LEVEL_FUN.type, new DimensionTypeBuilder()
 				.setHeight(128)
 				.setMinY(-16)
 				.setSkybox(Skybox.OVERWORLD)
@@ -139,7 +139,7 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 				.setCeiling(true)
 				.build());
 
-		register(context, ModDimensionTypes.PROMISED_LAND_DIMENSION_TYPE, new DimensionTypeBuilder()
+		register(context, ModDimensions.PROMISED_LAND.type, new DimensionTypeBuilder()
 				.setHeight(32)
 				.setMinY(-16)
 				.setSkybox(Skybox.OVERWORLD)
@@ -149,7 +149,7 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 				.setCeiling(true)
 				.build());
 
-		register(context, ModDimensionTypes.LEVEL3_DIMENSION_TYPE, new DimensionTypeBuilder()
+		register(context, ModDimensions.LEVEL3.type, new DimensionTypeBuilder()
 				.setHeight(32)
 				.setMinY(-16)
 				.setSkybox(Skybox.NONE)
@@ -159,7 +159,7 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 				.setCeiling(true)
 				.build());
 
-		register(context, ModDimensionTypes.LEVEL5_DIMENSION_TYPE, new DimensionTypeBuilder()
+		register(context, ModDimensions.LEVEL5.type, new DimensionTypeBuilder()
 				.setHeight(128)
 				.setMinY(-16)
 				.setSkybox(Skybox.NONE)
@@ -169,7 +169,7 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 				.setCeiling(true)
 				.build());
 
-		register(context, ModDimensionTypes.LEVEL2_DIMENSION_TYPE, new DimensionTypeBuilder()
+		register(context, ModDimensions.LEVEL2.type, new DimensionTypeBuilder()
 				.setHeight(32)
 				.setMinY(-16)
 				.setSkybox(Skybox.NONE)
@@ -179,7 +179,7 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 				.setCeiling(true)
 				.build());
 
-		register(context, ModDimensionTypes.LEVEL4_DIMENSION_TYPE, new DimensionTypeBuilder()
+		register(context, ModDimensions.LEVEL4.type, new DimensionTypeBuilder()
 				.setHeight(32)
 				.setMinY(-16)
 				.setSkybox(Skybox.NONE)
@@ -189,7 +189,7 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 				.setCeiling(true)
 				.build());
 
-		register(context, ModDimensionTypes.LEVEL11_DIMENSION_TYPE, new DimensionTypeBuilder()
+		register(context, ModDimensions.LEVEL11.type, new DimensionTypeBuilder()
 				.setHeight(256)
 				.setMinY(-16)
 				.setSkybox(Skybox.OVERWORLD)
@@ -211,7 +211,7 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 						DataUtils.getHolder(context, Registries.TIMELINE, Timelines.OVERWORLD_DAY)))
 				.build());
 
-		register(context, ModDimensionTypes.LEVEL9_DIMENSION_TYPE, new DimensionTypeBuilder()
+		register(context, ModDimensions.LEVEL9.type, new DimensionTypeBuilder()
 				.setHeight(128)
 				.setMinY(-16)
 				.setEnvAttributes(
@@ -231,7 +231,7 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 				.setCeiling(false)
 				.build());
 
-		register(context, ModDimensionTypes.LEVEL10_DIMENSION_TYPE, new DimensionTypeBuilder()
+		register(context, ModDimensions.LEVEL10.type, new DimensionTypeBuilder()
 				.setHeight(128)
 				.setMinY(-16)
 				.setEnvAttributes(
@@ -252,7 +252,7 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 				.setCeiling(false)
 				.build());
 
-		register(context, ModDimensionTypes.THE_ABYSS_DIMENSION_TYPE, new DimensionTypeBuilder()
+		register(context, ModDimensions.THE_ABYSS.type, new DimensionTypeBuilder()
 				.setHeight(256)
 				.setMinY(-16)
 				.setSkybox(Skybox.OVERWORLD)
