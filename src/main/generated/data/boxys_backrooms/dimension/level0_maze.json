@@ -1,0 +1,6 @@
+{
+  "type": "boxys_backrooms:level0_maze",
+  "generator": {
+    "type": "boxys_backrooms:level0_maze"
+  }
+}

@@ -7,6 +7,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.dimension.DimensionType;
+import net.minecraft.world.level.dimension.LevelStem;
 
 public class ModDimensions {
 
@@ -59,6 +60,7 @@ public class ModDimensions {
         public static class DimensionInstance {
                 public final ResourceKey<Level> level;
                 public final ResourceKey<DimensionType> type;
+                public final ResourceKey<LevelStem> stem;
 
                 public DimensionInstance(String id) {
                         this.level = ResourceKey.create(
@@ -66,6 +68,9 @@ public class ModDimensions {
                                         Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, id));
                         this.type = ResourceKey.create(
                                         Registries.DIMENSION_TYPE,
+                                        Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, id));
+                        this.stem = ResourceKey.create(
+                                        Registries.LEVEL_STEM,
                                         Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, id));
                 }
         }
