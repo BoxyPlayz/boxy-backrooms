@@ -2,7 +2,7 @@ package com.boxyplayz.backrooms.block.custom;
 
 import java.util.Set;
 
-import com.boxyplayz.backrooms.world.dimension.ModDimensions;
+import com.boxyplayz.backrooms.world.ModDimensions;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -28,10 +28,10 @@ public class Level6EntryBlock extends HalfTransparentBlock {
 		if (!(player instanceof ServerPlayer serverPlayer))
 			return InteractionResult.FAIL;
 
-		if (!(level.dimension() == ModDimensions.LEVEL5_DIMENSION))
+		if (!(level.dimension() == ModDimensions.LEVEL5.level))
 			return InteractionResult.FAIL;
 
-		ServerLevel target = serverPlayer.level().getServer().getLevel(ModDimensions.LEVEL6_DIMENSION);
+		ServerLevel target = serverPlayer.level().getServer().getLevel(ModDimensions.LEVEL6.level);
 		if (target == null)
 			return InteractionResult.FAIL;
 

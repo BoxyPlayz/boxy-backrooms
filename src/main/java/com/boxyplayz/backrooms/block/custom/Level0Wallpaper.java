@@ -3,7 +3,7 @@ package com.boxyplayz.backrooms.block.custom;
 import java.util.Set;
 
 import com.boxyplayz.backrooms.dataattachments.DataAttachments;
-import com.boxyplayz.backrooms.world.dimension.ModDimensions;
+import com.boxyplayz.backrooms.world.ModDimensions;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.GlobalPos;
@@ -43,7 +43,7 @@ public class Level0Wallpaper extends Block {
 		if (!(level.dimension() == Level.OVERWORLD))
 			return;
 
-		ServerLevel target = player.level().getServer().getLevel(ModDimensions.LEVEL0_DIMENSION);
+		ServerLevel target = player.level().getServer().getLevel(ModDimensions.LEVEL0.level);
 		if (target == null)
 			return;
 
@@ -73,7 +73,7 @@ public class Level0Wallpaper extends Block {
 		player.teleportTo(target, x + 0.5, y, z + 0.5, Set.of(), player.getYRot(), player.getXRot(), false);
 
 		RespawnConfig respawnConfig = new RespawnConfig(
-				new RespawnData(GlobalPos.of(ModDimensions.LEVEL0_DIMENSION, new BlockPos(x, y, z)), 0, 0),
+				new RespawnData(GlobalPos.of(ModDimensions.LEVEL0.level, new BlockPos(x, y, z)), 0, 0),
 				true);
 
 		player.setRespawnPosition(respawnConfig, false);

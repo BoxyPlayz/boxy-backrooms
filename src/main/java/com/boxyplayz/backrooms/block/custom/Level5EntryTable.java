@@ -2,7 +2,7 @@ package com.boxyplayz.backrooms.block.custom;
 
 import java.util.Set;
 
-import com.boxyplayz.backrooms.world.dimension.ModDimensions;
+import com.boxyplayz.backrooms.world.ModDimensions;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -27,7 +27,7 @@ public class Level5EntryTable extends Block {
 		if (player.isShiftKeyDown())
 			return super.useWithoutItem(state, level, pos, player, hitResult);
 
-		ServerLevel target = player.level().getServer().getLevel(ModDimensions.LEVEL5_DIMENSION);
+		ServerLevel target = player.level().getServer().getLevel(ModDimensions.LEVEL5.level);
 		if (target == null)
 			return super.useWithoutItem(state, level, pos, player, hitResult);
 

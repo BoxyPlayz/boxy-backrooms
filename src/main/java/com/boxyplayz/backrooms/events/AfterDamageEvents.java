@@ -2,7 +2,7 @@ package com.boxyplayz.backrooms.events;
 
 import java.util.Set;
 
-import com.boxyplayz.backrooms.world.dimension.ModDimensions;
+import com.boxyplayz.backrooms.world.ModDimensions;
 
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import net.minecraft.core.BlockPos;
@@ -19,7 +19,8 @@ public class AfterDamageEvents {
 						if (entity.level().getFluidState(new BlockPos((int) Math.floor(entity.position().x),
 								(int) Math.floor(entity.position().y), (int) Math.floor(entity.position().z)))
 								.isEmpty()) {
-							ServerLevel target = entity.level().getServer().getLevel(ModDimensions.BROKEN_DIMENSION);
+							ServerLevel target = entity.level().getServer()
+									.getLevel(ModDimensions.THE_BROKEN.level);
 							if (target == null)
 								return;
 							entity.teleportTo(target, 0, 120, 0, Set.of(),

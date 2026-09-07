@@ -2,7 +2,7 @@ package com.boxyplayz.backrooms.block.custom;
 
 import java.util.Set;
 
-import com.boxyplayz.backrooms.world.dimension.ModDimensions;
+import com.boxyplayz.backrooms.world.ModDimensions;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -36,11 +36,11 @@ public class InferiorCarpet extends Block {
 		if (!player.isShiftKeyDown())
 			return;
 
-		if (!(level.dimension() == ModDimensions.LEVEL0_2_DIMENSION
-				|| level.dimension() == ModDimensions.BLUE_CHANNEL_DIMENSION))
+		if (!(level.dimension() == ModDimensions.LEVEL0_2.level
+				|| level.dimension() == ModDimensions.BLUE_CHANNEL.level))
 			return;
 
-		ServerLevel target = player.level().getServer().getLevel(ModDimensions.LEVEL_NEGATIVE_0_2_DIMENSION);
+		ServerLevel target = player.level().getServer().getLevel(ModDimensions.LEVEL_NEGATIVE_0_2.level);
 		if (target == null)
 			return;
 

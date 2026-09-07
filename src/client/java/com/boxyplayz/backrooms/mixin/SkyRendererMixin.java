@@ -5,7 +5,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import com.boxyplayz.backrooms.world.dimension.ModDimensions;
+import com.boxyplayz.backrooms.world.ModDimensions;
 import com.mojang.blaze3d.vertex.PoseStack;
 
 import net.minecraft.client.Minecraft;
@@ -20,7 +20,7 @@ public class SkyRendererMixin {
 			CallbackInfo ci) {
 		Minecraft minecraft = Minecraft.getInstance();
 
-		if (minecraft.level != null && minecraft.level.dimension().equals(ModDimensions.ABYSS_DIMENSION)) {
+		if (minecraft.level != null && minecraft.level.dimension().equals(ModDimensions.THE_ABYSS.level)) {
 			ci.cancel();
 		}
 	}
@@ -30,7 +30,7 @@ public class SkyRendererMixin {
 			CallbackInfo ci) {
 		Minecraft minecraft = Minecraft.getInstance();
 
-		if (minecraft.level != null && minecraft.level.dimension().equals(ModDimensions.ABYSS_DIMENSION)) {
+		if (minecraft.level != null && minecraft.level.dimension().equals(ModDimensions.THE_ABYSS.level)) {
 			ci.cancel();
 		}
 	}

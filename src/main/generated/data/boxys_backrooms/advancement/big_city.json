@@ -3,7 +3,7 @@
   "criteria": {
     "big_city": {
       "conditions": {
-        "to": "boxys_backrooms:level10"
+        "to": "boxys_backrooms:level11"
       },
       "trigger": "minecraft:changed_dimension"
     }

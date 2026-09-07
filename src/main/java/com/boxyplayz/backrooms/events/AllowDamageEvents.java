@@ -3,7 +3,7 @@ package com.boxyplayz.backrooms.events;
 import com.boxyplayz.backrooms.entity.living.Smiler.SmilerEntity;
 import com.boxyplayz.backrooms.item.ModItems;
 import com.boxyplayz.backrooms.tags.ModTags;
-import com.boxyplayz.backrooms.world.dimension.ModDimensions;
+import com.boxyplayz.backrooms.world.ModDimensions;
 
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import net.minecraft.core.Holder.Reference;
@@ -20,12 +20,12 @@ import net.minecraft.world.item.enchantment.ItemEnchantments;
 public class AllowDamageEvents {
 	public static void RegisterAllowDamageEvents() {
 		ServerLivingEntityEvents.ALLOW_DAMAGE.register((LivingEntity entity, DamageSource source, float amount) -> {
-			if (entity.level().dimension() == ModDimensions.BLUE_CHANNEL_DIMENSION) {
+			if (entity.level().dimension() == ModDimensions.BLUE_CHANNEL.level) {
 				if (source.is(ModTags.FIRE_ATTACKS)) {
 					return false;
 				}
 			}
-			if (entity.level().dimension() == ModDimensions.BROKEN_DIMENSION) {
+			if (entity.level().dimension() == ModDimensions.THE_BROKEN.level) {
 				if (source.is(DamageTypes.FALL)) {
 					return false;
 				}

@@ -2,7 +2,7 @@ package com.boxyplayz.backrooms.utils;
 
 import java.util.List;
 
-import com.boxyplayz.backrooms.world.dimension.ModDimensions;
+import com.boxyplayz.backrooms.world.ModDimensions;
 
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.Level;
@@ -19,15 +19,15 @@ public class Misc {
 	 */
 	public static boolean isWretchableBackrooms(Level level) {
 		List<ResourceKey<Level>> wretchedLevels = List.of(
-				ModDimensions.LEVEL0_2_DIMENSION,
-				ModDimensions.LEVEL1_DIMENSION,
-				ModDimensions.LEVEL2_DIMENSION,
-				ModDimensions.LEVEL3_DIMENSION,
-				ModDimensions.LEVEL_NEGATIVE_0_2_DIMENSION,
-				ModDimensions.PITFALLS_DIMENSION,
-				ModDimensions.LEVEL7_DIMENSION,
-				ModDimensions.LEVEL8_DIMENSION,
-				ModDimensions.LEVEL94_DIMENSION);
+				ModDimensions.LEVEL0_2.level,
+				ModDimensions.LEVEL1.level,
+				ModDimensions.LEVEL2.level,
+				ModDimensions.LEVEL3.level,
+				ModDimensions.LEVEL_NEGATIVE_0_2.level,
+				ModDimensions.PITFALLS.level,
+				ModDimensions.LEVEL7.level,
+				ModDimensions.LEVEL8.level,
+				ModDimensions.LEVEL94.level);
 
 		for (ResourceKey<Level> key : wretchedLevels) {
 			if (level.dimension() == key) {

@@ -2,7 +2,7 @@ package com.boxyplayz.backrooms.block.custom;
 
 import java.util.Set;
 
-import com.boxyplayz.backrooms.world.dimension.ModDimensions;
+import com.boxyplayz.backrooms.world.ModDimensions;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -39,7 +39,7 @@ public class PromisedGate extends Block {
 		if (player.isShiftKeyDown())
 			return super.useWithoutItem(state, level, pos, player, hitResult);
 
-		ServerLevel target = player.level().getServer().getLevel(ModDimensions.PROMISED_LAND_DIMENSION);
+		ServerLevel target = player.level().getServer().getLevel(ModDimensions.PROMISED_LAND.level);
 		if (target == null)
 			return super.useWithoutItem(state, level, pos, player, hitResult);
 

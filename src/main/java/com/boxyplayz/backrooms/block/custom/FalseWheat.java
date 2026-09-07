@@ -2,7 +2,7 @@ package com.boxyplayz.backrooms.block.custom;
 
 import java.util.Set;
 
-import com.boxyplayz.backrooms.world.dimension.ModDimensions;
+import com.boxyplayz.backrooms.world.ModDimensions;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -25,7 +25,7 @@ public class FalseWheat extends Block {
 		if (level.isClientSide())
 			return;
 
-		ServerLevel target = entity.level().getServer().getLevel(ModDimensions.LEVEL10_DIMENSION);
+		ServerLevel target = entity.level().getServer().getLevel(ModDimensions.LEVEL10.level);
 		if (target == null)
 			return;
 

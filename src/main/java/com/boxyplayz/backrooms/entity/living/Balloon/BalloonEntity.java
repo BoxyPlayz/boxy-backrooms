@@ -1,7 +1,8 @@
 package com.boxyplayz.backrooms.entity.living.Balloon;
 
 import java.util.Set;
-import com.boxyplayz.backrooms.world.dimension.ModDimensions;
+
+import com.boxyplayz.backrooms.world.ModDimensions;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -47,7 +48,7 @@ public class BalloonEntity extends PathfinderMob {
 	@Override
 	public boolean hurtServer(ServerLevel level, DamageSource source, float damage) {
 		if (source.getEntity() instanceof Player player) {
-			ServerLevel target = level.getServer().getLevel(ModDimensions.LEVEL_FUN_DIMENSION);
+			ServerLevel target = level.getServer().getLevel(ModDimensions.LEVEL_FUN.level);
 			if (target == null)
 				return super.hurtServer(level, source, damage);
 

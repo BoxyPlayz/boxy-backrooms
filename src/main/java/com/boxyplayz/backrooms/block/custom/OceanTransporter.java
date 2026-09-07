@@ -2,7 +2,7 @@ package com.boxyplayz.backrooms.block.custom;
 
 import java.util.Set;
 
-import com.boxyplayz.backrooms.world.dimension.ModDimensions;
+import com.boxyplayz.backrooms.world.ModDimensions;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -28,10 +28,10 @@ public class OceanTransporter extends Block {
 		if (!player.isShiftKeyDown())
 			return;
 
-		if (level.dimension() == ModDimensions.LEVEL7_DIMENSION)
+		if (level.dimension() == ModDimensions.LEVEL7.level)
 			return;
 
-		ServerLevel target = player.level().getServer().getLevel(ModDimensions.LEVEL7_DIMENSION);
+		ServerLevel target = player.level().getServer().getLevel(ModDimensions.LEVEL7.level);
 		if (target == null)
 			return;
 

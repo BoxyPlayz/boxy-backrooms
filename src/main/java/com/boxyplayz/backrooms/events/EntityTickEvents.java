@@ -7,8 +7,8 @@ import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.dataattachments.DataAttachments;
 import com.boxyplayz.backrooms.effect.ModEffects;
 import com.boxyplayz.backrooms.utils.Misc;
+import com.boxyplayz.backrooms.world.ModDimensions;
 import com.boxyplayz.backrooms.world.biome.ModBiomes;
-import com.boxyplayz.backrooms.world.dimension.ModDimensions;
 
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.core.BlockPos;
@@ -38,7 +38,7 @@ public class EntityTickEvents {
 		ServerTickEvents.END_LEVEL_TICK.register((ServerLevel level) -> {
 			List<ServerPlayer> players = List.copyOf(level.players());
 			players.forEach((ServerPlayer player) -> {
-				if (player.level().dimension() == ModDimensions.ABYSS_DIMENSION) {
+				if (player.level().dimension() == ModDimensions.THE_ABYSS.level) {
 					boolean fullLeather = player.getItemBySlot(EquipmentSlot.CHEST).is(Items.LEATHER_CHESTPLATE)
 							&& player.getItemBySlot(EquipmentSlot.HEAD).is(Items.LEATHER_HELMET)
 							&& player.getItemBySlot(EquipmentSlot.LEGS).is(Items.LEATHER_LEGGINGS)
@@ -83,9 +83,9 @@ public class EntityTickEvents {
 		ServerTickEvents.START_LEVEL_TICK.register((ServerLevel level) -> {
 			List<ServerPlayer> players = List.copyOf(level.players());
 			players.forEach((ServerPlayer player) -> {
-				if (player.level().dimension() == ModDimensions.BLUE_CHANNEL_DIMENSION) {
+				if (player.level().dimension() == ModDimensions.BLUE_CHANNEL.level) {
 					if (player.position().y < -10) {
-						ServerLevel target = level.getServer().getLevel(ModDimensions.BROKEN_DIMENSION);
+						ServerLevel target = level.getServer().getLevel(ModDimensions.THE_BROKEN.level);
 						if (target == null)
 							return;
 						player.teleportTo(target, 0, 120, 0, Set.of(),
@@ -93,9 +93,9 @@ public class EntityTickEvents {
 								false);
 					}
 				}
-				if (player.level().dimension() == ModDimensions.BROKEN_DIMENSION) {
+				if (player.level().dimension() == ModDimensions.THE_BROKEN.level) {
 					if (player.position().y < -10) {
-						ServerLevel target = level.getServer().getLevel(ModDimensions.ABYSS_DIMENSION);
+						ServerLevel target = level.getServer().getLevel(ModDimensions.THE_ABYSS.level);
 						if (target == null)
 							return;
 						player.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 20 * 30, 9));
@@ -105,7 +105,7 @@ public class EntityTickEvents {
 					}
 				}
 
-				if (player.level().dimension() == ModDimensions.LEVEL7_DIMENSION) {
+				if (player.level().dimension() == ModDimensions.LEVEL7.level) {
 					if (player.getAirSupply() < player.getMaxAirSupply()) {
 						player.setAirSupply(player.getMaxAirSupply());
 					}
@@ -118,10 +118,10 @@ public class EntityTickEvents {
 						}
 					}
 				}
-				if (player.level().dimension() == ModDimensions.PITFALLS_DIMENSION) {
+				if (player.level().dimension() == ModDimensions.PITFALLS.level) {
 					if (Math.sqrt((player.position().x * player.position().x)
 							+ (player.position().z * player.position().z)) > 1000) {
-						ServerLevel target = player.level().getServer().getLevel(ModDimensions.LEVEL94_DIMENSION);
+						ServerLevel target = player.level().getServer().getLevel(ModDimensions.LEVEL94.level);
 						if (target == null)
 							return;
 						player.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 10 * 20, 20));
@@ -129,9 +129,9 @@ public class EntityTickEvents {
 					}
 				}
 
-				if (player.level().dimension() == ModDimensions.LEVEL6_DIMENSION) {
+				if (player.level().dimension() == ModDimensions.LEVEL6.level) {
 					if (player.level().getFluidState(player.blockPosition()).is(Fluids.WATER)) {
-						ServerLevel target = player.level().getServer().getLevel(ModDimensions.LEVEL7_DIMENSION);
+						ServerLevel target = player.level().getServer().getLevel(ModDimensions.LEVEL7.level);
 						if (target == null) {
 							return;
 						}
@@ -144,9 +144,10 @@ public class EntityTickEvents {
 					}
 				}
 
-				if (player.level().dimension() == ModDimensions.LEVEL0_DIMENSION) {
+				if (player.level().dimension() == ModDimensions.LEVEL0.level) {
 					if (player.position().y < -10) {
-						ServerLevel target = player.level().getServer().getLevel(ModDimensions.PITFALLS_DIMENSION);
+						ServerLevel target = player.level().getServer()
+								.getLevel(ModDimensions.PITFALLS.level);
 						if (target == null)
 							return;
 						player.fallDistance = 0;
@@ -154,9 +155,10 @@ public class EntityTickEvents {
 					}
 				}
 
-				if (player.level().dimension() == ModDimensions.LEVEL_NEGATIVE_0_2_DIMENSION) {
+				if (player.level().dimension() == ModDimensions.LEVEL_NEGATIVE_0_2.level) {
 					if (player.position().y < -10) {
-						ServerLevel target = player.level().getServer().getLevel(ModDimensions.BLUE_CHANNEL_DIMENSION);
+						ServerLevel target = player.level().getServer()
+								.getLevel(ModDimensions.BLUE_CHANNEL.level);
 						if (target == null)
 							return;
 						player.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 10 * 20, 20));
@@ -165,7 +167,7 @@ public class EntityTickEvents {
 					}
 				}
 
-				if (player.level().dimension() == ModDimensions.PROMISED_LAND_DIMENSION) {
+				if (player.level().dimension() == ModDimensions.PROMISED_LAND.level) {
 					if (player.position().y < -20) {
 						ServerLevel target = player.level().getServer().getLevel(Level.OVERWORLD);
 						if (target == null)
@@ -188,7 +190,7 @@ public class EntityTickEvents {
 					}
 				}
 
-				if (player.level().dimension() == ModDimensions.LEVEL1_DIMENSION
+				if (player.level().dimension() == ModDimensions.LEVEL1.level
 						&& player.level().getBiome(player.blockPosition())
 								.is(ModBiomes.Level1Biomes.GARDEN_BIOME)) {
 					if (!(player.hasEffect(ModEffects.GARDENERS_PAIN))) {

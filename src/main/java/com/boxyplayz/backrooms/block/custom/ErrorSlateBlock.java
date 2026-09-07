@@ -3,7 +3,7 @@ package com.boxyplayz.backrooms.block.custom;
 import java.util.Set;
 
 import com.boxyplayz.backrooms.block.ModBlocks;
-import com.boxyplayz.backrooms.world.dimension.ModDimensions;
+import com.boxyplayz.backrooms.world.ModDimensions;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -29,10 +29,10 @@ public class ErrorSlateBlock extends Block {
 		if (!player.isShiftKeyDown())
 			return;
 
-		if (level.dimension() == ModDimensions.LEVEL8_DIMENSION)
+		if (level.dimension() == ModDimensions.LEVEL8.level)
 			return;
 
-		ServerLevel target = player.level().getServer().getLevel(ModDimensions.LEVEL8_DIMENSION);
+		ServerLevel target = player.level().getServer().getLevel(ModDimensions.LEVEL8.level);
 		if (target == null)
 			return;
 

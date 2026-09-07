@@ -2,7 +2,7 @@ package com.boxyplayz.backrooms.block.custom;
 
 import java.util.Set;
 
-import com.boxyplayz.backrooms.world.dimension.ModDimensions;
+import com.boxyplayz.backrooms.world.ModDimensions;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -23,10 +23,10 @@ public class PureBlue extends Block {
 		if (level.isClientSide())
 			return;
 
-		if (!(level.dimension() == ModDimensions.BROKEN_DIMENSION))
+		if (!(level.dimension() == ModDimensions.THE_BROKEN.level))
 			return;
 
-		ServerLevel target = entity.level().getServer().getLevel(ModDimensions.BLUE_CHANNEL_DIMENSION);
+		ServerLevel target = entity.level().getServer().getLevel(ModDimensions.BLUE_CHANNEL.level);
 		if (target == null)
 			return;
 

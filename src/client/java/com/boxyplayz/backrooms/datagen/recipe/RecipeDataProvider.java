@@ -5,7 +5,7 @@ import java.util.concurrent.CompletableFuture;
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.datagen.recipe.builders.BlendingRecipeBuilder;
 import com.boxyplayz.backrooms.item.ModItems;
-import com.boxyplayz.backrooms.world.dimension.ModDimensions;
+import com.boxyplayz.backrooms.world.ModDimensions;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
@@ -110,7 +110,7 @@ public class RecipeDataProvider extends FabricRecipeProvider {
 						.requires(ModBlocks.POWER_OUTLET_BLOCK)
 						.unlockedBy(getHasName(ModBlocks.POWER_OUTLET_BLOCK),
 								ChangeDimensionTrigger.TriggerInstance
-										.changedDimensionTo(ModDimensions.LEVEL3_DIMENSION))
+										.changedDimensionTo(ModDimensions.LEVEL3.level))
 						.save(output, getItemName(ModBlocks.BLENDER) + "_shapeless");
 			}
 		};

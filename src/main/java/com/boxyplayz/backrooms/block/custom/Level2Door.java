@@ -2,7 +2,7 @@ package com.boxyplayz.backrooms.block.custom;
 
 import java.util.Set;
 
-import com.boxyplayz.backrooms.world.dimension.ModDimensions;
+import com.boxyplayz.backrooms.world.ModDimensions;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -41,7 +41,7 @@ public class Level2Door extends Block {
 				return;
 		}
 
-		ServerLevel target = entity.level().getServer().getLevel(ModDimensions.LEVEL2_DIMENSION);
+		ServerLevel target = entity.level().getServer().getLevel(ModDimensions.LEVEL2.level);
 		if (target == null)
 			return;
 

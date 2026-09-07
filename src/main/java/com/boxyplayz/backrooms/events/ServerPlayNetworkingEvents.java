@@ -5,7 +5,7 @@ import java.util.Set;
 import com.boxyplayz.backrooms.networking.DashPayload;
 import com.boxyplayz.backrooms.networking.ElevatorPayload;
 import com.boxyplayz.backrooms.utils.Misc.ElevatorDestination;
-import com.boxyplayz.backrooms.world.dimension.ModDimensions;
+import com.boxyplayz.backrooms.world.ModDimensions;
 
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.core.BlockPos;
@@ -30,22 +30,22 @@ public class ServerPlayNetworkingEvents {
 
 				switch (destination) {
 					case LEVEL1:
-						target = livingEntity.level().getServer().getLevel(ModDimensions.LEVEL1_DIMENSION);
+						target = livingEntity.level().getServer().getLevel(ModDimensions.LEVEL1.level);
 						targetY = 1;
 						break;
 
 					case LEVEL2:
-						target = livingEntity.level().getServer().getLevel(ModDimensions.LEVEL2_DIMENSION);
+						target = livingEntity.level().getServer().getLevel(ModDimensions.LEVEL2.level);
 						targetY = 1;
 						break;
 
 					case LEVEL3:
-						target = livingEntity.level().getServer().getLevel(ModDimensions.LEVEL3_DIMENSION);
+						target = livingEntity.level().getServer().getLevel(ModDimensions.LEVEL3.level);
 						targetY = 1;
 						break;
 
 					case LEVEL4:
-						target = livingEntity.level().getServer().getLevel(ModDimensions.LEVEL4_DIMENSION);
+						target = livingEntity.level().getServer().getLevel(ModDimensions.LEVEL4.level);
 						targetY = 1;
 						break;
 
