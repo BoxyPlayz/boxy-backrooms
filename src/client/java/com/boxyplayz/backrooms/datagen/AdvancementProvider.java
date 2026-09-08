@@ -6,9 +6,9 @@ import java.util.function.Consumer;
 import org.jetbrains.annotations.Nullable;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.ModBiomes;
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.world.ModDimensions;
-import com.boxyplayz.backrooms.world.biome.ModBiomes;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;

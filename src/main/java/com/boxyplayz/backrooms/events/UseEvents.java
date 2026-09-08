@@ -1,8 +1,8 @@
 package com.boxyplayz.backrooms.events;
 
+import com.boxyplayz.backrooms.ModTags;
 import com.boxyplayz.backrooms.entity.ModEntities;
 import com.boxyplayz.backrooms.item.ModItems;
-import com.boxyplayz.backrooms.tags.ModTags;
 
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.minecraft.world.InteractionHand;

@@ -1,6 +1,4 @@
-package com.boxyplayz.backrooms.toolMaterials;
-
-import com.boxyplayz.backrooms.tags.ModTags;
+package com.boxyplayz.backrooms;
 
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.ToolMaterial;

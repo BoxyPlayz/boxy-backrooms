@@ -1,8 +1,8 @@
-package com.boxyplayz.backrooms.datagen.clocks;
+package com.boxyplayz.backrooms.datagen.worldgen;
 
 import java.util.concurrent.CompletableFuture;
 
-import com.boxyplayz.backrooms.clock.ModWorldClocks;
+import com.boxyplayz.backrooms.ModWorldClocks;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;

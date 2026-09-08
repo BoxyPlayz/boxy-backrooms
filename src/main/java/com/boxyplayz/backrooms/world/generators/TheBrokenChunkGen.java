@@ -2,9 +2,9 @@ package com.boxyplayz.backrooms.world.generators;
 
 import java.util.HashSet;
 
+import com.boxyplayz.backrooms.ModBiomes;
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.utils.Misc;
-import com.boxyplayz.backrooms.world.biome.ModBiomes;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 

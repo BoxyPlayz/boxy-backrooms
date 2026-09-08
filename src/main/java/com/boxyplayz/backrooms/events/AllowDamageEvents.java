@@ -1,8 +1,8 @@
 package com.boxyplayz.backrooms.events;
 
+import com.boxyplayz.backrooms.ModTags;
 import com.boxyplayz.backrooms.entity.living.Smiler.SmilerEntity;
 import com.boxyplayz.backrooms.item.ModItems;
-import com.boxyplayz.backrooms.tags.ModTags;
 import com.boxyplayz.backrooms.world.ModDimensions;
 
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;

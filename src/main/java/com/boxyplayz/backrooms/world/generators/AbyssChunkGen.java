@@ -2,9 +2,9 @@ package com.boxyplayz.backrooms.world.generators;
 
 import java.util.HashSet;
 
+import com.boxyplayz.backrooms.ModBiomes.AbyssBiomes;
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.utils.Misc;
-import com.boxyplayz.backrooms.world.biome.ModBiomes;
 import com.boxyplayz.backrooms.world.biomesources.AbyssBiomeSource;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -123,10 +123,10 @@ public class AbyssChunkGen extends BaseChunkGen {
 
 	public static final MapCodec<AbyssChunkGen> CODEC = RecordCodecBuilder.mapCodec(
 			instance -> instance.group(
-					RegistryOps.retrieveElement(ModBiomes.ABYSS_BIOME),
-					RegistryOps.retrieveElement(ModBiomes.ABYSS_COLD_BIOME),
-					RegistryOps.retrieveElement(ModBiomes.ABYSS_HOT_BIOME),
-					RegistryOps.retrieveElement(ModBiomes.ABYSS_END_BIOME))
+					RegistryOps.retrieveElement(AbyssBiomes.ABYSS_BIOME),
+					RegistryOps.retrieveElement(AbyssBiomes.ABYSS_COLD_BIOME),
+					RegistryOps.retrieveElement(AbyssBiomes.ABYSS_HOT_BIOME),
+					RegistryOps.retrieveElement(AbyssBiomes.ABYSS_END_BIOME))
 					.apply(instance,
 							instance.stable(AbyssChunkGen::new)));
 

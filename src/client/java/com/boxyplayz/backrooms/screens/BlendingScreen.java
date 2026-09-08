@@ -1,4 +1,4 @@
-package com.boxyplayz.backrooms.screen;
+package com.boxyplayz.backrooms.screens;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.menu.BlenderMenu;

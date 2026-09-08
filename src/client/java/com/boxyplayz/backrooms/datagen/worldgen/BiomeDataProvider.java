@@ -3,8 +3,9 @@ package com.boxyplayz.backrooms.datagen.worldgen;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
-import com.boxyplayz.backrooms.structures.ModStructures;
-import com.boxyplayz.backrooms.world.biome.ModBiomes;
+import com.boxyplayz.backrooms.ModBiomes;
+import com.boxyplayz.backrooms.ModBiomes.AbyssBiomes;
+import com.boxyplayz.backrooms.world.ModStructures;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
@@ -349,7 +350,7 @@ public class BiomeDataProvider extends FabricDynamicRegistryProvider {
 				.generationSettings(BiomeGenerationSettings.EMPTY)
 				.build());
 
-		register(context, ModBiomes.ABYSS_BIOME, new Biome.BiomeBuilder()
+		register(context, AbyssBiomes.ABYSS_BIOME, new Biome.BiomeBuilder()
 				.setAttribute(EnvironmentAttributes.SKY_COLOR, 460551)
 				.setAttribute(EnvironmentAttributes.FOG_COLOR, 460551)
 				.specialEffects(new BiomeSpecialEffects.Builder()
@@ -362,7 +363,7 @@ public class BiomeDataProvider extends FabricDynamicRegistryProvider {
 				.generationSettings(BiomeGenerationSettings.EMPTY)
 				.build());
 
-		register(context, ModBiomes.ABYSS_COLD_BIOME, new Biome.BiomeBuilder()
+		register(context, AbyssBiomes.ABYSS_COLD_BIOME, new Biome.BiomeBuilder()
 				.setAttribute(EnvironmentAttributes.SKY_COLOR, 8649976)
 				.setAttribute(EnvironmentAttributes.FOG_COLOR, 8649976)
 				.specialEffects(new BiomeSpecialEffects.Builder()
@@ -375,7 +376,7 @@ public class BiomeDataProvider extends FabricDynamicRegistryProvider {
 				.generationSettings(BiomeGenerationSettings.EMPTY)
 				.build());
 
-		register(context, ModBiomes.ABYSS_HOT_BIOME, new Biome.BiomeBuilder()
+		register(context, AbyssBiomes.ABYSS_HOT_BIOME, new Biome.BiomeBuilder()
 				.setAttribute(EnvironmentAttributes.SKY_COLOR, 9833729)
 				.setAttribute(EnvironmentAttributes.FOG_COLOR, 9833729)
 				.specialEffects(new BiomeSpecialEffects.Builder()
@@ -388,7 +389,7 @@ public class BiomeDataProvider extends FabricDynamicRegistryProvider {
 				.generationSettings(BiomeGenerationSettings.EMPTY)
 				.build());
 
-		register(context, ModBiomes.ABYSS_END_BIOME, new Biome.BiomeBuilder()
+		register(context, AbyssBiomes.ABYSS_END_BIOME, new Biome.BiomeBuilder()
 				.setAttribute(EnvironmentAttributes.SKY_COLOR, 1114134)
 				.setAttribute(EnvironmentAttributes.FOG_COLOR, 1114134)
 				.setAttribute(EnvironmentAttributes.STAR_ANGLE, 0.638f)

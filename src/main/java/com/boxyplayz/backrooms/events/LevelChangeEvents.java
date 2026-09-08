@@ -1,7 +1,7 @@
 package com.boxyplayz.backrooms.events;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
-import com.boxyplayz.backrooms.tags.ModTags;
+import com.boxyplayz.backrooms.ModTags;
 
 import net.fabricmc.fabric.api.entity.event.v1.ServerEntityLevelChangeEvents;
 import net.minecraft.resources.Identifier;

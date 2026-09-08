@@ -2,7 +2,7 @@ package com.boxyplayz.backrooms.block.custom;
 
 import java.util.Set;
 
-import com.boxyplayz.backrooms.dataattachments.DataAttachments;
+import com.boxyplayz.backrooms.DataAttachments;
 import com.boxyplayz.backrooms.world.ModDimensions;
 
 import net.minecraft.core.BlockPos;

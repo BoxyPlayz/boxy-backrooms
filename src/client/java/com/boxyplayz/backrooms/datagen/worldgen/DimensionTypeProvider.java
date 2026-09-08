@@ -3,7 +3,7 @@ package com.boxyplayz.backrooms.datagen.worldgen;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
-import com.boxyplayz.backrooms.clock.ModWorldClocks;
+import com.boxyplayz.backrooms.ModWorldClocks;
 import com.boxyplayz.backrooms.datagen.DataUtils;
 import com.boxyplayz.backrooms.utils.DimensionTypeBuilder;
 import com.boxyplayz.backrooms.world.ModDimensions;

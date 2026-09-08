@@ -6,8 +6,8 @@ import java.util.concurrent.CompletableFuture;
 import org.apache.commons.lang3.Range;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
-import com.boxyplayz.backrooms.loot.ModLootTables;
-import com.boxyplayz.backrooms.world.biome.ModBiomes;
+import com.boxyplayz.backrooms.ModBiomes;
+import com.boxyplayz.backrooms.ModLootTables;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 

@@ -1,6 +1,5 @@
-package com.boxyplayz.backrooms.creativetabs;
+package com.boxyplayz.backrooms;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.item.ModItems;
 

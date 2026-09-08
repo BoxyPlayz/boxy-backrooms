@@ -1,7 +1,6 @@
 package com.boxyplayz.backrooms.datagen;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
-import com.boxyplayz.backrooms.datagen.clocks.WorldClockProvider;
 import com.boxyplayz.backrooms.datagen.lang.EnglishLangProvider;
 import com.boxyplayz.backrooms.datagen.loot.BlockLootTableProvider;
 import com.boxyplayz.backrooms.datagen.loot.ChestLootTableProvider;
@@ -15,6 +14,7 @@ import com.boxyplayz.backrooms.datagen.worldgen.DimensionTypeProvider;
 import com.boxyplayz.backrooms.datagen.worldgen.FeatureGenerator;
 import com.boxyplayz.backrooms.datagen.worldgen.LevelStemProvider;
 import com.boxyplayz.backrooms.datagen.worldgen.StructureProvider;
+import com.boxyplayz.backrooms.datagen.worldgen.WorldClockProvider;
 import com.boxyplayz.backrooms.datagen.worldgen.WorldPresetGenerator;
 import com.boxyplayz.backrooms.datagen.tags.DamageTypeTagProvider;
 

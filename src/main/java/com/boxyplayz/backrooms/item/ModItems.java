@@ -5,9 +5,11 @@ import java.util.function.Function;
 import org.jspecify.annotations.NonNull;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.ModToolMaterials;
 import com.boxyplayz.backrooms.effect.ModEffects;
 import com.boxyplayz.backrooms.entity.ModEntities;
-import com.boxyplayz.backrooms.toolMaterials.ModToolMaterials;
+import com.boxyplayz.backrooms.item.custom.FireSaltItem;
+import com.boxyplayz.backrooms.item.custom.LiquidPainItem;
 
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;

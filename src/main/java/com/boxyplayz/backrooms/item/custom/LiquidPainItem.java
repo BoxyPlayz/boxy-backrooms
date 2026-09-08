@@ -1,4 +1,4 @@
-package com.boxyplayz.backrooms.item;
+package com.boxyplayz.backrooms.item.custom;
 
 import com.boxyplayz.backrooms.entity.ModEntities;
 import com.boxyplayz.backrooms.entity.projectile.liquid_pain.LiquidPainProjectile;

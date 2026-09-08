@@ -1,9 +1,6 @@
-package com.boxyplayz.backrooms.keybinds;
+package com.boxyplayz.backrooms;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
-import com.boxyplayz.backrooms.BoxysBackroomsClientConfig;
 import com.boxyplayz.backrooms.networking.DashPayload;
-import com.boxyplayz.backrooms.tags.ModTags;
 import com.mojang.blaze3d.platform.InputConstants;
 
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;

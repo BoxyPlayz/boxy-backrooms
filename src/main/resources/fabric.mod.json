@@ -41,6 +41,7 @@
 			}
 		}
 	},
+	"accessWidener": "boxys_backrooms.classtweaker",
 	"mixins": [
 		{
 			"config": "boxys_backrooms.client.mixins.json",

@@ -1,6 +1,5 @@
-package com.boxyplayz.backrooms.dataattachments;
+package com.boxyplayz.backrooms;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.mojang.serialization.Codec;
 
 import net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry;

@@ -4,11 +4,12 @@ import java.util.List;
 import java.util.Set;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
-import com.boxyplayz.backrooms.dataattachments.DataAttachments;
+import com.boxyplayz.backrooms.DataAttachments;
+import com.boxyplayz.backrooms.ModBiomes;
+import com.boxyplayz.backrooms.ModBiomes.AbyssBiomes;
 import com.boxyplayz.backrooms.effect.ModEffects;
-import com.boxyplayz.backrooms.utils.Misc;
 import com.boxyplayz.backrooms.world.ModDimensions;
-import com.boxyplayz.backrooms.world.biome.ModBiomes;
+import com.boxyplayz.backrooms.world.ModDimensions.DimensionInstance;
 
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.core.BlockPos;
@@ -50,7 +51,7 @@ public class EntityTickEvents {
 							&& player.getItemBySlot(EquipmentSlot.FEET).isEmpty();
 
 					if (!fullLeather) {
-						if (player.level().getBiome(player.blockPosition()).is(ModBiomes.ABYSS_COLD_BIOME)) {
+						if (player.level().getBiome(player.blockPosition()).is(AbyssBiomes.ABYSS_COLD_BIOME)) {
 							player.setTicksFrozen(
 									Math.min(player.getTicksFrozen() + 4, player.getTicksRequiredToFreeze()));
 
@@ -67,7 +68,7 @@ public class EntityTickEvents {
 									Math.max(0, player.getTicksFrozen() - 2));
 						}
 					}
-					if (player.level().getBiome(player.blockPosition()).is(ModBiomes.ABYSS_HOT_BIOME)) {
+					if (player.level().getBiome(player.blockPosition()).is(AbyssBiomes.ABYSS_HOT_BIOME)) {
 						if (!noArmor) {
 							if (fullLeather) {
 								player.setRemainingFireTicks(20 * 20);
@@ -110,7 +111,8 @@ public class EntityTickEvents {
 						player.setAirSupply(player.getMaxAirSupply());
 					}
 				}
-				if (Misc.isWretchableBackrooms(player.level())) {
+				DimensionInstance dimension = ModDimensions.getDimensionFromLevel(player.level());
+				if (dimension != null && dimension.props.wretchedCycle) {
 					if (player.getFoodData().getFoodLevel() < 2) {
 						if (!player.hasEffect(ModEffects.WRETCHED_CYCLE)) {
 							MobEffectInstance instance = new MobEffectInstance(ModEffects.WRETCHED_CYCLE, 20 * 5);

@@ -2,7 +2,7 @@ package com.boxyplayz.backrooms.block.custom;
 
 import org.jspecify.annotations.Nullable;
 
-import com.boxyplayz.backrooms.damagetypes.ModDamageTypes;
+import com.boxyplayz.backrooms.ModDamageTypes;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;

@@ -3,9 +3,9 @@ package com.boxyplayz.backrooms.datagen.loot;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
 
+import com.boxyplayz.backrooms.ModLootTables;
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.item.ModItems;
-import com.boxyplayz.backrooms.loot.ModLootTables;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.SimpleFabricLootTableSubProvider;

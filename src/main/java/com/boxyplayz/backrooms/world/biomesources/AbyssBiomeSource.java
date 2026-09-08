@@ -2,8 +2,8 @@ package com.boxyplayz.backrooms.world.biomesources;
 
 import java.util.stream.Stream;
 
+import com.boxyplayz.backrooms.ModBiomes.AbyssBiomes;
 import com.boxyplayz.backrooms.utils.Misc;
-import com.boxyplayz.backrooms.world.biome.ModBiomes;
 import com.boxyplayz.backrooms.world.generators.AbyssChunkGen;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -19,10 +19,10 @@ public class AbyssBiomeSource extends BiomeSource {
 
 	public static final MapCodec<AbyssBiomeSource> CODEC = RecordCodecBuilder
 			.mapCodec(instance -> instance.group(
-					RegistryOps.retrieveElement(ModBiomes.ABYSS_BIOME),
-					RegistryOps.retrieveElement(ModBiomes.ABYSS_COLD_BIOME),
-					RegistryOps.retrieveElement(ModBiomes.ABYSS_HOT_BIOME),
-					RegistryOps.retrieveElement(ModBiomes.ABYSS_END_BIOME)).apply(
+					RegistryOps.retrieveElement(AbyssBiomes.ABYSS_BIOME),
+					RegistryOps.retrieveElement(AbyssBiomes.ABYSS_COLD_BIOME),
+					RegistryOps.retrieveElement(AbyssBiomes.ABYSS_HOT_BIOME),
+					RegistryOps.retrieveElement(AbyssBiomes.ABYSS_END_BIOME)).apply(
 							instance,
 							instance.stable(AbyssBiomeSource::new)));
 

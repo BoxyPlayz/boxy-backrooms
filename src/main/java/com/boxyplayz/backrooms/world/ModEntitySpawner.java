@@ -1,5 +1,6 @@
-package com.boxyplayz.backrooms.world.spawning;
+package com.boxyplayz.backrooms.world;
 
+import com.boxyplayz.backrooms.ModBiomes;
 import com.boxyplayz.backrooms.entity.ModEntities;
 import com.boxyplayz.backrooms.entity.living.Balloon.BalloonEntity;
 import com.boxyplayz.backrooms.entity.living.NeighborhoodWatch.NeighborhoodWatchEntity;
@@ -8,7 +9,6 @@ import com.boxyplayz.backrooms.entity.living.Partypooper.PartypooperEntity;
 import com.boxyplayz.backrooms.entity.living.SkinStealer.SkinStealerEntity;
 import com.boxyplayz.backrooms.entity.living.Smiler.SmilerEntity;
 import com.boxyplayz.backrooms.entity.living.Wretch.WretchEntity;
-import com.boxyplayz.backrooms.world.biome.ModBiomes;
 
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;

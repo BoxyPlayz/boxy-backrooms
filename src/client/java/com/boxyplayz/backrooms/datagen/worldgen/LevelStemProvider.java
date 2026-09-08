@@ -2,11 +2,12 @@ package com.boxyplayz.backrooms.datagen.worldgen;
 
 import java.util.concurrent.CompletableFuture;
 
+import com.boxyplayz.backrooms.ModBiomes;
+import com.boxyplayz.backrooms.ModBiomes.AbyssBiomes;
+import com.boxyplayz.backrooms.ModBiomes.Level0Biomes;
+import com.boxyplayz.backrooms.ModBiomes.Level1Biomes;
+import com.boxyplayz.backrooms.ModBiomes.LevelFunBiomes;
 import com.boxyplayz.backrooms.world.ModDimensions;
-import com.boxyplayz.backrooms.world.biome.ModBiomes;
-import com.boxyplayz.backrooms.world.biome.ModBiomes.Level0Biomes;
-import com.boxyplayz.backrooms.world.biome.ModBiomes.Level1Biomes;
-import com.boxyplayz.backrooms.world.biome.ModBiomes.LevelFunBiomes;
 import com.boxyplayz.backrooms.world.generators.AbyssChunkGen;
 import com.boxyplayz.backrooms.world.generators.BlueChannelChunkGen;
 import com.boxyplayz.backrooms.world.generators.Level0ChunkGen;
@@ -145,10 +146,10 @@ public class LevelStemProvider extends FabricDynamicRegistryProvider {
 		context.register(ModDimensions.THE_ABYSS.stem,
 				new LevelStem(dimensionTypes.getOrThrow(ModDimensions.THE_ABYSS.type),
 						new AbyssChunkGen(
-								biomes.getOrThrow(ModBiomes.ABYSS_BIOME),
-								biomes.getOrThrow(ModBiomes.ABYSS_COLD_BIOME),
-								biomes.getOrThrow(ModBiomes.ABYSS_HOT_BIOME),
-								biomes.getOrThrow(ModBiomes.ABYSS_END_BIOME))));
+								biomes.getOrThrow(AbyssBiomes.ABYSS_BIOME),
+								biomes.getOrThrow(AbyssBiomes.ABYSS_COLD_BIOME),
+								biomes.getOrThrow(AbyssBiomes.ABYSS_HOT_BIOME),
+								biomes.getOrThrow(AbyssBiomes.ABYSS_END_BIOME))));
 
 		context.register(ModDimensions.THE_BROKEN.stem,
 				new LevelStem(dimensionTypes.getOrThrow(ModDimensions.THE_BROKEN.type),

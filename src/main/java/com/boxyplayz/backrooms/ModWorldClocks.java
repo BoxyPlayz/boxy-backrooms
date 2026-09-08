@@ -1,6 +1,4 @@
-package com.boxyplayz.backrooms.clock;
-
-import com.boxyplayz.backrooms.BoxysBackrooms;
+package com.boxyplayz.backrooms;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;

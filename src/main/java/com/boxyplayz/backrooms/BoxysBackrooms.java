@@ -8,25 +8,16 @@ import org.slf4j.LoggerFactory;
 
 import com.boxyplayz.backrooms.block.ModBlockEntities;
 import com.boxyplayz.backrooms.block.ModBlocks;
-import com.boxyplayz.backrooms.clock.ModWorldClocks;
-import com.boxyplayz.backrooms.creativetabs.ModCreativeTabs;
-import com.boxyplayz.backrooms.damagetypes.ModDamageTypes;
 import com.boxyplayz.backrooms.effect.ModEffects;
-import com.boxyplayz.backrooms.enchantments.ModEnchantments;
 import com.boxyplayz.backrooms.entity.ModEntities;
 import com.boxyplayz.backrooms.events.ModEvents;
 import com.boxyplayz.backrooms.item.ModItems;
-import com.boxyplayz.backrooms.loot.ModLootTables;
 import com.boxyplayz.backrooms.networking.ModPayloads;
-import com.boxyplayz.backrooms.presets.ModWorldPresets;
 import com.boxyplayz.backrooms.recipe.ModRecipes;
-import com.boxyplayz.backrooms.structures.ModStructures;
-import com.boxyplayz.backrooms.tags.ModTags;
-import com.boxyplayz.backrooms.toolMaterials.ModToolMaterials;
 import com.boxyplayz.backrooms.world.ModChunkGenerators;
 import com.boxyplayz.backrooms.world.ModDimensions;
-import com.boxyplayz.backrooms.world.biome.ModBiomes;
-import com.boxyplayz.backrooms.world.spawning.ModEntitySpawner;
+import com.boxyplayz.backrooms.world.ModEntitySpawner;
+import com.boxyplayz.backrooms.world.ModStructures;
 
 public class BoxysBackrooms implements ModInitializer {
 	/**

@@ -1,7 +1,7 @@
-package com.boxyplayz.backrooms.screen;
+package com.boxyplayz.backrooms.screens;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
-import com.boxyplayz.backrooms.dataattachments.DataAttachments;
+import com.boxyplayz.backrooms.DataAttachments;
 import com.boxyplayz.backrooms.menu.ElevatorMenu;
 import com.boxyplayz.backrooms.networking.ElevatorPayload;
 import com.boxyplayz.backrooms.utils.Misc;

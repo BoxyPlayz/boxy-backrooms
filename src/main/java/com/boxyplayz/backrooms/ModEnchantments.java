@@ -1,6 +1,4 @@
-package com.boxyplayz.backrooms.enchantments;
-
-import com.boxyplayz.backrooms.BoxysBackrooms;
+package com.boxyplayz.backrooms;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;

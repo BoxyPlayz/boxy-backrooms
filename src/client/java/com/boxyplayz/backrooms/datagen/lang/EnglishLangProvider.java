@@ -3,13 +3,13 @@ package com.boxyplayz.backrooms.datagen.lang;
 import java.util.concurrent.CompletableFuture;
 
 import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.ModCreativeTabs;
+import com.boxyplayz.backrooms.ModEnchantments;
+import com.boxyplayz.backrooms.ModTags;
 import com.boxyplayz.backrooms.block.ModBlocks;
-import com.boxyplayz.backrooms.creativetabs.ModCreativeTabs;
 import com.boxyplayz.backrooms.effect.ModEffects;
-import com.boxyplayz.backrooms.enchantments.ModEnchantments;
 import com.boxyplayz.backrooms.entity.ModEntities;
 import com.boxyplayz.backrooms.item.ModItems;
-import com.boxyplayz.backrooms.tags.ModTags;
 import com.boxyplayz.backrooms.utils.Misc;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;

@@ -31,6 +31,8 @@ repositories {
 }
 
 loom {
+	accessWidenerPath = file("src/main/resources/boxys_backrooms.classtweaker")
+
 	splitEnvironmentSourceSets()
 
 	mods {

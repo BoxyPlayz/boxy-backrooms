@@ -3,8 +3,8 @@ package com.boxyplayz.backrooms.datagen.worldgen;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-import com.boxyplayz.backrooms.structures.ModStructures;
-import com.boxyplayz.backrooms.world.biome.ModBiomes;
+import com.boxyplayz.backrooms.ModBiomes;
+import com.boxyplayz.backrooms.world.ModStructures;
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 

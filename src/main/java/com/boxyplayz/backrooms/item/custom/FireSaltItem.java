@@ -1,4 +1,4 @@
-package com.boxyplayz.backrooms.item;
+package com.boxyplayz.backrooms.item.custom;
 
 import net.fabricmc.fabric.api.item.v1.EnchantingContext;
 import net.minecraft.core.Holder;
