@@ -1,6 +1,7 @@
 package com.boxyplayz.backrooms.effect.custom;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.BoxysBackroomsFabric;
+import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
 
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
@@ -38,7 +39,7 @@ public class GardenersPainEffect extends MobEffect {
 		}
 
 		if (Math.floorMod(mob.tickCount, 20 * 5) == 0) {
-			Identifier gardenersPainId = Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "gardeners_pain");
+			Identifier gardenersPainId = Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "gardeners_pain");
 			AttributeInstance mobGetAttribute = mob.getAttribute(Attributes.MAX_HEALTH);
 			if (mobGetAttribute != null) {
 
@@ -67,7 +68,7 @@ public class GardenersPainEffect extends MobEffect {
 					mob.setHealth(mob.getMaxHealth());
 				}
 			} else {
-				BoxysBackrooms.LOGGER.error("Max health doesnt f****ing exist.");
+				BoxysBackroomsCommon.LOGGER.error("Max health doesnt exist.");
 			}
 
 		}

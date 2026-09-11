@@ -1,4 +1,4 @@
-package com.boxyplayz.backrooms.recipe.blending;
+package com.boxyplayz.backrooms.common.recipe.blending;
 
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeInput;

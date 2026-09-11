@@ -1,6 +1,6 @@
-package com.boxyplayz.backrooms.recipe.blending;
+package com.boxyplayz.backrooms.common.recipe.blending;
 
-import com.boxyplayz.backrooms.recipe.ModRecipes;
+import com.boxyplayz.backrooms.common.recipe.ModRecipes;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 

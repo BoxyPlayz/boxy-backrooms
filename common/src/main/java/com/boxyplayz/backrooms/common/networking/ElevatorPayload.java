@@ -1,6 +1,6 @@
-package com.boxyplayz.backrooms.networking;
+package com.boxyplayz.backrooms.common.networking;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
 
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
@@ -10,7 +10,7 @@ import net.minecraft.resources.Identifier;
 
 public record ElevatorPayload(String destination, int entityId) implements CustomPacketPayload {
 
-	public static final Identifier ELEVATOR_PAYLOAD_ID = Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID,
+	public static final Identifier ELEVATOR_PAYLOAD_ID = Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID,
 			"elevator_payload");
 	public static final CustomPacketPayload.Type<ElevatorPayload> TYPE = new CustomPacketPayload.Type<>(
 			ELEVATOR_PAYLOAD_ID);

@@ -1,5 +1,8 @@
 package com.boxyplayz.backrooms.networking;
 
+import com.boxyplayz.backrooms.common.networking.DashPayload;
+import com.boxyplayz.backrooms.common.networking.ElevatorPayload;
+
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 
 public class ModPayloads {

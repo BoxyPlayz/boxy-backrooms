@@ -3,9 +3,9 @@ package com.boxyplayz.backrooms.datagen.worldgen;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
-import com.boxyplayz.backrooms.ModBiomes;
-import com.boxyplayz.backrooms.ModBiomes.AbyssBiomes;
+import com.boxyplayz.backrooms.common.world.ModBiomes;
 import com.boxyplayz.backrooms.world.ModStructures;
+import com.boxyplayz.backrooms.common.world.ModBiomes.AbyssBiomes;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;

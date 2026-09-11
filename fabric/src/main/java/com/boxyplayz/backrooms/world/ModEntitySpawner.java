@@ -1,6 +1,6 @@
 package com.boxyplayz.backrooms.world;
 
-import com.boxyplayz.backrooms.ModBiomes;
+import com.boxyplayz.backrooms.common.world.ModBiomes;
 import com.boxyplayz.backrooms.entity.ModEntities;
 import com.boxyplayz.backrooms.entity.living.Balloon.BalloonEntity;
 import com.boxyplayz.backrooms.entity.living.NeighborhoodWatch.NeighborhoodWatchEntity;

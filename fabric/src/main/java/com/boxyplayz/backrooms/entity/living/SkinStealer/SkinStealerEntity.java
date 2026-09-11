@@ -1,6 +1,6 @@
 package com.boxyplayz.backrooms.entity.living.SkinStealer;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.BoxysBackroomsFabric;
 import com.mojang.serialization.Codec;
 
 import net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry;
@@ -33,7 +33,7 @@ public class SkinStealerEntity extends PathfinderMob {
 	}
 
 	public static final AttachmentType<Integer> SKINSTEALER_PASSIVE_TIMER = AttachmentRegistry.create(
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "skinstealer_passive_timer"),
+			Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "skinstealer_passive_timer"),
 			builder -> builder
 					.initializer(() -> 0) // The default value of the Attachment, if one has not been set.
 					.persistent(Codec.INT) // Dictates how this Attachment's data should be saved and loaded.

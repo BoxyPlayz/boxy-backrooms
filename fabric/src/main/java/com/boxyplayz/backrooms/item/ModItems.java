@@ -4,7 +4,7 @@ import java.util.function.Function;
 
 import org.jspecify.annotations.NonNull;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.BoxysBackroomsFabric;
 import com.boxyplayz.backrooms.ModToolMaterials;
 import com.boxyplayz.backrooms.effect.ModEffects;
 import com.boxyplayz.backrooms.entity.ModEntities;
@@ -27,7 +27,7 @@ import net.minecraft.world.item.consume_effects.RemoveStatusEffectsConsumeEffect
 public class ModItems {
 	private static <T extends Item> T registerItem(@NonNull String name, Function<Item.Properties, T> itemFactory,
 			Item.Properties settings) {
-		Identifier id = Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, name);
+		Identifier id = Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, name);
 		ResourceKey<Item> key = ResourceKey.create(
 				BuiltInRegistries.ITEM.key(), id);
 		T item = itemFactory.apply(settings.setId(key));
@@ -163,6 +163,5 @@ public class ModItems {
 			new Item.Properties().stacksTo(1));
 
 	public static void registerModItems() {
-		BoxysBackrooms.LOGGER.debug("Registering items for " + BoxysBackrooms.MOD_ID);
 	}
 }

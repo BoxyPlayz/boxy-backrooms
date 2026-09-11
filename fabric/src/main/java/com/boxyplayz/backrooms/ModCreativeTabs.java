@@ -16,7 +16,7 @@ import net.minecraft.world.item.ItemStack;
 public class ModCreativeTabs {
 	public static final ResourceKey<CreativeModeTab> BACKROOMS_ITEM_GROUP_KEY = ResourceKey.create(
 			BuiltInRegistries.CREATIVE_MODE_TAB.key(),
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "item_group"));
+			Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "item_group"));
 	public static final CreativeModeTab BACKROOMS_ITEM_GROUP = FabricCreativeModeTab.builder()
 			.icon(() -> new ItemStack(ModItems.GRAY_ALMOND_WATER))
 			.title(Component.translatable("itemGroup.boxys_backrooms"))

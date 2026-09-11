@@ -1,6 +1,6 @@
 package com.boxyplayz.backrooms.datagen;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.BoxysBackroomsFabric;
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.item.ModItems;
 
@@ -97,26 +97,31 @@ public class ModelProvider extends FabricModelProvider {
 		itemModelGenerator.generateFlatItem(ModItems.EMPTY_ALMOND_WATER, ModelTemplates.FLAT_HANDHELD_ITEM);
 		itemModelGenerator.itemModelOutput.accept(ModBlocks.PROMISED_GATE.asItem(),
 				ItemModelUtils
-						.plainModel(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "block/promised_gate")));
+						.plainModel(
+								Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "block/promised_gate")));
 		itemModelGenerator.itemModelOutput.accept(ModBlocks.BLENDER.asItem(),
 				ItemModelUtils
-						.plainModel(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "block/blender")));
+						.plainModel(Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "block/blender")));
 		itemModelGenerator.itemModelOutput.accept(ModBlocks.LEVEL2_FIRE_EXIT.asItem(),
 				ItemModelUtils
-						.plainModel(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "block/level2_fire_exit")));
+						.plainModel(Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID,
+								"block/level2_fire_exit")));
 		itemModelGenerator.itemModelOutput.accept(ModBlocks.LEVEL2_DOOR.asItem(),
 				ItemModelUtils
-						.plainModel(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "block/level2_door")));
+						.plainModel(Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "block/level2_door")));
 		itemModelGenerator.itemModelOutput.accept(ModBlocks.WATER_FOUNTAIN.asItem(),
 				ItemModelUtils
-						.plainModel(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "block/water_fountain")));
+						.plainModel(
+								Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "block/water_fountain")));
 		itemModelGenerator.itemModelOutput.accept(ModBlocks.LEVEL5_CARPET.asItem(),
 				ItemModelUtils
-						.plainModel(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "block/level5_carpet")));
+						.plainModel(
+								Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "block/level5_carpet")));
 		itemModelGenerator.itemModelOutput.accept(ModBlocks.LEVEL5_ENTRY_TABLE.asItem(),
 				ItemModelUtils
 						.plainModel(
-								Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "block/level5_entry_table")));
+								Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID,
+										"block/level5_entry_table")));
 		itemModelGenerator.generateFlatItem(ModItems.NEIGHBORHOOD_WATCH_SPAWN_EGG, ModelTemplates.FLAT_HANDHELD_ITEM);
 	}
 }

@@ -1,10 +1,10 @@
-package com.boxyplayz.backrooms.world;
+package com.boxyplayz.backrooms.common.world;
 
 import java.util.HashSet;
 
 import org.jetbrains.annotations.Nullable;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
@@ -94,13 +94,13 @@ public class ModDimensions {
                 public DimensionInstance(String id, DimensionProperties props) {
                         this.level = ResourceKey.create(
                                         Registries.DIMENSION,
-                                        Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, id));
+                                        Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, id));
                         this.type = ResourceKey.create(
                                         Registries.DIMENSION_TYPE,
-                                        Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, id));
+                                        Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, id));
                         this.stem = ResourceKey.create(
                                         Registries.LEVEL_STEM,
-                                        Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, id));
+                                        Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, id));
                         this.props = props;
 
                         backroomsDimensions.add(this);

@@ -1,6 +1,6 @@
 package com.boxyplayz.backrooms.block;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.BoxysBackroomsFabric;
 import com.boxyplayz.backrooms.block.entity.PowerOutletBlockEntity;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
@@ -16,7 +16,7 @@ public class ModBlockEntities {
 			String name,
 			FabricBlockEntityTypeBuilder.Factory<? extends T> entityFactory,
 			Block... blocks) {
-		Identifier id = Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, name);
+		Identifier id = Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, name);
 		return Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, id,
 				FabricBlockEntityTypeBuilder.<T>create(entityFactory, blocks).build());
 	}

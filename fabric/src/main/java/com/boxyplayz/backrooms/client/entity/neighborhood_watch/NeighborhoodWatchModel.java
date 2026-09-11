@@ -4,7 +4,7 @@ package com.boxyplayz.backrooms.client.entity.neighborhood_watch;
 // Exported for Minecraft version 1.17 or later with Mojang mappings
 // Paste this class into your mod and generate all required imports
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.BoxysBackroomsFabric;
 
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -22,7 +22,7 @@ public class NeighborhoodWatchModel<T extends Entity> extends EntityModel<Neighb
 	// This layer location should be baked with EntityRendererProvider.Context in
 	// the entity renderer and passed into this model's constructor
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "neighborhood_watch"), "main");
+			Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "neighborhood_watch"), "main");
 	@SuppressWarnings("unused")
 	private final ModelPart base;
 	private final ModelPart legs;

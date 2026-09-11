@@ -3,9 +3,9 @@ package com.boxyplayz.backrooms.datagen.worldgen;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
-import com.boxyplayz.backrooms.ModBiomes;
-import com.boxyplayz.backrooms.ModWorldPresets;
-import com.boxyplayz.backrooms.world.ModDimensions;
+import com.boxyplayz.backrooms.common.ModWorldPresets;
+import com.boxyplayz.backrooms.common.world.ModBiomes;
+import com.boxyplayz.backrooms.common.world.ModDimensions;
 import com.boxyplayz.backrooms.world.generators.Level11ChunkGen;
 import com.boxyplayz.backrooms.world.generators.Level3ChunkGen;
 

@@ -1,6 +1,9 @@
 package com.boxyplayz.backrooms.datagen;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
 import com.boxyplayz.backrooms.datagen.lang.EnglishLangProvider;
 import com.boxyplayz.backrooms.datagen.loot.BlockLootTableProvider;
 import com.boxyplayz.backrooms.datagen.loot.ChestLootTableProvider;
@@ -25,9 +28,11 @@ import net.minecraft.core.registries.Registries;
 
 public class BoxysBackroomsDataGenEntry implements DataGeneratorEntrypoint {
 
+	public static final Logger LOGGER = LoggerFactory.getLogger(BoxysBackroomsCommon.MOD_ID + "_datagen");
+
 	@Override
 	public void onInitializeDataGenerator(FabricDataGenerator generator) {
-		BoxysBackrooms.LOGGER.debug("Data Generation running!");
+		LOGGER.debug("Data Generation running!");
 
 		FabricDataGenerator.Pack pack = generator.createPack();
 

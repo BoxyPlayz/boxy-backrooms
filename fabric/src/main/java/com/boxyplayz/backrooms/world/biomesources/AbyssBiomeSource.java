@@ -2,8 +2,8 @@ package com.boxyplayz.backrooms.world.biomesources;
 
 import java.util.stream.Stream;
 
-import com.boxyplayz.backrooms.ModBiomes.AbyssBiomes;
-import com.boxyplayz.backrooms.utils.Misc;
+import com.boxyplayz.backrooms.common.Misc;
+import com.boxyplayz.backrooms.common.world.ModBiomes.AbyssBiomes;
 import com.boxyplayz.backrooms.world.generators.AbyssChunkGen;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

@@ -2,15 +2,15 @@ package com.boxyplayz.backrooms.datagen.lang;
 
 import java.util.concurrent.CompletableFuture;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.BoxysBackroomsFabric;
 import com.boxyplayz.backrooms.ModCreativeTabs;
 import com.boxyplayz.backrooms.ModEnchantments;
 import com.boxyplayz.backrooms.ModTags;
 import com.boxyplayz.backrooms.block.ModBlocks;
+import com.boxyplayz.backrooms.common.Misc;
 import com.boxyplayz.backrooms.effect.ModEffects;
 import com.boxyplayz.backrooms.entity.ModEntities;
 import com.boxyplayz.backrooms.item.ModItems;
-import com.boxyplayz.backrooms.utils.Misc;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -23,7 +23,7 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 	String ElevatorId = "elevator";
 
 	public String getText(String id) {
-		return "text." + BoxysBackrooms.MOD_ID + "." + id;
+		return "text." + BoxysBackroomsFabric.MOD_ID + "." + id;
 	}
 
 	public String getTooltip(Item item) {

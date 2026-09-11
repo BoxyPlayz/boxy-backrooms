@@ -2,12 +2,12 @@ package com.boxyplayz.backrooms.datagen.worldgen;
 
 import java.util.concurrent.CompletableFuture;
 
-import com.boxyplayz.backrooms.ModBiomes;
-import com.boxyplayz.backrooms.ModBiomes.AbyssBiomes;
-import com.boxyplayz.backrooms.ModBiomes.Level0Biomes;
-import com.boxyplayz.backrooms.ModBiomes.Level1Biomes;
-import com.boxyplayz.backrooms.ModBiomes.LevelFunBiomes;
-import com.boxyplayz.backrooms.world.ModDimensions;
+import com.boxyplayz.backrooms.common.world.ModBiomes;
+import com.boxyplayz.backrooms.common.world.ModDimensions;
+import com.boxyplayz.backrooms.common.world.ModBiomes.AbyssBiomes;
+import com.boxyplayz.backrooms.common.world.ModBiomes.Level0Biomes;
+import com.boxyplayz.backrooms.common.world.ModBiomes.Level1Biomes;
+import com.boxyplayz.backrooms.common.world.ModBiomes.LevelFunBiomes;
 import com.boxyplayz.backrooms.world.generators.AbyssChunkGen;
 import com.boxyplayz.backrooms.world.generators.BlueChannelChunkGen;
 import com.boxyplayz.backrooms.world.generators.Level0ChunkGen;

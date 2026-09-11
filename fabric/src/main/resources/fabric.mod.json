@@ -3,20 +3,22 @@
   "id": "boxys_backrooms",
   "version": "${version}",
   "name": "Boxy's Backrooms",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "Silly Backrooms Mod",
   "authors": [
-    "Me!"
+    "BoxyPlayz"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://github.com/BoxyPlayz/boxy-backrooms",
+    "sources": "https://github.com/BoxyPlayz/boxy-backrooms.git",
+    "issues": "https://github.com/BoxyPlayz/boxy-backrooms/issues",
+    "discord": "https://discord.com/invite/T9abqkRdk6"
   },
-  "license": "CC0-1.0",
+  "license": "Apache-2.0",
   "icon": "assets/boxys_backrooms/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.boxyplayz.backrooms.BoxysBackrooms"
+      "com.boxyplayz.backrooms.BoxysBackroomsFabric"
     ],
     "fabric-datagen": [
       "com.boxyplayz.backrooms.datagen.BoxysBackroomsDataGenEntry"
@@ -33,9 +35,14 @@
     "minecraft": "~26.1",
     "java": ">=25",
     "architectury": ">=20.0.12",
-    "fabric-api": "*"
+    "fabric-api": "*",
+    "forgeconfigapiport": "*"
   },
-  "suggests": {
-    "another-mod": "*"
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.com/invite/T9abqkRdk6"
+      }
+    }
   }
 }

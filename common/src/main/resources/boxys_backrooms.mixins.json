@@ -4,9 +4,9 @@
   "compatibilityLevel": "JAVA_25",
   "minVersion": "0.8",
   "client": [
+    "SkyRendererMixin"
   ],
-  "mixins": [
-  ],
+  "mixins": [],
   "injectors": {
     "defaultRequire": 1
   }

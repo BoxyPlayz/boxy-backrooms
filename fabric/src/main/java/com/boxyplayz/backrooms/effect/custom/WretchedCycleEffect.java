@@ -1,6 +1,7 @@
 package com.boxyplayz.backrooms.effect.custom;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.BoxysBackroomsFabric;
+import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
 import com.boxyplayz.backrooms.entity.ModEntities;
 import com.boxyplayz.backrooms.entity.living.Wretch.WretchEntity;
 
@@ -31,7 +32,7 @@ public class WretchedCycleEffect extends MobEffect {
 		}
 
 		if (Math.floorMod(mob.tickCount, 20 * 1) == 2) {
-			Identifier wretchedCycleId = Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "wretched_cycle");
+			Identifier wretchedCycleId = Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "wretched_cycle");
 			AttributeInstance mobGetAttribute = mob.getAttribute(Attributes.ATTACK_DAMAGE);
 			if (mobGetAttribute != null) {
 
@@ -62,7 +63,7 @@ public class WretchedCycleEffect extends MobEffect {
 
 				}
 			} else {
-				BoxysBackrooms.LOGGER.error("Attack Damage doesnt f****ing exist.");
+				BoxysBackroomsCommon.LOGGER.error("Attack Damage doesnt f****ing exist.");
 			}
 
 		}

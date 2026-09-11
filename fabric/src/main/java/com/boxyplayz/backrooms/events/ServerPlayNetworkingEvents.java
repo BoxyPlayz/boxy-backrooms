@@ -2,10 +2,10 @@ package com.boxyplayz.backrooms.events;
 
 import java.util.Set;
 
-import com.boxyplayz.backrooms.networking.DashPayload;
-import com.boxyplayz.backrooms.networking.ElevatorPayload;
-import com.boxyplayz.backrooms.utils.Misc.ElevatorDestination;
-import com.boxyplayz.backrooms.world.ModDimensions;
+import com.boxyplayz.backrooms.common.Misc.ElevatorDestination;
+import com.boxyplayz.backrooms.common.networking.DashPayload;
+import com.boxyplayz.backrooms.common.networking.ElevatorPayload;
+import com.boxyplayz.backrooms.common.world.ModDimensions;
 
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.core.BlockPos;

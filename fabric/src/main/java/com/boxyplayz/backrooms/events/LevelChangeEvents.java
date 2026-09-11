@@ -1,6 +1,6 @@
 package com.boxyplayz.backrooms.events;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.BoxysBackroomsFabric;
 import com.boxyplayz.backrooms.ModTags;
 
 import net.fabricmc.fabric.api.entity.event.v1.ServerEntityLevelChangeEvents;
@@ -10,7 +10,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation;
 
 public class LevelChangeEvents {
-	public static Identifier level8BoostId = Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID,
+	public static Identifier level8BoostId = Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID,
 			"level8_jump_boost");
 
 	public static void init() {

@@ -1,4 +1,4 @@
-package com.boxyplayz.backrooms.utils;
+package com.boxyplayz.backrooms.common;
 
 /**
  * Miscellaneous methods

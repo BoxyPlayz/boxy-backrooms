@@ -1,6 +1,6 @@
 package com.boxyplayz.backrooms.client.entity.balloon;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.BoxysBackroomsFabric;
 
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -22,7 +22,7 @@ public class BalloonModel<T extends Entity> extends EntityModel<BalloonRenderSta
 	// This layer location should be baked with EntityRendererProvider.Context in
 	// the entity renderer and passed into this model's constructor
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "balloon"), "main");
+			Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "balloon"), "main");
 	@SuppressWarnings("unused")
 	private final ModelPart Balloon;
 

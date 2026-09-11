@@ -1,6 +1,6 @@
 package com.boxyplayz.backrooms.entity;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.BoxysBackroomsFabric;
 import com.boxyplayz.backrooms.entity.living.Balloon.BalloonEntity;
 import com.boxyplayz.backrooms.entity.living.NeighborhoodWatch.NeighborhoodWatchEntity;
 import com.boxyplayz.backrooms.entity.living.Partygoer.PartygoerEntity;
@@ -35,9 +35,9 @@ public class ModEntities {
 			Vec2 size, MobCategory category) {
 		ResourceKey<EntityType<?>> resourceKey = ResourceKey.create(
 				BuiltInRegistries.ENTITY_TYPE.key(),
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, id));
+				Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, id));
 		return Registry.register(BuiltInRegistries.ENTITY_TYPE,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, id),
+				Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, id),
 				EntityType.Builder.of(factory, category).sized(size.x, size.y)
 						.build(resourceKey));
 	}

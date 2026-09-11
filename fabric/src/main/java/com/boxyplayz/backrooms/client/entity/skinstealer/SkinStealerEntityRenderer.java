@@ -1,6 +1,6 @@
 package com.boxyplayz.backrooms.client.entity.skinstealer;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.BoxysBackroomsFabric;
 import com.boxyplayz.backrooms.client.BoxysBackroomsClient;
 import com.boxyplayz.backrooms.entity.living.SkinStealer.SkinStealerEntity;
 
@@ -17,7 +17,7 @@ public class SkinStealerEntityRenderer
 
 	private static final Identifier PASSIVE = Identifier.withDefaultNamespace("textures/entity/player/wide/steve.png");
 
-	private static final Identifier NORMAL = Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID,
+	private static final Identifier NORMAL = Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID,
 			"textures/entity/skinstealer.png");
 
 	public SkinStealerEntityRenderer(EntityRendererProvider.Context context) {

@@ -1,7 +1,7 @@
-package com.boxyplayz.backrooms.recipe;
+package com.boxyplayz.backrooms.common.recipe;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
-import com.boxyplayz.backrooms.recipe.blending.BlendingRecipe;
+import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
+import com.boxyplayz.backrooms.common.recipe.blending.BlendingRecipe;
 
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -12,12 +12,12 @@ import net.minecraft.world.item.crafting.RecipeType;
 public class ModRecipes {
 	public static final RecipeSerializer<BlendingRecipe> BLENDING_RECIPE_SERIALIZER = Registry.register(
 			BuiltInRegistries.RECIPE_SERIALIZER,
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "blending"),
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "blending"),
 			new RecipeSerializer<>(BlendingRecipe.CODEC, BlendingRecipe.STREAM_CODEC));
 
 	public static final RecipeType<BlendingRecipe> BLENDING_RECIPE_TYPE = Registry.register(
 			BuiltInRegistries.RECIPE_TYPE,
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "blending"),
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "blending"),
 			new RecipeType<BlendingRecipe>() {
 			});
 

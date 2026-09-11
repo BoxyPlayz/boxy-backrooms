@@ -1,6 +1,5 @@
 package com.boxyplayz.backrooms.client;
 
-import com.boxyplayz.backrooms.BoxysBackroomsCommon;
 import com.boxyplayz.backrooms.client.entity.balloon.BalloonEntityRenderer;
 import com.boxyplayz.backrooms.client.entity.balloon.BalloonModel;
 import com.boxyplayz.backrooms.client.entity.neighborhood_watch.NeighborhoodWatchModel;
@@ -19,6 +18,7 @@ import com.boxyplayz.backrooms.client.events.GrassColors;
 import com.boxyplayz.backrooms.client.events.ItemEvents;
 import com.boxyplayz.backrooms.client.screens.BlendingScreen;
 import com.boxyplayz.backrooms.client.screens.ElevatorScreen;
+import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
 import com.boxyplayz.backrooms.entity.ModEntities;
 import com.boxyplayz.backrooms.menu.MenuTypes;
 

@@ -1,6 +1,6 @@
 package com.boxyplayz.backrooms.client.entity.partygoer;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.BoxysBackroomsFabric;
 import com.boxyplayz.backrooms.client.BoxysBackroomsClient;
 import com.boxyplayz.backrooms.entity.living.Partygoer.PartygoerEntity;
 
@@ -23,7 +23,7 @@ public class PartygoerEntityRenderer
 
 	@Override
 	public Identifier getTextureLocation(PartygoerRenderState renderState) {
-		return Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "textures/entity/partygoer.png");
+		return Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "textures/entity/partygoer.png");
 	}
 
 	@Override

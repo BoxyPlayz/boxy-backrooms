@@ -2,7 +2,7 @@ package com.boxyplayz.backrooms.block;
 
 import java.util.function.Function;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.BoxysBackroomsFabric;
 import com.boxyplayz.backrooms.block.custom.BlenderBlock;
 import com.boxyplayz.backrooms.block.custom.ElevatorBlock;
 import com.boxyplayz.backrooms.block.custom.ErrorSlateBlock;
@@ -67,11 +67,11 @@ public class ModBlocks {
 	}
 
 	private static ResourceKey<Block> keyOfBlock(String name) {
-		return ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, name));
+		return ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, name));
 	}
 
 	private static ResourceKey<Item> keyOfItem(String name) {
-		return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, name));
+		return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, name));
 	}
 
 	public static final Block ERRORSLATE = register(

@@ -1,4 +1,6 @@
-package com.boxyplayz.backrooms;
+package com.boxyplayz.backrooms.common.world;
+
+import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
@@ -15,102 +17,102 @@ public class ModBiomes {
 	 */
 	public static final ResourceKey<Biome> LEVEL7_OCEAN_BIOME = ResourceKey.create(
 			Registries.BIOME,
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level7_ocean"));
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level7_ocean"));
 
 	/**
 	 * Cave Systems
 	 */
 	public static final ResourceKey<Biome> LEVEL8_CAVESYSTEM_BIOME = ResourceKey.create(
 			Registries.BIOME,
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level8_cavesystem"));
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level8_cavesystem"));
 
 	/**
 	 * Motion
 	 */
 	public static final ResourceKey<Biome> LEVEL94_BIOME = ResourceKey.create(
 			Registries.BIOME,
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level94"));
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level94"));
 	/**
 	 * Electical Station
 	 */
 	public static final ResourceKey<Biome> LEVEL3_BIOME = ResourceKey.create(
 			Registries.BIOME,
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level3"));
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level3"));
 	/**
 	 * Abandoned Offices
 	 */
 	public static final ResourceKey<Biome> LEVEL4_BIOME = ResourceKey.create(
 			Registries.BIOME,
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level4"));
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level4"));
 	/**
 	 * Hotel
 	 */
 	public static final ResourceKey<Biome> LEVEL5_BIOME = ResourceKey.create(
 			Registries.BIOME,
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level5"));
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level5"));
 
 	/**
 	 * Pitfalls
 	 */
 	public static final ResourceKey<Biome> PITFALLS_BIOME = ResourceKey.create(
 			Registries.BIOME,
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "pitfalls"));
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "pitfalls"));
 
 	/**
 	 * The Blue Chanel
 	 */
 	public static final ResourceKey<Biome> BLUE_CHANNEL_BIOME = ResourceKey.create(
 			Registries.BIOME,
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "blue_channel"));
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "blue_channel"));
 
 	/**
 	 * Lights out
 	 */
 	public static final ResourceKey<Biome> LEVEL6_BIOME = ResourceKey.create(
 			Registries.BIOME,
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level6"));
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level6"));
 
 	/**
 	 * The Promised Land
 	 */
 	public static final ResourceKey<Biome> PROMISED_BIOME = ResourceKey.create(
 			Registries.BIOME,
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "promised"));
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "promised"));
 
 	/**
 	 * Error 500
 	 */
 	public static final ResourceKey<Biome> BROKEN_BIOME = ResourceKey.create(
 			Registries.BIOME,
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "broken"));
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "broken"));
 
 	/**
 	 * Pipe Dreams
 	 */
 	public static final ResourceKey<Biome> LEVEL2_BIOME = ResourceKey.create(
 			Registries.BIOME,
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level2"));
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level2"));
 
 	/**
 	 * Endless City
 	 */
 	public static final ResourceKey<Biome> LEVEL11_BIOME = ResourceKey.create(
 			Registries.BIOME,
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level11"));
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level11"));
 
 	/**
 	 * Neighborhood
 	 */
 	public static final ResourceKey<Biome> LEVEL9_BIOME = ResourceKey.create(
 			Registries.BIOME,
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level9"));
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level9"));
 
 	/**
 	 * Wheat Field
 	 */
 	public static final ResourceKey<Biome> LEVEL10_BIOME = ResourceKey.create(
 			Registries.BIOME,
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level10"));
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level10"));
 
 	public static class AbyssBiomes {
 
@@ -119,27 +121,27 @@ public class ModBiomes {
 		 */
 		public static final ResourceKey<Biome> ABYSS_BIOME = ResourceKey.create(
 				Registries.BIOME,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "the_abyss"));
+				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "the_abyss"));
 
 		/**
 		 * Somewhere cold
 		 */
 		public static final ResourceKey<Biome> ABYSS_COLD_BIOME = ResourceKey.create(
 				Registries.BIOME,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "cold_abyss"));
+				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "cold_abyss"));
 
 		/**
 		 * Somewhere warm
 		 */
 		public static final ResourceKey<Biome> ABYSS_HOT_BIOME = ResourceKey.create(
 				Registries.BIOME,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "hot_abyss"));
+				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "hot_abyss"));
 		/**
 		 * Somewhere at the end
 		 */
 		public static final ResourceKey<Biome> ABYSS_END_BIOME = ResourceKey.create(
 				Registries.BIOME,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "end_abyss"));
+				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "end_abyss"));
 	}
 
 	/**
@@ -148,27 +150,27 @@ public class ModBiomes {
 	public static class Level1Biomes {
 		public static final ResourceKey<Biome> AQUILA_BIOME = ResourceKey.create(
 				Registries.BIOME,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level1/aquila"));
+				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level1/aquila"));
 
 		public static final ResourceKey<Biome> GILDED_BIOME = ResourceKey.create(
 				Registries.BIOME,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level1/gilded"));
+				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level1/gilded"));
 
 		public static final ResourceKey<Biome> GARDEN_BIOME = ResourceKey.create(
 				Registries.BIOME,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level1/garden"));
+				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level1/garden"));
 
 		public static final ResourceKey<Biome> GOTHIC_BIOME = ResourceKey.create(
 				Registries.BIOME,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level1/gothic"));
+				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level1/gothic"));
 
 		public static final ResourceKey<Biome> FABLED_BIOME = ResourceKey.create(
 				Registries.BIOME,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level1/fabled"));
+				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level1/fabled"));
 
 		public static final ResourceKey<Biome> OUROBOROS_BIOME = ResourceKey.create(
 				Registries.BIOME,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level1/ouroboros"));
+				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level1/ouroboros"));
 	}
 
 	/**
@@ -180,27 +182,27 @@ public class ModBiomes {
 		 */
 		public static final ResourceKey<Biome> NORMAL_BIOME = ResourceKey.create(
 				Registries.BIOME,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level0/normal"));
+				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level0/normal"));
 		/**
 		 * Structural Support
 		 */
 		public static final ResourceKey<Biome> COLUMNS_BIOME = ResourceKey.create(
 				Registries.BIOME,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level0/columns"));
+				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level0/columns"));
 
 		/**
 		 * Danger Zone
 		 */
 		public static final ResourceKey<Biome> BLACKOUT_BIOME = ResourceKey.create(
 				Registries.BIOME,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level0/blackout"));
+				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level0/blackout"));
 
 		/**
 		 * Don't fall in!
 		 */
 		public static final ResourceKey<Biome> PITFALLS_BIOME = ResourceKey.create(
 				Registries.BIOME,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level0/pitfalls"));
+				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level0/pitfalls"));
 
 	}
 
@@ -210,19 +212,19 @@ public class ModBiomes {
 	public static class LevelFunBiomes {
 		public static final ResourceKey<Biome> HALLWAYS_BIOME = ResourceKey.create(
 				Registries.BIOME,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "levelfun/hallways"));
+				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "levelfun/hallways"));
 
 		public static final ResourceKey<Biome> PLAYROOMS_BIOME = ResourceKey.create(
 				Registries.BIOME,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "levelfun/playrooms"));
+				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "levelfun/playrooms"));
 
 		public static final ResourceKey<Biome> TRAMPOLINE_PARK_BIOME = ResourceKey.create(
 				Registries.BIOME,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "levelfun/trampolines"));
+				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "levelfun/trampolines"));
 
 		public static final ResourceKey<Biome> PARTY_ROOMS_BIOME = ResourceKey.create(
 				Registries.BIOME,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "levelfun/party_rooms"));
+				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "levelfun/party_rooms"));
 	}
 
 	/**

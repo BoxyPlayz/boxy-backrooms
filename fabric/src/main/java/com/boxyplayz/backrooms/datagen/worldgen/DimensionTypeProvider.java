@@ -3,10 +3,10 @@ package com.boxyplayz.backrooms.datagen.worldgen;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
-import com.boxyplayz.backrooms.ModWorldClocks;
+import com.boxyplayz.backrooms.common.ModWorldClocks;
+import com.boxyplayz.backrooms.common.builders.DimensionTypeBuilder;
+import com.boxyplayz.backrooms.common.world.ModDimensions;
 import com.boxyplayz.backrooms.datagen.DataUtils;
-import com.boxyplayz.backrooms.utils.DimensionTypeBuilder;
-import com.boxyplayz.backrooms.world.ModDimensions;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;

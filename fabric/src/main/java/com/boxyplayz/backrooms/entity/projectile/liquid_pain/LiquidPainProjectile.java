@@ -1,6 +1,6 @@
 package com.boxyplayz.backrooms.entity.projectile.liquid_pain;
 
-import com.boxyplayz.backrooms.ModDamageTypes;
+import com.boxyplayz.backrooms.common.ModDamageTypes;
 import com.boxyplayz.backrooms.entity.ModEntities;
 import com.boxyplayz.backrooms.item.ModItems;
 

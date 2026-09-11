@@ -3,14 +3,14 @@ package com.boxyplayz.backrooms.events;
 import java.util.List;
 import java.util.Set;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.BoxysBackroomsFabric;
 import com.boxyplayz.backrooms.DataAttachments;
-import com.boxyplayz.backrooms.ModBiomes;
-import com.boxyplayz.backrooms.ModBiomes.AbyssBiomes;
-import com.boxyplayz.backrooms.ModBiomes.Level0Biomes;
 import com.boxyplayz.backrooms.effect.ModEffects;
-import com.boxyplayz.backrooms.world.ModDimensions;
-import com.boxyplayz.backrooms.world.ModDimensions.DimensionInstance;
+import com.boxyplayz.backrooms.common.world.ModBiomes;
+import com.boxyplayz.backrooms.common.world.ModDimensions;
+import com.boxyplayz.backrooms.common.world.ModBiomes.AbyssBiomes;
+import com.boxyplayz.backrooms.common.world.ModBiomes.Level0Biomes;
+import com.boxyplayz.backrooms.common.world.ModDimensions.DimensionInstance;
 
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.core.BlockPos;
@@ -207,7 +207,7 @@ public class EntityTickEvents {
 					}
 				} else {
 					AttributeInstance attribute = player.getAttribute(Attributes.MAX_HEALTH);
-					Identifier gardenersPainId = Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID,
+					Identifier gardenersPainId = Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID,
 							"gardeners_pain");
 					if (!(player.hasEffect(ModEffects.GARDENERS_PAIN))) {
 						if (attribute.hasModifier(gardenersPainId)) {

@@ -1,6 +1,6 @@
 package com.boxyplayz.backrooms.client.entity.smiler;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.BoxysBackroomsFabric;
 import com.boxyplayz.backrooms.client.BoxysBackroomsClient;
 import com.boxyplayz.backrooms.entity.living.Smiler.SmilerEntity;
 
@@ -21,7 +21,7 @@ public class SmilerEntityRenderer
 
 	@Override
 	public Identifier getTextureLocation(SmilerRenderState renderState) {
-		return Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "textures/entity/smiler.png");
+		return Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "textures/entity/smiler.png");
 	}
 
 	@Override

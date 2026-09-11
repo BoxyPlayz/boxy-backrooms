@@ -1,6 +1,6 @@
-package com.boxyplayz.backrooms.networking;
+package com.boxyplayz.backrooms.common.networking;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
 
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
@@ -8,7 +8,7 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.Identifier;
 
 public record DashPayload() implements CustomPacketPayload {
-	public static final Identifier DASH_PAYLOAD_ID = Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID,
+	public static final Identifier DASH_PAYLOAD_ID = Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID,
 			"dash");
 
 	public static final CustomPacketPayload.Type<DashPayload> TYPE = new CustomPacketPayload.Type<>(

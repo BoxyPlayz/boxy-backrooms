@@ -2,11 +2,11 @@ package com.boxyplayz.backrooms.world.generators;
 
 import java.util.concurrent.CompletableFuture;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
-import com.boxyplayz.backrooms.ModBiomes;
+import com.boxyplayz.backrooms.BoxysBackroomsFabric;
 import com.boxyplayz.backrooms.block.ModBlockEntities;
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.block.custom.ElevatorBlock;
+import com.boxyplayz.backrooms.common.world.ModBiomes;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
@@ -155,7 +155,7 @@ public class Level3ChunkGen extends BaseChunkGen {
 	public CompletableFuture<ChunkAccess> fillFromNoise(Blender blender, RandomState randomState,
 			StructureManager structureManager, ChunkAccess chunkAccess) {
 		PositionalRandomFactory worldSeed = randomState
-				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, this.getSeed()));
+				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, this.getSeed()));
 
 		int minY = getMinY();
 

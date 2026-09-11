@@ -1,6 +1,6 @@
 package com.boxyplayz.backrooms.client.entity.partypooper;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.BoxysBackroomsFabric;
 import com.boxyplayz.backrooms.client.BoxysBackroomsClient;
 import com.boxyplayz.backrooms.entity.living.Partypooper.PartypooperEntity;
 
@@ -24,7 +24,7 @@ public class PartyPooperEntityRenderer
 
 	@Override
 	public Identifier getTextureLocation(PartyPooperRenderState renderState) {
-		return Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "textures/entity/partypooper.png");
+		return Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "textures/entity/partypooper.png");
 	}
 
 	@Override

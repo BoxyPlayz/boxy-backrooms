@@ -2,9 +2,9 @@ package com.boxyplayz.backrooms.world.generators;
 
 import org.apache.commons.lang3.Range;
 
-import com.boxyplayz.backrooms.ModBiomes;
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.block.custom.Level5CarpetBlock;
+import com.boxyplayz.backrooms.common.world.ModBiomes;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 

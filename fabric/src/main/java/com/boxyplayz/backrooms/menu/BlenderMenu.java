@@ -3,9 +3,9 @@ package com.boxyplayz.backrooms.menu;
 import java.util.List;
 import java.util.Optional;
 
-import com.boxyplayz.backrooms.recipe.ModRecipes;
-import com.boxyplayz.backrooms.recipe.blending.BlendingRecipe;
-import com.boxyplayz.backrooms.recipe.blending.BlendingRecipeInput;
+import com.boxyplayz.backrooms.common.recipe.ModRecipes;
+import com.boxyplayz.backrooms.common.recipe.blending.BlendingRecipe;
+import com.boxyplayz.backrooms.common.recipe.blending.BlendingRecipeInput;
 
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Container;

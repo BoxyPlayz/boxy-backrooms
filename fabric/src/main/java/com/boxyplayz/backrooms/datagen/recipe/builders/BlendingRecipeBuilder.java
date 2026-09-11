@@ -1,6 +1,6 @@
 package com.boxyplayz.backrooms.datagen.recipe.builders;
 
-import com.boxyplayz.backrooms.recipe.blending.BlendingRecipe;
+import com.boxyplayz.backrooms.common.recipe.blending.BlendingRecipe;
 
 import net.minecraft.advancements.Criterion;
 import net.minecraft.core.registries.Registries;

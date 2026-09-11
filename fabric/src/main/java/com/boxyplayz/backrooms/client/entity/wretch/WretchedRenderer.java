@@ -1,6 +1,6 @@
 package com.boxyplayz.backrooms.client.entity.wretch;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.BoxysBackroomsFabric;
 import com.boxyplayz.backrooms.client.BoxysBackroomsClient;
 import com.boxyplayz.backrooms.entity.living.Wretch.WretchEntity;
 
@@ -20,7 +20,7 @@ public class WretchedRenderer extends MobRenderer<WretchEntity, WretchRenderStat
 
 	@Override
 	public Identifier getTextureLocation(WretchRenderState state) {
-		return Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "textures/entity/wretch.png");
+		return Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "textures/entity/wretch.png");
 	}
 
 	@Override

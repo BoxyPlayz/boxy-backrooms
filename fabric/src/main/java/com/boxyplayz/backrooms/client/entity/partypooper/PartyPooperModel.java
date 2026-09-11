@@ -1,6 +1,6 @@
 package com.boxyplayz.backrooms.client.entity.partypooper;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.BoxysBackroomsFabric;
 
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -22,7 +22,7 @@ public class PartyPooperModel<T extends Entity> extends EntityModel<PartyPooperR
 	// This layer location should be baked with EntityRendererProvider.Context in
 	// the entity renderer and passed into this model's constructor
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "partypooper"), "main");
+			Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "partypooper"), "main");
 	private final ModelPart Waist;
 	private final ModelPart Head;
 	@SuppressWarnings("unused")

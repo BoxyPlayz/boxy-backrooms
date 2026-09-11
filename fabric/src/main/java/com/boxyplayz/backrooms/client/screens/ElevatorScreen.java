@@ -1,11 +1,11 @@
 package com.boxyplayz.backrooms.client.screens;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.BoxysBackroomsFabric;
 import com.boxyplayz.backrooms.DataAttachments;
+import com.boxyplayz.backrooms.common.Misc;
+import com.boxyplayz.backrooms.common.Misc.ElevatorDestination;
+import com.boxyplayz.backrooms.common.networking.ElevatorPayload;
 import com.boxyplayz.backrooms.menu.ElevatorMenu;
-import com.boxyplayz.backrooms.networking.ElevatorPayload;
-import com.boxyplayz.backrooms.utils.Misc;
-import com.boxyplayz.backrooms.utils.Misc.ElevatorDestination;
 
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.Minecraft;
@@ -21,7 +21,7 @@ import net.minecraft.world.entity.player.Inventory;
 public class ElevatorScreen extends AbstractContainerScreen<ElevatorMenu> {
 
 	private static final Identifier CONTAINER_TEXTURE = Identifier
-			.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "textures/gui/elevator.png");
+			.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "textures/gui/elevator.png");
 
 	public ElevatorScreen(ElevatorMenu menu, Inventory inventory, Component title) {
 		super(menu, inventory, title);

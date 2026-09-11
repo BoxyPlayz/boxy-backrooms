@@ -7,7 +7,7 @@ import net.minecraft.world.item.enchantment.Enchantment;
 
 public class ModEnchantments {
 	private static ResourceKey<Enchantment> key(String path) {
-		Identifier id = Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, path);
+		Identifier id = Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, path);
 		return ResourceKey.create(Registries.ENCHANTMENT, id);
 	}
 

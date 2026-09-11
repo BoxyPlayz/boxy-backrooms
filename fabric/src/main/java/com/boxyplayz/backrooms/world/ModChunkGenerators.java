@@ -1,6 +1,6 @@
 package com.boxyplayz.backrooms.world;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.BoxysBackroomsFabric;
 import com.boxyplayz.backrooms.world.generators.AbyssChunkGen;
 import com.boxyplayz.backrooms.world.generators.BlueChannelChunkGen;
 import com.boxyplayz.backrooms.world.generators.Level0ChunkGen;
@@ -29,64 +29,64 @@ import net.minecraft.resources.Identifier;
 public class ModChunkGenerators {
 	public static void registerModChunkGenerators() {
 		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level0_maze"),
+				Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "level0_maze"),
 				Level0ChunkGen.CODEC);
 		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level7_ocean"),
+				Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "level7_ocean"),
 				Level7ChunkGen.CODEC);
 		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level94"),
+				Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "level94"),
 				Level94ChunkGen.CODEC);
 		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "the_broken"),
+				Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "the_broken"),
 				TheBrokenChunkGen.CODEC);
 		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level1"),
+				Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "level1"),
 				Level1ChunkGen.CODEC);
 		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "pitfalls"),
+				Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "pitfalls"),
 				PitfallsChunkGen.CODEC);
 		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level0_2"),
+				Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "level0_2"),
 				Level0_2ChunkGen.CODEC);
 		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "negative_level0_2"),
+				Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "negative_level0_2"),
 				Level_Negative_0_2ChunkGen.CODEC);
 		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "blue_channel"),
+				Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "blue_channel"),
 				BlueChannelChunkGen.CODEC);
 		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level6"),
+				Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "level6"),
 				Level6ChunkGen.CODEC);
 		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "levelfun"),
+				Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "levelfun"),
 				LevelFunChunkGen.CODEC);
 		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "promised_land"),
+				Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "promised_land"),
 				PromisedLandChunkGen.CODEC);
 		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level3"),
+				Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "level3"),
 				Level3ChunkGen.CODEC);
 		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level2"),
+				Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "level2"),
 				Level2ChunkGen.CODEC);
 		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level4"),
+				Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "level4"),
 				Level4ChunkGen.CODEC);
 		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level5"),
+				Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "level5"),
 				Level5ChunkGen.CODEC);
 		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level11"),
+				Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "level11"),
 				Level11ChunkGen.CODEC);
 		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level9"),
+				Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "level9"),
 				Level9ChunkGen.CODEC);
 		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "level10"),
+				Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "level10"),
 				Level10ChunkGen.CODEC);
 		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "the_abyss"),
+				Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "the_abyss"),
 				AbyssChunkGen.CODEC);
 
 	}

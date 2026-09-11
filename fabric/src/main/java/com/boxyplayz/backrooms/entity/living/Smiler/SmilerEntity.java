@@ -1,10 +1,10 @@
 package com.boxyplayz.backrooms.entity.living.Smiler;
 
-import com.boxyplayz.backrooms.ModBiomes;
-import com.boxyplayz.backrooms.ModDamageTypes;
 import com.boxyplayz.backrooms.ModTags;
 import com.boxyplayz.backrooms.block.ModBlocks;
+import com.boxyplayz.backrooms.common.ModDamageTypes;
 import com.boxyplayz.backrooms.item.ModItems;
+import com.boxyplayz.backrooms.common.world.ModBiomes;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;

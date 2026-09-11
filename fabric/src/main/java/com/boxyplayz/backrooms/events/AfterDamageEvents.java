@@ -2,7 +2,7 @@ package com.boxyplayz.backrooms.events;
 
 import java.util.Set;
 
-import com.boxyplayz.backrooms.world.ModDimensions;
+import com.boxyplayz.backrooms.common.world.ModDimensions;
 
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import net.minecraft.core.BlockPos;

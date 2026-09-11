@@ -1,6 +1,6 @@
 package com.boxyplayz.backrooms.client.entity.balloon;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.BoxysBackroomsFabric;
 import com.boxyplayz.backrooms.client.BoxysBackroomsClient;
 import com.boxyplayz.backrooms.entity.living.Balloon.BalloonEntity;
 
@@ -23,7 +23,7 @@ public class BalloonEntityRenderer
 
 	@Override
 	public Identifier getTextureLocation(BalloonRenderState renderState) {
-		return Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "textures/entity/balloon.png");
+		return Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "textures/entity/balloon.png");
 	}
 
 	@Override

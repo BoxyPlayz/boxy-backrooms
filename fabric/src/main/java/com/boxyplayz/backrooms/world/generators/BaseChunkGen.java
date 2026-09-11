@@ -3,7 +3,7 @@ package com.boxyplayz.backrooms.world.generators;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.BoxysBackroomsFabric;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.Identifier;
@@ -61,7 +61,7 @@ public abstract class BaseChunkGen extends ChunkGenerator {
 	@Override
 	public NoiseColumn getBaseColumn(int x, int z, LevelHeightAccessor levelHeightAccessor, RandomState randomState) {
 		PositionalRandomFactory worldSeed = randomState
-				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, this.getSeed()));
+				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, this.getSeed()));
 
 		final int height = this.getGenDepth();
 		BlockState[] blocks = new BlockState[height];
@@ -78,7 +78,7 @@ public abstract class BaseChunkGen extends ChunkGenerator {
 	public int getBaseHeight(int x, int z, Types types, LevelHeightAccessor levelHeightAccessor,
 			RandomState randomState) {
 		PositionalRandomFactory worldSeed = randomState.getOrCreateRandomFactory(
-				Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, this.getSeed()));
+				Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, this.getSeed()));
 
 		for (int y = this.getMinY() + this.getGenDepth() - 1; y >= this.getMinY(); y--) {
 			if (!getBlockAt(worldSeed, x, y, z).isAir()) {
@@ -93,7 +93,7 @@ public abstract class BaseChunkGen extends ChunkGenerator {
 	public CompletableFuture<ChunkAccess> fillFromNoise(Blender blender, RandomState randomState,
 			StructureManager structureManager, ChunkAccess chunkAccess) {
 		PositionalRandomFactory worldSeed = randomState
-				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, this.getSeed()));
+				.getOrCreateRandomFactory(Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, this.getSeed()));
 
 		int chunkMinX = chunkAccess.getPos().getMinBlockX();
 		int chunkMinZ = chunkAccess.getPos().getMinBlockZ();

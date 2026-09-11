@@ -1,6 +1,6 @@
 package com.boxyplayz.backrooms.menu;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.BoxysBackroomsFabric;
 
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -11,11 +11,11 @@ import net.minecraft.world.inventory.MenuType;
 public class MenuTypes {
 	public static final MenuType<BlenderMenu> BLENDING_MENU_TYPE = Registry.register(
 			BuiltInRegistries.MENU,
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "blending"),
+			Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "blending"),
 			new MenuType<>(BlenderMenu::new, FeatureFlags.VANILLA_SET));
 
 	public static final MenuType<ElevatorMenu> ELEVATOR_MENU_TYPE = Registry.register(
 			BuiltInRegistries.MENU,
-			Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID, "elevator"),
+			Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "elevator"),
 			new MenuType<>(ElevatorMenu::new, FeatureFlags.VANILLA_SET));
 }

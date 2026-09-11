@@ -2,7 +2,7 @@ package com.boxyplayz.backrooms.datagen;
 
 import java.util.concurrent.CompletableFuture;
 
-import com.boxyplayz.backrooms.ModDamageTypes;
+import com.boxyplayz.backrooms.common.ModDamageTypes;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;

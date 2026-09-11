@@ -1,4 +1,4 @@
-package com.boxyplayz.backrooms;
+package com.boxyplayz.backrooms.common;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;

@@ -1,6 +1,6 @@
 package com.boxyplayz.backrooms.client.screens;
 
-import com.boxyplayz.backrooms.BoxysBackrooms;
+import com.boxyplayz.backrooms.BoxysBackroomsFabric;
 import com.boxyplayz.backrooms.menu.BlenderMenu;
 
 import net.minecraft.client.gui.GuiGraphicsExtractor;
@@ -11,7 +11,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
 
 public class BlendingScreen extends AbstractContainerScreen<BlenderMenu> {
-	private final Identifier screenTexture = Identifier.fromNamespaceAndPath(BoxysBackrooms.MOD_ID,
+	private final Identifier screenTexture = Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID,
 			"textures/gui/container/blender.png");
 
 	public BlendingScreen(BlenderMenu menu, Inventory inventory, Component title) {
