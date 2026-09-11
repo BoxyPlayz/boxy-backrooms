@@ -23,6 +23,10 @@ public class Level0ChunkGen extends BaseChunkGen {
 	}
 
 	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
+		if (y == this.getMinY() || y == this.getMinY() + this.getGenDepth() - 1) {
+			return Blocks.BEDROCK.defaultBlockState();
+		}
+
 		Holder<Biome> biome = this.getBiomeSource().getNoiseBiome(x >> 2, y >> 2, z >> 2, null);
 		long chunkX = Math.floorDiv(x, 16);
 		long chunkZ = Math.floorDiv(z, 16);

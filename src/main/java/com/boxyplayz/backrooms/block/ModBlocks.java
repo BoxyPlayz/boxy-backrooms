@@ -77,44 +77,48 @@ public class ModBlocks {
 	public static final Block ERRORSLATE = register(
 			"errorslate",
 			ErrorSlateBlock::new,
-			BlockBehaviour.Properties.of().sound(SoundType.DEEPSLATE).strength(50f).destroyTime(20f),
+			BlockBehaviour.Properties.of().sound(SoundType.DEEPSLATE).strength(50f)
+					.mapColor(MapColor.DEEPSLATE),
 			true);
 
 	public static final Block OCEAN_TRANSPORTER = register(
 			"ocean_transporter",
 			OceanTransporter::new,
-			BlockBehaviour.Properties.of().sound(SoundType.IRON).strength(50f).destroyTime(20f),
+			BlockBehaviour.Properties.of().sound(SoundType.IRON).strength(50f)
+					.mapColor(MapColor.WATER),
 			true);
 
 	public static final Block LEVEL0_WALLPAPER = register(
 			"level0_wallpaper",
 			Level0Wallpaper::new,
-			BlockBehaviour.Properties.of().sound(SoundType.BAMBOO).strength(20f).destroyTime(10f),
+			BlockBehaviour.Properties.of().sound(SoundType.BAMBOO).strength(6f, 8f)
+					.mapColor(MapColor.TERRACOTTA_YELLOW),
 			true);
 
 	public static final Block LEVEL0_CARPET = register(
 			"level0_carpet",
 			Level0Carpet::new,
-			BlockBehaviour.Properties.of().sound(SoundType.WOOL).strength(1000f).destroyTime(1000f),
+			BlockBehaviour.Properties.of().sound(SoundType.WOOL).strength(5f, 7f).mapColor(MapColor.COLOR_YELLOW),
 			true);
 
 	public static final Block LEVEL0_CEILING_TILE = register(
 			"level0_ceiling_tile",
 			Block::new,
-			BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1000f).destroyTime(1000f),
+			BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(70f, 120f)
+					.mapColor(MapColor.TERRACOTTA_YELLOW),
 			true);
 
 	public static final Block LEVEL0_CEILING_LIGHT = register(
 			"level0_ceiling_light",
 			Block::new,
-			BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1000f).destroyTime(1000f)
+			BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(30f, 15f).mapColor(MapColor.TERRACOTTA_WHITE)
 					.lightLevel(state -> 14),
 			true);
 
 	public static final Block LEVEL1_CEILING_LIGHT = register(
 			"level1_ceiling_light",
 			Block::new,
-			BlockBehaviour.Properties.of().sound(SoundType.LANTERN).strength(1000f).destroyTime(1000f)
+			BlockBehaviour.Properties.of().sound(SoundType.LANTERN).strength(8f).mapColor(MapColor.TERRACOTTA_WHITE)
 					.lightLevel(state -> {
 						return 15;
 					}).randomTicks(),
@@ -123,43 +127,46 @@ public class ModBlocks {
 	public static final Block LEVEL0_CARPET_GLITCHED = register(
 			"level0_carpet_glitched",
 			Level0GlitchedCarpet::new,
-			BlockBehaviour.Properties.of().sound(SoundType.TUFF).strength(1000f).destroyTime(1000f),
+			BlockBehaviour.Properties.of().sound(SoundType.TUFF).strength(1000f).mapColor(MapColor.COLOR_BLACK),
 			true);
 
 	public static final Block LEVEL1_CEILING_AQUILA = register(
 			"level1_ceiling_aquila",
 			Block::new,
-			BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(25f).destroyTime(15f),
+			BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(25f).mapColor(MapColor.COLOR_LIGHT_GRAY),
 			true);
 
 	public static final Block GOTHIC_CONCRETE = register(
 			"gothic_concrete",
 			Block::new,
-			BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(25f).destroyTime(15f),
+			BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(25f).mapColor(MapColor.COLOR_GRAY),
 			true);
 
 	public static final Block LEVEL1_WALL_GILD = register(
 			"level1_wall_gild",
 			Block::new,
-			BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(25f).destroyTime(15f),
+			BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(10f)
+					.mapColor(MapColor.TERRACOTTA_LIGHT_GRAY),
 			true);
 
 	public static final Block LEVEL1_FLOOR_AQUILA = register(
 			"level1_floor_aquila",
 			Block::new,
-			BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(25f).destroyTime(15f),
+			BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(15f)
+					.mapColor(MapColor.TERRACOTTA_LIGHT_GRAY),
 			true);
 
 	public static final Block LEVEL1_PILLAR_AQUILA = register(
 			"level1_pillar_aquila",
 			Block::new,
-			BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(25f).destroyTime(15f),
+			BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(15f)
+					.mapColor(MapColor.TERRACOTTA_LIGHT_GRAY),
 			true);
 
 	public static final Block LEVEL1_CRATE = register(
 			"level1_crate",
 			Block::new,
-			BlockBehaviour.Properties.of().destroyTime(1).sound(SoundType.WOOD).strength(1f).explosionResistance(20f),
+			BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(1f).mapColor(MapColor.COLOR_BROWN),
 			true);
 
 	public static final Block PURE_GRASS = register(
@@ -184,13 +191,13 @@ public class ModBlocks {
 	public static final Block PREMIUM_CARPET = register(
 			"premium_carpet",
 			PremiumCarpet::new,
-			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_RED).strength(0.6F).sound(SoundType.STONE),
+			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_RED).strength(0.6F).sound(SoundType.WOOL),
 			true);
 
 	public static final Block PREMIUM_WALLPAPER = register(
 			"premium_wallpaper",
 			Block::new,
-			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).strength(0.6F).sound(SoundType.STONE),
+			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).strength(0.6F).sound(SoundType.BAMBOO),
 			true);
 
 	public static final Block PREMIUM_CEILING_TILE = register(
@@ -324,7 +331,7 @@ public class ModBlocks {
 	public static final Block BLENDER = register(
 			"blender",
 			BlenderBlock::new,
-			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.GLASS)
+			BlockBehaviour.Properties.of().mapColor(MapColor.GLOW_LICHEN).strength(2.0F).sound(SoundType.GLASS)
 					.noOcclusion(),
 			true);
 
@@ -356,22 +363,27 @@ public class ModBlocks {
 			true);
 
 	public static final Block LEVEL4_CARPET = register("level4_carpet", Block::new,
-			BlockBehaviour.Properties.of().strength(20f).sound(SoundType.WOOL), true);
+			BlockBehaviour.Properties.of().strength(20f).sound(SoundType.WOOL).mapColor(MapColor.TERRACOTTA_LIGHT_BLUE),
+			true);
 
 	public static final Block PURE_WHITE_GLOW = register("pure_white_glow", Block::new,
-			BlockBehaviour.Properties.of().strength(70f).sound(SoundType.GILDED_BLACKSTONE).lightLevel((state) -> 15),
+			BlockBehaviour.Properties.of().strength(70f).sound(SoundType.GILDED_BLACKSTONE).lightLevel((state) -> 15)
+					.mapColor(MapColor.TERRACOTTA_WHITE),
 			true);
 
 	public static final Block WATER_FOUNTAIN = register("water_fountain", WaterFountainBlock::new,
-			BlockBehaviour.Properties.of().strength(9999f).sound(SoundType.METAL).noOcclusion(),
+			BlockBehaviour.Properties.of().strength(9999f).sound(SoundType.METAL).noOcclusion()
+					.mapColor(MapColor.RAW_IRON),
 			true);
 
 	public static final Block LEVEL5_CARPET = register("level5_carpet", Level5CarpetBlock::new,
-			BlockBehaviour.Properties.of().strength(70f).sound(SoundType.WOOL),
+			BlockBehaviour.Properties.of().strength(70f).sound(SoundType.WOOL).mapColor(MapColor.CLAY),
 			true);
 
 	public static final Block LEVEL6_ENTRY = register("level6_entry", Level6EntryBlock::new,
-			BlockBehaviour.Properties.of().noOcclusion().isRedstoneConductor(Blocks::never), true);
+			BlockBehaviour.Properties.of().noOcclusion().isRedstoneConductor(Blocks::never)
+					.mapColor(MapColor.TERRACOTTA_BLACK),
+			true);
 
 	public static final Block LEVEL5_ENTRY_TABLE = register("level5_entry_table", Level5EntryTable::new,
 			BlockBehaviour.Properties.of().noOcclusion().isRedstoneConductor(Blocks::never), true);
@@ -386,7 +398,7 @@ public class ModBlocks {
 			BlockBehaviour.Properties.of().strength(1).noOcclusion().noCollision(), true);
 
 	public static final Block STEP_VISIBLE = register("step_visible", StepVisibleBlock::new,
-			BlockBehaviour.Properties.of().strength(1).noOcclusion(), true);
+			BlockBehaviour.Properties.of().strength(-1, 3600000).noOcclusion(), true);
 
 	public static void RegisterModBlocks() {
 	}

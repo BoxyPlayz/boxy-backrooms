@@ -7,6 +7,7 @@ import com.boxyplayz.backrooms.BoxysBackrooms;
 import com.boxyplayz.backrooms.DataAttachments;
 import com.boxyplayz.backrooms.ModBiomes;
 import com.boxyplayz.backrooms.ModBiomes.AbyssBiomes;
+import com.boxyplayz.backrooms.ModBiomes.Level0Biomes;
 import com.boxyplayz.backrooms.effect.ModEffects;
 import com.boxyplayz.backrooms.world.ModDimensions;
 import com.boxyplayz.backrooms.world.ModDimensions.DimensionInstance;
@@ -147,18 +148,20 @@ public class EntityTickEvents {
 				}
 
 				if (player.level().dimension() == ModDimensions.LEVEL0.level) {
-					if (player.position().y < -10) {
-						ServerLevel target = player.level().getServer()
-								.getLevel(ModDimensions.PITFALLS.level);
-						if (target == null)
-							return;
-						player.fallDistance = 0;
-						player.teleportTo(target, 0, 10, 0, Set.of(), player.getYRot(), player.getXRot(), false);
+					if (player.position().y < -16) {
+						if (player.level().getBiome(player.blockPosition()).is(Level0Biomes.PITFALLS_BIOME)) {
+							ServerLevel target = player.level().getServer()
+									.getLevel(ModDimensions.PITFALLS.level);
+							if (target == null)
+								return;
+							player.fallDistance = 0;
+							player.teleportTo(target, 0, 10, 0, Set.of(), player.getYRot(), player.getXRot(), false);
+						}
 					}
 				}
 
 				if (player.level().dimension() == ModDimensions.LEVEL_NEGATIVE_0_2.level) {
-					if (player.position().y < -10) {
+					if (player.position().y < -16) {
 						ServerLevel target = player.level().getServer()
 								.getLevel(ModDimensions.BLUE_CHANNEL.level);
 						if (target == null)

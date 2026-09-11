@@ -24,18 +24,36 @@ public class BlockLootTableProvider extends FabricBlockLootSubProvider {
 
 	@Override
 	public void generate() {
-		dropSelf(ModBlocks.LEVEL0_CARPET);
-		dropSelf(ModBlocks.LEVEL0_CEILING_TILE);
 		dropSelf(ModBlocks.ERRORSLATE);
 		dropSelf(ModBlocks.OCEAN_TRANSPORTER);
+		dropSelf(ModBlocks.LEVEL0_CARPET);
+		dropSelf(ModBlocks.LEVEL0_CEILING_TILE);
 		dropSelf(ModBlocks.LEVEL0_WALLPAPER);
-		dropSelf(ModBlocks.LEVEL0_CARPET_GLITCHED);
-		dropSelf(ModBlocks.LEVEL1_CEILING_AQUILA);
-		dropSelf(ModBlocks.LEVEL1_FLOOR_AQUILA);
-		dropSelf(ModBlocks.LEVEL1_PILLAR_AQUILA);
-		dropSelf(ModBlocks.LEVEL0_CEILING_LIGHT);
-		dropSelf(ModBlocks.LEVEL3_CEILING_LIGHT);
-		dropSelf(ModBlocks.ELECTRICAL_BRICKS);
+		add(ModBlocks.LEVEL0_CEILING_LIGHT, LootTable.lootTable().withPool(
+				LootPool.lootPool().when(this.hasSilkTouch())
+						.add(LootItem.lootTableItem(ModBlocks.LEVEL0_CEILING_LIGHT)))
+				.withPool(LootPool.lootPool().when(this.doesNotHaveSilkTouch())
+						.add(LootItem.lootTableItem(Blocks.REDSTONE_LAMP))));
+		add(ModBlocks.LEVEL3_CEILING_LIGHT, LootTable.lootTable().withPool(
+				LootPool.lootPool().when(this.hasSilkTouch())
+						.add(LootItem.lootTableItem(ModBlocks.LEVEL3_CEILING_LIGHT)))
+				.withPool(LootPool.lootPool().when(this.doesNotHaveSilkTouch())
+						.add(LootItem.lootTableItem(Blocks.REDSTONE_LAMP))));
+		add(ModBlocks.LEVEL1_CEILING_LIGHT, LootTable.lootTable().withPool(
+				LootPool.lootPool().when(this.hasSilkTouch())
+						.add(LootItem.lootTableItem(ModBlocks.LEVEL1_CEILING_LIGHT)))
+				.withPool(LootPool.lootPool().when(this.doesNotHaveSilkTouch())
+						.add(LootItem.lootTableItem(Blocks.REDSTONE_LAMP))));
+		dropOther(ModBlocks.LEVEL0_CARPET_GLITCHED, ModBlocks.LEVEL0_CARPET);
+
+		add(ModBlocks.ELECTRICAL_BRICKS, LootTable.lootTable().withPool(
+				LootPool.lootPool().when(this.hasSilkTouch())
+						.add(LootItem.lootTableItem(ModBlocks.ELECTRICAL_BRICKS)))
+				.withPool(LootPool.lootPool().when(this.doesNotHaveSilkTouch())
+						.add(LootItem.lootTableItem(Blocks.BRICKS))));
+
+		dropSelf(ModBlocks.BLENDER);
+
 		add(ModBlocks.LEVEL1_CRATE, LootTable.lootTable().withPool(
 				LootPool.lootPool().when(
 						this.hasSilkTouch()).add(LootItem.lootTableItem(ModBlocks.LEVEL1_CRATE)))
@@ -53,7 +71,10 @@ public class BlockLootTableProvider extends FabricBlockLootSubProvider {
 						.add(LootItem.lootTableItem(Items.WIND_CHARGE).setWeight(12))
 						.add(LootItem.lootTableItem(ModItems.LIQUID_PAIN).setWeight(3))
 						.add(LootItem.lootTableItem(ModItems.EMPTY_ALMOND_WATER).setWeight(36))));
+		dropSelf(ModBlocks.LEVEL1_CEILING_AQUILA);
 		dropSelf(ModBlocks.LEVEL1_WALL_GILD);
+		dropSelf(ModBlocks.LEVEL1_FLOOR_AQUILA);
+		dropSelf(ModBlocks.LEVEL1_PILLAR_AQUILA);
 		dropSelf(ModBlocks.LEVEL1_CEILING_LIGHT);
 		dropSelf(ModBlocks.GOTHIC_CONCRETE);
 		dropSelf(ModBlocks.GARDEN_CONCRETE);
@@ -71,6 +92,8 @@ public class BlockLootTableProvider extends FabricBlockLootSubProvider {
 		dropSelf(ModBlocks.PROMISED_WALLPAPER);
 		dropSelf(ModBlocks.POWER_OUTLET_BLOCK);
 
+		dropSelf(ModBlocks.FUN_FLOOR);
+
 		dropOther(ModBlocks.PURE_GRASS, Blocks.GRASS_BLOCK);
 		dropOther(ModBlocks.FUN_GREEN, Items.LIME_DYE);
 		dropOther(ModBlocks.FUN_PINK, Items.PINK_DYE);
@@ -84,6 +107,23 @@ public class BlockLootTableProvider extends FabricBlockLootSubProvider {
 				.withPool(
 						LootPool.lootPool().when(this.doesNotHaveSilkTouch())
 								.add(LootItem.lootTableItem(Blocks.SLIME_BLOCK))));
+
+		add(ModBlocks.LEVEL2_PIPE,
+				LootTable.lootTable().withPool(LootPool.lootPool().setRolls(UniformGenerator.between(2, 17))
+						.add(LootItem.lootTableItem(Items.IRON_INGOT))
+						.add(LootItem.lootTableItem(Items.COPPER_INGOT))));
+
+		dropOther(ModBlocks.LEVEL2_FIRE_EXIT, Blocks.IRON_DOOR);
+		dropOther(ModBlocks.LEVEL2_DOOR, Blocks.IRON_DOOR);
+		dropOther(ModBlocks.ELEVATOR, Blocks.IRON_BLOCK);
+		dropOther(ModBlocks.LEVEL4_CARPET, Items.LIGHT_BLUE_DYE);
+		dropOther(ModBlocks.PURE_WHITE_GLOW, Items.ENDER_PEARL);
+		dropOther(ModBlocks.WATER_FOUNTAIN, Items.IRON_BARS);
+		dropOther(ModBlocks.LEVEL5_CARPET, Items.CHORUS_FRUIT);
+		dropOther(ModBlocks.LEVEL6_ENTRY, Items.ECHO_SHARD);
+		dropOther(ModBlocks.LEVEL9_ENTRY, Blocks.OAK_PLANKS);
+		dropOther(ModBlocks.FALSE_WHEAT, Items.WHEAT);
+		dropOther(ModBlocks.STEP_VISIBLE, Blocks.BARRIER);
 	}
 
 }

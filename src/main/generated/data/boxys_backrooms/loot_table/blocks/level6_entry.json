@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "boxys_backrooms:level0_carpet"
+          "name": "minecraft:echo_shard"
         }
       ],
       "rolls": 1.0
