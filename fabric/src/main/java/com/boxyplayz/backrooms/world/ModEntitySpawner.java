@@ -1,14 +1,14 @@
 package com.boxyplayz.backrooms.world;
 
+import com.boxyplayz.backrooms.common.entity.ModEntities;
+import com.boxyplayz.backrooms.common.entity.living.Balloon.BalloonEntity;
+import com.boxyplayz.backrooms.common.entity.living.NeighborhoodWatch.NeighborhoodWatchEntity;
+import com.boxyplayz.backrooms.common.entity.living.Partygoer.PartygoerEntity;
+import com.boxyplayz.backrooms.common.entity.living.Partypooper.PartypooperEntity;
+import com.boxyplayz.backrooms.common.entity.living.SkinStealer.SkinStealerEntity;
+import com.boxyplayz.backrooms.common.entity.living.Smiler.SmilerEntity;
+import com.boxyplayz.backrooms.common.entity.living.Wretch.WretchEntity;
 import com.boxyplayz.backrooms.common.world.ModBiomes;
-import com.boxyplayz.backrooms.entity.ModEntities;
-import com.boxyplayz.backrooms.entity.living.Balloon.BalloonEntity;
-import com.boxyplayz.backrooms.entity.living.NeighborhoodWatch.NeighborhoodWatchEntity;
-import com.boxyplayz.backrooms.entity.living.Partygoer.PartygoerEntity;
-import com.boxyplayz.backrooms.entity.living.Partypooper.PartypooperEntity;
-import com.boxyplayz.backrooms.entity.living.SkinStealer.SkinStealerEntity;
-import com.boxyplayz.backrooms.entity.living.Smiler.SmilerEntity;
-import com.boxyplayz.backrooms.entity.living.Wretch.WretchEntity;
 
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;

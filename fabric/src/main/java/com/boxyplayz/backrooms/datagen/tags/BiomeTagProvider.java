@@ -2,7 +2,7 @@ package com.boxyplayz.backrooms.datagen.tags;
 
 import java.util.concurrent.CompletableFuture;
 
-import com.boxyplayz.backrooms.ModTags;
+import com.boxyplayz.backrooms.common.ModTags;
 import com.boxyplayz.backrooms.common.world.ModBiomes;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;

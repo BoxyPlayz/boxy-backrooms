@@ -4,7 +4,7 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
 import com.boxyplayz.backrooms.common.world.ModBiomes;
-import com.boxyplayz.backrooms.world.ModStructures;
+import com.boxyplayz.backrooms.common.world.ModStructures;
 import com.boxyplayz.backrooms.common.world.ModBiomes.AbyssBiomes;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;

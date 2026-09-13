@@ -1,11 +1,11 @@
 package com.boxyplayz.backrooms.client.screens;
 
 import com.boxyplayz.backrooms.BoxysBackroomsFabric;
-import com.boxyplayz.backrooms.DataAttachments;
+import com.boxyplayz.backrooms.common.DataAttachmentsImpl;
 import com.boxyplayz.backrooms.common.Misc;
 import com.boxyplayz.backrooms.common.Misc.ElevatorDestination;
+import com.boxyplayz.backrooms.common.menu.ElevatorMenu;
 import com.boxyplayz.backrooms.common.networking.ElevatorPayload;
-import com.boxyplayz.backrooms.menu.ElevatorMenu;
 
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.Minecraft;
@@ -79,8 +79,8 @@ public class ElevatorScreen extends AbstractContainerScreen<ElevatorMenu> {
 
 		if (this.minecraft != null && this.minecraft.player != null) {
 			LocalPlayer player = this.minecraft.player;
-			if (player.hasAttached(DataAttachments.ACCESS_GRAY)) {
-				if (player.getAttached(DataAttachments.ACCESS_GRAY)) {
+			if (player.hasAttached(DataAttachmentsImpl.ACCESS_GRAY)) {
+				if (player.getAttached(DataAttachmentsImpl.ACCESS_GRAY)) {
 					Button shadeGrayButton = Button
 							.builder(
 									Component.translatable(

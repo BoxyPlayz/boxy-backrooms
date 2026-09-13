@@ -2,6 +2,7 @@ package com.boxyplayz.backrooms.world.generators;
 
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.common.world.ModBiomes;
+import com.boxyplayz.backrooms.common.world.generators.BaseChunkGen;
 import com.boxyplayz.backrooms.world.biomesources.Level0BiomeSource;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

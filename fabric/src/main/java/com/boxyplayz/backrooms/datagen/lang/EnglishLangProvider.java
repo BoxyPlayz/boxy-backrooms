@@ -3,14 +3,14 @@ package com.boxyplayz.backrooms.datagen.lang;
 import java.util.concurrent.CompletableFuture;
 
 import com.boxyplayz.backrooms.BoxysBackroomsFabric;
-import com.boxyplayz.backrooms.ModCreativeTabs;
-import com.boxyplayz.backrooms.ModEnchantments;
-import com.boxyplayz.backrooms.ModTags;
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.common.Misc;
-import com.boxyplayz.backrooms.effect.ModEffects;
-import com.boxyplayz.backrooms.entity.ModEntities;
-import com.boxyplayz.backrooms.item.ModItems;
+import com.boxyplayz.backrooms.common.ModCreativeTabs;
+import com.boxyplayz.backrooms.common.ModEnchantments;
+import com.boxyplayz.backrooms.common.ModTags;
+import com.boxyplayz.backrooms.common.effect.ModEffects;
+import com.boxyplayz.backrooms.common.entity.ModEntities;
+import com.boxyplayz.backrooms.common.item.ModItems;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -138,6 +138,8 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModBlocks.FALSE_WHEAT, "False Wheat");
 
 		translationBuilder.add(ModBlocks.STEP_VISIBLE, "Semi Visible Step");
+
+		translationBuilder.add(ModBlocks.LEVEL9_ENTRY, "Level 9 Entry House");
 
 		// Loot Blocks
 		translationBuilder.add(ModBlocks.LEVEL1_CRATE, "Crate");

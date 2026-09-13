@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Set;
 
 import com.boxyplayz.backrooms.BoxysBackroomsFabric;
-import com.boxyplayz.backrooms.DataAttachments;
-import com.boxyplayz.backrooms.effect.ModEffects;
+import com.boxyplayz.backrooms.common.DataAttachmentsImpl;
+import com.boxyplayz.backrooms.common.effect.ModEffects;
 import com.boxyplayz.backrooms.common.world.ModBiomes;
 import com.boxyplayz.backrooms.common.world.ModDimensions;
 import com.boxyplayz.backrooms.common.world.ModBiomes.AbyssBiomes;
@@ -179,11 +179,11 @@ public class EntityTickEvents {
 							return;
 						player.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 20 * 20, 20));
 						BlockPos teleportPos = new BlockPos(0, 400, 0);
-						if (player.hasAttached(DataAttachments.PLAYER_BACKROOMS_ENTRY_POINT)) {
-							BlockPos attachPos = player.getAttached(DataAttachments.PLAYER_BACKROOMS_ENTRY_POINT);
+						if (player.hasAttached(DataAttachmentsImpl.PLAYER_BACKROOMS_ENTRY_POINT)) {
+							BlockPos attachPos = player.getAttached(DataAttachmentsImpl.PLAYER_BACKROOMS_ENTRY_POINT);
 							teleportPos = new BlockPos(attachPos.getX(), 400, attachPos.getZ());
 
-							player.removeAttached(DataAttachments.PLAYER_BACKROOMS_ENTRY_POINT);
+							player.removeAttached(DataAttachmentsImpl.PLAYER_BACKROOMS_ENTRY_POINT);
 						}
 						player.teleportTo(target, teleportPos.getX(), teleportPos.getY(), teleportPos.getZ(), Set.of(),
 								player.getYRot(), player.getXRot(), false);

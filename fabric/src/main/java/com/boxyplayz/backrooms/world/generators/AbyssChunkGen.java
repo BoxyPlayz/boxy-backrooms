@@ -5,6 +5,7 @@ import java.util.HashSet;
 import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.common.Misc;
 import com.boxyplayz.backrooms.common.world.ModBiomes.AbyssBiomes;
+import com.boxyplayz.backrooms.common.world.generators.BaseChunkGen;
 import com.boxyplayz.backrooms.world.biomesources.AbyssBiomeSource;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

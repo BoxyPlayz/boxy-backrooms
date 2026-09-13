@@ -1,7 +1,7 @@
 package com.boxyplayz.backrooms.client.screens;
 
 import com.boxyplayz.backrooms.BoxysBackroomsFabric;
-import com.boxyplayz.backrooms.menu.BlenderMenu;
+import com.boxyplayz.backrooms.common.menu.BlenderMenu;
 
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;

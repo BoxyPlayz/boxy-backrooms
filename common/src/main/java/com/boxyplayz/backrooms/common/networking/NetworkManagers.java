@@ -1,0 +1,116 @@
+package com.boxyplayz.backrooms.common.networking;
+
+import java.util.Set;
+
+import com.boxyplayz.backrooms.common.Misc.ElevatorDestination;
+import com.boxyplayz.backrooms.common.world.ModDimensions;
+
+import dev.architectury.networking.NetworkManager;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.food.FoodData;
+import net.minecraft.world.phys.Vec3;
+
+public class NetworkManagers {
+	public static void register() {
+		NetworkManager.registerReceiver(NetworkManager.Side.C2S, ElevatorPayload.TYPE, ElevatorPayload.CODEC,
+				(payload, context) -> {
+					Entity entity = context.getPlayer().level().getEntity(payload.entityId());
+
+					if (entity instanceof LivingEntity livingEntity) {
+						ElevatorDestination destination = ElevatorDestination.valueOf(payload.destination());
+						int targetY = Integer.MAX_VALUE;
+						ServerLevel target;
+
+						switch (destination) {
+							case LEVEL1:
+								target = livingEntity.level().getServer().getLevel(ModDimensions.LEVEL1.level);
+								targetY = 1;
+								break;
+
+							case LEVEL2:
+								target = livingEntity.level().getServer().getLevel(ModDimensions.LEVEL2.level);
+								targetY = 1;
+								break;
+
+							case LEVEL3:
+								target = livingEntity.level().getServer().getLevel(ModDimensions.LEVEL3.level);
+								targetY = 1;
+								break;
+
+							case LEVEL4:
+								target = livingEntity.level().getServer().getLevel(ModDimensions.LEVEL4.level);
+								targetY = 1;
+								break;
+
+							default:
+								return;
+						}
+
+						if (target == null)
+							return;
+
+						int x = livingEntity.blockPosition().getX();
+						int z = livingEntity.blockPosition().getZ();
+						int y = livingEntity.blockPosition().getY();
+						if (targetY != Integer.MAX_VALUE) {
+							y = targetY;
+						}
+
+						BlockPos center = new BlockPos(x, y, z);
+
+						int searchSize = 10;
+
+						searchLoop: for (int dx = -searchSize; dx <= searchSize; dx++) {
+							for (int dz = -searchSize; dz <= searchSize; dz++) {
+								BlockPos newPos = center.offset(dx, 0, dz);
+								if (!target.getBlockState(newPos).isSuffocating(target, newPos)) {
+									x = newPos.getX();
+									z = newPos.getZ();
+									break searchLoop;
+								}
+							}
+						}
+
+						livingEntity.teleportTo(target, x + 0.5, y, z + 0.5, Set.of(), livingEntity.getYRot(),
+								livingEntity.getXRot(), false);
+					}
+				});
+
+		NetworkManager.registerReceiver(NetworkManager.Side.C2S, DashPayload.TYPE, DashPayload.CODEC,
+				(payload, context) -> {
+					Player player = context.getPlayer();
+
+					player.level().getServer().execute(() -> {
+						ServerPlayer serverPlayer = (ServerPlayer) player;
+						FoodData data = player.getFoodData();
+						if (data.getFoodLevel() >= 8) {
+							if (!player.hasEffect(MobEffects.SATURATION)) {
+								if (data.getSaturationLevel() > 8) {
+									data.setSaturation(data.getSaturationLevel() - 8);
+								} else {
+									data.setFoodLevel(data.getFoodLevel() - 8);
+								}
+							}
+							player.getFoodData().addExhaustion(8);
+							Vec3 look = player.getLookAngle();
+
+							Vec3 dash = new Vec3(
+									look.x,
+									0,
+									look.z).normalize().scale(3).add(0, 0.6, 0);
+
+							player.setDeltaMovement(player.getDeltaMovement().add(dash));
+							player.hurtMarked = true;
+							serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
+						}
+					});
+				});
+	}
+}

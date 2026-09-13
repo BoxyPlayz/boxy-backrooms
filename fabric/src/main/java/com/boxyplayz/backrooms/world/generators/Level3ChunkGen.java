@@ -5,8 +5,9 @@ import java.util.concurrent.CompletableFuture;
 import com.boxyplayz.backrooms.BoxysBackroomsFabric;
 import com.boxyplayz.backrooms.block.ModBlockEntities;
 import com.boxyplayz.backrooms.block.ModBlocks;
-import com.boxyplayz.backrooms.block.custom.ElevatorBlock;
+import com.boxyplayz.backrooms.common.block.custom.ElevatorBlock;
 import com.boxyplayz.backrooms.common.world.ModBiomes;
+import com.boxyplayz.backrooms.common.world.generators.BaseChunkGen;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 

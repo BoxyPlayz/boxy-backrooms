@@ -1,0 +1,66 @@
+package com.boxyplayz.backrooms.common.world;
+
+import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
+
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.levelgen.structure.Structure;
+import net.minecraft.world.level.levelgen.structure.StructureSet;
+import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
+
+public class ModStructures {
+	// Level 7
+	public static final ResourceKey<Structure> LEVEL7_ACCESS_STRUCTURE = ResourceKey.create(Registries.STRUCTURE,
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level7_access"));
+
+	public static final ResourceKey<StructureTemplatePool> LEVEL7_ACCESS_TEMPLATE_POOL = ResourceKey.create(
+			Registries.TEMPLATE_POOL,
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level7_access"));
+
+	public static final ResourceKey<StructureSet> LEVEL7_ACCESS_STRUCTURE_SET = ResourceKey.create(
+			Registries.STRUCTURE_SET,
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level7_access"));
+
+	// Level 8
+	public static final ResourceKey<ConfiguredFeature<?, ?>> LEVEL9_ENTRY_HOUSE_CONFIGURED_KEY = ResourceKey.create(
+			Registries.CONFIGURED_FEATURE,
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level9_entry_house"));
+	public static final ResourceKey<PlacedFeature> LEVEL9_ENTRY_HOUSE_PLACED_KEY = ResourceKey.create(
+			Registries.PLACED_FEATURE,
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level9_entry_house"));
+
+	// Level 9
+	public static final ResourceKey<Structure> LEVEL9_HOUSE_0_STRUCTURE = ResourceKey.create(Registries.STRUCTURE,
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level9_house_0"));
+
+	public static final ResourceKey<StructureTemplatePool> LEVEL9_HOUSE_TEMPLATE_POOL = ResourceKey.create(
+			Registries.TEMPLATE_POOL,
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level9_house"));
+
+	public static final ResourceKey<StructureSet> LEVEL9_HOUSE_STRUCTURE_SET = ResourceKey.create(
+			Registries.STRUCTURE_SET,
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level9_house"));
+
+	public static final ResourceKey<Structure> LEVEL11_ENTRY_TOWER_STRUCTURE = ResourceKey.create(Registries.STRUCTURE,
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level11_tower"));
+
+	public static final ResourceKey<StructureTemplatePool> LEVEL11_TOWER_TEMPLATE_POOL = ResourceKey.create(
+			Registries.TEMPLATE_POOL,
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level11_tower"));
+
+	// Level 10
+	public static final ResourceKey<StructureSet> LEVEL10_STRUCTURE_SET = ResourceKey.create(
+			Registries.STRUCTURE_SET,
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level10"));
+
+	public static final ResourceKey<Structure> LEVEL11_ENTRY_TOWER_STRUCTURE_10 = ResourceKey.create(
+			Registries.STRUCTURE,
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level11_tower_10"));
+
+	public static void RegisterStructures() {
+
+	}
+}

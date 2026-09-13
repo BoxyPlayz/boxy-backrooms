@@ -19,8 +19,8 @@ import com.boxyplayz.backrooms.client.events.ItemEvents;
 import com.boxyplayz.backrooms.client.screens.BlendingScreen;
 import com.boxyplayz.backrooms.client.screens.ElevatorScreen;
 import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
-import com.boxyplayz.backrooms.entity.ModEntities;
-import com.boxyplayz.backrooms.menu.MenuTypes;
+import com.boxyplayz.backrooms.common.entity.ModEntities;
+import com.boxyplayz.backrooms.common.menu.MenuTypes;
 
 import fuzs.forgeconfigapiport.fabric.api.v5.ConfigRegistry;
 import net.fabricmc.api.ClientModInitializer;
@@ -62,6 +62,8 @@ public class BoxysBackroomsClient implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
+		BoxysBackroomsCommonClient.init();
+
 		ConfigRegistry.INSTANCE.register("boxys_backrooms", ModConfig.Type.CLIENT, BoxysBackroomsClientConfig.SPEC);
 
 		ItemEvents.RegisterItemEvents();
@@ -102,6 +104,6 @@ public class BoxysBackroomsClient implements ClientModInitializer {
 
 		MenuScreens.register(MenuTypes.ELEVATOR_MENU_TYPE, ElevatorScreen::new);
 
-		ModKeybinds.init();
+		ModGuis.init();
 	}
 }

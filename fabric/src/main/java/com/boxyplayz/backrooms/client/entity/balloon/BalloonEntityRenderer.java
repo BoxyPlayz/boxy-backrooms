@@ -2,7 +2,7 @@ package com.boxyplayz.backrooms.client.entity.balloon;
 
 import com.boxyplayz.backrooms.BoxysBackroomsFabric;
 import com.boxyplayz.backrooms.client.BoxysBackroomsClient;
-import com.boxyplayz.backrooms.entity.living.Balloon.BalloonEntity;
+import com.boxyplayz.backrooms.common.entity.living.Balloon.BalloonEntity;
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;

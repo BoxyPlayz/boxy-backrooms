@@ -1,34 +1,37 @@
 package com.boxyplayz.backrooms.block;
 
+import java.util.HashSet;
 import java.util.function.Function;
 
 import com.boxyplayz.backrooms.BoxysBackroomsFabric;
-import com.boxyplayz.backrooms.block.custom.BlenderBlock;
-import com.boxyplayz.backrooms.block.custom.ElevatorBlock;
-import com.boxyplayz.backrooms.block.custom.ErrorSlateBlock;
-import com.boxyplayz.backrooms.block.custom.FalseWheat;
-import com.boxyplayz.backrooms.block.custom.InferiorCarpet;
-import com.boxyplayz.backrooms.block.custom.Level0Carpet;
-import com.boxyplayz.backrooms.block.custom.Level0GlitchedCarpet;
 import com.boxyplayz.backrooms.block.custom.Level0Wallpaper;
-import com.boxyplayz.backrooms.block.custom.Level11Concrete;
-import com.boxyplayz.backrooms.block.custom.Level2Door;
-import com.boxyplayz.backrooms.block.custom.Level2FireExitBlock;
-import com.boxyplayz.backrooms.block.custom.Level5CarpetBlock;
-import com.boxyplayz.backrooms.block.custom.Level5EntryTable;
-import com.boxyplayz.backrooms.block.custom.Level6EntryBlock;
-import com.boxyplayz.backrooms.block.custom.Level9EntryHouse;
-import com.boxyplayz.backrooms.block.custom.NoFallDamageBlock;
-import com.boxyplayz.backrooms.block.custom.OceanTransporter;
-import com.boxyplayz.backrooms.block.custom.PainOnBreakBlock;
 import com.boxyplayz.backrooms.block.custom.PowerOutletBlock;
-import com.boxyplayz.backrooms.block.custom.PremiumCarpet;
-import com.boxyplayz.backrooms.block.custom.PromisedGate;
-import com.boxyplayz.backrooms.block.custom.PureBlue;
-import com.boxyplayz.backrooms.block.custom.StepVisibleBlock;
-import com.boxyplayz.backrooms.block.custom.TrampolineBlock;
-import com.boxyplayz.backrooms.block.custom.WaterFountainBlock;
+import com.boxyplayz.backrooms.common.ModCreativeTabs;
+import com.boxyplayz.backrooms.common.block.custom.BlenderBlock;
+import com.boxyplayz.backrooms.common.block.custom.ElevatorBlock;
+import com.boxyplayz.backrooms.common.block.custom.ErrorSlateBlock;
+import com.boxyplayz.backrooms.common.block.custom.FalseWheat;
+import com.boxyplayz.backrooms.common.block.custom.InferiorCarpet;
+import com.boxyplayz.backrooms.common.block.custom.Level0Carpet;
+import com.boxyplayz.backrooms.common.block.custom.Level0GlitchedCarpet;
+import com.boxyplayz.backrooms.common.block.custom.Level11Concrete;
+import com.boxyplayz.backrooms.common.block.custom.Level2Door;
+import com.boxyplayz.backrooms.common.block.custom.Level2FireExitBlock;
+import com.boxyplayz.backrooms.common.block.custom.Level5CarpetBlock;
+import com.boxyplayz.backrooms.common.block.custom.Level5EntryTable;
+import com.boxyplayz.backrooms.common.block.custom.Level6EntryBlock;
+import com.boxyplayz.backrooms.common.block.custom.Level9EntryHouse;
+import com.boxyplayz.backrooms.common.block.custom.NoFallDamageBlock;
+import com.boxyplayz.backrooms.common.block.custom.OceanTransporter;
+import com.boxyplayz.backrooms.common.block.custom.PainOnBreakBlock;
+import com.boxyplayz.backrooms.common.block.custom.PremiumCarpet;
+import com.boxyplayz.backrooms.common.block.custom.PromisedGate;
+import com.boxyplayz.backrooms.common.block.custom.PureBlue;
+import com.boxyplayz.backrooms.common.block.custom.StepVisibleBlock;
+import com.boxyplayz.backrooms.common.block.custom.TrampolineBlock;
+import com.boxyplayz.backrooms.common.block.custom.WaterFountainBlock;
 
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -43,6 +46,8 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 
 public class ModBlocks {
+	private static HashSet<Block> allBlocks = new HashSet<>();
+
 	private static Block register(String name, Function<BlockBehaviour.Properties, Block> blockFactory,
 			BlockBehaviour.Properties settings, boolean shouldRegisterItem) {
 		// Create a registry key for the block
@@ -61,9 +66,13 @@ public class ModBlocks {
 			BlockItem blockItem = new BlockItem(block,
 					new Item.Properties().setId(itemKey).useBlockDescriptionPrefix());
 			Registry.register(BuiltInRegistries.ITEM, itemKey, blockItem);
+
 		}
 
-		return Registry.register(BuiltInRegistries.BLOCK, blockKey, block);
+		Block b = Registry.register(BuiltInRegistries.BLOCK, blockKey, block);
+		allBlocks.add(b);
+
+		return b;
 	}
 
 	private static ResourceKey<Block> keyOfBlock(String name) {
@@ -401,5 +410,11 @@ public class ModBlocks {
 			BlockBehaviour.Properties.of().strength(-1, 3600000).noOcclusion(), true);
 
 	public static void RegisterModBlocks() {
+
+		CreativeModeTabEvents.modifyOutputEvent(ModCreativeTabs.BACKROOMS_ITEM_GROUP_KEY).register(itemGroup -> {
+			for (Block block : allBlocks) {
+				itemGroup.accept(block);
+			}
+		});
 	}
 }

@@ -2,8 +2,8 @@ package com.boxyplayz.backrooms.datagen;
 
 import java.util.concurrent.CompletableFuture;
 
-import com.boxyplayz.backrooms.ModEnchantments;
-import com.boxyplayz.backrooms.ModTags;
+import com.boxyplayz.backrooms.common.ModEnchantments;
+import com.boxyplayz.backrooms.common.ModTags;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;

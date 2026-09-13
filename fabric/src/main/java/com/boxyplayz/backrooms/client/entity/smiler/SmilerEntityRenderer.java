@@ -2,7 +2,7 @@ package com.boxyplayz.backrooms.client.entity.smiler;
 
 import com.boxyplayz.backrooms.BoxysBackroomsFabric;
 import com.boxyplayz.backrooms.client.BoxysBackroomsClient;
-import com.boxyplayz.backrooms.entity.living.Smiler.SmilerEntity;
+import com.boxyplayz.backrooms.common.entity.living.Smiler.SmilerEntity;
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;

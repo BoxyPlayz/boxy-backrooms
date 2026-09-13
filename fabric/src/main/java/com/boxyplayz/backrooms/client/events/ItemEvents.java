@@ -1,6 +1,6 @@
 package com.boxyplayz.backrooms.client.events;
 
-import com.boxyplayz.backrooms.item.ModItems;
+import com.boxyplayz.backrooms.common.item.ModItems;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
