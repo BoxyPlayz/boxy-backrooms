@@ -16,17 +16,13 @@ import com.boxyplayz.backrooms.client.entity.wretch.WretchModel;
 import com.boxyplayz.backrooms.client.entity.wretch.WretchedRenderer;
 import com.boxyplayz.backrooms.client.events.GrassColors;
 import com.boxyplayz.backrooms.client.events.ItemEvents;
-import com.boxyplayz.backrooms.client.screens.BlendingScreen;
-import com.boxyplayz.backrooms.client.screens.ElevatorScreen;
 import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
 import com.boxyplayz.backrooms.common.entity.ModEntities;
-import com.boxyplayz.backrooms.common.menu.MenuTypes;
 
 import fuzs.forgeconfigapiport.fabric.api.v5.ConfigRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.ModelLayerRegistry;
-import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
@@ -99,10 +95,6 @@ public class BoxysBackroomsClient implements ClientModInitializer {
 		ModelLayerRegistry.registerModelLayer(MODEL_NEIGHBORHOOD_WATCH_LAYER, NeighborhoodWatchModel::createBodyLayer);
 
 		EntityRenderers.register(ModEntities.NEIGHBORHOOD_WATCH, NeighborhoodWatchRenderer::new);
-
-		MenuScreens.register(MenuTypes.BLENDING_MENU_TYPE, BlendingScreen::new);
-
-		MenuScreens.register(MenuTypes.ELEVATOR_MENU_TYPE, ElevatorScreen::new);
 
 		ModGuis.init();
 	}

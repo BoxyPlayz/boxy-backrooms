@@ -1,13 +1,13 @@
 package com.boxyplayz.backrooms.client.screens;
 
-import com.boxyplayz.backrooms.BoxysBackroomsFabric;
-import com.boxyplayz.backrooms.common.DataAttachmentsImpl;
+import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
+import com.boxyplayz.backrooms.common.DataAttachments;
 import com.boxyplayz.backrooms.common.Misc;
 import com.boxyplayz.backrooms.common.Misc.ElevatorDestination;
 import com.boxyplayz.backrooms.common.menu.ElevatorMenu;
 import com.boxyplayz.backrooms.common.networking.ElevatorPayload;
 
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import dev.architectury.networking.NetworkManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
@@ -21,7 +21,7 @@ import net.minecraft.world.entity.player.Inventory;
 public class ElevatorScreen extends AbstractContainerScreen<ElevatorMenu> {
 
 	private static final Identifier CONTAINER_TEXTURE = Identifier
-			.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "textures/gui/elevator.png");
+			.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "textures/gui/elevator.png");
 
 	public ElevatorScreen(ElevatorMenu menu, Inventory inventory, Component title) {
 		super(menu, inventory, title);
@@ -42,7 +42,7 @@ public class ElevatorScreen extends AbstractContainerScreen<ElevatorMenu> {
 						(final Button button) -> {
 							ElevatorPayload payload = new ElevatorPayload(ElevatorDestination.LEVEL1.name(),
 									Minecraft.getInstance().player.getId());
-							ClientPlayNetworking.send(payload);
+							NetworkManager.sendToServer(payload);
 						})
 				.bounds(this.leftPos + 5, this.topPos + 20, 60, 20).build();
 		addRenderableWidget(levelOneButton);
@@ -52,7 +52,7 @@ public class ElevatorScreen extends AbstractContainerScreen<ElevatorMenu> {
 						(final Button button) -> {
 							ElevatorPayload payload = new ElevatorPayload(ElevatorDestination.LEVEL2.name(),
 									Minecraft.getInstance().player.getId());
-							ClientPlayNetworking.send(payload);
+							NetworkManager.sendToServer(payload);
 						})
 				.bounds(this.leftPos + 5, this.topPos + 50, 60, 20).build();
 		addRenderableWidget(levelTwoButton);
@@ -62,7 +62,7 @@ public class ElevatorScreen extends AbstractContainerScreen<ElevatorMenu> {
 						(final Button button) -> {
 							ElevatorPayload payload = new ElevatorPayload(ElevatorDestination.LEVEL3.name(),
 									Minecraft.getInstance().player.getId());
-							ClientPlayNetworking.send(payload);
+							NetworkManager.sendToServer(payload);
 						})
 				.bounds(this.leftPos + 5, this.topPos + 80, 60, 20).build();
 		addRenderableWidget(levelThreeButton);
@@ -72,15 +72,15 @@ public class ElevatorScreen extends AbstractContainerScreen<ElevatorMenu> {
 						(final Button button) -> {
 							ElevatorPayload payload = new ElevatorPayload(ElevatorDestination.LEVEL4.name(),
 									Minecraft.getInstance().player.getId());
-							ClientPlayNetworking.send(payload);
+							NetworkManager.sendToServer(payload);
 						})
 				.bounds(this.leftPos + 5, this.topPos + 110, 60, 20).build();
 		addRenderableWidget(levelFourButton);
 
 		if (this.minecraft != null && this.minecraft.player != null) {
 			LocalPlayer player = this.minecraft.player;
-			if (player.hasAttached(DataAttachmentsImpl.ACCESS_GRAY)) {
-				if (player.getAttached(DataAttachmentsImpl.ACCESS_GRAY)) {
+			if (DataAttachments.hasShadyGray(player)) {
+				if (DataAttachments.getShadyGray(player)) {
 					Button shadeGrayButton = Button
 							.builder(
 									Component.translatable(
@@ -89,7 +89,7 @@ public class ElevatorScreen extends AbstractContainerScreen<ElevatorMenu> {
 										ElevatorPayload payload = new ElevatorPayload(
 												ElevatorDestination.SHADE_GRAY.name(),
 												Minecraft.getInstance().player.getId());
-										ClientPlayNetworking.send(payload);
+										NetworkManager.sendToServer(payload);
 									})
 							.bounds(this.leftPos + 5, this.topPos + 140, 90, 20).build();
 					addRenderableWidget(shadeGrayButton);

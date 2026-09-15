@@ -1,4 +1,4 @@
-package com.boxyplayz.backrooms.common;
+package com.boxyplayz.backrooms.common.fabric;
 
 import com.boxyplayz.backrooms.BoxysBackroomsFabric;
 import com.mojang.serialization.Codec;
@@ -43,12 +43,24 @@ public class DataAttachmentsImpl {
 		player.setAttached(PLAYER_BACKROOMS_ENTRY_POINT, pos);
 	}
 
+	public static boolean hasEntryPoint(Player player) {
+		return player.hasAttached(PLAYER_BACKROOMS_ENTRY_POINT);
+	}
+
+	public static void removeEntryPoint(Player player) {
+		player.removeAttached(PLAYER_BACKROOMS_ENTRY_POINT);
+	}
+
 	public static boolean getShadyGray(Player player) {
 		return player.getAttachedOrElse(ACCESS_GRAY, false);
 	}
 
 	public static void setShadyGray(Player player, boolean enabled) {
 		player.setAttached(ACCESS_GRAY, enabled);
+	}
+
+	public static boolean hasShadyGray(Player player) {
+		return player.hasAttached(ACCESS_GRAY);
 	}
 
 	public static int getPeaceful(Entity entity) {

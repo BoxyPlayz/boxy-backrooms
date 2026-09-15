@@ -11,10 +11,17 @@ import com.boxyplayz.backrooms.common.world.ModBiomes;
 import com.boxyplayz.backrooms.common.world.ModDimensions;
 import com.boxyplayz.backrooms.common.world.ModStructures;
 
+import dev.architectury.registry.registries.DeferredRegister;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+
 public final class BoxysBackroomsCommon {
     public static final String MOD_ID = "boxys_backrooms";
 
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+
+    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(MOD_ID,
+            Registries.BLOCK_ENTITY_TYPE);
 
     public static void init() {
         ModBiomes.RegisterModBiomes();
