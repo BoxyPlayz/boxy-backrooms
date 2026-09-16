@@ -2,7 +2,8 @@ package com.boxyplayz.backrooms.datagen.loot;
 
 import java.util.concurrent.CompletableFuture;
 
-import com.boxyplayz.backrooms.block.ModBlocks;
+import com.boxyplayz.backrooms.block.FabricBlocks;
+import com.boxyplayz.backrooms.common.block.ModBlocks;
 import com.boxyplayz.backrooms.common.item.ModItems;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
@@ -90,7 +91,7 @@ public class BlockLootTableProvider extends FabricBlockLootSubProvider {
 		dropSelf(ModBlocks.PROMISED_CEILING_LIGHT);
 		dropSelf(ModBlocks.PROMISED_CEILING_TILE);
 		dropSelf(ModBlocks.PROMISED_WALLPAPER);
-		dropSelf(ModBlocks.POWER_OUTLET_BLOCK);
+		dropSelf(FabricBlocks.POWER_OUTLET_BLOCK);
 
 		dropSelf(ModBlocks.FUN_FLOOR);
 

@@ -49,4 +49,8 @@ public class PowerOutletBlock extends BaseEntityBlock {
 		return true;
 	}
 
+	public BlockEntity createEntity(BlockPos pos, BlockState state) {
+		return ModBlockEntities.POWER_OUTLET_BLOCK_ENTITY.create(pos, state);
+	}
+
 }

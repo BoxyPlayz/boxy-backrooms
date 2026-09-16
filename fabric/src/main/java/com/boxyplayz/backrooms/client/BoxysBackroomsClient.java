@@ -14,26 +14,21 @@ import com.boxyplayz.backrooms.client.entity.smiler.SmilerEntityRenderer;
 import com.boxyplayz.backrooms.client.entity.smiler.SmilerModel;
 import com.boxyplayz.backrooms.client.entity.wretch.WretchModel;
 import com.boxyplayz.backrooms.client.entity.wretch.WretchedRenderer;
-import com.boxyplayz.backrooms.client.events.GrassColors;
-import com.boxyplayz.backrooms.client.events.ItemEvents;
 import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
 import com.boxyplayz.backrooms.common.entity.ModEntities;
 
 import fuzs.forgeconfigapiport.fabric.api.v5.ConfigRegistry;
 import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.ModelLayerRegistry;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.resources.Identifier;
 import net.neoforged.fml.config.ModConfig;
-import net.fabricmc.api.EnvType;
 
 /**
  * Begin Client.
  */
-@Environment(EnvType.CLIENT)
 public class BoxysBackroomsClient implements ClientModInitializer {
 	public static final ModelLayerLocation MODEL_SMILER_LAYER = new ModelLayerLocation(
 			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "smiler"), "main");
@@ -61,10 +56,6 @@ public class BoxysBackroomsClient implements ClientModInitializer {
 		BoxysBackroomsCommonClient.init();
 
 		ConfigRegistry.INSTANCE.register("boxys_backrooms", ModConfig.Type.CLIENT, BoxysBackroomsClientConfig.SPEC);
-
-		ItemEvents.RegisterItemEvents();
-
-		GrassColors.RegisterGrassColors();
 
 		EntityRenderers.register(ModEntities.SMILER, SmilerEntityRenderer::new);
 

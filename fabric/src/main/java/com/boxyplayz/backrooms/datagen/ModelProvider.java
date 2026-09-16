@@ -1,7 +1,8 @@
 package com.boxyplayz.backrooms.datagen;
 
 import com.boxyplayz.backrooms.BoxysBackroomsFabric;
-import com.boxyplayz.backrooms.block.ModBlocks;
+import com.boxyplayz.backrooms.block.FabricBlocks;
+import com.boxyplayz.backrooms.common.block.ModBlocks;
 import com.boxyplayz.backrooms.common.item.ModItems;
 
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
@@ -61,10 +62,10 @@ public class ModelProvider extends FabricModelProvider {
 		blockStateModelGenerator.createTrivialCube(ModBlocks.PROMISED_WALLPAPER);
 		blockStateModelGenerator.createTrivialCube(ModBlocks.LEVEL3_CEILING_LIGHT);
 		blockStateModelGenerator.createTrivialCube(ModBlocks.ELECTRICAL_BRICKS);
-		blockStateModelGenerator.createTrivialBlock(ModBlocks.POWER_OUTLET_BLOCK,
+		blockStateModelGenerator.createTrivialBlock(FabricBlocks.POWER_OUTLET_BLOCK,
 				TexturedModel.createDefault((final Block block) -> {
 					return new TextureMapping()
-							.put(TextureSlot.SIDE, TextureMapping.getBlockTexture(ModBlocks.POWER_OUTLET_BLOCK))
+							.put(TextureSlot.SIDE, TextureMapping.getBlockTexture(FabricBlocks.POWER_OUTLET_BLOCK))
 							.put(TextureSlot.END, TextureMapping.getBlockTexture(ModBlocks.ELECTRICAL_BRICKS));
 				},
 						ModelTemplates.CUBE_COLUMN));

@@ -6,7 +6,7 @@ import java.util.function.Consumer;
 import org.jetbrains.annotations.Nullable;
 
 import com.boxyplayz.backrooms.BoxysBackroomsFabric;
-import com.boxyplayz.backrooms.block.ModBlocks;
+import com.boxyplayz.backrooms.common.block.ModBlocks;
 import com.boxyplayz.backrooms.common.world.ModBiomes;
 import com.boxyplayz.backrooms.common.world.ModDimensions;
 

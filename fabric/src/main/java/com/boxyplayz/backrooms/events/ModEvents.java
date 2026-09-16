@@ -6,6 +6,5 @@ public class ModEvents {
 		UseEvents.RegisterUseEvents();
 		AllowDamageEvents.RegisterAllowDamageEvents();
 		AfterDamageEvents.RegisterAfterDamageEvents();
-		LevelChangeEvents.init();
 	}
 }

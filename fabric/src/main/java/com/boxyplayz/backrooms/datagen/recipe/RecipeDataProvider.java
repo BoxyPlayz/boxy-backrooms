@@ -2,7 +2,8 @@ package com.boxyplayz.backrooms.datagen.recipe;
 
 import java.util.concurrent.CompletableFuture;
 
-import com.boxyplayz.backrooms.block.ModBlocks;
+import com.boxyplayz.backrooms.block.FabricBlocks;
+import com.boxyplayz.backrooms.common.block.ModBlocks;
 import com.boxyplayz.backrooms.common.builders.BlendingRecipeBuilder;
 import com.boxyplayz.backrooms.common.item.ModItems;
 import com.boxyplayz.backrooms.common.world.ModDimensions;
@@ -107,8 +108,8 @@ public class RecipeDataProvider extends FabricRecipeProvider {
 
 				shapeless(RecipeCategory.REDSTONE, ModBlocks.BLENDER)
 						.requires(Blocks.BREWING_STAND)
-						.requires(ModBlocks.POWER_OUTLET_BLOCK)
-						.unlockedBy(getHasName(ModBlocks.POWER_OUTLET_BLOCK),
+						.requires(FabricBlocks.POWER_OUTLET_BLOCK)
+						.unlockedBy(getHasName(FabricBlocks.POWER_OUTLET_BLOCK),
 								ChangeDimensionTrigger.TriggerInstance
 										.changedDimensionTo(ModDimensions.LEVEL3.level))
 						.save(output, getItemName(ModBlocks.BLENDER) + "_shapeless");

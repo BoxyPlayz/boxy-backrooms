@@ -3,7 +3,7 @@ package com.boxyplayz.backrooms.datagen.worldgen;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-import com.boxyplayz.backrooms.block.ModBlocks;
+import com.boxyplayz.backrooms.common.block.ModBlocks;
 import com.boxyplayz.backrooms.common.world.ModStructures;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;

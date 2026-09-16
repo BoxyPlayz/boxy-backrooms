@@ -3,11 +3,12 @@ package com.boxyplayz.backrooms.datagen.lang;
 import java.util.concurrent.CompletableFuture;
 
 import com.boxyplayz.backrooms.BoxysBackroomsFabric;
-import com.boxyplayz.backrooms.block.ModBlocks;
+import com.boxyplayz.backrooms.block.FabricBlocks;
 import com.boxyplayz.backrooms.common.Misc;
 import com.boxyplayz.backrooms.common.ModCreativeTabs;
 import com.boxyplayz.backrooms.common.ModEnchantments;
 import com.boxyplayz.backrooms.common.ModTags;
+import com.boxyplayz.backrooms.common.block.ModBlocks;
 import com.boxyplayz.backrooms.common.effect.ModEffects;
 import com.boxyplayz.backrooms.common.entity.ModEntities;
 import com.boxyplayz.backrooms.common.item.ModItems;
@@ -115,7 +116,7 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 
 		translationBuilder.add(ModBlocks.PURE_BLUE, "Pure Blue");
 
-		translationBuilder.add(ModBlocks.POWER_OUTLET_BLOCK, "Power Outlet");
+		translationBuilder.add(FabricBlocks.POWER_OUTLET_BLOCK, "Power Outlet");
 		translationBuilder.add(ModBlocks.LEVEL3_CEILING_LIGHT, "Level 3 Ceiling Light");
 		translationBuilder.add(ModBlocks.ELECTRICAL_BRICKS, "Electrical Bricks");
 
@@ -216,14 +217,20 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModTags.ALMOND_WATERS, "Almond Waters");
 		translationBuilder.add(ModTags.LIGHT_ITEMS, "Light Blocks");
 		translationBuilder.add(ModTags.FIRESTEEL_REPAIR_ITEMS, "Firesteel Repair Items");
+		translationBuilder.add(ModTags.FIRE_ATTACKS, "Fire Attacks");
+		translationBuilder.add(ModTags.ANOMALY_DAMAGE, "Anomalous Attacks");
+		translationBuilder.add(ModTags.FUN_BLOCKS, "Fun Blocks");
+		translationBuilder.add(ModTags.DASH_ENABLED, "Dash Enabled");
+		translationBuilder.add(ModTags.LARGE_JUMP, "Large Jump");
 
 		// Tooltips
 		translationBuilder.add(getTooltip(ModItems.GRAY_ALMOND_WATER), "Tastes like almonds.");
 		translationBuilder.add(getTooltip(ModItems.GREEN_ALMOND_WATER), "Tastes sweet!");
 		translationBuilder.add(getTooltip(ModItems.RED_ALMOND_WATER), "Tastes bitter.");
+		translationBuilder.add(getTooltip(ModItems.NEON_WATER), "Tastes like power.");
 		translationBuilder.add(getTooltip(ModItems.FIRESTEEL_SWORD), "Fire, Magic, and Steel.");
 		translationBuilder.add(getTooltip(ModItems.FIRESTEEL_ALLOY), "Fire and Steel.");
-		translationBuilder.add(getTooltip(ModItems.GRAY_KEY), "Useless, for now.");
+		translationBuilder.add(getTooltip(ModItems.GRAY_KEY), "You feel a shift in your world.");
 
 		// Entities
 		translationBuilder.add(ModEntities.SMILER, "Smiler");

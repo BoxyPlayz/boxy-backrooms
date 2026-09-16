@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.boxyplayz.backrooms.common.effect.ModEffects;
+import com.boxyplayz.backrooms.common.events.LevelChangeEvents;
 import com.boxyplayz.backrooms.common.item.ModItems;
 import com.boxyplayz.backrooms.common.networking.NetworkManagers;
 import com.boxyplayz.backrooms.common.recipe.ModRecipes;
@@ -39,5 +40,6 @@ public final class BoxysBackroomsCommon {
         ModCreativeTabs.RegisterModCreativeTabs();
         ModEffects.RegisterModEffects();
         ModItems.registerModItems();
+        LevelChangeEvents.init();
     }
 }

@@ -6,8 +6,8 @@ import java.util.concurrent.CompletableFuture;
 import com.boxyplayz.backrooms.common.ModWorldPresets;
 import com.boxyplayz.backrooms.common.world.ModBiomes;
 import com.boxyplayz.backrooms.common.world.ModDimensions;
-import com.boxyplayz.backrooms.world.generators.Level11ChunkGen;
-import com.boxyplayz.backrooms.world.generators.Level3ChunkGen;
+import com.boxyplayz.backrooms.common.world.generators.custom.Level11ChunkGen;
+import com.boxyplayz.backrooms.common.world.generators.custom.Level3ChunkGen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;

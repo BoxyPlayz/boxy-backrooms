@@ -4,8 +4,8 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.recipe.v1.sync.RecipeSynchronization;
 
 import com.boxyplayz.backrooms.block.ModBlockEntities;
-import com.boxyplayz.backrooms.block.ModBlocks;
 import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
+import com.boxyplayz.backrooms.common.block.ModBlocks;
 import com.boxyplayz.backrooms.common.recipe.ModRecipes;
 import com.boxyplayz.backrooms.entity.EntityAttributeRegister;
 import com.boxyplayz.backrooms.events.ModEvents;
