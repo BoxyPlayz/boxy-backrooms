@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.boxyplayz.backrooms.common.effect.ModEffects;
+import com.boxyplayz.backrooms.common.events.AfterDamageEvents;
 import com.boxyplayz.backrooms.common.events.LevelChangeEvents;
 import com.boxyplayz.backrooms.common.item.ModItems;
 import com.boxyplayz.backrooms.common.networking.NetworkManagers;
@@ -41,5 +42,6 @@ public final class BoxysBackroomsCommon {
         ModEffects.RegisterModEffects();
         ModItems.registerModItems();
         LevelChangeEvents.init();
+        AfterDamageEvents.RegisterAfterDamageEvents();
     }
 }
