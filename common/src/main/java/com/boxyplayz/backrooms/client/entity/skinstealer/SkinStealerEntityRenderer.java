@@ -1,7 +1,7 @@
 package com.boxyplayz.backrooms.client.entity.skinstealer;
 
-import com.boxyplayz.backrooms.BoxysBackroomsFabric;
-import com.boxyplayz.backrooms.client.BoxysBackroomsClient;
+import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
+import com.boxyplayz.backrooms.client.entity.ClientEntityRenderers;
 import com.boxyplayz.backrooms.common.DataAttachments;
 import com.boxyplayz.backrooms.common.entity.living.SkinStealer.SkinStealerEntity;
 
@@ -18,13 +18,13 @@ public class SkinStealerEntityRenderer
 
 	private static final Identifier PASSIVE = Identifier.withDefaultNamespace("textures/entity/player/wide/steve.png");
 
-	private static final Identifier NORMAL = Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID,
+	private static final Identifier NORMAL = Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID,
 			"textures/entity/skinstealer.png");
 
 	public SkinStealerEntityRenderer(EntityRendererProvider.Context context) {
 		super(context,
 				new SkinStealerModel<SkinStealerEntity>(
-						context.bakeLayer(BoxysBackroomsClient.MODEL_SKIN_STEALER_LAYER)),
+						context.bakeLayer(ClientEntityRenderers.MODEL_SKIN_STEALER_LAYER)),
 				0.5f);
 	}
 
@@ -35,14 +35,12 @@ public class SkinStealerEntityRenderer
 
 	@Override
 	public SkinStealerRenderState createRenderState() {
-		SkinStealerRenderState state = new SkinStealerRenderState();
-		state.isPassive = false;
-		return state;
+		return new SkinStealerRenderState();
 	}
 
 	@Override
 	public void extractRenderState(SkinStealerEntity entity, SkinStealerRenderState state, float partialTicks) {
 		super.extractRenderState(entity, state, partialTicks);
-		state.isPassive = DataAttachments.getPeaceful(entity) > 0;
+		state.isPassive = DataAttachments.isPassive(entity);
 	}
 }

@@ -42,6 +42,9 @@ public class SkinStealerEntity extends PathfinderMob {
 	@Override
 	public void tick() {
 		if (DataAttachments.getPeaceful(this) > 0) {
+			if (DataAttachments.getPeaceful(this) == 1) {
+				DataAttachments.setPassive(this, false);
+			}
 			DataAttachments.setPeaceful(this, DataAttachments.getPeaceful(this) - 1);
 		}
 		super.tick();
@@ -81,6 +84,7 @@ public class SkinStealerEntity extends PathfinderMob {
 			DataAttachments.setPeaceful(this, timer - damageDealt);
 		} else if (timer > 0) {
 			DataAttachments.setPeaceful(this, 0);
+			DataAttachments.setPassive(this, false);
 		}
 		return super.hurtServer(level, source, damage);
 	}
@@ -91,7 +95,8 @@ public class SkinStealerEntity extends PathfinderMob {
 
 		if (target instanceof Player player) {
 			if (player.isDeadOrDying()) {
-				DataAttachments.setPeaceful(this, 20 * 60);
+				DataAttachments.setPeaceful(this, 20 * 15);
+				DataAttachments.setPassive(this, true);
 			}
 		}
 

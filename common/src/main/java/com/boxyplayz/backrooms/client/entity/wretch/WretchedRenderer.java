@@ -1,7 +1,7 @@
 package com.boxyplayz.backrooms.client.entity.wretch;
 
-import com.boxyplayz.backrooms.BoxysBackroomsFabric;
-import com.boxyplayz.backrooms.client.BoxysBackroomsClient;
+import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
+import com.boxyplayz.backrooms.client.entity.ClientEntityRenderers;
 import com.boxyplayz.backrooms.common.entity.living.Wretch.WretchEntity;
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
@@ -15,12 +15,12 @@ import net.fabricmc.api.Environment;
 public class WretchedRenderer extends MobRenderer<WretchEntity, WretchRenderState, WretchModel<WretchEntity>> {
 
 	public WretchedRenderer(Context context) {
-		super(context, new WretchModel<WretchEntity>(context.bakeLayer(BoxysBackroomsClient.MODEL_WRETCH_LAYER)), 1f);
+		super(context, new WretchModel<WretchEntity>(context.bakeLayer(ClientEntityRenderers.MODEL_WRETCH_LAYER)), 1f);
 	}
 
 	@Override
 	public Identifier getTextureLocation(WretchRenderState state) {
-		return Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "textures/entity/wretch.png");
+		return Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "textures/entity/wretch.png");
 	}
 
 	@Override

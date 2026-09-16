@@ -1,7 +1,7 @@
 package com.boxyplayz.backrooms.client.entity.balloon;
 
-import com.boxyplayz.backrooms.BoxysBackroomsFabric;
-import com.boxyplayz.backrooms.client.BoxysBackroomsClient;
+import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
+import com.boxyplayz.backrooms.client.entity.ClientEntityRenderers;
 import com.boxyplayz.backrooms.common.entity.living.Balloon.BalloonEntity;
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -17,13 +17,13 @@ public class BalloonEntityRenderer
 
 	public BalloonEntityRenderer(EntityRendererProvider.Context context) {
 		super(context,
-				new BalloonModel<BalloonEntity>(context.bakeLayer(BoxysBackroomsClient.MODEL_BALLOON_LAYER)),
+				new BalloonModel<BalloonEntity>(context.bakeLayer(ClientEntityRenderers.MODEL_BALLOON_LAYER)),
 				1f);
 	}
 
 	@Override
 	public Identifier getTextureLocation(BalloonRenderState renderState) {
-		return Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "textures/entity/balloon.png");
+		return Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "textures/entity/balloon.png");
 	}
 
 	@Override

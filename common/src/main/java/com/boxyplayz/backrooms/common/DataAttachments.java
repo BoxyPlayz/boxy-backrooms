@@ -50,4 +50,14 @@ public class DataAttachments {
 	public static void setPeaceful(Entity entity, int timer) {
 		throw new UnsupportedOperationException();
 	}
+
+	@ExpectPlatform
+	public static boolean isPassive(Entity entity) {
+		throw new UnsupportedOperationException();
+	}
+
+	@ExpectPlatform
+	public static void setPassive(Entity entity, boolean passive) {
+		throw new UnsupportedOperationException();
+	}
 }

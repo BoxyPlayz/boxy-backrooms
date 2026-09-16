@@ -1,7 +1,7 @@
 package com.boxyplayz.backrooms.client.entity.neighborhood_watch;
 
-import com.boxyplayz.backrooms.BoxysBackroomsFabric;
-import com.boxyplayz.backrooms.client.BoxysBackroomsClient;
+import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
+import com.boxyplayz.backrooms.client.entity.ClientEntityRenderers;
 import com.boxyplayz.backrooms.common.entity.living.NeighborhoodWatch.NeighborhoodWatchEntity;
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
@@ -13,12 +13,12 @@ public class NeighborhoodWatchRenderer extends
 
 	public NeighborhoodWatchRenderer(Context context) {
 		super(context, new NeighborhoodWatchModel<NeighborhoodWatchEntity>(
-				context.bakeLayer(BoxysBackroomsClient.MODEL_NEIGHBORHOOD_WATCH_LAYER)), 1.6f);
+				context.bakeLayer(ClientEntityRenderers.MODEL_NEIGHBORHOOD_WATCH_LAYER)), 1.6f);
 	}
 
 	@Override
 	public Identifier getTextureLocation(NeighborhoodWatchRenderState state) {
-		return Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "textures/entity/neighborhood_watch.png");
+		return Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "textures/entity/neighborhood_watch.png");
 	}
 
 	@Override

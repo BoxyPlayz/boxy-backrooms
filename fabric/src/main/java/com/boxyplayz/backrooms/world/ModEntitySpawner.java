@@ -10,12 +10,12 @@ import com.boxyplayz.backrooms.common.entity.living.Smiler.SmilerEntity;
 import com.boxyplayz.backrooms.common.entity.living.Wretch.WretchEntity;
 import com.boxyplayz.backrooms.common.world.ModBiomes;
 
+import dev.architectury.registry.level.entity.SpawnPlacementsRegistry;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.SpawnPlacementTypes;
-import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.level.levelgen.Heightmap.Types;
 
 /**
@@ -31,7 +31,7 @@ public class ModEntitySpawner {
 						ModBiomes.Level1Biomes.OUROBOROS_BIOME, ModBiomes.Level1Biomes.GOTHIC_BIOME),
 				MobCategory.MONSTER, ModEntities.SMILER, 20, 1, 3);
 
-		SpawnPlacements.register(ModEntities.SMILER, SpawnPlacementTypes.ON_GROUND, Types.WORLD_SURFACE,
+		SpawnPlacementsRegistry.register(() -> ModEntities.SMILER, SpawnPlacementTypes.ON_GROUND, Types.WORLD_SURFACE,
 				SmilerEntity::CheckSpawnRules);
 
 		BiomeModifications.addSpawn(
@@ -39,7 +39,8 @@ public class ModEntitySpawner {
 						ModBiomes.Level1Biomes.OUROBOROS_BIOME, ModBiomes.Level1Biomes.GOTHIC_BIOME),
 				MobCategory.MONSTER, ModEntities.SKINSTEALER, 5, 1, 1);
 
-		SpawnPlacements.register(ModEntities.SKINSTEALER, SpawnPlacementTypes.ON_GROUND, Types.WORLD_SURFACE,
+		SpawnPlacementsRegistry.register(() -> ModEntities.SKINSTEALER, SpawnPlacementTypes.ON_GROUND,
+				Types.WORLD_SURFACE,
 				SkinStealerEntity::CheckSpawnRules);
 
 		BiomeModifications.addSpawn(
@@ -47,7 +48,7 @@ public class ModEntitySpawner {
 						ModBiomes.Level1Biomes.OUROBOROS_BIOME, ModBiomes.Level1Biomes.GOTHIC_BIOME),
 				MobCategory.MONSTER, ModEntities.WRETCH, 2, 1, 1);
 
-		SpawnPlacements.register(ModEntities.WRETCH, SpawnPlacementTypes.ON_GROUND, Types.WORLD_SURFACE,
+		SpawnPlacementsRegistry.register(() -> ModEntities.WRETCH, SpawnPlacementTypes.ON_GROUND, Types.WORLD_SURFACE,
 				WretchEntity::CheckSpawnRules);
 
 		BiomeModifications.addSpawn(
@@ -55,7 +56,8 @@ public class ModEntitySpawner {
 						ModBiomes.LevelFunBiomes.PARTY_ROOMS_BIOME),
 				MobCategory.MONSTER, ModEntities.PARTYGOER, 7, 3, 8);
 
-		SpawnPlacements.register(ModEntities.PARTYGOER, SpawnPlacementTypes.ON_GROUND, Types.WORLD_SURFACE,
+		SpawnPlacementsRegistry.register(() -> ModEntities.PARTYGOER, SpawnPlacementTypes.ON_GROUND,
+				Types.WORLD_SURFACE,
 				PartygoerEntity::CheckSpawnRules);
 
 		BiomeModifications.addSpawn(
@@ -63,7 +65,7 @@ public class ModEntitySpawner {
 						ModBiomes.Level1Biomes.AQUILA_BIOME),
 				MobCategory.CREATURE, ModEntities.BALLOON, 1, 1, 1);
 
-		SpawnPlacements.register(ModEntities.BALLOON, SpawnPlacementTypes.ON_GROUND, Types.WORLD_SURFACE,
+		SpawnPlacementsRegistry.register(() -> ModEntities.BALLOON, SpawnPlacementTypes.ON_GROUND, Types.WORLD_SURFACE,
 				BalloonEntity::CheckSpawnRules);
 
 		BiomeModifications.addSpawn(
@@ -76,7 +78,8 @@ public class ModEntitySpawner {
 						ModBiomes.LevelFunBiomes.HALLWAYS_BIOME),
 				MobCategory.CREATURE, ModEntities.PARTYPOOPER, 1, 1, 1);
 
-		SpawnPlacements.register(ModEntities.PARTYPOOPER, SpawnPlacementTypes.ON_GROUND, Types.WORLD_SURFACE,
+		SpawnPlacementsRegistry.register(() -> ModEntities.PARTYPOOPER, SpawnPlacementTypes.ON_GROUND,
+				Types.WORLD_SURFACE,
 				PartypooperEntity::CheckSpawnRules);
 
 		BiomeModifications.addSpawn(
@@ -119,7 +122,8 @@ public class ModEntitySpawner {
 						ModBiomes.LEVEL9_BIOME),
 				MobCategory.MONSTER, ModEntities.NEIGHBORHOOD_WATCH, 28, 1, 1);
 
-		SpawnPlacements.register(ModEntities.NEIGHBORHOOD_WATCH, SpawnPlacementTypes.ON_GROUND, Types.WORLD_SURFACE,
+		SpawnPlacementsRegistry.register(() -> ModEntities.NEIGHBORHOOD_WATCH, SpawnPlacementTypes.ON_GROUND,
+				Types.WORLD_SURFACE,
 				NeighborhoodWatchEntity::CheckSpawnRules);
 	}
 }

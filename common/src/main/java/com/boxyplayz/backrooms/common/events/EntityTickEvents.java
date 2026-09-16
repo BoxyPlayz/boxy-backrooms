@@ -1,9 +1,9 @@
-package com.boxyplayz.backrooms.events;
+package com.boxyplayz.backrooms.common.events;
 
 import java.util.List;
 import java.util.Set;
 
-import com.boxyplayz.backrooms.BoxysBackroomsFabric;
+import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
 import com.boxyplayz.backrooms.common.DataAttachments;
 import com.boxyplayz.backrooms.common.effect.ModEffects;
 import com.boxyplayz.backrooms.common.world.ModBiomes;
@@ -12,7 +12,7 @@ import com.boxyplayz.backrooms.common.world.ModBiomes.AbyssBiomes;
 import com.boxyplayz.backrooms.common.world.ModBiomes.Level0Biomes;
 import com.boxyplayz.backrooms.common.world.ModDimensions.DimensionInstance;
 
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import dev.architectury.event.events.common.TickEvent;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
@@ -32,12 +32,9 @@ import net.minecraft.world.level.storage.LevelData.RespawnData;
  * Tick Entities
  */
 public class EntityTickEvents {
-	/**
-	 * Registers the event for {@link ServerTickEvents.StartLevelTick}
-	 */
 	public static void RegisterEntityTickEvents() {
 
-		ServerTickEvents.END_LEVEL_TICK.register((ServerLevel level) -> {
+		TickEvent.SERVER_LEVEL_POST.register((ServerLevel level) -> {
 			List<ServerPlayer> players = List.copyOf(level.players());
 			players.forEach((ServerPlayer player) -> {
 				if (player.level().dimension() == ModDimensions.THE_ABYSS.level) {
@@ -82,7 +79,7 @@ public class EntityTickEvents {
 			});
 		});
 
-		ServerTickEvents.START_LEVEL_TICK.register((ServerLevel level) -> {
+		TickEvent.SERVER_LEVEL_PRE.register((ServerLevel level) -> {
 			List<ServerPlayer> players = List.copyOf(level.players());
 			players.forEach((ServerPlayer player) -> {
 				if (player.level().dimension() == ModDimensions.BLUE_CHANNEL.level) {
@@ -207,7 +204,7 @@ public class EntityTickEvents {
 					}
 				} else {
 					AttributeInstance attribute = player.getAttribute(Attributes.MAX_HEALTH);
-					Identifier gardenersPainId = Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID,
+					Identifier gardenersPainId = Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID,
 							"gardeners_pain");
 					if (!(player.hasEffect(ModEffects.GARDENERS_PAIN))) {
 						if (attribute.hasModifier(gardenersPainId)) {

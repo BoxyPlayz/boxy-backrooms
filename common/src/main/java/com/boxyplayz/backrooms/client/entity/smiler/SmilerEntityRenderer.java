@@ -1,7 +1,7 @@
 package com.boxyplayz.backrooms.client.entity.smiler;
 
-import com.boxyplayz.backrooms.BoxysBackroomsFabric;
-import com.boxyplayz.backrooms.client.BoxysBackroomsClient;
+import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
+import com.boxyplayz.backrooms.client.entity.ClientEntityRenderers;
 import com.boxyplayz.backrooms.common.entity.living.Smiler.SmilerEntity;
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -16,12 +16,12 @@ public class SmilerEntityRenderer
 		extends MobRenderer<SmilerEntity, SmilerRenderState, SmilerModel<SmilerEntity>> {
 
 	public SmilerEntityRenderer(EntityRendererProvider.Context context) {
-		super(context, new SmilerModel<SmilerEntity>(context.bakeLayer(BoxysBackroomsClient.MODEL_SMILER_LAYER)), 0f);
+		super(context, new SmilerModel<SmilerEntity>(context.bakeLayer(ClientEntityRenderers.MODEL_SMILER_LAYER)), 0f);
 	}
 
 	@Override
 	public Identifier getTextureLocation(SmilerRenderState renderState) {
-		return Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "textures/entity/smiler.png");
+		return Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "textures/entity/smiler.png");
 	}
 
 	@Override

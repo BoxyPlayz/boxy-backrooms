@@ -1,7 +1,7 @@
 package com.boxyplayz.backrooms.client.entity.partygoer;
 
-import com.boxyplayz.backrooms.BoxysBackroomsFabric;
-import com.boxyplayz.backrooms.client.BoxysBackroomsClient;
+import com.boxyplayz.backrooms.client.entity.ClientEntityRenderers;
+import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
 import com.boxyplayz.backrooms.common.entity.living.Partygoer.PartygoerEntity;
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -17,13 +17,13 @@ public class PartygoerEntityRenderer
 
 	public PartygoerEntityRenderer(EntityRendererProvider.Context context) {
 		super(context,
-				new PartygoerModel<PartygoerEntity>(context.bakeLayer(BoxysBackroomsClient.MODEL_PARTYGOER_LAYER)),
+				new PartygoerModel<PartygoerEntity>(context.bakeLayer(ClientEntityRenderers.MODEL_PARTYGOER_LAYER)),
 				1f);
 	}
 
 	@Override
 	public Identifier getTextureLocation(PartygoerRenderState renderState) {
-		return Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "textures/entity/partygoer.png");
+		return Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "textures/entity/partygoer.png");
 	}
 
 	@Override

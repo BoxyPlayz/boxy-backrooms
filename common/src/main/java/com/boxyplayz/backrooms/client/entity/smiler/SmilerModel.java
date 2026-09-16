@@ -1,9 +1,6 @@
 package com.boxyplayz.backrooms.client.entity.smiler;
 
-import com.boxyplayz.backrooms.BoxysBackroomsFabric;
-
 import net.minecraft.client.model.EntityModel;
-import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
@@ -11,7 +8,6 @@ import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
-import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.Entity;
 
 import net.fabricmc.api.EnvType;
@@ -21,8 +17,6 @@ import net.fabricmc.api.Environment;
 public class SmilerModel<T extends Entity> extends EntityModel<SmilerRenderState> {
 	// This layer location should be baked with EntityRendererProvider.Context in
 	// the entity renderer and passed into this model's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(
-			Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "smiler"), "main");
 	private final ModelPart core;
 	@SuppressWarnings("unused")
 	private final ModelPart mouth;

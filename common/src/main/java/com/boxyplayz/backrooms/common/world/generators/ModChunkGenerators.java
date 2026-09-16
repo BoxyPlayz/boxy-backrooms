@@ -1,4 +1,4 @@
-package com.boxyplayz.backrooms.world;
+package com.boxyplayz.backrooms.common.world.generators;
 
 import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
 import com.boxyplayz.backrooms.common.world.generators.custom.AbyssChunkGen;
