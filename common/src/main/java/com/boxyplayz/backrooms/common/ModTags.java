@@ -40,6 +40,9 @@ public class ModTags {
 	public static final TagKey<Biome> LARGE_JUMP = TagKey.create(Registries.BIOME,
 			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "large_jump"));
 
+	public static final TagKey<Biome> SPAWN_SMILER = TagKey.create(Registries.BIOME,
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "spawn/smiler"));
+
 	public static void RegisterModTags() {
 
 	}

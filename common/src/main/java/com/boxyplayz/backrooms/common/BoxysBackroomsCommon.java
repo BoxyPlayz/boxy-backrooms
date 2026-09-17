@@ -10,6 +10,7 @@ import com.boxyplayz.backrooms.common.events.AfterDamageEvents;
 import com.boxyplayz.backrooms.common.events.AllowDamageEvents;
 import com.boxyplayz.backrooms.common.events.EntityTickEvents;
 import com.boxyplayz.backrooms.common.events.LevelChangeEvents;
+import com.boxyplayz.backrooms.common.events.PlayerJoinEvents;
 import com.boxyplayz.backrooms.common.events.UseEvents;
 import com.boxyplayz.backrooms.common.item.ModItems;
 import com.boxyplayz.backrooms.common.networking.NetworkManagers;
@@ -55,5 +56,6 @@ public final class BoxysBackroomsCommon {
         ModChunkGenerators.registerModChunkGenerators();
         ModBlocks.RegisterModBlocks();
         EntityAttributeRegister.RegisterEntityAttributes();
+        PlayerJoinEvents.Register();
     }
 }

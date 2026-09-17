@@ -20,21 +20,6 @@ public class DataAttachmentsImpl {
 					.persistent(BlockPos.CODEC)
 					.copyOnDeath());
 
-	public static final AttachmentType<Boolean> ACCESS_GRAY = AttachmentRegistry.create(
-			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "access_gray"),
-			builder -> builder
-					.initializer(() -> false)
-					.persistent(Codec.BOOL)
-					.copyOnDeath()
-					.syncWith(ByteBufCodecs.BOOL, AttachmentSyncPredicate.all()));
-
-	public static final AttachmentType<Integer> SKINSTEALER_PASSIVE_TIMER = AttachmentRegistry.create(
-			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "skinstealer_passive_timer"),
-			builder -> builder
-					.initializer(() -> 0) // The default value of the Attachment, if one has not been set.
-					.persistent(Codec.INT) // Dictates how this Attachment's data should be saved and loaded.
-	);
-
 	public static final AttachmentType<Boolean> SKINSTEALER_PASSIVE = AttachmentRegistry.create(
 			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "skinstealer_passive"),
 			builder -> builder
@@ -56,17 +41,5 @@ public class DataAttachmentsImpl {
 
 	public static void removeEntryPoint(Player player) {
 		player.removeAttached(PLAYER_BACKROOMS_ENTRY_POINT);
-	}
-
-	public static boolean getShadyGray(Player player) {
-		return player.getAttachedOrElse(ACCESS_GRAY, false);
-	}
-
-	public static void setShadyGray(Player player, boolean enabled) {
-		player.setAttached(ACCESS_GRAY, enabled);
-	}
-
-	public static boolean hasShadyGray(Player player) {
-		return player.hasAttached(ACCESS_GRAY);
 	}
 }

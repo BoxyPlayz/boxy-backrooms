@@ -1,7 +1,7 @@
 package com.boxyplayz.backrooms.client.screens;
 
+import com.boxyplayz.backrooms.client.ClientVariables;
 import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
-import com.boxyplayz.backrooms.common.DataAttachments;
 import com.boxyplayz.backrooms.common.Misc;
 import com.boxyplayz.backrooms.common.Misc.ElevatorDestination;
 import com.boxyplayz.backrooms.common.menu.ElevatorMenu;
@@ -12,7 +12,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
@@ -78,22 +77,19 @@ public class ElevatorScreen extends AbstractContainerScreen<ElevatorMenu> {
 		addRenderableWidget(levelFourButton);
 
 		if (this.minecraft != null && this.minecraft.player != null) {
-			LocalPlayer player = this.minecraft.player;
-			if (DataAttachments.hasShadyGray(player)) {
-				if (DataAttachments.getShadyGray(player)) {
-					Button shadeGrayButton = Button
-							.builder(
-									Component.translatable(
-											Misc.getElevatorLangId(ElevatorDestination.SHADE_GRAY.name())),
-									(final Button button) -> {
-										ElevatorPayload payload = new ElevatorPayload(
-												ElevatorDestination.SHADE_GRAY.name(),
-												Minecraft.getInstance().player.getId());
-										NetworkManager.sendToServer(payload);
-									})
-							.bounds(this.leftPos + 5, this.topPos + 140, 90, 20).build();
-					addRenderableWidget(shadeGrayButton);
-				}
+			if (ClientVariables.getShadyGray()) {
+				Button shadeGrayButton = Button
+						.builder(
+								Component.translatable(
+										Misc.getElevatorLangId(ElevatorDestination.SHADE_GRAY.name())),
+								(final Button button) -> {
+									ElevatorPayload payload = new ElevatorPayload(
+											ElevatorDestination.SHADE_GRAY.name(),
+											Minecraft.getInstance().player.getId());
+									NetworkManager.sendToServer(payload);
+								})
+						.bounds(this.leftPos + 5, this.topPos + 140, 90, 20).build();
+				addRenderableWidget(shadeGrayButton);
 			}
 		}
 

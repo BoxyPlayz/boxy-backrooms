@@ -19,5 +19,6 @@ public final class BoxysBackroomsCommonClient {
 		BlockColors.Register();
 		Tooltips.Register();
 		ClientEntityRenderers.RegisterRenderers();
+		NetManClient.register();
 	}
 }

@@ -24,19 +24,4 @@ public class DataAttachments {
 	public static void removeEntryPoint(Player player) {
 		throw new UnsupportedOperationException();
 	}
-
-	@ExpectPlatform
-	public static boolean getShadyGray(Player player) {
-		throw new UnsupportedOperationException();
-	}
-
-	@ExpectPlatform
-	public static void setShadyGray(Player player, boolean enabled) {
-		throw new UnsupportedOperationException();
-	}
-
-	@ExpectPlatform
-	public static boolean hasShadyGray(Player player) {
-		throw new UnsupportedOperationException();
-	}
 }

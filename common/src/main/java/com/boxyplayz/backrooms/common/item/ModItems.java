@@ -10,6 +10,7 @@ import com.boxyplayz.backrooms.common.ModToolMaterials;
 import com.boxyplayz.backrooms.common.effect.ModEffects;
 import com.boxyplayz.backrooms.common.entity.ModEntities;
 import com.boxyplayz.backrooms.common.item.custom.FireSaltItem;
+import com.boxyplayz.backrooms.common.item.custom.GrayKeyItem;
 import com.boxyplayz.backrooms.common.item.custom.LiquidPainItem;
 
 import net.minecraft.core.Registry;
@@ -160,7 +161,7 @@ public class ModItems {
 			new LiquidPainItem.Properties().useCooldown(0.6f));
 
 	public static final Item GRAY_KEY = registerItem("gray_key",
-			Item::new,
+			GrayKeyItem::new,
 			new Item.Properties().stacksTo(1));
 
 	public static void registerModItems() {

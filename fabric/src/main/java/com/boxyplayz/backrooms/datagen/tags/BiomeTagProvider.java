@@ -29,6 +29,14 @@ public class BiomeTagProvider extends FabricTagsProvider<Biome> {
 
 		builder(ModTags.LARGE_JUMP)
 				.add(ModBiomes.LEVEL8_CAVESYSTEM_BIOME);
+
+		builder(ModTags.SPAWN_SMILER)
+				.add(ModBiomes.Level0Biomes.BLACKOUT_BIOME)
+				.add(ModBiomes.Level1Biomes.GOTHIC_BIOME)
+				.add(ModBiomes.Level1Biomes.OUROBOROS_BIOME)
+				.add(ModBiomes.LEVEL3_BIOME)
+				.add(ModBiomes.Level1Biomes.OUROBOROS_BIOME)
+				.add(ModBiomes.LEVEL2_BIOME);
 	}
 
 }
