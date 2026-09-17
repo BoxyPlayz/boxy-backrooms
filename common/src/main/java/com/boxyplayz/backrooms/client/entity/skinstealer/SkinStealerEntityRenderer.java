@@ -2,7 +2,6 @@ package com.boxyplayz.backrooms.client.entity.skinstealer;
 
 import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
 import com.boxyplayz.backrooms.client.entity.ClientEntityRenderers;
-import com.boxyplayz.backrooms.common.DataAttachments;
 import com.boxyplayz.backrooms.common.entity.living.SkinStealer.SkinStealerEntity;
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -41,6 +40,6 @@ public class SkinStealerEntityRenderer
 	@Override
 	public void extractRenderState(SkinStealerEntity entity, SkinStealerRenderState state, float partialTicks) {
 		super.extractRenderState(entity, state, partialTicks);
-		state.isPassive = DataAttachments.isPassive(entity);
+		state.isPassive = entity.isPassive();
 	}
 }

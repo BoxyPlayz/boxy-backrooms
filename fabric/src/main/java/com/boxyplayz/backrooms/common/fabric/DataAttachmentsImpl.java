@@ -9,7 +9,6 @@ import net.fabricmc.fabric.api.attachment.v1.AttachmentType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 
 public class DataAttachmentsImpl {
@@ -69,24 +68,5 @@ public class DataAttachmentsImpl {
 
 	public static boolean hasShadyGray(Player player) {
 		return player.hasAttached(ACCESS_GRAY);
-	}
-
-	public static int getPeaceful(Entity entity) {
-		int value = entity.getAttachedOrElse(SKINSTEALER_PASSIVE_TIMER, 0);
-
-		return value;
-
-	}
-
-	public static void setPeaceful(Entity entity, int timer) {
-		entity.setAttached(SKINSTEALER_PASSIVE_TIMER, timer);
-	}
-
-	public static boolean isPassive(Entity entity) {
-		return entity.getAttachedOrElse(SKINSTEALER_PASSIVE, false);
-	}
-
-	public static void setPassive(Entity entity, boolean passive) {
-		entity.setAttached(SKINSTEALER_PASSIVE, passive);
 	}
 }
