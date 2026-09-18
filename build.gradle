@@ -39,11 +39,6 @@ subprojects {
 		url = 'https://maven.blamejared.com'
 	}
 
-    maven { 
-        name = "Exodus Studio"
-        url = "https://maven.exodusstudio.org/releases"
-    }
-
 
         // Add repositories to retrieve artifacts from in here.
         // You should only use this when depending on other mods because

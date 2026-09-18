@@ -13,9 +13,6 @@ dependencies {
 
 	runtimeOnly("fuzs.forgeconfigapiport:forgeconfigapiport-common-neoforgeapi:$forge_config_api_version")
 	compileOnly("fuzs.forgeconfigapiport:forgeconfigapiport-common-neoforgeapi:$forge_config_api_version")
-
-    runtimeOnly("com.fej1fun.potentials:potentials-common-26.1.2:$potentials_version")
-    compileOnly("com.fej1fun.potentials:potentials-common-26.1.2:$potentials_version")
 }
 
 sourceSets {

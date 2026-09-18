@@ -43,6 +43,27 @@ public class ModTags {
 	public static final TagKey<Biome> SPAWN_SMILER = TagKey.create(Registries.BIOME,
 			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "spawn/smiler"));
 
+	public static final TagKey<Biome> SPAWN_SKINSTEALER = TagKey.create(Registries.BIOME,
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "spawn/skin_stealer"));
+
+	public static final TagKey<Biome> SPAWN_WRETCH = TagKey.create(Registries.BIOME,
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "spawn/wretch"));
+
+	public static final TagKey<Biome> SPAWN_PARTYGOER = TagKey.create(Registries.BIOME,
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "spawn/partygoer"));
+
+	public static final TagKey<Biome> SPAWN_PARTYGOAT_partypooper = TagKey.create(Registries.BIOME,
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "spawn/partypooper"));
+
+	public static final TagKey<Biome> SPAWN_BALLOON = TagKey.create(Registries.BIOME,
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "spawn/balloon"));
+
+	public static final TagKey<Biome> SPAWN_NEIGHBORHOOD_WATCH = TagKey.create(Registries.BIOME,
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "spawn/neighborhood_watch"));
+
+	public static final TagKey<Biome> SPAWN_SPIDER = TagKey.create(Registries.BIOME,
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "spawn/spider"));
+
 	public static void RegisterModTags() {
 
 	}

@@ -73,11 +73,11 @@ public class ModBlocks {
 		return b;
 	}
 
-	private static ResourceKey<Block> keyOfBlock(String name) {
+	public static ResourceKey<Block> keyOfBlock(String name) {
 		return ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, name));
 	}
 
-	private static ResourceKey<Item> keyOfItem(String name) {
+	public static ResourceKey<Item> keyOfItem(String name) {
 		return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, name));
 	}
 

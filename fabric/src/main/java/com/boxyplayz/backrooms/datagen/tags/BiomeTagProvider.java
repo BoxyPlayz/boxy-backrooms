@@ -37,6 +37,35 @@ public class BiomeTagProvider extends FabricTagsProvider<Biome> {
 				.add(ModBiomes.LEVEL3_BIOME)
 				.add(ModBiomes.Level1Biomes.OUROBOROS_BIOME)
 				.add(ModBiomes.LEVEL2_BIOME);
+
+		builder(ModTags.SPAWN_SKINSTEALER)
+				.add(ModBiomes.Level1Biomes.OUROBOROS_BIOME)
+				.add(ModBiomes.LEVEL2_BIOME)
+				.add(ModBiomes.LEVEL3_BIOME);
+
+		builder(ModTags.SPAWN_WRETCH)
+				.add(ModBiomes.LEVEL2_BIOME)
+				.add(ModBiomes.LEVEL3_BIOME);
+
+		builder(ModTags.SPAWN_PARTYGOER)
+				.add(ModBiomes.LevelFunBiomes.PARTY_ROOMS_BIOME)
+				.add(ModBiomes.LevelFunBiomes.HALLWAYS_BIOME);
+
+		builder(ModTags.SPAWN_PARTYGOAT_partypooper)
+				.add(ModBiomes.LevelFunBiomes.HALLWAYS_BIOME)
+				.add(ModBiomes.PROMISED_BIOME);
+
+		builder(ModTags.SPAWN_BALLOON)
+				.add(ModBiomes.Level1Biomes.AQUILA_BIOME)
+				.add(ModBiomes.LEVEL3_BIOME)
+				.add(ModBiomes.LEVEL2_BIOME);
+
+		builder(ModTags.SPAWN_NEIGHBORHOOD_WATCH)
+				.add(ModBiomes.LEVEL9_BIOME);
+
+		builder(ModTags.SPAWN_SPIDER)
+				.add(ModBiomes.Level1Biomes.GOTHIC_BIOME)
+				.add(ModBiomes.LEVEL8_CAVESYSTEM_BIOME);
 	}
 
 }

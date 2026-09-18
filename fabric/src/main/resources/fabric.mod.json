@@ -37,7 +37,6 @@
     "architectury": ">=20.0.12",
     "fabric-api": "*",
     "forgeconfigapiport": ">=26.1.5",
-    "potentials": ">=0.9.3",
     "patchouli": "*"
   },
   "custom": {

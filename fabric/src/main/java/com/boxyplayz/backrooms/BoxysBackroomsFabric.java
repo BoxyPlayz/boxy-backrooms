@@ -7,7 +7,7 @@ import com.boxyplayz.backrooms.block.FabricBlocks;
 import com.boxyplayz.backrooms.block.ModBlockEntities;
 import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
 import com.boxyplayz.backrooms.common.recipe.ModRecipes;
-import com.boxyplayz.backrooms.world.ModEntitySpawner;
+import com.boxyplayz.backrooms.common.world.ModEntitySpawner;
 
 public class BoxysBackroomsFabric implements ModInitializer {
 	/**
