@@ -2,7 +2,7 @@ package com.boxyplayz.backrooms.block.custom;
 
 import org.jspecify.annotations.Nullable;
 
-import com.boxyplayz.backrooms.block.ModBlockEntities;
+import com.boxyplayz.backrooms.block.FabricBlocks;
 import com.boxyplayz.backrooms.block.entity.PowerOutletBlockEntity;
 import com.mojang.serialization.MapCodec;
 
@@ -36,7 +36,7 @@ public class PowerOutletBlock extends BaseEntityBlock {
 	@Override
 	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState blockState,
 			BlockEntityType<T> type) {
-		return createTickerHelper(type, ModBlockEntities.POWER_OUTLET_BLOCK_ENTITY, PowerOutletBlockEntity::tick);
+		return createTickerHelper(type, FabricBlocks.POWER_OUTLET_BLOCK_ENTITY, PowerOutletBlockEntity::tick);
 	}
 
 	@Override
@@ -50,7 +50,7 @@ public class PowerOutletBlock extends BaseEntityBlock {
 	}
 
 	public BlockEntity createEntity(BlockPos pos, BlockState state) {
-		return ModBlockEntities.POWER_OUTLET_BLOCK_ENTITY.create(pos, state);
+		return FabricBlocks.POWER_OUTLET_BLOCK_ENTITY.create(pos, state);
 	}
 
 }

@@ -2,7 +2,8 @@ package com.boxyplayz.backrooms.common.block.custom;
 
 import java.util.Set;
 
-import com.boxyplayz.backrooms.common.savedata.PlayerLocations;
+import com.boxyplayz.backrooms.common.savedata.PlayerBackroomsEntryLocations;
+import com.boxyplayz.backrooms.common.savedata.PlayerOverworldEntryLocations;
 import com.boxyplayz.backrooms.common.world.ModDimensions;
 
 import net.minecraft.core.BlockPos;
@@ -66,8 +67,12 @@ public class Level0Wallpaper extends Block {
 			}
 		}
 
-		PlayerLocations locations = PlayerLocations.getSavedLocations(player.level().getServer());
+		PlayerOverworldEntryLocations locations = PlayerOverworldEntryLocations
+				.getSavedLocations(player.level().getServer());
 		locations.addPlayerToList(player.getUUID(), player.blockPosition());
+		PlayerBackroomsEntryLocations backLocations = PlayerBackroomsEntryLocations
+				.getSavedLocations(player.level().getServer());
+		backLocations.addPlayerToList(player.getUUID(), new BlockPos(x, y, z));
 
 		player.teleportTo(target, x + 0.5, y, z + 0.5, Set.of(), player.getYRot(), player.getXRot(), false);
 

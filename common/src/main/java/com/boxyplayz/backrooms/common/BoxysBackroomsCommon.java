@@ -17,6 +17,7 @@ import com.boxyplayz.backrooms.common.networking.NetworkManagers;
 import com.boxyplayz.backrooms.common.recipe.ModRecipes;
 import com.boxyplayz.backrooms.common.world.ModBiomes;
 import com.boxyplayz.backrooms.common.world.ModDimensions;
+import com.boxyplayz.backrooms.common.world.ModEntitySpawner;
 import com.boxyplayz.backrooms.common.world.ModStructures;
 import com.boxyplayz.backrooms.common.world.generators.ModChunkGenerators;
 
@@ -57,5 +58,6 @@ public final class BoxysBackroomsCommon {
         ModBlocks.RegisterModBlocks();
         EntityAttributeRegister.RegisterEntityAttributes();
         PlayerJoinEvents.Register();
+        ModEntitySpawner.RegisterModMobSpawning();
     }
 }

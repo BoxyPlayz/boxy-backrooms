@@ -20,7 +20,8 @@ public class SkyRendererMixin {
 			CallbackInfo ci) {
 		Minecraft minecraft = Minecraft.getInstance();
 
-		if (minecraft.level != null && minecraft.level.dimension().equals(ModDimensions.THE_ABYSS.level)) {
+		if (minecraft.level != null && (minecraft.level.dimension().equals(ModDimensions.THE_ABYSS.level)
+				|| minecraft.level.dimension().equals(ModDimensions.BLUE_CHANNEL.level))) {
 			ci.cancel();
 		}
 	}
@@ -30,7 +31,8 @@ public class SkyRendererMixin {
 			CallbackInfo ci) {
 		Minecraft minecraft = Minecraft.getInstance();
 
-		if (minecraft.level != null && minecraft.level.dimension().equals(ModDimensions.THE_ABYSS.level)) {
+		if (minecraft.level != null && (minecraft.level.dimension().equals(ModDimensions.THE_ABYSS.level)
+				|| minecraft.level.dimension().equals(ModDimensions.BLUE_CHANNEL.level))) {
 			ci.cancel();
 		}
 	}

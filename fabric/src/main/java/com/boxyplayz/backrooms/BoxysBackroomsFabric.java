@@ -4,10 +4,8 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.recipe.v1.sync.RecipeSynchronization;
 
 import com.boxyplayz.backrooms.block.FabricBlocks;
-import com.boxyplayz.backrooms.block.ModBlockEntities;
 import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
 import com.boxyplayz.backrooms.common.recipe.ModRecipes;
-import com.boxyplayz.backrooms.common.world.ModEntitySpawner;
 
 public class BoxysBackroomsFabric implements ModInitializer {
 	/**
@@ -21,8 +19,6 @@ public class BoxysBackroomsFabric implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		FabricBlocks.RegisterFabricSidedBlocks();
-		ModEntitySpawner.RegisterModMobSpawning();
-		ModBlockEntities.RegisterModBlockEntities();
 		BoxysBackroomsCommon.init();
 
 		RecipeSynchronization.synchronizeRecipeSerializer(ModRecipes.BLENDING_RECIPE_SERIALIZER);

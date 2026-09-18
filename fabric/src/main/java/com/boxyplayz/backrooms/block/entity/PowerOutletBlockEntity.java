@@ -1,6 +1,6 @@
 package com.boxyplayz.backrooms.block.entity;
 
-import com.boxyplayz.backrooms.block.ModBlockEntities;
+import com.boxyplayz.backrooms.block.FabricBlocks;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -15,7 +15,7 @@ public class PowerOutletBlockEntity extends BlockEntity {
 	public final InfiniteEnergyStorage energyStorage = new InfiniteEnergyStorage();
 
 	public PowerOutletBlockEntity(BlockPos worldPosition, BlockState blockState) {
-		super(ModBlockEntities.POWER_OUTLET_BLOCK_ENTITY, worldPosition, blockState);
+		super(FabricBlocks.POWER_OUTLET_BLOCK_ENTITY, worldPosition, blockState);
 	}
 
 	public static void tick(Level level, BlockPos pos, BlockState state, PowerOutletBlockEntity entity) {

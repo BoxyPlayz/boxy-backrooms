@@ -6,7 +6,9 @@
   "client": [
     "SkyRendererMixin"
   ],
-  "mixins": [],
+  "mixins": [
+    "TeleportTransitionMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }

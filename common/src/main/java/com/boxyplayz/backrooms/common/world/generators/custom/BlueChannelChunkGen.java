@@ -47,6 +47,12 @@ public class BlueChannelChunkGen extends BaseChunkGen {
 					if (y <= 40) {
 						return ModBlocks.LEVEL0_CARPET.defaultBlockState();
 					}
+					if (y >= 50) {
+						return Blocks.AIR.defaultBlockState();
+					}
+					if (y >= 48) {
+						return ModBlocks.LEVEL0_CEILING_TILE.defaultBlockState();
+					}
 					cellX = Math.floorDiv(Math.floorMod(x, 16), 4);
 					cellZ = Math.floorDiv(Math.floorMod(z, 16), 4);
 

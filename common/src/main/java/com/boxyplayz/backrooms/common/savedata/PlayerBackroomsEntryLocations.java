@@ -14,20 +14,21 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.level.saveddata.SavedDataType;
 
-public class PlayerLocations extends SavedData {
+public class PlayerBackroomsEntryLocations extends SavedData {
 	private HashMap<String, BlockPos> uuids;
 
-	public PlayerLocations() {
+	public PlayerBackroomsEntryLocations() {
 		this.uuids = new HashMap<String, BlockPos>();
 	}
 
-	public PlayerLocations(Map<String, BlockPos> uuids) {
+	public PlayerBackroomsEntryLocations(Map<String, BlockPos> uuids) {
 		this.uuids = new HashMap<>(uuids);
 	}
 
-	private static final Codec<PlayerLocations> CODEC = Codec.unboundedMap(Codec.STRING, BlockPos.CODEC).xmap(
-			PlayerLocations::new,
-			PlayerLocations::getData);
+	private static final Codec<PlayerBackroomsEntryLocations> CODEC = Codec.unboundedMap(Codec.STRING, BlockPos.CODEC)
+			.xmap(
+					PlayerBackroomsEntryLocations::new,
+					PlayerBackroomsEntryLocations::getData);
 
 	public Optional<BlockPos> getPosForPlayer(UUID uuid) {
 		if (uuids.containsKey(uuid.toString())) {
@@ -53,13 +54,13 @@ public class PlayerLocations extends SavedData {
 		setDirty();
 	}
 
-	private static final SavedDataType<PlayerLocations> TYPE = new SavedDataType<PlayerLocations>(
-			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "player_spawn_locations"),
-			PlayerLocations::new,
+	private static final SavedDataType<PlayerBackroomsEntryLocations> TYPE = new SavedDataType<PlayerBackroomsEntryLocations>(
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "player_rooms_locations"),
+			PlayerBackroomsEntryLocations::new,
 			CODEC,
 			null);
 
-	public static PlayerLocations getSavedLocations(MinecraftServer server) {
+	public static PlayerBackroomsEntryLocations getSavedLocations(MinecraftServer server) {
 		return server.getDataStorage().computeIfAbsent(TYPE);
 	}
 

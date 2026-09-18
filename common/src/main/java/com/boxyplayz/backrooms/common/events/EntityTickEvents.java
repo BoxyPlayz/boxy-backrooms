@@ -5,7 +5,8 @@ import java.util.Set;
 
 import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
 import com.boxyplayz.backrooms.common.effect.ModEffects;
-import com.boxyplayz.backrooms.common.savedata.PlayerLocations;
+import com.boxyplayz.backrooms.common.savedata.PlayerBackroomsEntryLocations;
+import com.boxyplayz.backrooms.common.savedata.PlayerOverworldEntryLocations;
 import com.boxyplayz.backrooms.common.world.ModBiomes;
 import com.boxyplayz.backrooms.common.world.ModDimensions;
 import com.boxyplayz.backrooms.common.world.ModBiomes.AbyssBiomes;
@@ -174,7 +175,10 @@ public class EntityTickEvents {
 						ServerLevel target = player.level().getServer().getLevel(Level.OVERWORLD);
 						if (target == null)
 							return;
-						PlayerLocations locations = PlayerLocations.getSavedLocations(player.level().getServer());
+						PlayerOverworldEntryLocations locations = PlayerOverworldEntryLocations
+								.getSavedLocations(player.level().getServer());
+						PlayerBackroomsEntryLocations backLocations = PlayerBackroomsEntryLocations
+								.getSavedLocations(player.level().getServer());
 						player.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 20 * 20, 20));
 						BlockPos teleportPos = new BlockPos(0, 400, 0);
 						if (locations.hasPlayer(player.getUUID())) {
@@ -182,6 +186,7 @@ public class EntityTickEvents {
 							teleportPos = new BlockPos(attachPos.getX(), 400, attachPos.getZ());
 
 							locations.removePlayerPos(player.getUUID());
+							backLocations.removePlayerPos(player.getUUID());
 						}
 						player.teleportTo(target, teleportPos.getX(), teleportPos.getY(), teleportPos.getZ(), Set.of(),
 								player.getYRot(), player.getXRot(), false);

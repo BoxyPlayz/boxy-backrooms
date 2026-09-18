@@ -1,5 +1,8 @@
 package com.boxyplayz.backrooms.common;
 
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.phys.Vec3;
+
 /**
  * Miscellaneous methods
  */
@@ -20,5 +23,9 @@ public class Misc {
 
 	public static String getElevatorLangId(String id) {
 		return "elevator." + id;
+	}
+
+	public static Vec3 toVec3(BlockPos pos) {
+		return new Vec3(pos.getX(), pos.getY(), pos.getZ());
 	}
 }
