@@ -2,7 +2,7 @@ package com.boxyplayz.backrooms.common.block.custom;
 
 import java.util.Set;
 
-import com.boxyplayz.backrooms.common.DataAttachments;
+import com.boxyplayz.backrooms.common.savedata.PlayerLocations;
 import com.boxyplayz.backrooms.common.world.ModDimensions;
 
 import net.minecraft.core.BlockPos;
@@ -66,9 +66,8 @@ public class Level0Wallpaper extends Block {
 			}
 		}
 
-		DataAttachments.setEntryPoint(player,
-				new BlockPos((int) Math.floor(player.getX()), (int) Math.floor(player.getY()),
-						(int) Math.floor(player.getZ())));
+		PlayerLocations locations = PlayerLocations.getSavedLocations(player.level().getServer());
+		locations.addPlayerToList(player.getUUID(), player.blockPosition());
 
 		player.teleportTo(target, x + 0.5, y, z + 0.5, Set.of(), player.getYRot(), player.getXRot(), false);
 
