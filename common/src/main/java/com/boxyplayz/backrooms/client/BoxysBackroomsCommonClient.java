@@ -5,8 +5,10 @@ import com.boxyplayz.backrooms.client.events.BlockColors;
 import com.boxyplayz.backrooms.client.events.Tooltips;
 import com.boxyplayz.backrooms.client.screens.BlendingScreen;
 import com.boxyplayz.backrooms.client.screens.ElevatorScreen;
+import com.boxyplayz.backrooms.common.gui.ModHudRenderer;
 import com.boxyplayz.backrooms.common.menu.MenuTypes;
 
+import dev.architectury.event.events.client.ClientGuiEvent;
 import dev.architectury.registry.client.gui.MenuScreenRegistry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -20,5 +22,6 @@ public final class BoxysBackroomsCommonClient {
 		Tooltips.Register();
 		ClientEntityRenderers.RegisterRenderers();
 		NetManClient.register();
+		ClientGuiEvent.RENDER_HUD.register(ModHudRenderer::render);
 	}
 }

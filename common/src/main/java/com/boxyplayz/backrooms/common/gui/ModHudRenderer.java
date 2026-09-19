@@ -2,6 +2,7 @@ package com.boxyplayz.backrooms.common.gui;
 
 import com.boxyplayz.backrooms.client.BoxysBackroomsClientConfig;
 import com.boxyplayz.backrooms.common.ModTags;
+import com.boxyplayz.backrooms.common.world.ModDimensions;
 
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
@@ -31,6 +32,14 @@ public class ModHudRenderer {
 					if (player.level().getBiome(player.blockPosition())
 							.is(ModTags.LARGE_JUMP)) {
 						String dashHint = "The gravity is lighter here.";
+
+						graphics.fill(0, 0, minecraft.font.width(dashHint) + 4,
+								minecraft.font.lineHeight + 4, white);
+
+						graphics.text(minecraft.font, dashHint, 2, 2, black, false);
+					}
+					if (player.level().dimension().equals(ModDimensions.RUN_FOR_LIFE.level)) {
+						String dashHint = "SPEED increased. survive.";
 
 						graphics.fill(0, 0, minecraft.font.width(dashHint) + 4,
 								minecraft.font.lineHeight + 4, white);

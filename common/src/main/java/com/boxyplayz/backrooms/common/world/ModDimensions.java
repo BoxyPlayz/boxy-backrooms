@@ -85,6 +85,9 @@ public class ModDimensions {
         public static final DimensionInstance THE_ABYSS = new DimensionInstance("the_abyss",
                         new DimensionProperties(false));
 
+        public static final DimensionInstance RUN_FOR_LIFE = new DimensionInstance("run_for_your_life",
+                        new DimensionProperties(false));
+
         public static class DimensionInstance {
                 public final ResourceKey<Level> level;
                 public final ResourceKey<DimensionType> type;

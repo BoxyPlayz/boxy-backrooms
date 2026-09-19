@@ -285,5 +285,20 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 				.setCeiling(false)
 				.build());
 
+		register(context, ModDimensions.RUN_FOR_LIFE.type, new DimensionTypeBuilder()
+				.setHeight(48)
+				.setMinY(-16)
+				.setSkybox(Skybox.NONE)
+				.setEnvAttributes(
+						EnvironmentAttributeMap.builder()
+								.set(EnvironmentAttributes.AMBIENT_LIGHT_COLOR, 16324354)
+								.set(EnvironmentAttributes.BLOCK_LIGHT_TINT, 16551808)
+								.build())
+				.setFixedTime(false)
+				.setAmbientLight(0.7f)
+				.setSkylight(false)
+				.setCeiling(true)
+				.build());
+
 	}
 }

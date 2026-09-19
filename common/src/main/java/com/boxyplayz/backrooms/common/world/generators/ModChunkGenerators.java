@@ -17,6 +17,7 @@ import com.boxyplayz.backrooms.common.world.generators.custom.Level7ChunkGen;
 import com.boxyplayz.backrooms.common.world.generators.custom.Level94ChunkGen;
 import com.boxyplayz.backrooms.common.world.generators.custom.Level9ChunkGen;
 import com.boxyplayz.backrooms.common.world.generators.custom.LevelFunChunkGen;
+import com.boxyplayz.backrooms.common.world.generators.custom.LevelRunChunkGen;
 import com.boxyplayz.backrooms.common.world.generators.custom.Level_Negative_0_2ChunkGen;
 import com.boxyplayz.backrooms.common.world.generators.custom.PitfallsChunkGen;
 import com.boxyplayz.backrooms.common.world.generators.custom.PromisedLandChunkGen;
@@ -88,6 +89,9 @@ public class ModChunkGenerators {
 		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
 				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "the_abyss"),
 				AbyssChunkGen.CODEC);
+		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
+				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "run_for_your_life"),
+				LevelRunChunkGen.CODEC);
 
 	}
 }

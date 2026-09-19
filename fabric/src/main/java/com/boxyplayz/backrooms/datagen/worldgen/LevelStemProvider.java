@@ -20,6 +20,7 @@ import com.boxyplayz.backrooms.common.world.generators.custom.Level7ChunkGen;
 import com.boxyplayz.backrooms.common.world.generators.custom.Level94ChunkGen;
 import com.boxyplayz.backrooms.common.world.generators.custom.Level9ChunkGen;
 import com.boxyplayz.backrooms.common.world.generators.custom.LevelFunChunkGen;
+import com.boxyplayz.backrooms.common.world.generators.custom.LevelRunChunkGen;
 import com.boxyplayz.backrooms.common.world.generators.custom.Level_Negative_0_2ChunkGen;
 import com.boxyplayz.backrooms.common.world.generators.custom.PitfallsChunkGen;
 import com.boxyplayz.backrooms.common.world.generators.custom.PromisedLandChunkGen;
@@ -155,6 +156,11 @@ public class LevelStemProvider extends FabricDynamicRegistryProvider {
 				new LevelStem(dimensionTypes.getOrThrow(ModDimensions.THE_BROKEN.type),
 						new TheBrokenChunkGen(
 								biomes.getOrThrow(ModBiomes.BROKEN_BIOME))));
+
+		context.register(ModDimensions.RUN_FOR_LIFE.stem,
+				new LevelStem(dimensionTypes.getOrThrow(ModDimensions.RUN_FOR_LIFE.type),
+						new LevelRunChunkGen(
+								biomes.getOrThrow(Biomes.THE_VOID))));
 	}
 
 }
