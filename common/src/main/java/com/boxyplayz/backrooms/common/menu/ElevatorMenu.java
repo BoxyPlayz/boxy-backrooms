@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 public class ElevatorMenu extends AbstractContainerMenu {
 
 	public ElevatorMenu(int i, Inventory inventory) {
-		super(MenuTypes.ELEVATOR_MENU_TYPE, i);
+		super(MenuTypes.ELEVATOR_MENU_TYPE.get(), i);
 	}
 
 	@Override

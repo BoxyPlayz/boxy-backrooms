@@ -19,35 +19,35 @@ public class BlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
 	@Override
 	protected void addTags(Provider wrapperLookup) {
 		valueLookupBuilder(BlockTags.MINEABLE_WITH_PICKAXE)
-				.add(ModBlocks.OCEAN_TRANSPORTER)
-				.add(ModBlocks.ERRORSLATE)
-				.add(ModBlocks.FUN_FLOOR)
-				.add(ModBlocks.ELECTRICAL_BRICKS)
+				.add(ModBlocks.OCEAN_TRANSPORTER.get())
+				.add(ModBlocks.ERRORSLATE.get())
+				.add(ModBlocks.FUN_FLOOR.get())
+				.add(ModBlocks.ELECTRICAL_BRICKS.get())
 				.setReplace(false);
 
 		valueLookupBuilder(BlockTags.MINEABLE_WITH_AXE)
-				.add(ModBlocks.LEVEL0_WALLPAPER)
-				.add(ModBlocks.LEVEL1_CRATE)
-				.add(ModBlocks.FUN_CRATE)
+				.add(ModBlocks.LEVEL0_WALLPAPER.get())
+				.add(ModBlocks.LEVEL1_CRATE.get())
+				.add(ModBlocks.FUN_CRATE.get())
 				.setReplace(false);
 
 		valueLookupBuilder(BlockTags.GRASS_BLOCKS)
-				.add(ModBlocks.PURE_GRASS)
+				.add(ModBlocks.PURE_GRASS.get())
 				.setReplace(false);
 
 		valueLookupBuilder(BlockTags.MINEABLE_WITH_SHOVEL)
-				.add(ModBlocks.PURE_GRASS)
+				.add(ModBlocks.PURE_GRASS.get())
 				.setReplace(false);
 
 		valueLookupBuilder(BlockTags.MINEABLE_WITH_HOE)
-				.add(ModBlocks.BLACK_TRAMPOLINE)
+				.add(ModBlocks.BLACK_TRAMPOLINE.get())
 				.setReplace(false);
 
 		valueLookupBuilder(ModTags.FUN_BLOCKS)
-				.add(ModBlocks.FUN_GREEN)
-				.add(ModBlocks.FUN_PINK)
-				.add(ModBlocks.FUN_PURPLE)
-				.add(ModBlocks.FUN_YELLOW)
+				.add(ModBlocks.FUN_GREEN.get())
+				.add(ModBlocks.FUN_PINK.get())
+				.add(ModBlocks.FUN_PURPLE.get())
+				.add(ModBlocks.FUN_YELLOW.get())
 				.setReplace(false);
 	}
 

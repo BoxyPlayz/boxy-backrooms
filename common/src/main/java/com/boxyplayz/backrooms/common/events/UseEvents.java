@@ -17,14 +17,14 @@ public class UseEvents {
 		InteractionEvent.INTERACT_ENTITY.register(
 				(Player player, Entity entity, InteractionHand hand) -> {
 					if (!player.level().isClientSide()) {
-						if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FIRESALT_SHARD.asItem())
+						if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FIRESALT_SHARD.get().asItem())
 								|| player.getItemBySlot(EquipmentSlot.OFFHAND)
-										.is(ModItems.FIRESALT_SHARD.asItem())) {
+										.is(ModItems.FIRESALT_SHARD.get().asItem())) {
 							entity.setRemainingFireTicks(120);
 							return EventResult.interruptTrue();
 						}
 
-						if (entity.is(ModEntities.PARTYPOOPER)) {
+						if (entity.is(ModEntities.PARTYPOOPER.get())) {
 							ItemStack equipSlot = player.getItemBySlot(EquipmentSlot.MAINHAND);
 							if (equipSlot.is(ModTags.ALMOND_WATERS)) {
 								if (player.getInventory().getFreeSlot() != -1) {

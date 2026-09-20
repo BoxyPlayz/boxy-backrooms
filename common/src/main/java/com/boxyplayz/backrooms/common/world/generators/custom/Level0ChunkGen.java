@@ -42,13 +42,13 @@ public class Level0ChunkGen extends BaseChunkGen {
 
 		if (chunkRandom.nextIntBetweenInclusive(0, 76) == 2) {
 			if (y <= 0) {
-				return ModBlocks.PREMIUM_CARPET.defaultBlockState();
+				return ModBlocks.PREMIUM_CARPET.get().defaultBlockState();
 			}
 			if (y >= 4) {
 				if (Math.floorMod(x, 4) == 2 && Math.floorMod(z, 4) == 2) {
-					return ModBlocks.LEVEL0_CEILING_LIGHT.defaultBlockState();
+					return ModBlocks.LEVEL0_CEILING_LIGHT.get().defaultBlockState();
 				}
-				return ModBlocks.PREMIUM_CEILING_TILE.defaultBlockState();
+				return ModBlocks.PREMIUM_CEILING_TILE.get().defaultBlockState();
 			}
 
 			short cellX = (short) Math.floorDiv(Math.floorMod(x, 16), 4);
@@ -62,16 +62,16 @@ public class Level0ChunkGen extends BaseChunkGen {
 					(int) (chunkZ * 4 + cellZ));
 
 			if (getRandomBool(cellRandom) && localZ == 0) {
-				return ModBlocks.PREMIUM_WALLPAPER.defaultBlockState();
+				return ModBlocks.PREMIUM_WALLPAPER.get().defaultBlockState();
 			}
 			if (getRandomBool(cellRandom) && localZ == 3) {
-				return ModBlocks.PREMIUM_WALLPAPER.defaultBlockState();
+				return ModBlocks.PREMIUM_WALLPAPER.get().defaultBlockState();
 			}
 			if (getRandomBool(cellRandom) && localX == 0) {
-				return ModBlocks.PREMIUM_WALLPAPER.defaultBlockState();
+				return ModBlocks.PREMIUM_WALLPAPER.get().defaultBlockState();
 			}
 			if (getRandomBool(cellRandom) && localX == 3) {
-				return ModBlocks.PREMIUM_WALLPAPER.defaultBlockState();
+				return ModBlocks.PREMIUM_WALLPAPER.get().defaultBlockState();
 			}
 			return Blocks.AIR.defaultBlockState();
 		}
@@ -82,13 +82,13 @@ public class Level0ChunkGen extends BaseChunkGen {
 				if ((relativeChunkX / 2 % 2) == 0 && (relativeChunkZ / 2 % 2) == 0) {
 					return Blocks.AIR.defaultBlockState();
 				} else {
-					return ModBlocks.LEVEL0_CARPET.defaultBlockState();
+					return ModBlocks.LEVEL0_CARPET.get().defaultBlockState();
 				}
 			} else {
 				if (y == 0 && random.nextIntBetweenInclusive(0, 800) == 0) {
-					return ModBlocks.LEVEL0_CARPET_GLITCHED.defaultBlockState();
+					return ModBlocks.LEVEL0_CARPET_GLITCHED.get().defaultBlockState();
 				}
-				return ModBlocks.LEVEL0_CARPET.defaultBlockState();
+				return ModBlocks.LEVEL0_CARPET.get().defaultBlockState();
 			}
 		}
 
@@ -96,15 +96,15 @@ public class Level0ChunkGen extends BaseChunkGen {
 		if (y >= 4) {
 			if (Math.floorMod(x, 4) == 2 && Math.floorMod(z, 4) == 2
 					&& !(biome.is(ModBiomes.Level0Biomes.BLACKOUT_BIOME))) {
-				return ModBlocks.LEVEL0_CEILING_LIGHT.defaultBlockState();
+				return ModBlocks.LEVEL0_CEILING_LIGHT.get().defaultBlockState();
 			}
-			return ModBlocks.LEVEL0_CEILING_TILE.defaultBlockState();
+			return ModBlocks.LEVEL0_CEILING_TILE.get().defaultBlockState();
 		}
 
 		// Maze logic start!
 		if (biome.is(ModBiomes.Level0Biomes.COLUMNS_BIOME)) {
 			if (Math.floorMod(x, 4) == 0 && Math.floorMod(z, 4) == 0) {
-				return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
+				return ModBlocks.LEVEL0_WALLPAPER.get().defaultBlockState();
 			}
 		} else {
 			if (biome.is(ModBiomes.Level0Biomes.BLACKOUT_BIOME) || biome.is(ModBiomes.Level0Biomes.NORMAL_BIOME)) {
@@ -120,16 +120,16 @@ public class Level0ChunkGen extends BaseChunkGen {
 						(int) (chunkZ * 4 + cellZ));
 
 				if (getRandomBool(cellRandom) && localZ == 0) {
-					return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
+					return ModBlocks.LEVEL0_WALLPAPER.get().defaultBlockState();
 				}
 				if (getRandomBool(cellRandom) && localZ == 3) {
-					return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
+					return ModBlocks.LEVEL0_WALLPAPER.get().defaultBlockState();
 				}
 				if (getRandomBool(cellRandom) && localX == 0) {
-					return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
+					return ModBlocks.LEVEL0_WALLPAPER.get().defaultBlockState();
 				}
 				if (getRandomBool(cellRandom) && localX == 3) {
-					return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
+					return ModBlocks.LEVEL0_WALLPAPER.get().defaultBlockState();
 				}
 			}
 		}

@@ -38,15 +38,15 @@ public class PromisedLandChunkGen extends BaseChunkGen {
 
 		// Floor
 		if (y <= 0) {
-			return ModBlocks.PROMISED_CARPET.defaultBlockState();
+			return ModBlocks.PROMISED_CARPET.get().defaultBlockState();
 		}
 
 		// Ceiling
 		if (y >= 4) {
 			if (Math.floorMod(x, 4) == 2 && Math.floorMod(z, 4) == 2) {
-				return ModBlocks.PROMISED_CEILING_LIGHT.defaultBlockState();
+				return ModBlocks.PROMISED_CEILING_LIGHT.get().defaultBlockState();
 			}
-			return ModBlocks.PROMISED_CEILING_TILE.defaultBlockState();
+			return ModBlocks.PROMISED_CEILING_TILE.get().defaultBlockState();
 		}
 
 		if (isVOID(randomFactory, chunkX - 1, chunkZ) && Math.floorMod(x, 16) == 0) {
@@ -69,16 +69,16 @@ public class PromisedLandChunkGen extends BaseChunkGen {
 		int localZ = Math.floorMod(z, 16);
 
 		if (getRandomBool(chunkRandom) && localZ == 0) {
-			return ModBlocks.PROMISED_WALLPAPER.defaultBlockState();
+			return ModBlocks.PROMISED_WALLPAPER.get().defaultBlockState();
 		}
 		if (getRandomBool(chunkRandom) && localZ == 15) {
-			return ModBlocks.PROMISED_WALLPAPER.defaultBlockState();
+			return ModBlocks.PROMISED_WALLPAPER.get().defaultBlockState();
 		}
 		if (getRandomBool(chunkRandom) && localX == 0) {
-			return ModBlocks.PROMISED_WALLPAPER.defaultBlockState();
+			return ModBlocks.PROMISED_WALLPAPER.get().defaultBlockState();
 		}
 		if (getRandomBool(chunkRandom) && localX == 15) {
-			return ModBlocks.PROMISED_WALLPAPER.defaultBlockState();
+			return ModBlocks.PROMISED_WALLPAPER.get().defaultBlockState();
 		}
 
 		return Blocks.AIR.defaultBlockState();

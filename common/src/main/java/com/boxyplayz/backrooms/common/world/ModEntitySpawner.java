@@ -27,70 +27,71 @@ public class ModEntitySpawner {
 	 */
 	public static void RegisterModMobSpawning() {
 		BiomeModifications.addProperties(context -> context.hasTag(ModTags.SPAWN_SMILER), (context, properties) -> {
-			properties.getSpawnProperties().addSpawn(MobCategory.MONSTER, new SpawnerData(ModEntities.SMILER, 1, 3),
+			properties.getSpawnProperties().addSpawn(MobCategory.MONSTER,
+					new SpawnerData(ModEntities.SMILER.get(), 1, 3),
 					20);
 		});
 
-		SpawnPlacementsRegistry.register(() -> ModEntities.SMILER, SpawnPlacementTypes.ON_GROUND, Types.WORLD_SURFACE,
+		SpawnPlacementsRegistry.register(ModEntities.SMILER, SpawnPlacementTypes.ON_GROUND, Types.WORLD_SURFACE,
 				SmilerEntity::CheckSpawnRules);
 
 		BiomeModifications.addProperties(context -> context.hasTag(ModTags.SPAWN_SKINSTEALER),
 				(context, properties) -> {
 					properties.getSpawnProperties().addSpawn(MobCategory.MONSTER,
-							new SpawnerData(ModEntities.SKINSTEALER, 1, 2),
+							new SpawnerData(ModEntities.SKINSTEALER.get(), 1, 2),
 							5);
 				});
 
-		SpawnPlacementsRegistry.register(() -> ModEntities.SKINSTEALER, SpawnPlacementTypes.ON_GROUND,
+		SpawnPlacementsRegistry.register(ModEntities.SKINSTEALER, SpawnPlacementTypes.ON_GROUND,
 				Types.WORLD_SURFACE,
 				SkinStealerEntity::CheckSpawnRules);
 
 		BiomeModifications.addProperties(context -> context.hasTag(ModTags.SPAWN_WRETCH),
 				(context, properties) -> {
 					properties.getSpawnProperties().addSpawn(MobCategory.MONSTER,
-							new SpawnerData(ModEntities.WRETCH, 1, 1),
+							new SpawnerData(ModEntities.WRETCH.get(), 1, 1),
 							2);
 				});
 
-		SpawnPlacementsRegistry.register(() -> ModEntities.WRETCH, SpawnPlacementTypes.ON_GROUND, Types.WORLD_SURFACE,
+		SpawnPlacementsRegistry.register(ModEntities.WRETCH, SpawnPlacementTypes.ON_GROUND, Types.WORLD_SURFACE,
 				WretchEntity::CheckSpawnRules);
 
 		BiomeModifications.addProperties(context -> context.hasTag(ModTags.SPAWN_PARTYGOER),
 				(context, properties) -> {
 					properties.getSpawnProperties().addSpawn(MobCategory.MONSTER,
-							new SpawnerData(ModEntities.PARTYGOER, 3, 8),
+							new SpawnerData(ModEntities.PARTYGOER.get(), 3, 8),
 							7);
 				});
 
-		SpawnPlacementsRegistry.register(() -> ModEntities.PARTYGOER, SpawnPlacementTypes.ON_GROUND,
+		SpawnPlacementsRegistry.register(ModEntities.PARTYGOER, SpawnPlacementTypes.ON_GROUND,
 				Types.WORLD_SURFACE,
 				PartygoerEntity::CheckSpawnRules);
 
-		SpawnPlacementsRegistry.register(() -> ModEntities.BALLOON, SpawnPlacementTypes.ON_GROUND, Types.WORLD_SURFACE,
+		SpawnPlacementsRegistry.register(ModEntities.BALLOON, SpawnPlacementTypes.ON_GROUND, Types.WORLD_SURFACE,
 				BalloonEntity::CheckSpawnRules);
 
 		BiomeModifications.addProperties(context -> context.hasTag(ModTags.SPAWN_PARTYGOAT_partypooper),
 				(context, properties) -> {
 					properties.getSpawnProperties().addSpawn(MobCategory.CREATURE,
-							new SpawnerData(ModEntities.PARTYPOOPER, 1, 2),
+							new SpawnerData(ModEntities.PARTYPOOPER.get(), 1, 2),
 							7);
 				});
 
-		SpawnPlacementsRegistry.register(() -> ModEntities.PARTYPOOPER, SpawnPlacementTypes.ON_GROUND,
+		SpawnPlacementsRegistry.register(ModEntities.PARTYPOOPER, SpawnPlacementTypes.ON_GROUND,
 				Types.WORLD_SURFACE,
 				PartypooperEntity::CheckSpawnRules);
 
 		BiomeModifications.addProperties(context -> context.hasTag(ModTags.SPAWN_BALLOON),
 				(context, properties) -> {
 					properties.getSpawnProperties().addSpawn(MobCategory.CREATURE,
-							new SpawnerData(ModEntities.BALLOON, 1, 1),
+							new SpawnerData(ModEntities.BALLOON.get(), 1, 1),
 							1);
 				});
 
 		BiomeModifications.addProperties(context -> context.hasTag(ModTags.SPAWN_PARTYGOAT_partypooper),
 				(context, properties) -> {
 					properties.getSpawnProperties().addSpawn(MobCategory.CREATURE,
-							new SpawnerData(ModEntities.PARTYPOOPER, 1, 2),
+							new SpawnerData(ModEntities.PARTYPOOPER.get(), 1, 2),
 							7);
 				});
 
@@ -104,11 +105,11 @@ public class ModEntitySpawner {
 		BiomeModifications.addProperties(context -> context.hasTag(ModTags.SPAWN_NEIGHBORHOOD_WATCH),
 				(context, properties) -> {
 					properties.getSpawnProperties().addSpawn(MobCategory.MONSTER,
-							new SpawnerData(ModEntities.NEIGHBORHOOD_WATCH, 1, 1),
+							new SpawnerData(ModEntities.NEIGHBORHOOD_WATCH.get(), 1, 1),
 							38);
 				});
 
-		SpawnPlacementsRegistry.register(() -> ModEntities.NEIGHBORHOOD_WATCH, SpawnPlacementTypes.ON_GROUND,
+		SpawnPlacementsRegistry.register(ModEntities.NEIGHBORHOOD_WATCH, SpawnPlacementTypes.ON_GROUND,
 				Types.WORLD_SURFACE,
 				NeighborhoodWatchEntity::CheckSpawnRules);
 	}

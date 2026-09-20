@@ -34,8 +34,8 @@ public class WaterFountainBlock extends Block {
 			Player player, InteractionHand hand, BlockHitResult hitResult) {
 		if (itemStack.is(ModItems.EMPTY_ALMOND_WATER)) {
 			if (player.getInventory().getFreeSlot() > -1
-					|| (player.getInventory().countItem(ModItems.GRAY_ALMOND_WATER) < 64
-							&& player.getInventory().countItem(ModItems.GRAY_ALMOND_WATER) > 0)) {
+					|| (player.getInventory().countItem(ModItems.GRAY_ALMOND_WATER.get()) < 64
+							&& player.getInventory().countItem(ModItems.GRAY_ALMOND_WATER.get()) > 0)) {
 				itemStack.shrink(1);
 				player.getInventory().add(new ItemStack(ModItems.GRAY_ALMOND_WATER));
 			}

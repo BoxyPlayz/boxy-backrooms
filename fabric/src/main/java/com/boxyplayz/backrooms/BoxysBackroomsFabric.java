@@ -21,6 +21,6 @@ public class BoxysBackroomsFabric implements ModInitializer {
 		FabricBlocks.RegisterFabricSidedBlocks();
 		BoxysBackroomsCommon.init();
 
-		RecipeSynchronization.synchronizeRecipeSerializer(ModRecipes.BLENDING_RECIPE_SERIALIZER);
+		RecipeSynchronization.synchronizeRecipeSerializer(ModRecipes.BLENDING_RECIPE_SERIALIZER.get());
 	}
 }

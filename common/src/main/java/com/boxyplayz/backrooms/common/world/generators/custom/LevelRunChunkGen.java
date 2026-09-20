@@ -6,6 +6,7 @@ import com.boxyplayz.backrooms.common.world.generators.BaseChunkGen;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
+import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.util.RandomSource;
@@ -13,8 +14,12 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.FixedBiomeSource;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.RedstoneLampBlock;
+import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.PositionalRandomFactory;
 
@@ -38,14 +43,27 @@ public class LevelRunChunkGen extends BaseChunkGen {
 			return Blocks.REDSTONE_LAMP.defaultBlockState().setValue(RedstoneLampBlock.LIT, true);
 		}
 		if (!(width.contains(x) && height.contains(y)) || z <= -100) {
+			if (Math.floorMod(z, 3) == 1 && Math.abs(x) == width.getMaximum() + 1 && y <= height.getMinimum() + 1
+					&& y >= height.getMinimum()) {
+				return Blocks.IRON_DOOR.defaultBlockState().setValue(DoorBlock.HALF,
+						((y == height.getMinimum()) ? DoubleBlockHalf.LOWER : DoubleBlockHalf.UPPER))
+						.setValue(DoorBlock.OPEN, false)
+						.setValue(DoorBlock.FACING, (x < 0) ? Direction.EAST : Direction.WEST);
+			}
 			return Blocks.RED_CONCRETE.defaultBlockState();
 		}
 
+		RandomSource sectionRandom = randomFactory.at(0, 0, Math.floorDiv(z, 4));
 		RandomSource rowRandom = randomFactory.at(0, y, z);
 
-		if (y == height.getMinimum()) {
-			if (rowRandom.nextInt(20) == 3) {
+		int type = sectionRandom.nextInt(2);
+		if (type == 0 && y == height.getMinimum()) {
+			if (rowRandom.nextInt(11) == 3) {
 				return Blocks.OAK_PLANKS.defaultBlockState();
+			}
+		} else if (type == 1 && y == height.getMinimum() + 1) {
+			if (rowRandom.nextInt(15) == 1) {
+				return Blocks.OAK_SLAB.defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP);
 			}
 		}
 

@@ -76,12 +76,12 @@ public class BlendingRecipe implements Recipe<BlendingRecipeInput> {
 
 	@Override
 	public RecipeSerializer<? extends Recipe<BlendingRecipeInput>> getSerializer() {
-		return ModRecipes.BLENDING_RECIPE_SERIALIZER;
+		return ModRecipes.BLENDING_RECIPE_SERIALIZER.get();
 	}
 
 	@Override
 	public RecipeType<? extends Recipe<BlendingRecipeInput>> getType() {
-		return ModRecipes.BLENDING_RECIPE_TYPE;
+		return ModRecipes.BLENDING_RECIPE_TYPE.get();
 	}
 
 	@Override

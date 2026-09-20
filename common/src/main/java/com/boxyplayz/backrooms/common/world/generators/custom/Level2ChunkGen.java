@@ -51,32 +51,32 @@ public class Level2ChunkGen extends BaseChunkGen {
 				maxR - 1);
 		if (y > 4) {
 			if (randomFactory.at(x, y, z).nextBoolean()) {
-				return ModBlocks.LEVEL3_CEILING_LIGHT.defaultBlockState();
+				return ModBlocks.LEVEL3_CEILING_LIGHT.get().defaultBlockState();
 			}
-			return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
+			return ModBlocks.GOTHIC_CONCRETE.get().defaultBlockState();
 		}
 		if (y < 0) {
-			return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
+			return ModBlocks.GOTHIC_CONCRETE.get().defaultBlockState();
 		}
 
 		if (xDir && zDir) {
 			if (!(horizontalRange.contains(localX) || horizontalRange.contains(localZ))) {
-				return ModBlocks.AGED_CONCRETE.defaultBlockState();
+				return ModBlocks.AGED_CONCRETE.get().defaultBlockState();
 			}
 
 			if (Math.floorMod(y, 2) == 0) {
 				if (((localX == maxR) && !horizontalRangeSmol.contains(localZ)
 						|| (localZ == maxR) && !horizontalRangeSmol.contains(localX))) {
-					return ModBlocks.LEVEL2_PIPE.defaultBlockState();
+					return ModBlocks.LEVEL2_PIPE.get().defaultBlockState();
 				}
 			}
 		} else {
 			if (xDir && !horizontalRange.contains(localX)) {
-				return ModBlocks.AGED_CONCRETE.defaultBlockState();
+				return ModBlocks.AGED_CONCRETE.get().defaultBlockState();
 			}
 
 			if (zDir && !horizontalRange.contains(localZ)) {
-				return ModBlocks.AGED_CONCRETE.defaultBlockState();
+				return ModBlocks.AGED_CONCRETE.get().defaultBlockState();
 			}
 
 			if (Math.floorMod(y, 2) == 0) {
@@ -90,21 +90,21 @@ public class Level2ChunkGen extends BaseChunkGen {
 						(zDir
 								&& localZ == maxR
 								&& !horizontalRangeSmol.contains(localX))) {
-					return ModBlocks.LEVEL2_PIPE.defaultBlockState();
+					return ModBlocks.LEVEL2_PIPE.get().defaultBlockState();
 				}
 			}
 		}
 		if (randomFactory.at(x, 32, z).nextInt(24000) == 2) {
 			if (y == 0) {
-				return ModBlocks.ELEVATOR.defaultBlockState();
+				return ModBlocks.ELEVATOR.get().defaultBlockState();
 			}
 			if (y == 1) {
-				return ModBlocks.ELEVATOR.defaultBlockState().setValue(ElevatorBlock.TOP, true);
+				return ModBlocks.ELEVATOR.get().defaultBlockState().setValue(ElevatorBlock.TOP, true);
 			}
 		}
 		if (y == 0) {
 			if (randomFactory.at(x, 2, z).nextInt(2000) == 4) {
-				return ModBlocks.LEVEL2_FIRE_EXIT.defaultBlockState();
+				return ModBlocks.LEVEL2_FIRE_EXIT.get().defaultBlockState();
 			}
 		}
 		return Blocks.AIR.defaultBlockState();

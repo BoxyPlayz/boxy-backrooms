@@ -22,76 +22,85 @@ import com.boxyplayz.backrooms.common.world.generators.custom.Level_Negative_0_2
 import com.boxyplayz.backrooms.common.world.generators.custom.PitfallsChunkGen;
 import com.boxyplayz.backrooms.common.world.generators.custom.PromisedLandChunkGen;
 import com.boxyplayz.backrooms.common.world.generators.custom.TheBrokenChunkGen;
+import com.mojang.serialization.MapCodec;
 
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
+import dev.architectury.registry.registries.DeferredRegister;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 
 public class ModChunkGenerators {
+	private static final DeferredRegister<MapCodec<? extends ChunkGenerator>> CHUNK_GENERATORS = DeferredRegister
+			.create(
+					BoxysBackroomsCommon.MOD_ID,
+					Registries.CHUNK_GENERATOR);
+
 	public static void registerModChunkGenerators() {
-		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
+		CHUNK_GENERATORS.register(
 				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level0_maze"),
-				Level0ChunkGen.CODEC);
-		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
+				() -> Level0ChunkGen.CODEC);
+		CHUNK_GENERATORS.register(
 				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level7_ocean"),
-				Level7ChunkGen.CODEC);
-		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
+				() -> Level7ChunkGen.CODEC);
+		CHUNK_GENERATORS.register(
 				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level94"),
-				Level94ChunkGen.CODEC);
-		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
+				() -> Level94ChunkGen.CODEC);
+		CHUNK_GENERATORS.register(
 				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "the_broken"),
-				TheBrokenChunkGen.CODEC);
-		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
+				() -> TheBrokenChunkGen.CODEC);
+		CHUNK_GENERATORS.register(
 				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level1"),
-				Level1ChunkGen.CODEC);
-		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
+				() -> Level1ChunkGen.CODEC);
+		CHUNK_GENERATORS.register(
 				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "pitfalls"),
-				PitfallsChunkGen.CODEC);
-		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
+				() -> PitfallsChunkGen.CODEC);
+		CHUNK_GENERATORS.register(
 				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level0_2"),
-				Level0_2ChunkGen.CODEC);
-		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
+				() -> Level0_2ChunkGen.CODEC);
+		CHUNK_GENERATORS.register(
 				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "negative_level0_2"),
-				Level_Negative_0_2ChunkGen.CODEC);
-		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
+				() -> Level_Negative_0_2ChunkGen.CODEC);
+		CHUNK_GENERATORS.register(
 				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "blue_channel"),
-				BlueChannelChunkGen.CODEC);
-		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
+				() -> BlueChannelChunkGen.CODEC);
+		CHUNK_GENERATORS.register(
 				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level6"),
-				Level6ChunkGen.CODEC);
-		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
+				() -> Level6ChunkGen.CODEC);
+		CHUNK_GENERATORS.register(
 				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "levelfun"),
-				LevelFunChunkGen.CODEC);
-		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
+				() -> LevelFunChunkGen.CODEC);
+		CHUNK_GENERATORS.register(
 				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "promised_land"),
-				PromisedLandChunkGen.CODEC);
-		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
+				() -> PromisedLandChunkGen.CODEC);
+		CHUNK_GENERATORS.register(
 				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level3"),
-				Level3ChunkGen.CODEC);
-		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
+				() -> Level3ChunkGen.CODEC);
+		CHUNK_GENERATORS.register(
 				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level2"),
-				Level2ChunkGen.CODEC);
-		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
+				() -> Level2ChunkGen.CODEC);
+		CHUNK_GENERATORS.register(
 				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level4"),
-				Level4ChunkGen.CODEC);
-		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
+				() -> Level4ChunkGen.CODEC);
+		CHUNK_GENERATORS.register(
 				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level5"),
-				Level5ChunkGen.CODEC);
-		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
+				() -> Level5ChunkGen.CODEC);
+		CHUNK_GENERATORS.register(
 				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level11"),
-				Level11ChunkGen.CODEC);
-		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
+				() -> Level11ChunkGen.CODEC);
+		CHUNK_GENERATORS.register(
 				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level9"),
-				Level9ChunkGen.CODEC);
-		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
+				() -> Level9ChunkGen.CODEC);
+		CHUNK_GENERATORS.register(
 				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "level10"),
-				Level10ChunkGen.CODEC);
-		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
+				() -> Level10ChunkGen.CODEC);
+		CHUNK_GENERATORS.register(
 				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "the_abyss"),
-				AbyssChunkGen.CODEC);
-		Registry.register(BuiltInRegistries.CHUNK_GENERATOR,
+				() -> AbyssChunkGen.CODEC);
+		CHUNK_GENERATORS.register(
 				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "run_for_your_life"),
-				LevelRunChunkGen.CODEC);
+				() -> LevelRunChunkGen.CODEC);
+
+		CHUNK_GENERATORS.register();
 
 	}
 }

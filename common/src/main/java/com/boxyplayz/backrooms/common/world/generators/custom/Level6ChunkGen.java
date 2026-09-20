@@ -32,12 +32,12 @@ public class Level6ChunkGen extends BaseChunkGen {
 			if (blockNoVerticalRandom.nextIntBetweenInclusive(1, 4324) == 4 && y != getMinY()) {
 				return Blocks.WATER.defaultBlockState();
 			}
-			return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
+			return ModBlocks.GOTHIC_CONCRETE.get().defaultBlockState();
 		}
 
 		// Ceiling
 		if (y >= 4) {
-			return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
+			return ModBlocks.GOTHIC_CONCRETE.get().defaultBlockState();
 		}
 
 		// Maze logic start!
@@ -53,16 +53,16 @@ public class Level6ChunkGen extends BaseChunkGen {
 				(int) (chunkZ * 4 + cellZ));
 
 		if (getRandomBool(cellRandom) && localZ == 0) {
-			return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
+			return ModBlocks.GOTHIC_CONCRETE.get().defaultBlockState();
 		}
 		if (getRandomBool(cellRandom) && localZ == 3) {
-			return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
+			return ModBlocks.GOTHIC_CONCRETE.get().defaultBlockState();
 		}
 		if (getRandomBool(cellRandom) && localX == 0) {
-			return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
+			return ModBlocks.GOTHIC_CONCRETE.get().defaultBlockState();
 		}
 		if (getRandomBool(cellRandom) && localX == 3) {
-			return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
+			return ModBlocks.GOTHIC_CONCRETE.get().defaultBlockState();
 		}
 
 		return Blocks.AIR.defaultBlockState();

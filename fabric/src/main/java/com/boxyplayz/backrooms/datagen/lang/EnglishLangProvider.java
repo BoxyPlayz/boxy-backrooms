@@ -48,103 +48,103 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModCreativeTabs.BACKROOMS_ITEM_GROUP_KEY, "Boxy's Backrooms");
 
 		// Food
-		translationBuilder.add(ModItems.GRAY_ALMOND_WATER, "Almond Water");
-		translationBuilder.add(ModItems.GREEN_ALMOND_WATER, "Almond Water");
-		translationBuilder.add(ModItems.RED_ALMOND_WATER, "Almond Water");
-		translationBuilder.add(ModItems.ROYAL_RATION, "Royal Ration");
-		translationBuilder.add(ModItems.NEON_WATER, "Neon Water");
-		translationBuilder.add(ModItems.EMPTY_ALMOND_WATER, "Empty Water Bottle");
+		translationBuilder.add(ModItems.GRAY_ALMOND_WATER.get(), "Almond Water");
+		translationBuilder.add(ModItems.GREEN_ALMOND_WATER.get(), "Almond Water");
+		translationBuilder.add(ModItems.RED_ALMOND_WATER.get(), "Almond Water");
+		translationBuilder.add(ModItems.ROYAL_RATION.get(), "Royal Ration");
+		translationBuilder.add(ModItems.NEON_WATER.get(), "Neon Water");
+		translationBuilder.add(ModItems.EMPTY_ALMOND_WATER.get(), "Empty Water Bottle");
 
 		// Egg
-		translationBuilder.add(ModItems.SMILER_SPAWN_EGG, "Smiler Spawn Egg");
-		translationBuilder.add(ModItems.WRETCH_SPAWN_EGG, "Wretched Spawn Egg");
-		translationBuilder.add(ModItems.SKINSTEALER_SPAWN_EGG, "Skinstealer Spawn Egg");
-		translationBuilder.add(ModItems.PARTYGOER_SPAWN_EGG, "Partygoer Spawn Egg");
-		translationBuilder.add(ModItems.PARTYPOOPER_SPAWN_EGG, "Partypooper Spawn Egg");
-		translationBuilder.add(ModItems.NEIGHBORHOOD_WATCH_SPAWN_EGG, "Neighborhood Watch Spawn Egg");
+		translationBuilder.add(ModItems.SMILER_SPAWN_EGG.get(), "Smiler Spawn Egg");
+		translationBuilder.add(ModItems.WRETCH_SPAWN_EGG.get(), "Wretched Spawn Egg");
+		translationBuilder.add(ModItems.SKINSTEALER_SPAWN_EGG.get(), "Skinstealer Spawn Egg");
+		translationBuilder.add(ModItems.PARTYGOER_SPAWN_EGG.get(), "Partygoer Spawn Egg");
+		translationBuilder.add(ModItems.PARTYPOOPER_SPAWN_EGG.get(), "Partypooper Spawn Egg");
+		translationBuilder.add(ModItems.NEIGHBORHOOD_WATCH_SPAWN_EGG.get(), "Neighborhood Watch Spawn Egg");
 
 		// Other Items
-		translationBuilder.add(ModItems.FIRESALT_SHARD, "Firesalt Shard");
-		translationBuilder.add(ModItems.SHADOW_DUST, "Shadow Dust");
-		translationBuilder.add(ModItems.SMILER_REPELLANT, "Smiler Repellant");
-		translationBuilder.add(ModItems.FIRESTEEL_ALLOY, "Firesteel Alloy");
-		translationBuilder.add(ModItems.FIRESTEEL_SWORD, "Firesteel Sword");
-		translationBuilder.add(ModItems.LIQUID_PAIN, "Liquid Pain");
-		translationBuilder.add(ModBlocks.ELEVATOR, "Elevator");
-		translationBuilder.add(ModItems.GRAY_KEY, "Gray Key");
+		translationBuilder.add(ModItems.FIRESALT_SHARD.get(), "Firesalt Shard");
+		translationBuilder.add(ModItems.SHADOW_DUST.get(), "Shadow Dust");
+		translationBuilder.add(ModItems.SMILER_REPELLANT.get(), "Smiler Repellant");
+		translationBuilder.add(ModItems.FIRESTEEL_ALLOY.get(), "Firesteel Alloy");
+		translationBuilder.add(ModItems.FIRESTEEL_SWORD.get(), "Firesteel Sword");
+		translationBuilder.add(ModItems.LIQUID_PAIN.get(), "Liquid Pain");
+		translationBuilder.add(ModBlocks.ELEVATOR.get(), "Elevator");
+		translationBuilder.add(ModItems.GRAY_KEY.get(), "Gray Key");
 
 		// Noclippable Blocks
-		translationBuilder.add(ModBlocks.ERRORSLATE, "Errorslate");
-		translationBuilder.add(ModBlocks.OCEAN_TRANSPORTER, "Aquatic Transporter");
-		translationBuilder.add(ModBlocks.LEVEL0_WALLPAPER, "Wallpaper");
-		translationBuilder.add(ModBlocks.LEVEL0_CARPET_GLITCHED, "Carpet?");
+		translationBuilder.add(ModBlocks.ERRORSLATE.get(), "Errorslate");
+		translationBuilder.add(ModBlocks.OCEAN_TRANSPORTER.get(), "Aquatic Transporter");
+		translationBuilder.add(ModBlocks.LEVEL0_WALLPAPER.get(), "Wallpaper");
+		translationBuilder.add(ModBlocks.LEVEL0_CARPET_GLITCHED.get(), "Carpet?");
 
 		// Regular Blocks
-		translationBuilder.add(ModBlocks.PURE_GRASS, "Pure Grass");
+		translationBuilder.add(ModBlocks.PURE_GRASS.get(), "Pure Grass");
 
-		translationBuilder.add(ModBlocks.LEVEL0_CARPET, "Carpet");
-		translationBuilder.add(ModBlocks.LEVEL0_CEILING_LIGHT, "Old Ceiling Light");
-		translationBuilder.add(ModBlocks.LEVEL0_CEILING_TILE, "Tiles");
-		translationBuilder.add(ModBlocks.PREMIUM_CARPET, "Premium Carpet");
-		translationBuilder.add(ModBlocks.PREMIUM_CEILING_TILE, "Premium Ceiling Tiles");
-		translationBuilder.add(ModBlocks.PREMIUM_WALLPAPER, "Premium Wallpaper");
-		translationBuilder.add(ModBlocks.INFERIOR_CARPET, "Worn Carpet");
-		translationBuilder.add(ModBlocks.INFERIOR_CEILING_TILE, "Failed Ceiling Tiles");
-		translationBuilder.add(ModBlocks.INFERIOR_WALLPAPER, "Old Wallpaper");
+		translationBuilder.add(ModBlocks.LEVEL0_CARPET.get(), "Carpet");
+		translationBuilder.add(ModBlocks.LEVEL0_CEILING_LIGHT.get(), "Old Ceiling Light");
+		translationBuilder.add(ModBlocks.LEVEL0_CEILING_TILE.get(), "Tiles");
+		translationBuilder.add(ModBlocks.PREMIUM_CARPET.get(), "Premium Carpet");
+		translationBuilder.add(ModBlocks.PREMIUM_CEILING_TILE.get(), "Premium Ceiling Tiles");
+		translationBuilder.add(ModBlocks.PREMIUM_WALLPAPER.get(), "Premium Wallpaper");
+		translationBuilder.add(ModBlocks.INFERIOR_CARPET.get(), "Worn Carpet");
+		translationBuilder.add(ModBlocks.INFERIOR_CEILING_TILE.get(), "Failed Ceiling Tiles");
+		translationBuilder.add(ModBlocks.INFERIOR_WALLPAPER.get(), "Old Wallpaper");
 
-		translationBuilder.add(ModBlocks.LEVEL1_CEILING_AQUILA, "Aquila Sector Ceiling");
-		translationBuilder.add(ModBlocks.LEVEL1_FLOOR_AQUILA, "Aquila Sector Floor");
-		translationBuilder.add(ModBlocks.LEVEL1_CEILING_LIGHT, "Aquila Ceiling Light");
-		translationBuilder.add(ModBlocks.LEVEL1_PILLAR_AQUILA, "Aquila Pillar");
-		translationBuilder.add(ModBlocks.LEVEL1_WALL_GILD, "Gilded Sector Wall");
-		translationBuilder.add(ModBlocks.GOTHIC_CONCRETE, "Gothic Concrete");
-		translationBuilder.add(ModBlocks.GARDEN_CONCRETE, "Garden Concrete");
-		translationBuilder.add(ModBlocks.AGED_CONCRETE, "Aged Concrete");
+		translationBuilder.add(ModBlocks.LEVEL1_CEILING_AQUILA.get(), "Aquila Sector Ceiling");
+		translationBuilder.add(ModBlocks.LEVEL1_FLOOR_AQUILA.get(), "Aquila Sector Floor");
+		translationBuilder.add(ModBlocks.LEVEL1_CEILING_LIGHT.get(), "Aquila Ceiling Light");
+		translationBuilder.add(ModBlocks.LEVEL1_PILLAR_AQUILA.get(), "Aquila Pillar");
+		translationBuilder.add(ModBlocks.LEVEL1_WALL_GILD.get(), "Gilded Sector Wall");
+		translationBuilder.add(ModBlocks.GOTHIC_CONCRETE.get(), "Gothic Concrete");
+		translationBuilder.add(ModBlocks.GARDEN_CONCRETE.get(), "Garden Concrete");
+		translationBuilder.add(ModBlocks.AGED_CONCRETE.get(), "Aged Concrete");
 
-		translationBuilder.add(ModBlocks.FUN_GREEN, "Fun Green Wall");
-		translationBuilder.add(ModBlocks.FUN_PINK, "Fun Pink Wall");
-		translationBuilder.add(ModBlocks.FUN_PURPLE, "Fun Purple Wall");
-		translationBuilder.add(ModBlocks.FUN_YELLOW, "Fun Yellow Wall");
-		translationBuilder.add(ModBlocks.FUN_FLOOR, "Fun Floor");
-		translationBuilder.add(ModBlocks.BLACK_TRAMPOLINE, "Black Trampoline");
+		translationBuilder.add(ModBlocks.FUN_GREEN.get(), "Fun Green Wall");
+		translationBuilder.add(ModBlocks.FUN_PINK.get(), "Fun Pink Wall");
+		translationBuilder.add(ModBlocks.FUN_PURPLE.get(), "Fun Purple Wall");
+		translationBuilder.add(ModBlocks.FUN_YELLOW.get(), "Fun Yellow Wall");
+		translationBuilder.add(ModBlocks.FUN_FLOOR.get(), "Fun Floor");
+		translationBuilder.add(ModBlocks.BLACK_TRAMPOLINE.get(), "Black Trampoline");
 
-		translationBuilder.add(ModBlocks.PROMISED_CEILING_LIGHT, "Promised Ceiling Light");
-		translationBuilder.add(ModBlocks.PROMISED_CARPET, "Promised Carpet");
-		translationBuilder.add(ModBlocks.PROMISED_CEILING_TILE, "Promised Ceiling Tile");
-		translationBuilder.add(ModBlocks.PROMISED_WALLPAPER, "Promised Wallpaper");
-		translationBuilder.add(ModBlocks.PROMISED_GATE, "Promised Gateway");
+		translationBuilder.add(ModBlocks.PROMISED_CEILING_LIGHT.get(), "Promised Ceiling Light");
+		translationBuilder.add(ModBlocks.PROMISED_CARPET.get(), "Promised Carpet");
+		translationBuilder.add(ModBlocks.PROMISED_CEILING_TILE.get(), "Promised Ceiling Tile");
+		translationBuilder.add(ModBlocks.PROMISED_WALLPAPER.get(), "Promised Wallpaper");
+		translationBuilder.add(ModBlocks.PROMISED_GATE.get(), "Promised Gateway");
 
-		translationBuilder.add(ModBlocks.PURE_BLUE, "Pure Blue");
+		translationBuilder.add(ModBlocks.PURE_BLUE.get(), "Pure Blue");
 
 		translationBuilder.add(FabricBlocks.POWER_OUTLET_BLOCK, "Power Outlet");
-		translationBuilder.add(ModBlocks.LEVEL3_CEILING_LIGHT, "Level 3 Ceiling Light");
-		translationBuilder.add(ModBlocks.ELECTRICAL_BRICKS, "Electrical Bricks");
+		translationBuilder.add(ModBlocks.LEVEL3_CEILING_LIGHT.get(), "Level 3 Ceiling Light");
+		translationBuilder.add(ModBlocks.ELECTRICAL_BRICKS.get(), "Electrical Bricks");
 
-		translationBuilder.add(ModBlocks.BLENDER, "Blender");
-		translationBuilder.add(ModBlocks.WATER_FOUNTAIN, "Water Fountain");
+		translationBuilder.add(ModBlocks.BLENDER.get(), "Blender");
+		translationBuilder.add(ModBlocks.WATER_FOUNTAIN.get(), "Water Fountain");
 
-		translationBuilder.add(ModBlocks.LEVEL2_PIPE, "Level 2 Pipe");
-		translationBuilder.add(ModBlocks.LEVEL2_DOOR, "Level 2 Door");
-		translationBuilder.add(ModBlocks.LEVEL2_FIRE_EXIT, "Level 2 Fire Exit");
+		translationBuilder.add(ModBlocks.LEVEL2_PIPE.get(), "Level 2 Pipe");
+		translationBuilder.add(ModBlocks.LEVEL2_DOOR.get(), "Level 2 Door");
+		translationBuilder.add(ModBlocks.LEVEL2_FIRE_EXIT.get(), "Level 2 Fire Exit");
 
-		translationBuilder.add(ModBlocks.LEVEL4_CARPET, "Level 4 Carpet");
-		translationBuilder.add(ModBlocks.PURE_WHITE_GLOW, "Pure White Glow");
-		translationBuilder.add(ModBlocks.LEVEL5_ENTRY_TABLE, "Level 5 Entry Table");
+		translationBuilder.add(ModBlocks.LEVEL4_CARPET.get(), "Level 4 Carpet");
+		translationBuilder.add(ModBlocks.PURE_WHITE_GLOW.get(), "Pure White Glow");
+		translationBuilder.add(ModBlocks.LEVEL5_ENTRY_TABLE.get(), "Level 5 Entry Table");
 
-		translationBuilder.add(ModBlocks.LEVEL5_CARPET, "Level 5 Carpet");
-		translationBuilder.add(ModBlocks.LEVEL6_ENTRY, "Level 6 Entry Point");
+		translationBuilder.add(ModBlocks.LEVEL5_CARPET.get(), "Level 5 Carpet");
+		translationBuilder.add(ModBlocks.LEVEL6_ENTRY.get(), "Level 6 Entry Point");
 
-		translationBuilder.add(ModBlocks.LEVEL11_CONCRETE, "Level 11 Concrete");
+		translationBuilder.add(ModBlocks.LEVEL11_CONCRETE.get(), "Level 11 Concrete");
 
-		translationBuilder.add(ModBlocks.FALSE_WHEAT, "False Wheat");
+		translationBuilder.add(ModBlocks.FALSE_WHEAT.get(), "False Wheat");
 
-		translationBuilder.add(ModBlocks.STEP_VISIBLE, "Semi Visible Step");
+		translationBuilder.add(ModBlocks.STEP_VISIBLE.get(), "Semi Visible Step");
 
-		translationBuilder.add(ModBlocks.LEVEL9_ENTRY, "Level 9 Entry House");
+		translationBuilder.add(ModBlocks.LEVEL9_ENTRY.get(), "Level 9 Entry House");
 
 		// Loot Blocks
-		translationBuilder.add(ModBlocks.LEVEL1_CRATE, "Crate");
-		translationBuilder.add(ModBlocks.FUN_CRATE, "Fun Crate =)");
+		translationBuilder.add(ModBlocks.LEVEL1_CRATE.get(), "Crate");
+		translationBuilder.add(ModBlocks.FUN_CRATE.get(), "Fun Crate =)");
 
 		// Advancements
 		translationBuilder.add(getText("oneway_title"), "It's a cave?");
@@ -224,13 +224,13 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModTags.LARGE_JUMP, "Large Jump");
 
 		// Tooltips
-		translationBuilder.add(getTooltip(ModItems.GRAY_ALMOND_WATER), "Tastes like almonds.");
-		translationBuilder.add(getTooltip(ModItems.GREEN_ALMOND_WATER), "Tastes sweet!");
-		translationBuilder.add(getTooltip(ModItems.RED_ALMOND_WATER), "Tastes bitter.");
-		translationBuilder.add(getTooltip(ModItems.NEON_WATER), "Tastes like power.");
-		translationBuilder.add(getTooltip(ModItems.FIRESTEEL_SWORD), "Fire, Magic, and Steel.");
-		translationBuilder.add(getTooltip(ModItems.FIRESTEEL_ALLOY), "Fire and Steel.");
-		translationBuilder.add(getTooltip(ModItems.GRAY_KEY), "You feel a shift in your world.");
+		translationBuilder.add(getTooltip(ModItems.GRAY_ALMOND_WATER.get()), "Tastes like almonds.");
+		translationBuilder.add(getTooltip(ModItems.GREEN_ALMOND_WATER.get()), "Tastes sweet!");
+		translationBuilder.add(getTooltip(ModItems.RED_ALMOND_WATER.get()), "Tastes bitter.");
+		translationBuilder.add(getTooltip(ModItems.NEON_WATER.get()), "Tastes like power.");
+		translationBuilder.add(getTooltip(ModItems.FIRESTEEL_SWORD.get()), "Fire, Magic, and Steel.");
+		translationBuilder.add(getTooltip(ModItems.FIRESTEEL_ALLOY.get()), "Fire and Steel.");
+		translationBuilder.add(getTooltip(ModItems.GRAY_KEY.get()), "You feel a shift in your world.");
 
 		// Entities
 		translationBuilder.add(ModEntities.SMILER, "Smiler");

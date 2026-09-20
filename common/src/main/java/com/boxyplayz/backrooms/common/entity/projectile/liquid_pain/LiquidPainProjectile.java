@@ -28,12 +28,12 @@ public class LiquidPainProjectile extends ThrowableItemProjectile {
 	}
 
 	public LiquidPainProjectile(final Level level, final LivingEntity mob, final ItemStack itemStack) {
-		super(ModEntities.LIQUID_PAIN_PROJECTILE, mob, level, itemStack);
+		super(ModEntities.LIQUID_PAIN_PROJECTILE.get(), mob, level, itemStack);
 	}
 
 	@Override
 	protected Item getDefaultItem() {
-		return ModItems.LIQUID_PAIN;
+		return ModItems.LIQUID_PAIN.get();
 	}
 
 	@Override

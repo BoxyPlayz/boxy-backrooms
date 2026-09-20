@@ -55,12 +55,12 @@ public class AdvancementProvider extends FabricAdvancementProvider {
 				ChangeDimensionTrigger.TriggerInstance.changedDimensionTo(ModDimensions.THE_BROKEN.level))
 				.save(consumer, BoxysBackroomsFabric.MOD_ID + ":broken_place");
 
-		AdvancementHolder theBackrooms = generateAdvancement(ModBlocks.LEVEL0_WALLPAPER, "backrooms",
+		AdvancementHolder theBackrooms = generateAdvancement(ModBlocks.LEVEL0_WALLPAPER.get(), "backrooms",
 				Identifier.fromNamespaceAndPath(BoxysBackroomsFabric.MOD_ID, "block/level0_wallpaper"),
 				ChangeDimensionTrigger.TriggerInstance.changedDimensionTo(ModDimensions.LEVEL0.level))
 				.save(consumer, BoxysBackroomsFabric.MOD_ID + ":the_backrooms");
 
-		AdvancementHolder habitable = generateAdvancement(ModBlocks.GOTHIC_CONCRETE, "habitable", null,
+		AdvancementHolder habitable = generateAdvancement(ModBlocks.GOTHIC_CONCRETE.get(), "habitable", null,
 				ChangeDimensionTrigger.TriggerInstance.changedDimensionTo(ModDimensions.LEVEL1.level))
 				.parent(theBackrooms).save(consumer, BoxysBackroomsFabric.MOD_ID + ":habitable");
 
@@ -71,22 +71,22 @@ public class AdvancementProvider extends FabricAdvancementProvider {
 				.parent(habitable)
 				.save(consumer, BoxysBackroomsFabric.MOD_ID + ":garden_hab");
 
-		AdvancementHolder pipeDream = generateAdvancement(ModBlocks.LEVEL2_PIPE, "pipe_dream", null,
+		AdvancementHolder pipeDream = generateAdvancement(ModBlocks.LEVEL2_PIPE.get(), "pipe_dream", null,
 				ChangeDimensionTrigger.TriggerInstance.changedDimensionTo(ModDimensions.LEVEL2.level))
 				.parent(habitable)
 				.save(consumer, BoxysBackroomsFabric.MOD_ID + ":pipe_dreams");
 
-		AdvancementHolder elecStation = generateAdvancement(ModBlocks.ELECTRICAL_BRICKS, "elec", null,
+		AdvancementHolder elecStation = generateAdvancement(ModBlocks.ELECTRICAL_BRICKS.get(), "elec", null,
 				ChangeDimensionTrigger.TriggerInstance.changedDimensionTo(ModDimensions.LEVEL3.level))
 				.parent(pipeDream)
 				.save(consumer, BoxysBackroomsFabric.MOD_ID + ":elec_station");
 
-		AdvancementHolder offices = generateAdvancement(ModBlocks.ELEVATOR, "office", null,
+		AdvancementHolder offices = generateAdvancement(ModBlocks.ELEVATOR.get(), "office", null,
 				ChangeDimensionTrigger.TriggerInstance.changedDimensionTo(ModDimensions.LEVEL4.level))
 				.parent(elecStation)
 				.save(consumer, BoxysBackroomsFabric.MOD_ID + ":office");
 
-		AdvancementHolder hotel = generateAdvancement(ModBlocks.LEVEL5_ENTRY_TABLE, "hotel", null,
+		AdvancementHolder hotel = generateAdvancement(ModBlocks.LEVEL5_ENTRY_TABLE.get(), "hotel", null,
 				ChangeDimensionTrigger.TriggerInstance.changedDimensionTo(ModDimensions.LEVEL5.level))
 				.parent(offices)
 				.save(consumer, BoxysBackroomsFabric.MOD_ID + ":hotel");
@@ -102,7 +102,7 @@ public class AdvancementProvider extends FabricAdvancementProvider {
 				.parent(darkness)
 				.save(consumer, BoxysBackroomsFabric.MOD_ID + ":endless_ocean");
 
-		AdvancementHolder oneWayCavern = generateAdvancement(ModBlocks.ERRORSLATE, "oneway", null,
+		AdvancementHolder oneWayCavern = generateAdvancement(ModBlocks.ERRORSLATE.get(), "oneway", null,
 				ChangeDimensionTrigger.TriggerInstance.changedDimensionTo(ModDimensions.LEVEL8.level))
 				.parent(neverEndingOcean)
 				.save(consumer, BoxysBackroomsFabric.MOD_ID + ":one_way_cavern");
@@ -117,36 +117,36 @@ public class AdvancementProvider extends FabricAdvancementProvider {
 				.parent(wrongWay)
 				.save(consumer, BoxysBackroomsFabric.MOD_ID + ":ninety_four");
 
-		AdvancementHolder remodelling = generateAdvancement(ModBlocks.PREMIUM_CARPET, "remodelling", null,
+		AdvancementHolder remodelling = generateAdvancement(ModBlocks.PREMIUM_CARPET.get(), "remodelling", null,
 				ChangeDimensionTrigger.TriggerInstance.changedDimensionTo(ModDimensions.LEVEL0_2.level))
 				.parent(theBackrooms)
 				.save(consumer, BoxysBackroomsFabric.MOD_ID + ":remodelling");
 
-		AdvancementHolder negativeZone = generateAdvancement(ModBlocks.INFERIOR_WALLPAPER, "negativezone", null,
+		AdvancementHolder negativeZone = generateAdvancement(ModBlocks.INFERIOR_WALLPAPER.get(), "negativezone", null,
 				ChangeDimensionTrigger.TriggerInstance
 						.changedDimensionTo(ModDimensions.LEVEL_NEGATIVE_0_2.level))
 				.parent(remodelling)
 				.save(consumer, BoxysBackroomsFabric.MOD_ID + ":negativezone");
 
-		AdvancementHolder funTime = generateAdvancement(ModBlocks.FUN_FLOOR, "fun", null,
+		AdvancementHolder funTime = generateAdvancement(ModBlocks.FUN_FLOOR.get(), "fun", null,
 				ChangeDimensionTrigger.TriggerInstance
 						.changedDimensionTo(ModDimensions.LEVEL_FUN.level))
 				.parent(theBackrooms)
 				.save(consumer, BoxysBackroomsFabric.MOD_ID + ":fun");
 
-		AdvancementHolder neighbors = generateAdvancement(ModBlocks.LEVEL9_ENTRY, "neighbors", null,
+		AdvancementHolder neighbors = generateAdvancement(ModBlocks.LEVEL9_ENTRY.get(), "neighbors", null,
 				ChangeDimensionTrigger.TriggerInstance
 						.changedDimensionTo(ModDimensions.LEVEL9.level))
 				.parent(oneWayCavern)
 				.save(consumer, BoxysBackroomsFabric.MOD_ID + ":neighbors");
 
-		AdvancementHolder eightFrench = generateAdvancement(ModBlocks.FALSE_WHEAT, "huit", null,
+		AdvancementHolder eightFrench = generateAdvancement(ModBlocks.FALSE_WHEAT.get(), "huit", null,
 				ChangeDimensionTrigger.TriggerInstance
 						.changedDimensionTo(ModDimensions.LEVEL10.level))
 				.parent(neighbors)
 				.save(consumer, BoxysBackroomsFabric.MOD_ID + ":huit");
 
-		AdvancementHolder oneBigCity = generateAdvancement(ModBlocks.FALSE_WHEAT, "big_city", null,
+		AdvancementHolder oneBigCity = generateAdvancement(Blocks.GRAY_CONCRETE, "big_city", null,
 				ChangeDimensionTrigger.TriggerInstance
 						.changedDimensionTo(ModDimensions.LEVEL11.level))
 				.parent(eightFrench)

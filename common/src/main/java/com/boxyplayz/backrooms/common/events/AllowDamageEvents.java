@@ -34,12 +34,12 @@ public class AllowDamageEvents {
 			if (entity instanceof SmilerEntity) {
 				if (source.is(DamageTypes.PLAYER_ATTACK)) {
 					if (source.getEntity() instanceof Player player) {
-						if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FIRESTEEL_SWORD)) {
+						if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FIRESTEEL_SWORD.get())) {
 							return EventResult.pass();
 						}
-						if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FIRESALT_SHARD.asItem())
+						if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FIRESALT_SHARD.get().asItem())
 								|| player.getItemBySlot(EquipmentSlot.OFFHAND)
-										.is(ModItems.FIRESALT_SHARD.asItem())) {
+										.is(ModItems.FIRESALT_SHARD.get().asItem())) {
 							entity.setRemainingFireTicks(120);
 						}
 						if (!player.getItemBySlot(EquipmentSlot.MAINHAND).getEnchantments().isEmpty()) {

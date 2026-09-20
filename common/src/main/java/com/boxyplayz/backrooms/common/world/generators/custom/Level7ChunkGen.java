@@ -58,7 +58,7 @@ public class Level7ChunkGen extends BaseChunkGen {
 		if (y < -54) {
 			boolean isErrorSlate = (chunkId.nextIntBetweenInclusive(1, 7500) == 1);
 			if (isErrorSlate) {
-				return ModBlocks.ERRORSLATE.defaultBlockState();
+				return ModBlocks.ERRORSLATE.get().defaultBlockState();
 			} else {
 				return Blocks.DEEPSLATE.defaultBlockState();
 			}

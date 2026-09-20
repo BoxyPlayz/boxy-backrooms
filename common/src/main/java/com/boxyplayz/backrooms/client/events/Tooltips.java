@@ -13,25 +13,25 @@ public class Tooltips {
 
 	public static void Register() {
 		ClientTooltipEvent.ITEM.register((itemStack, lines, context, flag) -> {
-			if (itemStack.is(ModItems.GRAY_ALMOND_WATER)) {
+			if (itemStack.is(ModItems.GRAY_ALMOND_WATER.get())) {
 				lines.add(Component.translatable(getTooltip(itemStack.getItem())));
 			}
-			if (itemStack.is(ModItems.GREEN_ALMOND_WATER)) {
+			if (itemStack.is(ModItems.GREEN_ALMOND_WATER.get())) {
 				lines.add(Component.translatable(getTooltip(itemStack.getItem())));
 			}
-			if (itemStack.is(ModItems.RED_ALMOND_WATER)) {
+			if (itemStack.is(ModItems.RED_ALMOND_WATER.get())) {
 				lines.add(Component.translatable(getTooltip(itemStack.getItem())));
 			}
-			if (itemStack.is(ModItems.FIRESTEEL_SWORD)) {
+			if (itemStack.is(ModItems.FIRESTEEL_SWORD.get())) {
 				lines.add(Component.translatable(getTooltip(itemStack.getItem())));
 			}
-			if (itemStack.is(ModItems.FIRESTEEL_ALLOY)) {
+			if (itemStack.is(ModItems.FIRESTEEL_ALLOY.get())) {
 				lines.add(Component.translatable(getTooltip(itemStack.getItem())));
 			}
-			if (itemStack.is(ModItems.GRAY_KEY)) {
+			if (itemStack.is(ModItems.GRAY_KEY.get())) {
 				lines.add(Component.translatable(getTooltip(itemStack.getItem())));
 			}
-			if (itemStack.is(ModItems.NEON_WATER)) {
+			if (itemStack.is(ModItems.NEON_WATER.get())) {
 				lines.add(Component.translatable(getTooltip(itemStack.getItem())));
 			}
 		});

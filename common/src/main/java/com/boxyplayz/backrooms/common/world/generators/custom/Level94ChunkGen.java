@@ -50,7 +50,7 @@ public class Level94ChunkGen extends BaseChunkGen {
 		height += 70;
 
 		if (y <= height) {
-			return ModBlocks.PURE_GRASS.defaultBlockState();
+			return ModBlocks.PURE_GRASS.get().defaultBlockState();
 		}
 
 		return Blocks.AIR.defaultBlockState();

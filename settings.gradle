@@ -11,3 +11,4 @@ rootProject.name = 'boxys_backrooms'
 
 include 'common'
 include 'fabric'
+include 'neoforge'

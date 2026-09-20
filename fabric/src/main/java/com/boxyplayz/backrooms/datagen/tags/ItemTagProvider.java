@@ -22,23 +22,23 @@ public class ItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
 	@Override
 	protected void addTags(Provider wrapperLookup) {
 		valueLookupBuilder(ModTags.NOCLIPPABLES)
-				.add(ModBlocks.ERRORSLATE.asItem())
-				.add(ModBlocks.LEVEL0_WALLPAPER.asItem())
-				.add(ModBlocks.LEVEL0_CARPET.asItem())
-				.add(ModBlocks.PREMIUM_CARPET.asItem())
-				.add(ModBlocks.INFERIOR_CARPET.asItem())
-				.add(ModBlocks.LEVEL0_CARPET_GLITCHED.asItem())
-				.add(ModBlocks.OCEAN_TRANSPORTER.asItem());
+				.add(ModBlocks.ERRORSLATE.get().asItem())
+				.add(ModBlocks.LEVEL0_WALLPAPER.get().asItem())
+				.add(ModBlocks.LEVEL0_CARPET.get().asItem())
+				.add(ModBlocks.PREMIUM_CARPET.get().asItem())
+				.add(ModBlocks.INFERIOR_CARPET.get().asItem())
+				.add(ModBlocks.LEVEL0_CARPET_GLITCHED.get().asItem())
+				.add(ModBlocks.OCEAN_TRANSPORTER.get().asItem());
 
 		valueLookupBuilder(ModTags.ALMOND_WATERS)
-				.add(ModItems.GRAY_ALMOND_WATER)
-				.add(ModItems.GREEN_ALMOND_WATER)
-				.add(ModItems.RED_ALMOND_WATER)
+				.add(ModItems.GRAY_ALMOND_WATER.get())
+				.add(ModItems.GREEN_ALMOND_WATER.get())
+				.add(ModItems.RED_ALMOND_WATER.get())
 				.setReplace(false);
 
 		valueLookupBuilder(ModTags.FIRESTEEL_REPAIR_ITEMS)
-				.add(ModItems.FIRESALT_SHARD)
-				.add(ModItems.FIRESTEEL_ALLOY)
+				.add(ModItems.FIRESALT_SHARD.get())
+				.add(ModItems.FIRESTEEL_ALLOY.get())
 				.add(Items.GOLD_INGOT)
 				.add(Items.IRON_INGOT);
 
@@ -53,11 +53,11 @@ public class ItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
 				.setReplace(false);
 
 		valueLookupBuilder(ItemTags.MELEE_WEAPON_ENCHANTABLE)
-				.add(ModItems.FIRESTEEL_SWORD);
+				.add(ModItems.FIRESTEEL_SWORD.get());
 		valueLookupBuilder(ItemTags.SWORDS)
-				.add(ModItems.FIRESTEEL_SWORD);
+				.add(ModItems.FIRESTEEL_SWORD.get());
 		valueLookupBuilder(ItemTags.SHARP_WEAPON_ENCHANTABLE)
-				.add(ModItems.FIRESTEEL_SWORD);
+				.add(ModItems.FIRESTEEL_SWORD.get());
 	}
 
 }

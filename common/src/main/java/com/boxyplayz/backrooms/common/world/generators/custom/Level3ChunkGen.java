@@ -52,7 +52,7 @@ public class Level3ChunkGen extends BaseChunkGen {
 		if (blockRandom.nextIntBetweenInclusive(1, 160) == 3) {
 			return SidedBlocks.POWER_OUTLET_BLOCK().defaultBlockState();
 		}
-		return ModBlocks.ELECTRICAL_BRICKS.defaultBlockState();
+		return ModBlocks.ELECTRICAL_BRICKS.get().defaultBlockState();
 	}
 
 	private boolean getRandomBool(RandomSource random) {
@@ -76,14 +76,14 @@ public class Level3ChunkGen extends BaseChunkGen {
 		RandomSource blockRandom = randomFactory.at(x, y, z);
 
 		if (y <= 0) {
-			return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
+			return ModBlocks.GOTHIC_CONCRETE.get().defaultBlockState();
 		}
 
 		if (y >= 4) {
 			if (y == 4 && blockRandom.nextIntBetweenInclusive(1, 24) == 2) {
-				return ModBlocks.LEVEL3_CEILING_LIGHT.defaultBlockState();
+				return ModBlocks.LEVEL3_CEILING_LIGHT.get().defaultBlockState();
 			}
-			return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
+			return ModBlocks.GOTHIC_CONCRETE.get().defaultBlockState();
 		}
 
 		RandomSource eastRandom = randomFactory.at(cellPos.getX(), 0, cellPos.getZ());
@@ -114,7 +114,7 @@ public class Level3ChunkGen extends BaseChunkGen {
 					return Blocks.SMOKER.defaultBlockState();
 
 				case 8:
-					return ModBlocks.BLENDER.defaultBlockState();
+					return ModBlocks.BLENDER.get().defaultBlockState();
 				default:
 					break;
 			}
@@ -122,10 +122,10 @@ public class Level3ChunkGen extends BaseChunkGen {
 
 		if (randomFactory.at(x, 12, z).nextInt(6000) == 3) {
 			if (y == 1) {
-				return ModBlocks.ELEVATOR.defaultBlockState();
+				return ModBlocks.ELEVATOR.get().defaultBlockState();
 			}
 			if (y == 2) {
-				return ModBlocks.ELEVATOR.defaultBlockState().setValue(ElevatorBlock.TOP, true);
+				return ModBlocks.ELEVATOR.get().defaultBlockState().setValue(ElevatorBlock.TOP, true);
 			}
 		}
 

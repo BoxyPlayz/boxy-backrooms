@@ -46,34 +46,34 @@ public class LevelFunChunkGen extends BaseChunkGen {
 
 		if (biome.is(ModBiomes.LevelFunBiomes.HALLWAYS_BIOME)) {
 			if (y <= 0) {
-				return ModBlocks.FUN_FLOOR.defaultBlockState();
+				return ModBlocks.FUN_FLOOR.get().defaultBlockState();
 			}
 			if (y >= 6) {
 				if (Math.floorMod(x, 4) == 0 && Math.floorMod(z, 4) == 0 && y == 6) {
-					return ModBlocks.LEVEL1_CEILING_LIGHT.defaultBlockState();
+					return ModBlocks.LEVEL1_CEILING_LIGHT.get().defaultBlockState();
 				}
-				return ModBlocks.LEVEL1_CEILING_AQUILA.defaultBlockState();
+				return ModBlocks.LEVEL1_CEILING_AQUILA.get().defaultBlockState();
 			}
 			BlockState chunkBaseWallBlock;
 			switch (chunkRandom.nextIntBetweenInclusive(1, 4)) {
 				case 1:
-					chunkBaseWallBlock = ModBlocks.FUN_YELLOW.defaultBlockState();
+					chunkBaseWallBlock = ModBlocks.FUN_YELLOW.get().defaultBlockState();
 					break;
 
 				case 2:
-					chunkBaseWallBlock = ModBlocks.FUN_GREEN.defaultBlockState();
+					chunkBaseWallBlock = ModBlocks.FUN_GREEN.get().defaultBlockState();
 					break;
 
 				case 3:
-					chunkBaseWallBlock = ModBlocks.FUN_PINK.defaultBlockState();
+					chunkBaseWallBlock = ModBlocks.FUN_PINK.get().defaultBlockState();
 					break;
 
 				case 4:
-					chunkBaseWallBlock = ModBlocks.FUN_PURPLE.defaultBlockState();
+					chunkBaseWallBlock = ModBlocks.FUN_PURPLE.get().defaultBlockState();
 					break;
 
 				default:
-					chunkBaseWallBlock = ModBlocks.FUN_YELLOW.defaultBlockState();
+					chunkBaseWallBlock = ModBlocks.FUN_YELLOW.get().defaultBlockState();
 					break;
 			}
 
@@ -104,55 +104,55 @@ public class LevelFunChunkGen extends BaseChunkGen {
 				int localX = Math.abs(Math.floorMod(x, 4));
 				int localZ = Math.abs(Math.floorMod(z, 4));
 				if (localX == 0) {
-					return ModBlocks.FUN_GREEN.defaultBlockState();
+					return ModBlocks.FUN_GREEN.get().defaultBlockState();
 				}
 				if (localZ == 0) {
-					return ModBlocks.FUN_PURPLE.defaultBlockState();
+					return ModBlocks.FUN_PURPLE.get().defaultBlockState();
 				}
 				if (y >= -8) {
-					return ModBlocks.BLACK_TRAMPOLINE.defaultBlockState();
+					return ModBlocks.BLACK_TRAMPOLINE.get().defaultBlockState();
 				}
-				return ModBlocks.FUN_FLOOR.defaultBlockState();
+				return ModBlocks.FUN_FLOOR.get().defaultBlockState();
 			}
 			if (y >= 8) {
 				if (Math.floorMod(x, 4) == 2 && y == 8) {
-					return ModBlocks.LEVEL1_CEILING_LIGHT.defaultBlockState();
+					return ModBlocks.LEVEL1_CEILING_LIGHT.get().defaultBlockState();
 				}
-				return ModBlocks.LEVEL1_CEILING_AQUILA.defaultBlockState();
+				return ModBlocks.LEVEL1_CEILING_AQUILA.get().defaultBlockState();
 			}
 
 		}
 
 		if (biome.is(ModBiomes.LevelFunBiomes.PARTY_ROOMS_BIOME)) {
 			if (y <= 0) {
-				return ModBlocks.FUN_FLOOR.defaultBlockState();
+				return ModBlocks.FUN_FLOOR.get().defaultBlockState();
 			}
 			if (y >= 6) {
 				if (Math.floorMod(x, 4) == 0 && Math.floorMod(z, 4) == 0 && y == 6) {
-					return ModBlocks.LEVEL1_CEILING_LIGHT.defaultBlockState();
+					return ModBlocks.LEVEL1_CEILING_LIGHT.get().defaultBlockState();
 				}
-				return ModBlocks.LEVEL1_CEILING_AQUILA.defaultBlockState();
+				return ModBlocks.LEVEL1_CEILING_AQUILA.get().defaultBlockState();
 			}
 			BlockState chunkBaseWallBlock;
 			switch (chunkRandom.nextIntBetweenInclusive(1, 4)) {
 				case 1:
-					chunkBaseWallBlock = ModBlocks.FUN_YELLOW.defaultBlockState();
+					chunkBaseWallBlock = ModBlocks.FUN_YELLOW.get().defaultBlockState();
 					break;
 
 				case 2:
-					chunkBaseWallBlock = ModBlocks.FUN_GREEN.defaultBlockState();
+					chunkBaseWallBlock = ModBlocks.FUN_GREEN.get().defaultBlockState();
 					break;
 
 				case 3:
-					chunkBaseWallBlock = ModBlocks.FUN_PINK.defaultBlockState();
+					chunkBaseWallBlock = ModBlocks.FUN_PINK.get().defaultBlockState();
 					break;
 
 				case 4:
-					chunkBaseWallBlock = ModBlocks.FUN_PURPLE.defaultBlockState();
+					chunkBaseWallBlock = ModBlocks.FUN_PURPLE.get().defaultBlockState();
 					break;
 
 				default:
-					chunkBaseWallBlock = ModBlocks.FUN_YELLOW.defaultBlockState();
+					chunkBaseWallBlock = ModBlocks.FUN_YELLOW.get().defaultBlockState();
 					break;
 			}
 			int localX = Math.abs(Math.floorMod(x, 16));
@@ -199,7 +199,7 @@ public class LevelFunChunkGen extends BaseChunkGen {
 				}
 
 				if (blockRandom.nextIntBetweenInclusive(0, 2500) == 3) {
-					return ModBlocks.PROMISED_GATE.defaultBlockState();
+					return ModBlocks.PROMISED_GATE.get().defaultBlockState();
 				}
 			}
 		}
@@ -213,23 +213,23 @@ public class LevelFunChunkGen extends BaseChunkGen {
 			BlockState cellBaseBlock;
 			switch (cellType) {
 				case 1:
-					cellBaseBlock = ModBlocks.FUN_YELLOW.defaultBlockState();
+					cellBaseBlock = ModBlocks.FUN_YELLOW.get().defaultBlockState();
 					break;
 
 				case 2:
-					cellBaseBlock = ModBlocks.FUN_GREEN.defaultBlockState();
+					cellBaseBlock = ModBlocks.FUN_GREEN.get().defaultBlockState();
 					break;
 
 				case 3:
-					cellBaseBlock = ModBlocks.FUN_PINK.defaultBlockState();
+					cellBaseBlock = ModBlocks.FUN_PINK.get().defaultBlockState();
 					break;
 
 				case 4:
-					cellBaseBlock = ModBlocks.FUN_PURPLE.defaultBlockState();
+					cellBaseBlock = ModBlocks.FUN_PURPLE.get().defaultBlockState();
 					break;
 
 				default:
-					cellBaseBlock = ModBlocks.FUN_YELLOW.defaultBlockState();
+					cellBaseBlock = ModBlocks.FUN_YELLOW.get().defaultBlockState();
 					break;
 			}
 			if (y <= 0) {
@@ -241,7 +241,7 @@ public class LevelFunChunkGen extends BaseChunkGen {
 			if (localCellPos.getY() == 3 && getRandomBool(cellRandom)) {
 				if ((localCellPos.getX() == 1 || localCellPos.getX() == 2)
 						&& (localCellPos.getZ() == 1 || localCellPos.getZ() == 2)) {
-					return ModBlocks.LEVEL1_CEILING_LIGHT.defaultBlockState();
+					return ModBlocks.LEVEL1_CEILING_LIGHT.get().defaultBlockState();
 				}
 				return cellBaseBlock;
 			}
@@ -277,7 +277,7 @@ public class LevelFunChunkGen extends BaseChunkGen {
 				return cellBaseBlock;
 			}
 			if (localCellPos.getY() == 1 && blockRandom.nextIntBetweenInclusive(1, 26) == 1) {
-				return ModBlocks.FUN_CRATE.defaultBlockState();
+				return ModBlocks.FUN_CRATE.get().defaultBlockState();
 
 			}
 		}

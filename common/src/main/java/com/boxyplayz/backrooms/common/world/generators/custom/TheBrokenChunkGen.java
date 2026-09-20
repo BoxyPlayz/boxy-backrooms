@@ -50,7 +50,7 @@ public class TheBrokenChunkGen extends BaseChunkGen {
 		if (y <= height) {
 			BlockState state = Blocks.BLACK_CONCRETE.defaultBlockState();
 			if (faraway > 100) {
-				state = ModBlocks.PURE_BLUE.defaultBlockState();
+				state = ModBlocks.PURE_BLUE.get().defaultBlockState();
 			} else {
 				RandomSource blockRandom = randomFactory.at(x, y, z);
 				for (Block b : blocks) {

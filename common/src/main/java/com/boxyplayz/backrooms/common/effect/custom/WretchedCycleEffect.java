@@ -56,7 +56,7 @@ public class WretchedCycleEffect extends MobEffect {
 					double y = mob.getY();
 					double z = mob.getZ();
 					mob.kill(serverLevel);
-					WretchEntity wretchEntity = new WretchEntity(ModEntities.WRETCH, serverLevel);
+					WretchEntity wretchEntity = new WretchEntity(ModEntities.WRETCH.get(), serverLevel);
 					wretchEntity.setPos(x, y, z);
 					serverLevel.addFreshEntity(wretchEntity);
 

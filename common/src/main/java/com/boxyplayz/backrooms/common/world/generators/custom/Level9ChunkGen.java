@@ -45,7 +45,7 @@ public class Level9ChunkGen extends BaseChunkGen {
 				return Blocks.GRASS_BLOCK.defaultBlockState();
 			}
 		} else if (y - 1 < noiseVal && randomFactory.at(x, y, z).nextInt(70000) == 4) {
-			return ModBlocks.FALSE_WHEAT.defaultBlockState();
+			return ModBlocks.FALSE_WHEAT.get().defaultBlockState();
 		}
 		return Blocks.AIR.defaultBlockState();
 	}

@@ -56,8 +56,8 @@ public class SmilerEntity extends PathfinderMob {
 		this.goalSelector.addGoal(1, new AvoidEntityGoal<Player>(this, Player.class, 10, 1.1, 1.2, player -> {
 			ItemStack mainHand = player.getMainHandItem();
 			ItemStack offHand = player.getOffhandItem();
-			return mainHand.getItem() == ModItems.SMILER_REPELLANT.asItem() ||
-					offHand.getItem() == ModItems.SMILER_REPELLANT.asItem();
+			return mainHand.getItem() == ModItems.SMILER_REPELLANT.get().asItem() ||
+					offHand.getItem() == ModItems.SMILER_REPELLANT.get().asItem();
 		}));
 		this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0D, true) {
 			@Override
@@ -118,11 +118,11 @@ public class SmilerEntity extends PathfinderMob {
 	public boolean hurtServer(ServerLevel level, DamageSource damageSource, float amount) {
 		if (damageSource.is(DamageTypes.PLAYER_ATTACK)) {
 			if (damageSource.getEntity() instanceof Player player) {
-				if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FIRESTEEL_SWORD)) {
+				if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FIRESTEEL_SWORD.get())) {
 					return super.hurtServer(level, damageSource, amount);
 				}
-				if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FIRESALT_SHARD)
-						|| player.getItemBySlot(EquipmentSlot.OFFHAND).is(ModItems.FIRESALT_SHARD)) {
+				if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FIRESALT_SHARD.get())
+						|| player.getItemBySlot(EquipmentSlot.OFFHAND).is(ModItems.FIRESALT_SHARD.get())) {
 					this.setRemainingFireTicks(120);
 				}
 			}

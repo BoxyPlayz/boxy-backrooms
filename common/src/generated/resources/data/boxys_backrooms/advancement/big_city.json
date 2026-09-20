@@ -15,7 +15,7 @@
     },
     "hidden": true,
     "icon": {
-      "id": "boxys_backrooms:false_wheat"
+      "id": "minecraft:gray_concrete"
     },
     "title": {
       "translate": "text.boxys_backrooms.big_city_title"

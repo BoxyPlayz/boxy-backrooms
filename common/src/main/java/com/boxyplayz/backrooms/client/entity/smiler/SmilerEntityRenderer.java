@@ -8,10 +8,6 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.Identifier;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
-
-@Environment(EnvType.CLIENT)
 public class SmilerEntityRenderer
 		extends MobRenderer<SmilerEntity, SmilerRenderState, SmilerModel<SmilerEntity>> {
 

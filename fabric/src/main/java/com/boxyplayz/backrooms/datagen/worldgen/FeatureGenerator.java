@@ -48,7 +48,7 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
 
 	public static void configureFeatures(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 		TreeConfiguration level9Entry = new TreeConfigurationBuilder(
-				BlockStateProvider.simple(ModBlocks.LEVEL9_ENTRY),
+				BlockStateProvider.simple(ModBlocks.LEVEL9_ENTRY.get()),
 				new StraightTrunkPlacer(1, 0, 0),
 
 				BlockStateProvider.simple(Blocks.AIR.defaultBlockState()),

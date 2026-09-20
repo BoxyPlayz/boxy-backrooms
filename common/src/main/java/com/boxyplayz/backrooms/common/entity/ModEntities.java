@@ -10,8 +10,10 @@ import com.boxyplayz.backrooms.common.entity.living.Smiler.SmilerEntity;
 import com.boxyplayz.backrooms.common.entity.living.Wretch.WretchEntity;
 import com.boxyplayz.backrooms.common.entity.projectile.liquid_pain.LiquidPainProjectile;
 
-import net.minecraft.core.Registry;
+import dev.architectury.registry.registries.DeferredRegister;
+import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.Entity;
@@ -20,6 +22,10 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.phys.Vec2;
 
 public class ModEntities {
+	private static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(
+			BoxysBackroomsCommon.MOD_ID,
+			Registries.ENTITY_TYPE);
+
 	/**
 	 * Registers a new entity (type)
 	 * 
@@ -30,14 +36,14 @@ public class ModEntities {
 	 * @param category Category of the mob
 	 * @return Entity Type
 	 */
-	protected static <T extends Entity> EntityType<T> RegisterEntity(EntityType.EntityFactory<T> factory, String id,
+	protected static <T extends Entity> RegistrySupplier<EntityType<T>> RegisterEntity(
+			EntityType.EntityFactory<T> factory, String id,
 			Vec2 size, MobCategory category) {
 		ResourceKey<EntityType<?>> resourceKey = ResourceKey.create(
 				BuiltInRegistries.ENTITY_TYPE.key(),
 				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, id));
-		return Registry.register(BuiltInRegistries.ENTITY_TYPE,
-				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, id),
-				EntityType.Builder.of(factory, category).sized(size.x, size.y)
+		return ENTITY_TYPES.register(id,
+				() -> EntityType.Builder.of(factory, category).sized(size.x, size.y)
 						.build(resourceKey));
 	}
 
@@ -50,7 +56,8 @@ public class ModEntities {
 	 * @param size    Size of the entity in width and height
 	 * @return Entity Type
 	 */
-	protected static <T extends Entity> EntityType<T> RegisterEntity(EntityType.EntityFactory<T> factory, String id,
+	protected static <T extends Entity> RegistrySupplier<EntityType<T>> RegisterEntity(
+			EntityType.EntityFactory<T> factory, String id,
 			Vec2 size) {
 		return RegisterEntity(factory, id, size, MobCategory.MONSTER);
 	}
@@ -63,7 +70,8 @@ public class ModEntities {
 	 * @param id      Id of the entity
 	 * @return Entity Type
 	 */
-	protected static <T extends Entity> EntityType<T> RegisterEntity(EntityType.EntityFactory<T> factory, String id) {
+	protected static <T extends Entity> RegistrySupplier<EntityType<T>> RegisterEntity(
+			EntityType.EntityFactory<T> factory, String id) {
 		return RegisterEntity(factory, id, new Vec2(1, 2));
 	}
 
@@ -76,35 +84,43 @@ public class ModEntities {
 	 * @param category Category of the mob
 	 * @return Entity Type
 	 */
-	protected static <T extends Entity> EntityType<T> RegisterEntity(EntityType.EntityFactory<T> factory, String id,
+	protected static <T extends Entity> RegistrySupplier<EntityType<T>> RegisterEntity(
+			EntityType.EntityFactory<T> factory, String id,
 			MobCategory category) {
 		return RegisterEntity(factory, id, new Vec2(1, 2), category);
 	}
 
-	public static final EntityType<SmilerEntity> SMILER = RegisterEntity(SmilerEntity::new, "smiler");
+	public static final RegistrySupplier<EntityType<SmilerEntity>> SMILER = RegisterEntity(SmilerEntity::new, "smiler");
 
-	public static final EntityType<SkinStealerEntity> SKINSTEALER = RegisterEntity(SkinStealerEntity::new,
+	public static final RegistrySupplier<EntityType<SkinStealerEntity>> SKINSTEALER = RegisterEntity(
+			SkinStealerEntity::new,
 			"skinstealer");
 
-	public static final EntityType<WretchEntity> WRETCH = RegisterEntity(WretchEntity::new, "wretch",
+	public static final RegistrySupplier<EntityType<WretchEntity>> WRETCH = RegisterEntity(WretchEntity::new, "wretch",
 			new Vec2(1f, 2.5f));
 
-	public static final EntityType<PartygoerEntity> PARTYGOER = RegisterEntity(
+	public static final RegistrySupplier<EntityType<PartygoerEntity>> PARTYGOER = RegisterEntity(
 			PartygoerEntity::new,
 			"partygoer",
 			new Vec2(1f, 2.5f));
 
-	public static final EntityType<BalloonEntity> BALLOON = RegisterEntity(BalloonEntity::new, "balloon",
+	public static final RegistrySupplier<EntityType<BalloonEntity>> BALLOON = RegisterEntity(BalloonEntity::new,
+			"balloon",
 			new Vec2(1f, 1.6f), MobCategory.CREATURE);
 
-	public static final EntityType<PartypooperEntity> PARTYPOOPER = RegisterEntity(PartypooperEntity::new,
+	public static final RegistrySupplier<EntityType<PartypooperEntity>> PARTYPOOPER = RegisterEntity(
+			PartypooperEntity::new,
 			"partypooper", MobCategory.CREATURE);
 
-	public static final EntityType<NeighborhoodWatchEntity> NEIGHBORHOOD_WATCH = RegisterEntity(
+	public static final RegistrySupplier<EntityType<NeighborhoodWatchEntity>> NEIGHBORHOOD_WATCH = RegisterEntity(
 			NeighborhoodWatchEntity::new,
 			"neighborhood_watch", new Vec2(1.4f, 1.8f), MobCategory.MONSTER);
 
-	public static final EntityType<LiquidPainProjectile> LIQUID_PAIN_PROJECTILE = RegisterEntity(
+	public static final RegistrySupplier<EntityType<LiquidPainProjectile>> LIQUID_PAIN_PROJECTILE = RegisterEntity(
 			LiquidPainProjectile::new, "liquid_pain",
 			new Vec2(0.25f, 0.25f), MobCategory.MISC);
+
+	public static void Register() {
+		ENTITY_TYPES.register();
+	}
 }

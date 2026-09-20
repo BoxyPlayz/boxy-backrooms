@@ -33,7 +33,7 @@ public class BlenderMenu extends AbstractContainerMenu {
 	private final Level level;
 
 	public BlenderMenu(int i, Inventory inventory) {
-		super(MenuTypes.BLENDING_MENU_TYPE, i);
+		super(MenuTypes.BLENDING_MENU_TYPE.get(), i);
 
 		this.level = inventory.player.level();
 
@@ -58,7 +58,7 @@ public class BlenderMenu extends AbstractContainerMenu {
 			if (level instanceof ServerLevel serverLevel) {
 				BlendingRecipeInput recipeInput = new BlendingRecipeInput(input.getItem(0), input.getItem(1));
 				Optional<RecipeHolder<BlendingRecipe>> recipe = serverLevel.recipeAccess()
-						.getRecipeFor(ModRecipes.BLENDING_RECIPE_TYPE, recipeInput, serverLevel);
+						.getRecipeFor(ModRecipes.BLENDING_RECIPE_TYPE.get(), recipeInput, serverLevel);
 
 				if (recipe.isPresent()) {
 					output.setItem(0, recipe.get().value().assemble(recipeInput));

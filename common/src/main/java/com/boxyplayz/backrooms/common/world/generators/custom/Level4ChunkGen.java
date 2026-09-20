@@ -38,13 +38,13 @@ public class Level4ChunkGen extends BaseChunkGen {
 	@Override
 	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
 		if (y <= 0) {
-			return ModBlocks.LEVEL4_CARPET.defaultBlockState();
+			return ModBlocks.LEVEL4_CARPET.get().defaultBlockState();
 		}
 		if (y >= 4) {
 			if (Math.floorMod(x, 4) == 0 && Math.floorMod(z, 4) == 0) {
-				return ModBlocks.PURE_WHITE_GLOW.defaultBlockState();
+				return ModBlocks.PURE_WHITE_GLOW.get().defaultBlockState();
 			}
-			return ModBlocks.LEVEL1_CEILING_AQUILA.defaultBlockState();
+			return ModBlocks.LEVEL1_CEILING_AQUILA.get().defaultBlockState();
 		}
 
 		int chunkX = Math.floorDiv(x, 16);
@@ -57,22 +57,22 @@ public class Level4ChunkGen extends BaseChunkGen {
 		// Walls
 		if (getRandom(chunkRandom)) {
 			if (localX == 15) {
-				return ModBlocks.LEVEL1_PILLAR_AQUILA.defaultBlockState();
+				return ModBlocks.LEVEL1_PILLAR_AQUILA.get().defaultBlockState();
 			}
 		}
 		if (getRandom(chunkRandom)) {
 			if (localX == 0) {
-				return ModBlocks.LEVEL1_PILLAR_AQUILA.defaultBlockState();
+				return ModBlocks.LEVEL1_PILLAR_AQUILA.get().defaultBlockState();
 			}
 		}
 		if (getRandom(chunkRandom)) {
 			if (localZ == 15) {
-				return ModBlocks.LEVEL1_PILLAR_AQUILA.defaultBlockState();
+				return ModBlocks.LEVEL1_PILLAR_AQUILA.get().defaultBlockState();
 			}
 		}
 		if (getRandom(chunkRandom)) {
 			if (localZ == 0) {
-				return ModBlocks.LEVEL1_PILLAR_AQUILA.defaultBlockState();
+				return ModBlocks.LEVEL1_PILLAR_AQUILA.get().defaultBlockState();
 			}
 		}
 		if (getRandom(chunkRandom, 50)) {
@@ -120,11 +120,11 @@ public class Level4ChunkGen extends BaseChunkGen {
 						}
 					}
 				}
-				return ModBlocks.LEVEL1_PILLAR_AQUILA.defaultBlockState();
+				return ModBlocks.LEVEL1_PILLAR_AQUILA.get().defaultBlockState();
 			}
 			if (y == 1) {
 				if (randomFactory.at(x, 23, z).nextInt(140) == 4) {
-					return ModBlocks.WATER_FOUNTAIN.defaultBlockState().setValue(WaterFountainBlock.FACING,
+					return ModBlocks.WATER_FOUNTAIN.get().defaultBlockState().setValue(WaterFountainBlock.FACING,
 							Direction.Plane.HORIZONTAL.getRandomDirection(chunkRandom));
 				}
 			}
@@ -132,16 +132,16 @@ public class Level4ChunkGen extends BaseChunkGen {
 
 		if (randomFactory.at(x, 12, z).nextInt(4000) == 4) {
 			if (y == 1) {
-				return ModBlocks.ELEVATOR.defaultBlockState();
+				return ModBlocks.ELEVATOR.get().defaultBlockState();
 			}
 			if (y == 2) {
-				return ModBlocks.ELEVATOR.defaultBlockState().setValue(ElevatorBlock.TOP, true);
+				return ModBlocks.ELEVATOR.get().defaultBlockState().setValue(ElevatorBlock.TOP, true);
 			}
 		}
 
 		if (randomFactory.at(x, 54, z).nextInt(30000) == 2) {
 			if (y == 1)
-				return ModBlocks.LEVEL5_ENTRY_TABLE.defaultBlockState();
+				return ModBlocks.LEVEL5_ENTRY_TABLE.get().defaultBlockState();
 		}
 
 		return Blocks.AIR.defaultBlockState();

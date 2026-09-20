@@ -24,7 +24,7 @@ public class LiquidPainItem extends Item implements ProjectileItem {
 
 	@Override
 	public Projectile asProjectile(Level level, Position position, ItemStack itemStack, Direction direction) {
-		return new LiquidPainProjectile(ModEntities.LIQUID_PAIN_PROJECTILE, position.x(), position.y(),
+		return new LiquidPainProjectile(ModEntities.LIQUID_PAIN_PROJECTILE.get(), position.x(), position.y(),
 				position.z(), level, itemStack);
 	}
 

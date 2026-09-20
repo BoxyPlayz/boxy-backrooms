@@ -27,7 +27,7 @@ public class EntityLootTableProvider extends FabricEntityLootSubProvider {
 	public void generate() {
 		add(ModEntities.SMILER,
 				LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(2.0F))
-						.add(LootItem.lootTableItem(ModItems.SHADOW_DUST)
+						.add(LootItem.lootTableItem(ModItems.SHADOW_DUST.get())
 								.apply(SetItemCountFunction.setCount(BinomialDistributionGenerator.binomial(1, 3))))));
 
 		add(ModEntities.WRETCH,

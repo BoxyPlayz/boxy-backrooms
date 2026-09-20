@@ -46,23 +46,23 @@ public class RecipeDataProvider extends FabricRecipeProvider {
 
 				SmithingTransformRecipeBuilder
 						.smithing(Ingredient.of(Items.MAGMA_CREAM),
-								Ingredient.of(ModItems.FIRESALT_SHARD),
+								Ingredient.of(ModItems.FIRESALT_SHARD.get()),
 								Ingredient.of(Items.IRON_INGOT),
 								RecipeCategory.MISC,
-								ModItems.FIRESTEEL_ALLOY)
-						.unlocks(getHasName(ModItems.FIRESALT_SHARD), has(ModItems.FIRESALT_SHARD))
-						.save(output, getItemName(ModItems.FIRESTEEL_ALLOY) + "_smithing");
+								ModItems.FIRESTEEL_ALLOY.get())
+						.unlocks(getHasName(ModItems.FIRESALT_SHARD.get()), has(ModItems.FIRESALT_SHARD.get()))
+						.save(output, getItemName(ModItems.FIRESTEEL_ALLOY.get()) + "_smithing");
 
 				SmithingTransformRecipeBuilder
 						.smithing(Ingredient.of(Items.BLAZE_POWDER),
 								Ingredient.of(Items.GOLDEN_SWORD),
-								Ingredient.of(ModItems.FIRESTEEL_ALLOY),
+								Ingredient.of(ModItems.FIRESTEEL_ALLOY.get()),
 								RecipeCategory.COMBAT,
-								ModItems.FIRESTEEL_SWORD)
-						.unlocks(getHasName(ModItems.FIRESTEEL_ALLOY), has(ModItems.FIRESTEEL_ALLOY))
-						.save(output, getItemName(ModItems.FIRESTEEL_SWORD) + "_smithing");
+								ModItems.FIRESTEEL_SWORD.get())
+						.unlocks(getHasName(ModItems.FIRESTEEL_ALLOY.get()), has(ModItems.FIRESTEEL_ALLOY.get()))
+						.save(output, getItemName(ModItems.FIRESTEEL_SWORD.get()) + "_smithing");
 
-				shapeless(RecipeCategory.MISC, ModBlocks.LEVEL0_WALLPAPER)
+				shapeless(RecipeCategory.MISC, ModBlocks.LEVEL0_WALLPAPER.get())
 						.requires(Items.YELLOW_CONCRETE)
 						.requires(Items.AMETHYST_SHARD, 4)
 						.requires(Items.ENDER_PEARL)
@@ -71,7 +71,7 @@ public class RecipeDataProvider extends FabricRecipeProvider {
 
 				SimpleCookingRecipeBuilder
 						.blasting(Ingredient.of(Items.AMETHYST_SHARD), RecipeCategory.COMBAT, CookingBookCategory.MISC,
-								ModItems.FIRESALT_SHARD, 0.1f, 100)
+								ModItems.FIRESALT_SHARD.get(), 0.1f, 100)
 						.unlockedBy(getHasName(Items.AMETHYST_SHARD), has(Items.AMETHYST_SHARD))
 						.save(output);
 
@@ -82,37 +82,39 @@ public class RecipeDataProvider extends FabricRecipeProvider {
 				// .save(output);
 
 				shapeless(RecipeCategory.MISC, Blocks.BARREL, 8)
-						.requires(ModBlocks.LEVEL1_CRATE)
+						.requires(ModBlocks.LEVEL1_CRATE.get())
 						.requires(Items.COPPER_NUGGET)
-						.unlockedBy(getHasName(ModBlocks.LEVEL1_CRATE), has(ModBlocks.LEVEL1_CRATE))
+						.unlockedBy(getHasName(ModBlocks.LEVEL1_CRATE.get()), has(ModBlocks.LEVEL1_CRATE.get()))
 						.save(output);
 
 				shapeless(RecipeCategory.MISC, Blocks.CHEST, 8)
-						.requires(ModBlocks.LEVEL1_CRATE)
+						.requires(ModBlocks.LEVEL1_CRATE.get())
 						.requires(Items.IRON_NUGGET)
-						.unlockedBy(getHasName(ModBlocks.LEVEL1_CRATE), has(ModBlocks.LEVEL1_CRATE))
+						.unlockedBy(getHasName(ModBlocks.LEVEL1_CRATE.get()), has(ModBlocks.LEVEL1_CRATE.get()))
 						.save(output);
 
-				shapeless(RecipeCategory.DECORATIONS, ModBlocks.PURE_GRASS)
+				shapeless(RecipeCategory.DECORATIONS, ModBlocks.PURE_GRASS.get())
 						.requires(Blocks.GRASS_BLOCK, 4)
 						.requires(Blocks.SHORT_GRASS, 1)
 						.requires(Items.BONE_MEAL, 4)
 						.unlockedBy(getHasName(Blocks.GRASS_BLOCK), has(Blocks.GRASS_BLOCK))
 						.save(output);
 
-				BlendingRecipeBuilder.blending(Ingredient.of(ModItems.RED_ALMOND_WATER, ModItems.GRAY_ALMOND_WATER,
-						ModItems.GREEN_ALMOND_WATER), Ingredient.of(ModItems.SHADOW_DUST), RecipeCategory.MISC,
-						ModItems.SMILER_REPELLANT)
-						.unlockedBy(getHasName(ModItems.SHADOW_DUST), has(ModItems.SHADOW_DUST))
-						.save(output, getItemName(ModItems.SHADOW_DUST) + "_blending");
+				BlendingRecipeBuilder
+						.blending(Ingredient.of(ModItems.RED_ALMOND_WATER.get(), ModItems.GRAY_ALMOND_WATER.get(),
+								ModItems.GREEN_ALMOND_WATER.get()), Ingredient.of(ModItems.SHADOW_DUST.get()),
+								RecipeCategory.MISC,
+								ModItems.SMILER_REPELLANT.get())
+						.unlockedBy(getHasName(ModItems.SHADOW_DUST.get()), has(ModItems.SHADOW_DUST.get()))
+						.save(output, getItemName(ModItems.SHADOW_DUST.get()) + "_blending");
 
-				shapeless(RecipeCategory.REDSTONE, ModBlocks.BLENDER)
+				shapeless(RecipeCategory.REDSTONE, ModBlocks.BLENDER.get())
 						.requires(Blocks.BREWING_STAND)
 						.requires(FabricBlocks.POWER_OUTLET_BLOCK)
 						.unlockedBy(getHasName(FabricBlocks.POWER_OUTLET_BLOCK),
 								ChangeDimensionTrigger.TriggerInstance
 										.changedDimensionTo(ModDimensions.LEVEL3.level))
-						.save(output, getItemName(ModBlocks.BLENDER) + "_shapeless");
+						.save(output, getItemName(ModBlocks.BLENDER.get()) + "_shapeless");
 			}
 		};
 	}

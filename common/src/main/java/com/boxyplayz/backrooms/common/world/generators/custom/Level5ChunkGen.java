@@ -51,7 +51,7 @@ public class Level5ChunkGen extends BaseChunkGen {
 				}
 
 				if (y <= HOTEL_HEIGHT - 9) {
-					return ModBlocks.AGED_CONCRETE.defaultBlockState();
+					return ModBlocks.AGED_CONCRETE.get().defaultBlockState();
 				}
 				if (y <= HOTEL_HEIGHT + 3) {
 					return Blocks.LADDER.defaultBlockState();
@@ -64,7 +64,7 @@ public class Level5ChunkGen extends BaseChunkGen {
 		if (y >= HOTEL_HEIGHT) {
 			if (y <= HOTEL_HEIGHT + 3) {
 				int carpetType = blockRandom.nextIntBetweenInclusive(0, 2);
-				return ModBlocks.LEVEL5_CARPET.defaultBlockState().setValue(Level5CarpetBlock.TYPE, carpetType);
+				return ModBlocks.LEVEL5_CARPET.get().defaultBlockState().setValue(Level5CarpetBlock.TYPE, carpetType);
 			}
 			if (!(horizHallRange.contains(localX) || horizHallRange.contains(localZ))) {
 				return Blocks.QUARTZ_BRICKS.defaultBlockState();
@@ -80,10 +80,10 @@ public class Level5ChunkGen extends BaseChunkGen {
 		} else {
 			// Basement
 			if (y > HOTEL_HEIGHT - 5) {
-				return ModBlocks.AGED_CONCRETE.defaultBlockState();
+				return ModBlocks.AGED_CONCRETE.get().defaultBlockState();
 			}
 			if (y <= HOTEL_HEIGHT - 9) {
-				return ModBlocks.AGED_CONCRETE.defaultBlockState();
+				return ModBlocks.AGED_CONCRETE.get().defaultBlockState();
 			}
 
 			int chunkX = Math.floorDiv(x, 16);
@@ -101,20 +101,20 @@ public class Level5ChunkGen extends BaseChunkGen {
 					(int) (chunkZ * 4 + cellZ));
 
 			if (getRandomBool(cellRandom) && localerZ == 0) {
-				return ModBlocks.AGED_CONCRETE.defaultBlockState();
+				return ModBlocks.AGED_CONCRETE.get().defaultBlockState();
 			}
 			if (getRandomBool(cellRandom) && localerZ == 3) {
-				return ModBlocks.AGED_CONCRETE.defaultBlockState();
+				return ModBlocks.AGED_CONCRETE.get().defaultBlockState();
 			}
 			if (getRandomBool(cellRandom) && localerX == 0) {
-				return ModBlocks.AGED_CONCRETE.defaultBlockState();
+				return ModBlocks.AGED_CONCRETE.get().defaultBlockState();
 			}
 			if (getRandomBool(cellRandom) && localerX == 3) {
-				return ModBlocks.AGED_CONCRETE.defaultBlockState();
+				return ModBlocks.AGED_CONCRETE.get().defaultBlockState();
 			}
 
 			if (blockRandom.nextInt(2000) == 3) {
-				return ModBlocks.LEVEL6_ENTRY.defaultBlockState();
+				return ModBlocks.LEVEL6_ENTRY.get().defaultBlockState();
 			}
 		}
 		return Blocks.AIR.defaultBlockState();

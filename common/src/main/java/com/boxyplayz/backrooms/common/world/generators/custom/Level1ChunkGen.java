@@ -61,7 +61,7 @@ public class Level1ChunkGen extends BaseChunkGen {
 		if (biome.is(ModBiomes.Level1Biomes.AQUILA_BIOME)) {
 			// Floor
 			if (Math.floorMod(y, 7) == 0) {
-				return ModBlocks.LEVEL1_FLOOR_AQUILA.defaultBlockState();
+				return ModBlocks.LEVEL1_FLOOR_AQUILA.get().defaultBlockState();
 			}
 
 			// Ceiling
@@ -70,65 +70,65 @@ public class Level1ChunkGen extends BaseChunkGen {
 				if (range.contains(Math.floorMod(x, 8))
 						&&
 						range.contains(Math.floorMod(z, 8))) {
-					return ModBlocks.LEVEL1_CEILING_LIGHT.defaultBlockState();
+					return ModBlocks.LEVEL1_CEILING_LIGHT.get().defaultBlockState();
 				}
-				return ModBlocks.LEVEL1_CEILING_AQUILA.defaultBlockState();
+				return ModBlocks.LEVEL1_CEILING_AQUILA.get().defaultBlockState();
 			}
 
 			if ((Math.floorMod(x, 8) == 1 || Math.floorMod(x, 8) == 2)
 					&&
 					(Math.floorMod(z, 8) == 1 || Math.floorMod(z, 8) == 2)) {
-				return ModBlocks.LEVEL1_PILLAR_AQUILA.defaultBlockState();
+				return ModBlocks.LEVEL1_PILLAR_AQUILA.get().defaultBlockState();
 			}
 		} else if (biome.is(ModBiomes.Level1Biomes.GILDED_BIOME)) {
 			RandomSource random = randomFactory.at(Math.floorDiv(x, 16), Math.floorDiv(y, 7), Math.floorDiv(z, 16));
 
 			// Floor
 			if (Math.floorMod(y, 7) == 0) {
-				return ModBlocks.LEVEL1_FLOOR_AQUILA.defaultBlockState();
+				return ModBlocks.LEVEL1_FLOOR_AQUILA.get().defaultBlockState();
 			}
 
 			// Ceiling
 			if (Math.floorMod(y, 7) == 6) {
-				return ModBlocks.LEVEL1_CEILING_AQUILA.defaultBlockState();
+				return ModBlocks.LEVEL1_CEILING_AQUILA.get().defaultBlockState();
 			}
 
 			// Walls
 			if (getRandom(random)) {
 				if (localX == 15) {
-					return ModBlocks.LEVEL1_WALL_GILD.defaultBlockState();
+					return ModBlocks.LEVEL1_WALL_GILD.get().defaultBlockState();
 				}
 			}
 			if (getRandom(random)) {
 				if (localX == 0) {
-					return ModBlocks.LEVEL1_WALL_GILD.defaultBlockState();
+					return ModBlocks.LEVEL1_WALL_GILD.get().defaultBlockState();
 				}
 			}
 			if (getRandom(random)) {
 				if (localZ == 15) {
-					return ModBlocks.LEVEL1_WALL_GILD.defaultBlockState();
+					return ModBlocks.LEVEL1_WALL_GILD.get().defaultBlockState();
 				}
 			}
 			if (getRandom(random)) {
 				if (localZ == 0) {
-					return ModBlocks.LEVEL1_WALL_GILD.defaultBlockState();
+					return ModBlocks.LEVEL1_WALL_GILD.get().defaultBlockState();
 				}
 			}
 
 			if (Math.floorMod(y, 7) == 5) {
 				if (Math.floorMod(localZ, 4) == 0) {
 					if (Math.floorMod(Math.floorDiv(localX, 2), 4) == 0) {
-						return ModBlocks.LEVEL1_CEILING_LIGHT.defaultBlockState();
+						return ModBlocks.LEVEL1_CEILING_LIGHT.get().defaultBlockState();
 					}
 				}
 			}
 		} else if (biome.is(ModBiomes.Level1Biomes.GOTHIC_BIOME)) {
 			if (Math.floorMod(y, 7) == 0) {
-				return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
+				return ModBlocks.GOTHIC_CONCRETE.get().defaultBlockState();
 			}
 
 			if (Math.floorMod(localX, 7) == 3 && Math.floorMod(localZ, 7) == 3) {
-				return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
+				return ModBlocks.GOTHIC_CONCRETE.get().defaultBlockState();
 			}
 
 			Range<Integer> baseRange = Range.of(2, 4);
@@ -137,29 +137,29 @@ public class Level1ChunkGen extends BaseChunkGen {
 			if (lightRange.contains(Math.floorMod(localX, 7)) && lightRange.contains(Math.floorMod(localZ, 7))) {
 				if (baseRange.contains(Math.floorMod(localX, 7)) && baseRange.contains(Math.floorMod(localZ, 7))) {
 					if (Math.floorMod(y, 7) == 1 || Math.floorMod(y, 7) == 5) {
-						return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
+						return ModBlocks.GOTHIC_CONCRETE.get().defaultBlockState();
 					}
 				} else {
 					if (Math.floorMod(y, 7) == 6) {
-						return ModBlocks.LEVEL1_CEILING_LIGHT.defaultBlockState();
+						return ModBlocks.LEVEL1_CEILING_LIGHT.get().defaultBlockState();
 					}
 				}
 			}
 
 			// Ceiling
 			if (Math.floorMod(y, 7) == 6) {
-				return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
+				return ModBlocks.GOTHIC_CONCRETE.get().defaultBlockState();
 			}
 		} else if (biome.is(ModBiomes.Level1Biomes.OUROBOROS_BIOME)) {
 			RandomSource blockRandom = randomFactory.at(x, y, z);
 			if (Math.floorMod(y, 7) == 0) {
-				return ModBlocks.AGED_CONCRETE.defaultBlockState();
+				return ModBlocks.AGED_CONCRETE.get().defaultBlockState();
 			}
 
 			RandomSource pillarRandom = randomFactory.at(x, Math.floorDiv(y, 7), z);
 
 			if (pillarRandom.nextIntBetweenInclusive(1, 20) == 1) {
-				return ModBlocks.AGED_CONCRETE.defaultBlockState();
+				return ModBlocks.AGED_CONCRETE.get().defaultBlockState();
 			}
 
 			int cellX = Math.floorDiv(Math.floorMod(x, 16), 8);
@@ -174,35 +174,35 @@ public class Level1ChunkGen extends BaseChunkGen {
 					(int) (chunkZ * 4 + cellZ));
 
 			if (getRandomBool(cellRandom, 10) && localerZ == 0) {
-				return ModBlocks.AGED_CONCRETE.defaultBlockState();
+				return ModBlocks.AGED_CONCRETE.get().defaultBlockState();
 			}
 			if (getRandomBool(cellRandom, 10) && localerZ == 7) {
-				return ModBlocks.AGED_CONCRETE.defaultBlockState();
+				return ModBlocks.AGED_CONCRETE.get().defaultBlockState();
 			}
 			if (getRandomBool(cellRandom, 10) && localerX == 0) {
-				return ModBlocks.AGED_CONCRETE.defaultBlockState();
+				return ModBlocks.AGED_CONCRETE.get().defaultBlockState();
 			}
 			if (getRandomBool(cellRandom, 10) && localerX == 7) {
-				return ModBlocks.AGED_CONCRETE.defaultBlockState();
+				return ModBlocks.AGED_CONCRETE.get().defaultBlockState();
 			}
 
 			// Ceiling
 			if (Math.floorMod(y, 7) == 6) {
 				if (blockRandom.nextIntBetweenInclusive(0, 8) == 1) {
-					return ModBlocks.LEVEL1_CEILING_LIGHT.defaultBlockState();
+					return ModBlocks.LEVEL1_CEILING_LIGHT.get().defaultBlockState();
 				}
-				return ModBlocks.AGED_CONCRETE.defaultBlockState();
+				return ModBlocks.AGED_CONCRETE.get().defaultBlockState();
 			}
 		} else if (biome.is(ModBiomes.Level1Biomes.GARDEN_BIOME)) {
 			RandomSource blockRandom = randomFactory.at(x, y, z);
 			// Floor
 			if (Math.floorMod(y, 7) == 0) {
-				return ModBlocks.PURE_GRASS.defaultBlockState();
+				return ModBlocks.PURE_GRASS.get().defaultBlockState();
 			}
 
 			// Ceiling
 			if (Math.floorMod(y, 7) == 6) {
-				return ModBlocks.LEVEL1_CEILING_LIGHT.defaultBlockState();
+				return ModBlocks.LEVEL1_CEILING_LIGHT.get().defaultBlockState();
 			}
 
 			int cellX = Math.floorDiv(Math.floorMod(x, 16), 8);
@@ -217,16 +217,16 @@ public class Level1ChunkGen extends BaseChunkGen {
 					(int) (chunkZ * 4 + cellZ));
 
 			if (getRandomBool(cellRandom, 3) && localerZ == 0) {
-				return ModBlocks.GARDEN_CONCRETE.defaultBlockState();
+				return ModBlocks.GARDEN_CONCRETE.get().defaultBlockState();
 			}
 			if (getRandomBool(cellRandom, 3) && localerZ == 7) {
-				return ModBlocks.GARDEN_CONCRETE.defaultBlockState();
+				return ModBlocks.GARDEN_CONCRETE.get().defaultBlockState();
 			}
 			if (getRandomBool(cellRandom, 3) && localerX == 0) {
-				return ModBlocks.GARDEN_CONCRETE.defaultBlockState();
+				return ModBlocks.GARDEN_CONCRETE.get().defaultBlockState();
 			}
 			if (getRandomBool(cellRandom, 3) && localerX == 7) {
-				return ModBlocks.GARDEN_CONCRETE.defaultBlockState();
+				return ModBlocks.GARDEN_CONCRETE.get().defaultBlockState();
 			}
 
 			if (Math.floorMod(y, 7) == 1 && blockRandom.nextBoolean()) {
@@ -300,14 +300,14 @@ public class Level1ChunkGen extends BaseChunkGen {
 		} else if (biome.is(ModBiomes.Level1Biomes.FABLED_BIOME)) {
 			// Floor
 			if (Math.floorMod(y, 7) == 0) {
-				return ModBlocks.GOTHIC_CONCRETE.defaultBlockState();
+				return ModBlocks.GOTHIC_CONCRETE.get().defaultBlockState();
 			}
 
 			// Ceiling
 			if (Math.floorMod(y, 7) == 6) {
 				if (Math.floorMod(localZ, 4) == 0) {
 					if (Math.floorMod(Math.floorDiv(localX, 2), 4) == 0) {
-						return ModBlocks.LEVEL1_CEILING_LIGHT.defaultBlockState();
+						return ModBlocks.LEVEL1_CEILING_LIGHT.get().defaultBlockState();
 					}
 				}
 
@@ -347,12 +347,12 @@ public class Level1ChunkGen extends BaseChunkGen {
 		} else {
 			// Floor
 			if (Math.floorMod(y, 7) == 0) {
-				return ModBlocks.LEVEL1_FLOOR_AQUILA.defaultBlockState();
+				return ModBlocks.LEVEL1_FLOOR_AQUILA.get().defaultBlockState();
 			}
 
 			// Ceiling
 			if (Math.floorMod(y, 7) == 6) {
-				return ModBlocks.LEVEL1_CEILING_AQUILA.defaultBlockState();
+				return ModBlocks.LEVEL1_CEILING_AQUILA.get().defaultBlockState();
 			}
 
 		}
@@ -360,10 +360,10 @@ public class Level1ChunkGen extends BaseChunkGen {
 		if (Math.floorMod(y, 7) == 1) {
 			RandomSource random = randomFactory.at(x, y, z);
 			if (random.nextIntBetweenInclusive(0, 4000) == 1) {
-				return ModBlocks.LEVEL1_CRATE.defaultBlockState();
+				return ModBlocks.LEVEL1_CRATE.get().defaultBlockState();
 			}
 			if (random.nextIntBetweenInclusive(0, 13400) == 1) {
-				return ModBlocks.LEVEL2_DOOR.defaultBlockState();
+				return ModBlocks.LEVEL2_DOOR.get().defaultBlockState();
 			}
 		}
 

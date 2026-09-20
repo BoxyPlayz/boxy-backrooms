@@ -45,13 +45,13 @@ public class BlueChannelChunkGen extends BaseChunkGen {
 			switch (chunkType) {
 				case 1:
 					if (y <= 40) {
-						return ModBlocks.LEVEL0_CARPET.defaultBlockState();
+						return ModBlocks.LEVEL0_CARPET.get().defaultBlockState();
 					}
 					if (y >= 50) {
 						return Blocks.AIR.defaultBlockState();
 					}
 					if (y >= 48) {
-						return ModBlocks.LEVEL0_CEILING_TILE.defaultBlockState();
+						return ModBlocks.LEVEL0_CEILING_TILE.get().defaultBlockState();
 					}
 					cellX = Math.floorDiv(Math.floorMod(x, 16), 4);
 					cellZ = Math.floorDiv(Math.floorMod(z, 16), 4);
@@ -65,16 +65,16 @@ public class BlueChannelChunkGen extends BaseChunkGen {
 							(int) (chunkZ * 4 + cellZ));
 
 					if (getRandomBool(cellRandom) && localZ == 0) {
-						return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
+						return ModBlocks.LEVEL0_WALLPAPER.get().defaultBlockState();
 					}
 					if (getRandomBool(cellRandom) && localZ == 3) {
-						return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
+						return ModBlocks.LEVEL0_WALLPAPER.get().defaultBlockState();
 					}
 					if (getRandomBool(cellRandom) && localX == 0) {
-						return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
+						return ModBlocks.LEVEL0_WALLPAPER.get().defaultBlockState();
 					}
 					if (getRandomBool(cellRandom) && localX == 3) {
-						return ModBlocks.LEVEL0_WALLPAPER.defaultBlockState();
+						return ModBlocks.LEVEL0_WALLPAPER.get().defaultBlockState();
 					}
 					break;
 
@@ -91,7 +91,7 @@ public class BlueChannelChunkGen extends BaseChunkGen {
 		}
 		// Floor
 		if (y <= 40) {
-			return ModBlocks.PURE_BLUE.defaultBlockState();
+			return ModBlocks.PURE_BLUE.get().defaultBlockState();
 		}
 
 		return Blocks.AIR.defaultBlockState();

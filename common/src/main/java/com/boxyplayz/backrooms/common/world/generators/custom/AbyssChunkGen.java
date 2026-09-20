@@ -111,7 +111,7 @@ public class AbyssChunkGen extends BaseChunkGen {
 		}
 
 		if (y == this.getMinY()) {
-			return ModBlocks.STEP_VISIBLE.defaultBlockState();
+			return ModBlocks.STEP_VISIBLE.get().defaultBlockState();
 		}
 
 		return Blocks.AIR.defaultBlockState();

@@ -31,7 +31,7 @@ public class LevelChangeEvents {
 			}
 			if (destination.equals(ModDimensions.RUN_FOR_LIFE.level)) {
 				player.getAttribute(Attributes.MOVEMENT_SPEED).addOrReplacePermanentModifier(
-						new AttributeModifier(levelRunBoostId, 0.2, Operation.ADD_VALUE));
+						new AttributeModifier(levelRunBoostId, 0.1, Operation.ADD_VALUE));
 			} else {
 				player.getAttribute(Attributes.MOVEMENT_SPEED).removeModifier(levelRunBoostId);
 			}
