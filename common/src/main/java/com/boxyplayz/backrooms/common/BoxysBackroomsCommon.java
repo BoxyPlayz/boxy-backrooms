@@ -45,6 +45,7 @@ public final class BoxysBackroomsCommon {
 
         public static void init() {
                 ModBiomes.RegisterModBiomes();
+                ModEntities.Register();
                 ModDamageTypes.RegisterDamageTypes();
                 ModWorldClocks.RegisterModWorldClocks();
                 ModWorldPresets.RegisterPresets();
@@ -70,6 +71,5 @@ public final class BoxysBackroomsCommon {
                 PlayerJoinEvents.Register();
                 ModEntitySpawner.RegisterModMobSpawning();
                 MenuTypes.Register();
-                ModEntities.Register();
         }
 }

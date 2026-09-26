@@ -11,8 +11,8 @@ dependencies {
     // Architectury API. This is optional, and you can comment it out if you don't need it.
     implementation "dev.architectury:architectury:$rootProject.architectury_api_version"
 
-	runtimeOnly("fuzs.forgeconfigapiport:forgeconfigapiport-common-neoforgeapi:$forge_config_api_version")
-	compileOnly("fuzs.forgeconfigapiport:forgeconfigapiport-common-neoforgeapi:$forge_config_api_version")
+	runtimeOnly("fuzs.forgeconfigapiport:forgeconfigapiport-common-neoforgeapi:$rootProject.forge_config_api_version")
+	compileOnly("fuzs.forgeconfigapiport:forgeconfigapiport-common-neoforgeapi:$rootProject.forge_config_api_version")
 }
 
 sourceSets {

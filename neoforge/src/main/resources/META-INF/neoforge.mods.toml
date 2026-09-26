@@ -11,7 +11,10 @@ authors = "BoxyPlayz"
 description = '''
 Silly Backrooms Mod
 '''
-#logoFile = ""
+logoFile = "icon.png"
+modUrl = "https://modrinth.com/mod/boxys-backrooms"
+updateJSONURL = "https://boxyplayz.github.io/mods_updates/boxys_backrooms.json"
+displayURL = "https://modrinth.com/mod/boxys-backrooms"
 
 [[dependencies.boxys_backrooms]]
 modId = "neoforge"
@@ -29,6 +32,13 @@ side = "BOTH"
 
 [[dependencies.boxys_backrooms]]
 modId = "architectury"
+type = "required"
+versionRange = "[20.0.12,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.boxys_backrooms]]
+modId = "patchouli"
 type = "required"
 versionRange = "[20.0.12,)"
 ordering = "AFTER"

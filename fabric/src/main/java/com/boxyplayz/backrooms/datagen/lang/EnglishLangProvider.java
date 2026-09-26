@@ -233,13 +233,13 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(getTooltip(ModItems.GRAY_KEY.get()), "You feel a shift in your world.");
 
 		// Entities
-		translationBuilder.add(ModEntities.SMILER, "Smiler");
-		translationBuilder.add(ModEntities.SKINSTEALER, "Skin Stealer");
-		translationBuilder.add(ModEntities.WRETCH, "Wretch");
-		translationBuilder.add(ModEntities.PARTYGOER, "Partygoer");
-		translationBuilder.add(ModEntities.PARTYPOOPER, "Partypooper");
-		translationBuilder.add(ModEntities.BALLOON, "Party Balloon");
-		translationBuilder.add(ModEntities.NEIGHBORHOOD_WATCH, "The Neighborhood Watch");
+		translationBuilder.add(ModEntities.SMILER.get(), "Smiler");
+		translationBuilder.add(ModEntities.SKINSTEALER.get(), "Skin Stealer");
+		translationBuilder.add(ModEntities.WRETCH.get(), "Wretch");
+		translationBuilder.add(ModEntities.PARTYGOER.get(), "Partygoer");
+		translationBuilder.add(ModEntities.PARTYPOOPER.get(), "Partypooper");
+		translationBuilder.add(ModEntities.BALLOON.get(), "Party Balloon");
+		translationBuilder.add(ModEntities.NEIGHBORHOOD_WATCH.get(), "The Neighborhood Watch");
 
 		// Effects
 		translationBuilder.add(ModEffects.GARDENERS_PAIN.value(), "Gardener's Pain");

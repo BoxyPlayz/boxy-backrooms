@@ -17,6 +17,7 @@ import com.boxyplayz.backrooms.client.entity.wretch.WretchedRenderer;
 import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
 import com.boxyplayz.backrooms.common.entity.ModEntities;
 
+import dev.architectury.platform.Platform;
 import dev.architectury.registry.client.level.entity.EntityModelLayerRegistry;
 import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -40,27 +41,30 @@ public class ClientEntityRenderers {
 			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "neighborhood_watch"), "main");
 
 	public static void RegisterRenderers() {
-		EntityRendererRegistry.register(ModEntities.PARTYPOOPER, PartyPooperEntityRenderer::new);
-		EntityModelLayerRegistry.register(MODEL_PARTYPOOPER_LAYER, PartyPooperModel::createBodyLayer);
+		if (Platform.isFabric()) {
+			EntityRendererRegistry.register(ModEntities.PARTYPOOPER, PartyPooperEntityRenderer::new);
+			EntityModelLayerRegistry.register(MODEL_PARTYPOOPER_LAYER, PartyPooperModel::createBodyLayer);
 
-		EntityRendererRegistry.register(ModEntities.BALLOON, BalloonEntityRenderer::new);
-		EntityModelLayerRegistry.register(MODEL_BALLOON_LAYER, BalloonModel::createBodyLayer);
+			EntityRendererRegistry.register(ModEntities.BALLOON, BalloonEntityRenderer::new);
+			EntityModelLayerRegistry.register(MODEL_BALLOON_LAYER, BalloonModel::createBodyLayer);
 
-		EntityRendererRegistry.register(ModEntities.NEIGHBORHOOD_WATCH, NeighborhoodWatchRenderer::new);
-		EntityModelLayerRegistry.register(MODEL_NEIGHBORHOOD_WATCH_LAYER, NeighborhoodWatchModel::createBodyLayer);
+			EntityRendererRegistry.register(ModEntities.NEIGHBORHOOD_WATCH, NeighborhoodWatchRenderer::new);
+			EntityModelLayerRegistry.register(MODEL_NEIGHBORHOOD_WATCH_LAYER, NeighborhoodWatchModel::createBodyLayer);
 
-		EntityRendererRegistry.register(ModEntities.SMILER, SmilerEntityRenderer::new);
-		EntityModelLayerRegistry.register(MODEL_SMILER_LAYER, SmilerModel::createBodyLayer);
+			EntityRendererRegistry.register(ModEntities.SMILER, SmilerEntityRenderer::new);
+			EntityModelLayerRegistry.register(MODEL_SMILER_LAYER, SmilerModel::createBodyLayer);
 
-		EntityRendererRegistry.register(ModEntities.WRETCH, WretchedRenderer::new);
-		EntityModelLayerRegistry.register(MODEL_WRETCH_LAYER, WretchModel::createBodyLayer);
+			EntityRendererRegistry.register(ModEntities.WRETCH, WretchedRenderer::new);
+			EntityModelLayerRegistry.register(MODEL_WRETCH_LAYER, WretchModel::createBodyLayer);
 
-		EntityRendererRegistry.register(ModEntities.SKINSTEALER, SkinStealerEntityRenderer::new);
-		EntityModelLayerRegistry.register(MODEL_SKIN_STEALER_LAYER, SkinStealerModel::createBodyLayer);
+			EntityRendererRegistry.register(ModEntities.SKINSTEALER, SkinStealerEntityRenderer::new);
+			EntityModelLayerRegistry.register(MODEL_SKIN_STEALER_LAYER, SkinStealerModel::createBodyLayer);
 
-		EntityRendererRegistry.register(ModEntities.PARTYGOER, PartygoerEntityRenderer::new);
-		EntityModelLayerRegistry.register(MODEL_PARTYGOER_LAYER, PartygoerModel::createBodyLayer);
+			EntityRendererRegistry.register(ModEntities.PARTYGOER, PartygoerEntityRenderer::new);
+			EntityModelLayerRegistry.register(MODEL_PARTYGOER_LAYER, PartygoerModel::createBodyLayer);
 
-		EntityRendererRegistry.register(ModEntities.LIQUID_PAIN_PROJECTILE, ThrownItemRenderer::new);
+			EntityRendererRegistry.register(ModEntities.LIQUID_PAIN_PROJECTILE, ThrownItemRenderer::new);
+
+		}
 	}
 }
