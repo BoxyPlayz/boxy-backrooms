@@ -1,6 +1,6 @@
 modLoader = "javafml"
 loaderVersion = "[1,)"
-#issueTrackerURL = ""
+issueTrackerURL = "https://github.com/BoxyPlayz/boxy-backrooms"
 license = "Apache-2.0"
 
 [[mods]]

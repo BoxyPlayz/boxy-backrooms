@@ -1,5 +1,7 @@
 package com.boxyplayz.backrooms.common.entity;
 
+import java.util.ArrayList;
+
 import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
 import com.boxyplayz.backrooms.common.entity.living.Balloon.BalloonEntity;
 import com.boxyplayz.backrooms.common.entity.living.NeighborhoodWatch.NeighborhoodWatchEntity;
@@ -18,10 +20,28 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.animal.camel.CamelHusk;
+import net.minecraft.world.entity.animal.equine.ZombieHorse;
+import net.minecraft.world.entity.monster.Creeper;
+import net.minecraft.world.entity.monster.Ravager;
+import net.minecraft.world.entity.monster.Silverfish;
+import net.minecraft.world.entity.monster.Vex;
+import net.minecraft.world.entity.monster.Zoglin;
+import net.minecraft.world.entity.monster.skeleton.Bogged;
+import net.minecraft.world.entity.monster.skeleton.Parched;
+import net.minecraft.world.entity.monster.skeleton.Skeleton;
+import net.minecraft.world.entity.monster.skeleton.Stray;
+import net.minecraft.world.entity.monster.spider.Spider;
+import net.minecraft.world.entity.monster.zombie.Husk;
+import net.minecraft.world.entity.monster.zombie.Zombie;
 import net.minecraft.world.phys.Vec2;
 
 public class ModEntities {
+
+	public static ArrayList<Class<? extends Mob>> partyPooperTargetEntities = new ArrayList<>();
+
 	private static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(
 			BoxysBackroomsCommon.MOD_ID,
 			Registries.ENTITY_TYPE);
@@ -122,5 +142,20 @@ public class ModEntities {
 
 	public static void Register() {
 		ENTITY_TYPES.register();
+
+		partyPooperTargetEntities.add(ZombieHorse.class);
+		partyPooperTargetEntities.add(CamelHusk.class);
+		partyPooperTargetEntities.add(Skeleton.class);
+		partyPooperTargetEntities.add(Stray.class);
+		partyPooperTargetEntities.add(Creeper.class);
+		partyPooperTargetEntities.add(Silverfish.class);
+		partyPooperTargetEntities.add(Husk.class);
+		partyPooperTargetEntities.add(Ravager.class);
+		partyPooperTargetEntities.add(Zoglin.class);
+		partyPooperTargetEntities.add(Spider.class);
+		partyPooperTargetEntities.add(Vex.class);
+		partyPooperTargetEntities.add(Zombie.class);
+		partyPooperTargetEntities.add(Bogged.class);
+		partyPooperTargetEntities.add(Parched.class);
 	}
 }

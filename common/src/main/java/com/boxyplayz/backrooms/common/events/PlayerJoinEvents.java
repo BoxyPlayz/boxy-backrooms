@@ -13,7 +13,8 @@ public class PlayerJoinEvents {
 			MinecraftServer server = player.level().getServer();
 			if (server != null) {
 				ShadyGrayAllowedData data = ShadyGrayAllowedData.getSavedShadyPlayerList(server);
-				NetworkManager.sendToPlayer(player, new SetShadyGrayPayload(data.uuidInList(player.getUUID())));
+				NetworkManager.sendToPlayer(player,
+						new SetShadyGrayPayload(data.uuidInList(player.getUUID())));
 			}
 		});
 	}

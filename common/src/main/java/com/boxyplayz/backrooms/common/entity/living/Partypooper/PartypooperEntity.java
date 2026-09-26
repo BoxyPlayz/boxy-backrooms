@@ -1,5 +1,6 @@
 package com.boxyplayz.backrooms.common.entity.living.Partypooper;
 
+import com.boxyplayz.backrooms.common.entity.ModEntities;
 import com.boxyplayz.backrooms.common.entity.living.Partygoer.PartygoerEntity;
 
 import net.minecraft.core.BlockPos;
@@ -39,6 +40,11 @@ public class PartypooperEntity extends PathfinderMob {
 				Player.class).setAlertOthers());
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(
 				this, PartygoerEntity.class, true));
+
+		for (int i = 0; i < ModEntities.partyPooperTargetEntities.size(); i++) {
+			this.targetSelector.addGoal(i + 4,
+					new NearestAttackableTargetGoal<>(this, ModEntities.partyPooperTargetEntities.get(i), true));
+		}
 
 	}
 

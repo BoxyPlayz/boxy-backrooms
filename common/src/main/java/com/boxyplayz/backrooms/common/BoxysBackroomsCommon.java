@@ -71,5 +71,6 @@ public final class BoxysBackroomsCommon {
                 PlayerJoinEvents.Register();
                 ModEntitySpawner.RegisterModMobSpawning();
                 MenuTypes.Register();
+                ModSounds.Register();
         }
 }

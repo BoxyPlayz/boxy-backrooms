@@ -4,7 +4,6 @@ import com.boxyplayz.backrooms.common.networking.SetShadyGrayPayload;
 import com.boxyplayz.backrooms.common.savedata.ShadyGrayAllowedData;
 
 import dev.architectury.networking.NetworkManager;
-// import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -20,8 +19,9 @@ public class GrayKeyItem extends Item {
 
 	@Override
 	public InteractionResult use(Level level, Player player, InteractionHand hand) {
+		player.startUsingItem(hand);
 		if (level.isClientSide()) {
-			// LocalPlayer clientPlayer = (LocalPlayer) player;
+
 		} else {
 			ServerPlayer serverPlayer = (ServerPlayer) player;
 			NetworkManager.sendToPlayer(serverPlayer, new SetShadyGrayPayload(true));
@@ -30,5 +30,4 @@ public class GrayKeyItem extends Item {
 		}
 		return super.use(level, player, hand);
 	}
-
 }

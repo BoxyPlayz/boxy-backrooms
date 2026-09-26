@@ -1,5 +1,6 @@
 package com.boxyplayz.backrooms.client;
 
+import com.boxyplayz.backrooms.common.ModSounds;
 import com.boxyplayz.backrooms.common.networking.SetShadyGrayPayload;
 
 import dev.architectury.networking.NetworkManager;
@@ -9,6 +10,7 @@ public class NetManClient {
 		NetworkManager.registerReceiver(NetworkManager.Side.S2C, SetShadyGrayPayload.TYPE, SetShadyGrayPayload.CODEC,
 				(payload, context) -> {
 					ClientVariables.setShadyGray(payload.enabled());
+					context.getPlayer().playSound(ModSounds.WEIRD.get());
 				});
 	}
 }
