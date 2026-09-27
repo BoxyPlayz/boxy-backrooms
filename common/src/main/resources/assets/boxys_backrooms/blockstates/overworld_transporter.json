@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "boxys_backrooms:block/overworld_transporter"
+    },
+    "powered=true": {
+      "model": "boxys_backrooms:block/overworld_transporter_powered"
+    }
+  }
+}

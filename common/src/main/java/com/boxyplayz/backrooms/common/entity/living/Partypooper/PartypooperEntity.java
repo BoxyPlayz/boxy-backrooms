@@ -45,7 +45,6 @@ public class PartypooperEntity extends PathfinderMob {
 			this.targetSelector.addGoal(i + 4,
 					new NearestAttackableTargetGoal<>(this, ModEntities.partyPooperTargetEntities.get(i), true));
 		}
-
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {

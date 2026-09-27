@@ -21,6 +21,7 @@ import com.boxyplayz.backrooms.common.block.custom.Level6EntryBlock;
 import com.boxyplayz.backrooms.common.block.custom.Level9EntryHouse;
 import com.boxyplayz.backrooms.common.block.custom.NoFallDamageBlock;
 import com.boxyplayz.backrooms.common.block.custom.OceanTransporter;
+import com.boxyplayz.backrooms.common.block.custom.OverworldTransporter;
 import com.boxyplayz.backrooms.common.block.custom.PainOnBreakBlock;
 import com.boxyplayz.backrooms.common.block.custom.PremiumCarpet;
 import com.boxyplayz.backrooms.common.block.custom.PromisedGate;
@@ -380,19 +381,26 @@ public class ModBlocks {
 
 	public static final DeferredSupplier<Block> LEVEL5_ENTRY_TABLE = register("level5_entry_table",
 			Level5EntryTable::new,
-			BlockBehaviour.Properties.of().noOcclusion().isRedstoneConductor((state, level, pos) -> false), true);
+			BlockBehaviour.Properties.of().noOcclusion().isRedstoneConductor((state, level, pos) -> false)
+					.mapColor(MapColor.COLOR_BROWN),
+			true);
 
 	public static final DeferredSupplier<Block> LEVEL11_CONCRETE = register("level11_concrete", Level11Concrete::new,
-			BlockBehaviour.Properties.of().strength(20), true);
+			BlockBehaviour.Properties.of().strength(20).mapColor(MapColor.COLOR_GRAY), true);
 
 	public static final DeferredSupplier<Block> LEVEL9_ENTRY = register("level9_entry_house", Level9EntryHouse::new,
-			BlockBehaviour.Properties.of().strength(40).noOcclusion(), true);
+			BlockBehaviour.Properties.of().strength(40).noOcclusion().mapColor(MapColor.TERRACOTTA_LIGHT_GRAY), true);
 
 	public static final DeferredSupplier<Block> FALSE_WHEAT = register("false_wheat", FalseWheat::new,
-			BlockBehaviour.Properties.of().strength(1).noOcclusion().noCollision(), true);
+			BlockBehaviour.Properties.of().strength(1).noOcclusion().noCollision().mapColor(MapColor.TERRACOTTA_ORANGE),
+			true);
 
 	public static final DeferredSupplier<Block> STEP_VISIBLE = register("step_visible", StepVisibleBlock::new,
-			BlockBehaviour.Properties.of().strength(-1, 3600000).noOcclusion(), true);
+			BlockBehaviour.Properties.of().strength(-1, 3600000).noOcclusion().mapColor(MapColor.COLOR_BLACK), true);
+
+	public static final DeferredSupplier<Block> OVERWORLD_TRANSPORTER = register("overworld_transporter",
+			OverworldTransporter::new,
+			BlockBehaviour.Properties.of().strength(80, 12).mapColor(MapColor.COLOR_MAGENTA), true);
 
 	public static void RegisterModBlocks() {
 		BoxysBackroomsCommon.BLOCKS.register();

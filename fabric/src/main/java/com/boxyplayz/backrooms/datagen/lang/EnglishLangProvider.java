@@ -142,6 +142,8 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 
 		translationBuilder.add(ModBlocks.LEVEL9_ENTRY.get(), "Level 9 Entry House");
 
+		translationBuilder.add(ModBlocks.OVERWORLD_TRANSPORTER.get(), "Overworld Transporter");
+
 		// Loot Blocks
 		translationBuilder.add(ModBlocks.LEVEL1_CRATE.get(), "Crate");
 		translationBuilder.add(ModBlocks.FUN_CRATE.get(), "Fun Crate =)");

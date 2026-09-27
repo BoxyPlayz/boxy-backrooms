@@ -94,6 +94,7 @@ public class BlockLootTableProvider extends FabricBlockLootSubProvider {
 		dropSelf(FabricBlocks.POWER_OUTLET_BLOCK);
 
 		dropSelf(ModBlocks.FUN_FLOOR.get());
+		dropSelf(ModBlocks.OVERWORLD_TRANSPORTER.get());
 
 		dropOther(ModBlocks.PURE_GRASS.get(), Blocks.GRASS_BLOCK);
 		dropOther(ModBlocks.FUN_GREEN.get(), Items.LIME_DYE);
