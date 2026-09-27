@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "multi_bench",
+  "key": {
+    "A": "boxys_backrooms:power_outlet",
+    "B": "boxys_backrooms:null",
+    "C": "boxys_backrooms:pure_grass"
+  },
+  "pattern": [
+    "BAB",
+    "ACA",
+    "BAB"
+  ],
+  "result": {
+    "id": "boxys_backrooms:overworld_transporter"
+  }
+}

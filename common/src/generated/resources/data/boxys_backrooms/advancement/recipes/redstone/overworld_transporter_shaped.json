@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_null": {
+      "conditions": {
+        "items": [
+          {
+            "items": "boxys_backrooms:null"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "boxys_backrooms:overworld_transporter_shaped"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_null"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "boxys_backrooms:overworld_transporter_shaped"
+    ]
+  }
+}

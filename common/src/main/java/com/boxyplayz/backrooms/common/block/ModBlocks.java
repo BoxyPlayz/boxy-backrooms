@@ -402,6 +402,10 @@ public class ModBlocks {
 			OverworldTransporter::new,
 			BlockBehaviour.Properties.of().strength(80, 12).mapColor(MapColor.COLOR_MAGENTA), true);
 
+	public static final DeferredSupplier<Block> NULL_BLOCK = register("null",
+			Block::new,
+			BlockBehaviour.Properties.of().strength(1).mapColor(MapColor.COLOR_BLACK), true);
+
 	public static void RegisterModBlocks() {
 		BoxysBackroomsCommon.BLOCKS.register();
 	}

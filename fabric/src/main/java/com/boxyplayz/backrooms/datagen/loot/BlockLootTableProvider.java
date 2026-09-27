@@ -96,7 +96,12 @@ public class BlockLootTableProvider extends FabricBlockLootSubProvider {
 		dropSelf(ModBlocks.FUN_FLOOR.get());
 		dropSelf(ModBlocks.OVERWORLD_TRANSPORTER.get());
 
-		dropOther(ModBlocks.PURE_GRASS.get(), Blocks.GRASS_BLOCK);
+		add(ModBlocks.PURE_GRASS.get(), LootTable.lootTable().withPool(
+				LootPool.lootPool().when(
+						this.hasSilkTouch()).add(LootItem.lootTableItem(ModBlocks.PURE_GRASS.get())))
+				.withPool(
+						LootPool.lootPool().when(this.doesNotHaveSilkTouch())
+								.add(LootItem.lootTableItem(Blocks.GRASS_BLOCK))));
 		dropOther(ModBlocks.FUN_GREEN.get(), Items.LIME_DYE);
 		dropOther(ModBlocks.FUN_PINK.get(), Items.PINK_DYE);
 		dropOther(ModBlocks.FUN_YELLOW.get(), Items.YELLOW_DYE);
@@ -126,6 +131,7 @@ public class BlockLootTableProvider extends FabricBlockLootSubProvider {
 		dropOther(ModBlocks.LEVEL9_ENTRY.get(), Blocks.OAK_PLANKS);
 		dropOther(ModBlocks.FALSE_WHEAT.get(), Items.WHEAT);
 		dropOther(ModBlocks.STEP_VISIBLE.get(), Blocks.BARRIER);
+		dropSelf(ModBlocks.NULL_BLOCK.get());
 	}
 
 }

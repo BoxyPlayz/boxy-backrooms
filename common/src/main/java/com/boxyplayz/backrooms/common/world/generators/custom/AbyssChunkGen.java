@@ -58,10 +58,14 @@ public class AbyssChunkGen extends BaseChunkGen {
 			return Blocks.BEDROCK.defaultBlockState();
 		}
 
+		boolean nullified = randomFactory.at(x, y, z).nextInt(2000) == 3;
+
 		int i = START_SIZE;
 
 		if (deepness <= i) {
 			if (y <= getNoise(randomFactory).getValue(x * 0.01, z * 0.01) * 8 + 16) {
+				if (nullified)
+					return ModBlocks.NULL_BLOCK.get().defaultBlockState();
 				return Blocks.OBSIDIAN.defaultBlockState();
 			}
 			return Blocks.AIR.defaultBlockState();
@@ -72,6 +76,8 @@ public class AbyssChunkGen extends BaseChunkGen {
 		if (deepness <= i) {
 			double noiseVal = getNoise(randomFactory).getValue(x * 0.01, z * 0.01) * 8 + 16;
 			if (y <= noiseVal) {
+				if (nullified)
+					return ModBlocks.NULL_BLOCK.get().defaultBlockState();
 				if (y + 2 <= noiseVal) {
 					return Blocks.DIRT.defaultBlockState();
 				}
@@ -89,6 +95,8 @@ public class AbyssChunkGen extends BaseChunkGen {
 		if (deepness <= i) {
 			double noiseVal = getNoise(randomFactory).getValue(x * 0.01, z * 0.01) * 8 + 16;
 			if (y <= noiseVal) {
+				if (nullified)
+					return ModBlocks.NULL_BLOCK.get().defaultBlockState();
 				RandomSource blockRandom = randomFactory.at(x, y, z);
 				BlockState state = Blocks.BLACKSTONE.defaultBlockState();
 				for (Block b : hotBlocks) {
@@ -103,6 +111,8 @@ public class AbyssChunkGen extends BaseChunkGen {
 
 		i += END_SIZE;
 		if (deepness <= i) {
+			if (nullified)
+				return ModBlocks.NULL_BLOCK.get().defaultBlockState();
 			double noiseVal = getNoise(randomFactory).getValue(x * 0.01, z * 0.01) * 8 + 16;
 			if (y <= noiseVal) {
 				return Blocks.END_STONE.defaultBlockState();
@@ -111,6 +121,8 @@ public class AbyssChunkGen extends BaseChunkGen {
 		}
 
 		if (y == this.getMinY()) {
+			if (nullified)
+				return ModBlocks.NULL_BLOCK.get().defaultBlockState();
 			return ModBlocks.STEP_VISIBLE.get().defaultBlockState();
 		}
 

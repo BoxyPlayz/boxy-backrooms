@@ -4,6 +4,7 @@ import java.util.concurrent.CompletableFuture;
 
 import com.boxyplayz.backrooms.block.FabricBlocks;
 import com.boxyplayz.backrooms.common.block.ModBlocks;
+import com.boxyplayz.backrooms.common.block.SidedBlocks;
 import com.boxyplayz.backrooms.common.builders.BlendingRecipeBuilder;
 import com.boxyplayz.backrooms.common.item.ModItems;
 import com.boxyplayz.backrooms.common.world.ModDimensions;
@@ -115,6 +116,18 @@ public class RecipeDataProvider extends FabricRecipeProvider {
 								ChangeDimensionTrigger.TriggerInstance
 										.changedDimensionTo(ModDimensions.LEVEL3.level))
 						.save(output, getItemName(ModBlocks.BLENDER.get()) + "_shapeless");
+
+				shaped(RecipeCategory.REDSTONE, ModBlocks.OVERWORLD_TRANSPORTER.get())
+						.define('A', Ingredient.of(SidedBlocks.POWER_OUTLET_BLOCK()))
+						.define('B', Ingredient.of(ModBlocks.NULL_BLOCK.get()))
+						.define('C', Ingredient.of(ModBlocks.PURE_GRASS.get()))
+						.pattern("BAB")
+						.pattern("ACA")
+						.pattern("BAB")
+						.group("multi_bench")
+						.unlockedBy(getHasName(ModBlocks.NULL_BLOCK.get()), has(ModBlocks.NULL_BLOCK.get()))
+						.save(output, getItemName(ModBlocks.OVERWORLD_TRANSPORTER.get()) + "_shaped");
+				;
 			}
 		};
 	}
