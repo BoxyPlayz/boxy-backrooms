@@ -51,7 +51,7 @@ public final class BoxysBackroomsCommon {
                 ModWorldPresets.RegisterPresets();
                 ModRecipes.RegisterModRecipes();
                 ModTags.RegisterModTags();
-                ModToolMaterials.RegisterToolMaterials();
+                ModMaterials.RegisterToolMaterials();
                 ModDimensions.RegisterModDimensions();
                 ModEnchantments.RegisterModEnchantments();
                 ModStructures.RegisterStructures();

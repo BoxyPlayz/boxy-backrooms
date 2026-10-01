@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "boxys_backrooms:firesteel"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "boxys_backrooms:firesteel"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "boxys_backrooms:firesteel"
+      }
+    ]
+  }
+}

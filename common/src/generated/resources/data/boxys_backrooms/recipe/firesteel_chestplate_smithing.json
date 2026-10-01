@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "boxys_backrooms:firesteel_alloy",
+  "base": "minecraft:golden_chestplate",
+  "result": {
+    "id": "boxys_backrooms:firesteel_chestplate"
+  },
+  "template": "minecraft:blaze_powder"
+}

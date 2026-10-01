@@ -6,7 +6,7 @@ import org.jspecify.annotations.NonNull;
 
 import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
 import com.boxyplayz.backrooms.common.ModCreativeTabs;
-import com.boxyplayz.backrooms.common.ModToolMaterials;
+import com.boxyplayz.backrooms.common.ModMaterials;
 import com.boxyplayz.backrooms.common.effect.ModEffects;
 import com.boxyplayz.backrooms.common.entity.ModEntities;
 import com.boxyplayz.backrooms.common.item.custom.FireSaltItem;
@@ -25,6 +25,7 @@ import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.component.Consumables;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.minecraft.world.item.consume_effects.RemoveStatusEffectsConsumeEffect;
+import net.minecraft.world.item.equipment.ArmorType;
 
 public class ModItems {
 
@@ -117,7 +118,7 @@ public class ModItems {
 	public static final RegistrySupplier<FireSaltItem> FIRESTEEL_SWORD = registerItem(
 			"firesteel_sword",
 			FireSaltItem::new,
-			key -> new Item.Properties().sword(ModToolMaterials.FIRESTEEL_MATERIAL, 3,
+			key -> new Item.Properties().sword(ModMaterials.FIRESTEEL_TOOL_MATERIAL, 3,
 					-2));
 
 	public static final RegistrySupplier<Item> NEON_WATER = registerItem(
@@ -189,6 +190,30 @@ public class ModItems {
 			"gray_key",
 			GrayKeyItem::new,
 			key -> new Item.Properties().stacksTo(1));
+
+	public static final RegistrySupplier<Item> FIRESTEEL_HELMET = registerItem(
+			"firesteel_helmet",
+			Item::new,
+			key -> new Item.Properties()
+					.humanoidArmor(ModMaterials.FIRESTEEL_ARMOR_MATERIAL, ArmorType.HELMET));
+
+	public static final RegistrySupplier<Item> FIRESTEEL_CHESTPLATE = registerItem(
+			"firesteel_chestplate",
+			Item::new,
+			key -> new Item.Properties()
+					.humanoidArmor(ModMaterials.FIRESTEEL_ARMOR_MATERIAL, ArmorType.CHESTPLATE));
+
+	public static final RegistrySupplier<Item> FIRESTEEL_LEGGINGS = registerItem(
+			"firesteel_leggings",
+			Item::new,
+			key -> new Item.Properties()
+					.humanoidArmor(ModMaterials.FIRESTEEL_ARMOR_MATERIAL, ArmorType.LEGGINGS));
+
+	public static final RegistrySupplier<Item> FIRESTEEL_BOOTS = registerItem(
+			"firesteel_boots",
+			Item::new,
+			key -> new Item.Properties()
+					.humanoidArmor(ModMaterials.FIRESTEEL_ARMOR_MATERIAL, ArmorType.BOOTS));
 
 	public static void registerModItems() {
 		BoxysBackroomsCommon.ITEMS.register();

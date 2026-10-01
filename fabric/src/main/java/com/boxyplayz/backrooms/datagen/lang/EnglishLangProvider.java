@@ -144,6 +144,11 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 
 		translationBuilder.add(ModBlocks.OVERWORLD_TRANSPORTER.get(), "Overworld Transporter");
 
+		translationBuilder.add(ModItems.FIRESTEEL_HELMET.get(), "Firesteel Helmet");
+		translationBuilder.add(ModItems.FIRESTEEL_CHESTPLATE.get(), "Firesteel Chestplate");
+		translationBuilder.add(ModItems.FIRESTEEL_LEGGINGS.get(), "Firesteel Leggings");
+		translationBuilder.add(ModItems.FIRESTEEL_BOOTS.get(), "Firesteel Boots");
+
 		// Loot Blocks
 		translationBuilder.add(ModBlocks.LEVEL1_CRATE.get(), "Crate");
 		translationBuilder.add(ModBlocks.FUN_CRATE.get(), "Fun Crate =)");

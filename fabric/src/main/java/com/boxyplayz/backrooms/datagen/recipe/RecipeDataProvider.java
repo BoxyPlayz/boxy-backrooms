@@ -127,7 +127,42 @@ public class RecipeDataProvider extends FabricRecipeProvider {
 						.group("multi_bench")
 						.unlockedBy(getHasName(ModBlocks.NULL_BLOCK.get()), has(ModBlocks.NULL_BLOCK.get()))
 						.save(output, getItemName(ModBlocks.OVERWORLD_TRANSPORTER.get()) + "_shaped");
-				;
+
+				SmithingTransformRecipeBuilder
+						.smithing(Ingredient.of(Items.BLAZE_POWDER),
+								Ingredient.of(Items.GOLDEN_HELMET),
+								Ingredient.of(ModItems.FIRESTEEL_ALLOY.get()),
+								RecipeCategory.COMBAT,
+								ModItems.FIRESTEEL_HELMET.get())
+						.unlocks(getHasName(ModItems.FIRESTEEL_ALLOY.get()), has(ModItems.FIRESTEEL_ALLOY.get()))
+						.save(output, getItemName(ModItems.FIRESTEEL_HELMET.get()) + "_smithing");
+
+				SmithingTransformRecipeBuilder
+						.smithing(Ingredient.of(Items.BLAZE_POWDER),
+								Ingredient.of(Items.GOLDEN_CHESTPLATE),
+								Ingredient.of(ModItems.FIRESTEEL_ALLOY.get()),
+								RecipeCategory.COMBAT,
+								ModItems.FIRESTEEL_CHESTPLATE.get())
+						.unlocks(getHasName(ModItems.FIRESTEEL_ALLOY.get()), has(ModItems.FIRESTEEL_ALLOY.get()))
+						.save(output, getItemName(ModItems.FIRESTEEL_CHESTPLATE.get()) + "_smithing");
+
+				SmithingTransformRecipeBuilder
+						.smithing(Ingredient.of(Items.BLAZE_POWDER),
+								Ingredient.of(Items.GOLDEN_LEGGINGS),
+								Ingredient.of(ModItems.FIRESTEEL_ALLOY.get()),
+								RecipeCategory.COMBAT,
+								ModItems.FIRESTEEL_LEGGINGS.get())
+						.unlocks(getHasName(ModItems.FIRESTEEL_ALLOY.get()), has(ModItems.FIRESTEEL_ALLOY.get()))
+						.save(output, getItemName(ModItems.FIRESTEEL_LEGGINGS.get()) + "_smithing");
+
+				SmithingTransformRecipeBuilder
+						.smithing(Ingredient.of(Items.BLAZE_POWDER),
+								Ingredient.of(Items.GOLDEN_BOOTS),
+								Ingredient.of(ModItems.FIRESTEEL_ALLOY.get()),
+								RecipeCategory.COMBAT,
+								ModItems.FIRESTEEL_BOOTS.get())
+						.unlocks(getHasName(ModItems.FIRESTEEL_ALLOY.get()), has(ModItems.FIRESTEEL_ALLOY.get()))
+						.save(output, getItemName(ModItems.FIRESTEEL_BOOTS.get()) + "_smithing");
 			}
 		};
 	}

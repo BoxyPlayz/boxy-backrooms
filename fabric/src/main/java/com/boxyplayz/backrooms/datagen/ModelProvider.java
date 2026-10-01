@@ -2,6 +2,7 @@ package com.boxyplayz.backrooms.datagen;
 
 import com.boxyplayz.backrooms.BoxysBackroomsFabric;
 import com.boxyplayz.backrooms.block.FabricBlocks;
+import com.boxyplayz.backrooms.common.ModMaterials;
 import com.boxyplayz.backrooms.common.block.ModBlocks;
 import com.boxyplayz.backrooms.common.item.ModItems;
 
@@ -126,5 +127,21 @@ public class ModelProvider extends FabricModelProvider {
 										"block/level5_entry_table")));
 		itemModelGenerator.generateFlatItem(ModItems.NEIGHBORHOOD_WATCH_SPAWN_EGG.get(),
 				ModelTemplates.FLAT_HANDHELD_ITEM);
+
+		itemModelGenerator.generateTrimmableItem(ModItems.FIRESTEEL_HELMET.get(),
+				ModMaterials.FIRESTEEL_EQUIPMENT_MATERIAL,
+				ItemModelGenerators.TRIM_PREFIX_HELMET, false);
+
+		itemModelGenerator.generateTrimmableItem(ModItems.FIRESTEEL_CHESTPLATE.get(),
+				ModMaterials.FIRESTEEL_EQUIPMENT_MATERIAL,
+				ItemModelGenerators.TRIM_PREFIX_CHESTPLATE, false);
+
+		itemModelGenerator.generateTrimmableItem(ModItems.FIRESTEEL_LEGGINGS.get(),
+				ModMaterials.FIRESTEEL_EQUIPMENT_MATERIAL,
+				ItemModelGenerators.TRIM_PREFIX_LEGGINGS, false);
+
+		itemModelGenerator.generateTrimmableItem(ModItems.FIRESTEEL_BOOTS.get(),
+				ModMaterials.FIRESTEEL_EQUIPMENT_MATERIAL,
+				ItemModelGenerators.TRIM_PREFIX_BOOTS, false);
 	}
 }

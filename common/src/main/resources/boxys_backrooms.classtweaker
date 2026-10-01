@@ -1,0 +1,3 @@
+classTweaker  v1  official
+
+accessible method net/minecraft/world/item/equipment/ArmorMaterials makeDefense (IIIII)Ljava/util/Map;

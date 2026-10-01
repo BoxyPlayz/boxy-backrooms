@@ -63,6 +63,8 @@ public class BoxysBackroomsDataGenEntry implements DataGeneratorEntrypoint {
 		pack.addProvider(DamageTypeProvider::new);
 
 		pack.addProvider(EnchantmentsProvider::new);
+
+		pack.addProvider(ModEquipmentAssetProvider::new);
 	}
 
 	@Override

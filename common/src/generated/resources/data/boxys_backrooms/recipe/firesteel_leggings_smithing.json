@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "boxys_backrooms:firesteel_alloy",
+  "base": "minecraft:golden_leggings",
+  "result": {
+    "id": "boxys_backrooms:firesteel_leggings"
+  },
+  "template": "minecraft:blaze_powder"
+}

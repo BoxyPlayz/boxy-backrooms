@@ -15,6 +15,10 @@ dependencies {
 	compileOnly("fuzs.forgeconfigapiport:forgeconfigapiport-common-neoforgeapi:$rootProject.forge_config_api_version")
 }
 
+loom {
+    accessWidenerPath = file("src/main/resources/boxys_backrooms.classtweaker")
+}
+
 sourceSets {
     main {
         resources { // include generated resources in resources

@@ -58,6 +58,11 @@ public class ItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
 				.add(ModItems.FIRESTEEL_SWORD.get());
 		valueLookupBuilder(ItemTags.SHARP_WEAPON_ENCHANTABLE)
 				.add(ModItems.FIRESTEEL_SWORD.get());
+
+		valueLookupBuilder(ItemTags.HEAD_ARMOR).add(ModItems.FIRESTEEL_HELMET.get());
+		valueLookupBuilder(ItemTags.CHEST_ARMOR).add(ModItems.FIRESTEEL_CHESTPLATE.get());
+		valueLookupBuilder(ItemTags.LEG_ARMOR).add(ModItems.FIRESTEEL_LEGGINGS.get());
+		valueLookupBuilder(ItemTags.FOOT_ARMOR).add(ModItems.FIRESTEEL_BOOTS.get());
 	}
 
 }
