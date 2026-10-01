@@ -7,6 +7,7 @@ import org.jspecify.annotations.NonNull;
 import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
 import com.boxyplayz.backrooms.common.ModCreativeTabs;
 import com.boxyplayz.backrooms.common.ModMaterials;
+import com.boxyplayz.backrooms.common.ModTags;
 import com.boxyplayz.backrooms.common.effect.ModEffects;
 import com.boxyplayz.backrooms.common.entity.ModEntities;
 import com.boxyplayz.backrooms.common.item.custom.FireSaltItem;
@@ -14,6 +15,7 @@ import com.boxyplayz.backrooms.common.item.custom.GrayKeyItem;
 import com.boxyplayz.backrooms.common.item.custom.LiquidPainItem;
 
 import dev.architectury.registry.registries.RegistrySupplier;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
@@ -23,6 +25,7 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.component.Consumables;
+import net.minecraft.world.item.component.DamageResistant;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.minecraft.world.item.consume_effects.RemoveStatusEffectsConsumeEffect;
 import net.minecraft.world.item.equipment.ArmorType;
@@ -195,25 +198,33 @@ public class ModItems {
 			"firesteel_helmet",
 			Item::new,
 			key -> new Item.Properties()
-					.humanoidArmor(ModMaterials.FIRESTEEL_ARMOR_MATERIAL, ArmorType.HELMET));
+					.humanoidArmor(ModMaterials.FIRESTEEL_ARMOR_MATERIAL, ArmorType.HELMET)
+					.delayedComponent(DataComponents.DAMAGE_RESISTANT,
+							context -> new DamageResistant(context.getOrThrow(ModTags.FIRE_ATTACKS))));
 
 	public static final RegistrySupplier<Item> FIRESTEEL_CHESTPLATE = registerItem(
 			"firesteel_chestplate",
 			Item::new,
 			key -> new Item.Properties()
-					.humanoidArmor(ModMaterials.FIRESTEEL_ARMOR_MATERIAL, ArmorType.CHESTPLATE));
+					.humanoidArmor(ModMaterials.FIRESTEEL_ARMOR_MATERIAL, ArmorType.CHESTPLATE)
+					.delayedComponent(DataComponents.DAMAGE_RESISTANT,
+							context -> new DamageResistant(context.getOrThrow(ModTags.FIRE_ATTACKS))));
 
 	public static final RegistrySupplier<Item> FIRESTEEL_LEGGINGS = registerItem(
 			"firesteel_leggings",
 			Item::new,
 			key -> new Item.Properties()
-					.humanoidArmor(ModMaterials.FIRESTEEL_ARMOR_MATERIAL, ArmorType.LEGGINGS));
+					.humanoidArmor(ModMaterials.FIRESTEEL_ARMOR_MATERIAL, ArmorType.LEGGINGS)
+					.delayedComponent(DataComponents.DAMAGE_RESISTANT,
+							context -> new DamageResistant(context.getOrThrow(ModTags.FIRE_ATTACKS))));
 
 	public static final RegistrySupplier<Item> FIRESTEEL_BOOTS = registerItem(
 			"firesteel_boots",
 			Item::new,
 			key -> new Item.Properties()
-					.humanoidArmor(ModMaterials.FIRESTEEL_ARMOR_MATERIAL, ArmorType.BOOTS));
+					.humanoidArmor(ModMaterials.FIRESTEEL_ARMOR_MATERIAL, ArmorType.BOOTS)
+					.delayedComponent(DataComponents.DAMAGE_RESISTANT,
+							context -> new DamageResistant(context.getOrThrow(ModTags.FIRE_ATTACKS))));
 
 	public static void registerModItems() {
 		BoxysBackroomsCommon.ITEMS.register();
