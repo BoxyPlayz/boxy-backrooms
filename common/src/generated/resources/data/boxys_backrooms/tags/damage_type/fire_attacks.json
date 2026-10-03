@@ -4,6 +4,8 @@
     "minecraft:in_fire",
     "minecraft:on_fire",
     "minecraft:unattributed_fireball",
+    "minecraft:campfire",
+    "minecraft:hot_floor",
     "minecraft:lava"
   ]
 }

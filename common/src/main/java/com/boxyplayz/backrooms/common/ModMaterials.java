@@ -23,7 +23,7 @@ public class ModMaterials {
 			0, 20, ModTags.FIRESTEEL_REPAIR_ITEMS);
 
 	public static final ArmorMaterial FIRESTEEL_ARMOR_MATERIAL = new ArmorMaterial(22,
-			ArmorMaterials.makeDefense(3, 6, 7, 3, 8),
+			ArmorMaterials.makeDefense(2, 5, 6, 2, 5),
 			30,
 			SoundEvents.ARMOR_EQUIP_IRON,
 			1.0f,

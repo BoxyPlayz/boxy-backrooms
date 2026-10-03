@@ -35,6 +35,8 @@ public class DamageTypeTagProvider extends FabricTagsProvider<DamageType> {
 				.add(DamageTypes.IN_FIRE)
 				.add(DamageTypes.ON_FIRE)
 				.add(DamageTypes.UNATTRIBUTED_FIREBALL)
+				.add(DamageTypes.CAMPFIRE)
+				.add(DamageTypes.HOT_FLOOR)
 				.add(DamageTypes.LAVA);
 
 		builder(DamageTypeTags.BYPASSES_ARMOR)
