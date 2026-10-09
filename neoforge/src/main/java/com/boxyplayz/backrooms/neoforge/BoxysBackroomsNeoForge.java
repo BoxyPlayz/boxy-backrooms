@@ -40,6 +40,7 @@ public final class BoxysBackroomsNeoForge {
 
         public static final DeferredItem<BlockItem> POWER_OUTLET_BLOCK_ITEM = ITEMS.register("power_outlet",
                         registryName -> new BlockItem(POWER_OUTLET_BLOCK.get(), new Item.Properties()
+                                        .useBlockDescriptionPrefix()
                                         .setId(ResourceKey.create(Registries.ITEM, registryName))));
 
         public static final Supplier<BlockEntityType<PowerOutletBlockEntity>> POWER_OUTLET_BLOCK_ENTITY = BLOCK_ENTITY_TYPES

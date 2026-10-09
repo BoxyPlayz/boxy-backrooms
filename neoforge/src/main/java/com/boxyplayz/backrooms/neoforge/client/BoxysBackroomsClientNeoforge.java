@@ -18,7 +18,9 @@ import com.boxyplayz.backrooms.client.entity.smiler.SmilerModel;
 import com.boxyplayz.backrooms.client.entity.wretch.WretchModel;
 import com.boxyplayz.backrooms.client.entity.wretch.WretchedRenderer;
 import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
+import com.boxyplayz.backrooms.common.ModCreativeTabs;
 import com.boxyplayz.backrooms.common.entity.ModEntities;
+import com.boxyplayz.backrooms.neoforge.BoxysBackroomsNeoForge;
 
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.neoforged.api.distmarker.Dist;
@@ -28,6 +30,7 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 
 @Mod(value = BoxysBackroomsCommon.MOD_ID, dist = Dist.CLIENT)
 public class BoxysBackroomsClientNeoforge {
@@ -35,6 +38,7 @@ public class BoxysBackroomsClientNeoforge {
 		bus.addListener(BoxysBackroomsClientNeoforge::clientSetup);
 		bus.addListener(BoxysBackroomsClientNeoforge::registerRenderers);
 		bus.addListener(BoxysBackroomsClientNeoforge::registerLayers);
+		bus.addListener(BoxysBackroomsClientNeoforge::buildContents);
 
 		container.registerConfig(ModConfig.Type.CLIENT,
 				BoxysBackroomsClientConfig.SPEC);
@@ -74,5 +78,11 @@ public class BoxysBackroomsClientNeoforge {
 		event.registerLayerDefinition(ClientEntityRenderers.MODEL_WRETCH_LAYER, WretchModel::createBodyLayer);
 		event.registerLayerDefinition(ClientEntityRenderers.MODEL_SKIN_STEALER_LAYER,
 				SkinStealerModel::createBodyLayer);
+	}
+
+	public static void buildContents(BuildCreativeModeTabContentsEvent event) {
+		if (event.getTabKey() == ModCreativeTabs.BACKROOMS_ITEM_GROUP_KEY) {
+			event.accept(BoxysBackroomsNeoForge.POWER_OUTLET_BLOCK);
+		}
 	}
 }

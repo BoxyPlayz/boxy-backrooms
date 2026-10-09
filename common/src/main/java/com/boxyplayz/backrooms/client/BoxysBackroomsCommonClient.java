@@ -2,10 +2,10 @@ package com.boxyplayz.backrooms.client;
 
 import com.boxyplayz.backrooms.client.entity.ClientEntityRenderers;
 import com.boxyplayz.backrooms.client.events.BlockColors;
+import com.boxyplayz.backrooms.client.events.ClientTickEvents;
 import com.boxyplayz.backrooms.client.events.Tooltips;
 import com.boxyplayz.backrooms.client.screens.BlendingScreen;
 import com.boxyplayz.backrooms.client.screens.ElevatorScreen;
-import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
 import com.boxyplayz.backrooms.common.gui.ModHudRenderer;
 import com.boxyplayz.backrooms.common.menu.MenuTypes;
 
@@ -18,10 +18,10 @@ public final class BoxysBackroomsCommonClient {
 		MenuScreenRegistry.registerScreenFactory(MenuTypes.ELEVATOR_MENU_TYPE.get(), ElevatorScreen::new);
 		BlockColors.Register();
 		Tooltips.Register();
-		BoxysBackroomsCommon.LOGGER.info("Start register renders");
+		ClientTickEvents.register();
 		ClientEntityRenderers.RegisterRenderers();
-		BoxysBackroomsCommon.LOGGER.info("done register renders");
 		NetManClient.register();
 		ClientGuiEvent.RENDER_HUD.register(ModHudRenderer::render);
+		ModKeybinds.register();
 	}
 }

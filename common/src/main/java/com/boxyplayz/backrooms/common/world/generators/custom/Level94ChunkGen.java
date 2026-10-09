@@ -44,8 +44,9 @@ public class Level94ChunkGen extends BaseChunkGen {
 	 * @return Blockstate
 	 */
 	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
+		double rawValue = getNoise(randomFactory).getValue(x * 0.005, z * 0.005);
 
-		int height = (int) (getNoise(randomFactory).getValue(x * 0.01, z * 0.01) * 10);
+		int height = (int) Math.floor(Math.signum(rawValue) * Math.sin(Math.abs(rawValue) * Math.PI / 2) * 20);
 
 		height += 70;
 

@@ -20,5 +20,6 @@ public class ModKeybinds {
 
 	public static void register() {
 		KeyMappingRegistry.register(DASH);
+
 	}
 }
