@@ -58,9 +58,6 @@ public class FabricBlocks {
 				FabricBlockEntityTypeBuilder.<T>create(entityFactory, blocks).build());
 	}
 
-	public static final BlockEntityType<PowerOutletBlockEntity> POWER_OUTLET_BLOCK_ENTITY = register("power_outlet",
-			PowerOutletBlockEntity::new, FabricBlocks.POWER_OUTLET_BLOCK);
-
 	public static final PowerOutletBlock POWER_OUTLET_BLOCK = register(
 			"power_outlet",
 			PowerOutletBlock::new,
@@ -68,6 +65,9 @@ public class FabricBlocks {
 					.lightLevel((state) -> 1)
 					.isRedstoneConductor(Blocks::never),
 			true);
+
+	public static final BlockEntityType<PowerOutletBlockEntity> POWER_OUTLET_BLOCK_ENTITY = register("power_outlet",
+			PowerOutletBlockEntity::new, FabricBlocks.POWER_OUTLET_BLOCK);
 
 	public static void RegisterFabricSidedBlocks() {
 		CreativeModeTabEvents.modifyOutputEvent(ModCreativeTabs.BACKROOMS_ITEM_GROUP_KEY).register((output) -> {
