@@ -1,10 +1,12 @@
 package com.boxyplayz.backrooms.common.block;
 
+import java.util.List;
 import java.util.function.Function;
 
 import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
 import com.boxyplayz.backrooms.common.ModCreativeTabs;
 import com.boxyplayz.backrooms.common.block.custom.BlenderBlock;
+import com.boxyplayz.backrooms.common.block.custom.ConditionlessDimensionTeleportBlock;
 import com.boxyplayz.backrooms.common.block.custom.ElevatorBlock;
 import com.boxyplayz.backrooms.common.block.custom.ErrorSlateBlock;
 import com.boxyplayz.backrooms.common.block.custom.FalseWheat;
@@ -29,6 +31,7 @@ import com.boxyplayz.backrooms.common.block.custom.PureBlue;
 import com.boxyplayz.backrooms.common.block.custom.StepVisibleBlock;
 import com.boxyplayz.backrooms.common.block.custom.TrampolineBlock;
 import com.boxyplayz.backrooms.common.block.custom.WaterFountainBlock;
+import com.boxyplayz.backrooms.common.world.ModDimensions;
 
 import dev.architectury.registry.registries.DeferredSupplier;
 import net.minecraft.core.registries.Registries;
@@ -43,13 +46,40 @@ import net.minecraft.world.level.material.MapColor;
 
 public class ModBlocks {
 
-	public static DeferredSupplier<Block> register(String name, Function<BlockBehaviour.Properties, Block> blockFactory,
+	public static <T extends Block> DeferredSupplier<T> register(String name,
+			Function<BlockBehaviour.Properties, T> blockFactory,
 			BlockBehaviour.Properties settings, boolean shouldRegisterItem) {
 		// Create a registry key for the block
 		ResourceKey<Block> blockKey = keyOfBlock(name);
 		// Create the block instance
-		DeferredSupplier<Block> block = BoxysBackroomsCommon.BLOCKS.register(name,
+		DeferredSupplier<T> block = BoxysBackroomsCommon.BLOCKS.register(name,
 				() -> blockFactory.apply(settings.setId(blockKey)));
+
+		// Sometimes, you may not want to register an item for the block.
+		// Eg: if it's a technical block like `minecraft:moving_piston` or
+		// `minecraft:end_gateway`
+		if (shouldRegisterItem) {
+			// Items need to be registered with a different type of registry key, but the ID
+			// can be the same.
+			ResourceKey<Item> itemKey = keyOfItem(name);
+
+			BoxysBackroomsCommon.ITEMS.register(name,
+					() -> new BlockItem(block.get(),
+							new Item.Properties().setId(itemKey).arch$tab(ModCreativeTabs.BACKROOMS_ITEM_GROUP_KEY)
+									.useBlockDescriptionPrefix()));
+		}
+
+		return block;
+	}
+
+	public static <T extends Block> DeferredSupplier<T> registerTeleport(String name,
+			Function<BlockBehaviour.Properties, T> blockFactory,
+			ConditionlessDimensionTeleportBlock.CustomProps settings, boolean shouldRegisterItem) {
+		// Create a registry key for the block
+		ResourceKey<Block> blockKey = keyOfBlock(name);
+		// Create the block instance
+		DeferredSupplier<T> block = BoxysBackroomsCommon.BLOCKS.register(name,
+				() -> blockFactory.apply(settings.build().setId(blockKey)));
 
 		// Sometimes, you may not want to register an item for the block.
 		// Eg: if it's a technical block like `minecraft:moving_piston` or
@@ -76,28 +106,28 @@ public class ModBlocks {
 		return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, name));
 	}
 
-	public static final DeferredSupplier<Block> ERRORSLATE = register(
+	public static final DeferredSupplier<ErrorSlateBlock> ERRORSLATE = register(
 			"errorslate",
 			ErrorSlateBlock::new,
 			BlockBehaviour.Properties.of().sound(SoundType.DEEPSLATE).strength(50f)
 					.mapColor(MapColor.DEEPSLATE),
 			true);
 
-	public static final DeferredSupplier<Block> OCEAN_TRANSPORTER = register(
+	public static final DeferredSupplier<OceanTransporter> OCEAN_TRANSPORTER = register(
 			"ocean_transporter",
 			OceanTransporter::new,
 			BlockBehaviour.Properties.of().sound(SoundType.IRON).strength(50f)
 					.mapColor(MapColor.WATER),
 			true);
 
-	public static final DeferredSupplier<Block> LEVEL0_WALLPAPER = register(
+	public static final DeferredSupplier<Level0Wallpaper> LEVEL0_WALLPAPER = register(
 			"level0_wallpaper",
 			Level0Wallpaper::new,
 			BlockBehaviour.Properties.of().sound(SoundType.BAMBOO).strength(6f, 8f)
 					.mapColor(MapColor.TERRACOTTA_YELLOW),
 			true);
 
-	public static final DeferredSupplier<Block> LEVEL0_CARPET = register(
+	public static final DeferredSupplier<Level0Carpet> LEVEL0_CARPET = register(
 			"level0_carpet",
 			Level0Carpet::new,
 			BlockBehaviour.Properties.of().sound(SoundType.WOOL).strength(5f, 7f).mapColor(MapColor.COLOR_YELLOW),
@@ -126,7 +156,7 @@ public class ModBlocks {
 					}).randomTicks(),
 			true);
 
-	public static final DeferredSupplier<Block> LEVEL0_CARPET_GLITCHED = register(
+	public static final DeferredSupplier<Level0GlitchedCarpet> LEVEL0_CARPET_GLITCHED = register(
 			"level0_carpet_glitched",
 			Level0GlitchedCarpet::new,
 			BlockBehaviour.Properties.of().sound(SoundType.TUFF).strength(1000f).mapColor(MapColor.COLOR_BLACK),
@@ -190,7 +220,7 @@ public class ModBlocks {
 			BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(0.6F).sound(SoundType.STONE),
 			true);
 
-	public static final DeferredSupplier<Block> PREMIUM_CARPET = register(
+	public static final DeferredSupplier<PremiumCarpet> PREMIUM_CARPET = register(
 			"premium_carpet",
 			PremiumCarpet::new,
 			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_RED).strength(0.6F).sound(SoundType.WOOL),
@@ -208,10 +238,13 @@ public class ModBlocks {
 			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).strength(0.6F).sound(SoundType.STONE),
 			true);
 
-	public static final DeferredSupplier<Block> INFERIOR_CARPET = register(
+	public static final DeferredSupplier<InferiorCarpet> INFERIOR_CARPET = registerTeleport(
 			"inferior_carpet",
 			InferiorCarpet::new,
-			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_RED).strength(0.6F).sound(SoundType.STONE),
+			new ConditionlessDimensionTeleportBlock.CustomProps(BlockBehaviour.Properties.of()
+					.mapColor(MapColor.TERRACOTTA_RED).strength(0.6F).sound(SoundType.STONE))
+					.starts(List.of(ModDimensions.LEVEL0_2.level, ModDimensions.BLUE_CHANNEL.level))
+					.target(ModDimensions.LEVEL_NEGATIVE_0_2),
 			true);
 
 	public static final DeferredSupplier<Block> INFERIOR_WALLPAPER = register(
@@ -233,43 +266,43 @@ public class ModBlocks {
 					.sound(SoundType.AMETHYST),
 			true);
 
-	public static final DeferredSupplier<Block> FUN_PINK = register(
+	public static final DeferredSupplier<NoFallDamageBlock> FUN_PINK = register(
 			"fun_pink",
 			NoFallDamageBlock::new,
 			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PINK).strength(999F).sound(SoundType.WOOL),
 			true);
 
-	public static final DeferredSupplier<Block> FUN_GREEN = register(
+	public static final DeferredSupplier<NoFallDamageBlock> FUN_GREEN = register(
 			"fun_green",
 			NoFallDamageBlock::new,
 			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).strength(999F).sound(SoundType.WOOL),
 			true);
 
-	public static final DeferredSupplier<Block> FUN_PURPLE = register(
+	public static final DeferredSupplier<NoFallDamageBlock> FUN_PURPLE = register(
 			"fun_purple",
 			NoFallDamageBlock::new,
 			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_PURPLE).strength(999F).sound(SoundType.WOOL),
 			true);
 
-	public static final DeferredSupplier<Block> FUN_YELLOW = register(
+	public static final DeferredSupplier<NoFallDamageBlock> FUN_YELLOW = register(
 			"fun_yellow",
 			NoFallDamageBlock::new,
 			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(999F).sound(SoundType.WOOL),
 			true);
 
-	public static final DeferredSupplier<Block> FUN_FLOOR = register(
+	public static final DeferredSupplier<NoFallDamageBlock> FUN_FLOOR = register(
 			"fun_floor",
 			NoFallDamageBlock::new,
 			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).strength(999F).sound(SoundType.WOOL),
 			true);
 
-	public static final DeferredSupplier<Block> BLACK_TRAMPOLINE = register(
+	public static final DeferredSupplier<TrampolineBlock> BLACK_TRAMPOLINE = register(
 			"black_trampoline",
 			TrampolineBlock::new,
 			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).strength(4F).sound(SoundType.WOOL),
 			true);
 
-	public static final DeferredSupplier<Block> FUN_CRATE = register(
+	public static final DeferredSupplier<PainOnBreakBlock> FUN_CRATE = register(
 			"fun_crate",
 			PainOnBreakBlock::new,
 			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).strength(1F).sound(SoundType.WOOD),
@@ -302,7 +335,7 @@ public class ModBlocks {
 			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PINK).strength(0.6F).sound(SoundType.STONE),
 			true);
 
-	public static final DeferredSupplier<Block> PROMISED_GATE = register(
+	public static final DeferredSupplier<PromisedGate> PROMISED_GATE = register(
 			"promised_gate",
 			PromisedGate::new,
 			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).strength(0.6F).sound(SoundType.AMETHYST)
@@ -322,7 +355,7 @@ public class ModBlocks {
 			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_BRICKS),
 			true);
 
-	public static final DeferredSupplier<Block> BLENDER = register(
+	public static final DeferredSupplier<BlenderBlock> BLENDER = register(
 			"blender",
 			BlenderBlock::new,
 			BlockBehaviour.Properties.of().mapColor(MapColor.GLOW_LICHEN).strength(2.0F).sound(SoundType.GLASS)
@@ -335,21 +368,21 @@ public class ModBlocks {
 			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).strength(3.0F).sound(SoundType.METAL),
 			true);
 
-	public static final DeferredSupplier<Block> LEVEL2_FIRE_EXIT = register(
+	public static final DeferredSupplier<Level2FireExitBlock> LEVEL2_FIRE_EXIT = register(
 			"level2_fire_exit",
 			Level2FireExitBlock::new,
 			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).strength(3.0F).sound(SoundType.METAL)
 					.noOcclusion(),
 			true);
 
-	public static final DeferredSupplier<Block> LEVEL2_DOOR = register(
+	public static final DeferredSupplier<Level2Door> LEVEL2_DOOR = register(
 			"level2_door",
 			Level2Door::new,
 			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).strength(3.0F).sound(SoundType.STONE)
 					.noOcclusion(),
 			true);
 
-	public static final DeferredSupplier<Block> ELEVATOR = register(
+	public static final DeferredSupplier<ElevatorBlock> ELEVATOR = register(
 			"elevator",
 			ElevatorBlock::new,
 			BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).strength(3.0F).sound(SoundType.METAL)
@@ -365,40 +398,46 @@ public class ModBlocks {
 					.mapColor(MapColor.TERRACOTTA_WHITE),
 			true);
 
-	public static final DeferredSupplier<Block> WATER_FOUNTAIN = register("water_fountain", WaterFountainBlock::new,
+	public static final DeferredSupplier<WaterFountainBlock> WATER_FOUNTAIN = register("water_fountain",
+			WaterFountainBlock::new,
 			BlockBehaviour.Properties.of().strength(9999f).sound(SoundType.METAL).noOcclusion()
 					.mapColor(MapColor.RAW_IRON),
 			true);
 
-	public static final DeferredSupplier<Block> LEVEL5_CARPET = register("level5_carpet", Level5CarpetBlock::new,
+	public static final DeferredSupplier<Level5CarpetBlock> LEVEL5_CARPET = register("level5_carpet",
+			Level5CarpetBlock::new,
 			BlockBehaviour.Properties.of().strength(70f).sound(SoundType.WOOL).mapColor(MapColor.CLAY),
 			true);
 
-	public static final DeferredSupplier<Block> LEVEL6_ENTRY = register("level6_entry", Level6EntryBlock::new,
+	public static final DeferredSupplier<Level6EntryBlock> LEVEL6_ENTRY = register("level6_entry",
+			Level6EntryBlock::new,
 			BlockBehaviour.Properties.of().noOcclusion().isRedstoneConductor((state, level, pos) -> false)
 					.mapColor(MapColor.TERRACOTTA_BLACK),
 			true);
 
-	public static final DeferredSupplier<Block> LEVEL5_ENTRY_TABLE = register("level5_entry_table",
+	public static final DeferredSupplier<Level5EntryTable> LEVEL5_ENTRY_TABLE = register("level5_entry_table",
 			Level5EntryTable::new,
 			BlockBehaviour.Properties.of().noOcclusion().isRedstoneConductor((state, level, pos) -> false)
 					.mapColor(MapColor.COLOR_BROWN),
 			true);
 
-	public static final DeferredSupplier<Block> LEVEL11_CONCRETE = register("level11_concrete", Level11Concrete::new,
+	public static final DeferredSupplier<Level11Concrete> LEVEL11_CONCRETE = register("level11_concrete",
+			Level11Concrete::new,
 			BlockBehaviour.Properties.of().strength(20).mapColor(MapColor.COLOR_GRAY), true);
 
-	public static final DeferredSupplier<Block> LEVEL9_ENTRY = register("level9_entry_house", Level9EntryHouse::new,
+	public static final DeferredSupplier<Level9EntryHouse> LEVEL9_ENTRY = register("level9_entry_house",
+			Level9EntryHouse::new,
 			BlockBehaviour.Properties.of().strength(40).noOcclusion().mapColor(MapColor.TERRACOTTA_LIGHT_GRAY), true);
 
-	public static final DeferredSupplier<Block> FALSE_WHEAT = register("false_wheat", FalseWheat::new,
+	public static final DeferredSupplier<FalseWheat> FALSE_WHEAT = register("false_wheat", FalseWheat::new,
 			BlockBehaviour.Properties.of().strength(1).noOcclusion().noCollision().mapColor(MapColor.TERRACOTTA_ORANGE),
 			true);
 
-	public static final DeferredSupplier<Block> STEP_VISIBLE = register("step_visible", StepVisibleBlock::new,
+	public static final DeferredSupplier<StepVisibleBlock> STEP_VISIBLE = register("step_visible",
+			StepVisibleBlock::new,
 			BlockBehaviour.Properties.of().strength(-1, 3600000).noOcclusion().mapColor(MapColor.COLOR_BLACK), true);
 
-	public static final DeferredSupplier<Block> OVERWORLD_TRANSPORTER = register("overworld_transporter",
+	public static final DeferredSupplier<OverworldTransporter> OVERWORLD_TRANSPORTER = register("overworld_transporter",
 			OverworldTransporter::new,
 			BlockBehaviour.Properties.of().strength(80, 12).mapColor(MapColor.COLOR_MAGENTA), true);
 

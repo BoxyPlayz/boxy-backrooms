@@ -25,10 +25,10 @@ public class UseEvents {
 						}
 
 						if (entity.is(ModEntities.PARTYPOOPER.get())) {
-							ItemStack equipSlot = player.getItemBySlot(EquipmentSlot.MAINHAND);
-							if (equipSlot.is(ModTags.ALMOND_WATERS)) {
+							ItemStack equipStack = player.getItemBySlot(EquipmentSlot.MAINHAND);
+							if (equipStack.is(ModTags.ALMOND_WATERS)) {
 								if (player.getInventory().getFreeSlot() != -1) {
-									equipSlot.shrink(1);
+									equipStack.shrink(1);
 									player.getInventory().add(new ItemStack(ModItems.NEON_WATER));
 									return EventResult.interruptTrue();
 								}

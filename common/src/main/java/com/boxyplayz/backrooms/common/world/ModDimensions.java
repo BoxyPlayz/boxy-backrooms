@@ -3,8 +3,10 @@ package com.boxyplayz.backrooms.common.world;
 import java.util.HashSet;
 
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.annotations.ApiStatus.Obsolete;
 
 import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
+import com.boxyplayz.backrooms.common.world.generators.custom.Level5ChunkGen;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
@@ -31,45 +33,51 @@ public class ModDimensions {
         }
 
         public static final DimensionInstance BLUE_CHANNEL = new DimensionInstance("blue_channel",
-                        new DimensionProperties(false));
+                        new DimensionProperties(false, 200));
 
         public static final DimensionInstance LEVEL8 = new DimensionInstance("level8_cavesystem",
-                        new DimensionProperties(true));
+                        new DimensionProperties(true, 80));
 
         public static final DimensionInstance LEVEL7 = new DimensionInstance("level7_ocean",
-                        new DimensionProperties(true));
+                        new DimensionProperties(true, 300));
 
-        public static final DimensionInstance LEVEL6 = new DimensionInstance("level6", new DimensionProperties(true));
+        public static final DimensionInstance LEVEL6 = new DimensionInstance("level6",
+                        new DimensionProperties(true, 1));
 
         public static final DimensionInstance LEVEL0 = new DimensionInstance("level0_maze",
-                        new DimensionProperties(false));
+                        new DimensionProperties(false, 1));
 
         public static final DimensionInstance LEVEL94 = new DimensionInstance("level94", new DimensionProperties(true));
 
-        public static final DimensionInstance LEVEL1 = new DimensionInstance("level1", new DimensionProperties(true));
+        public static final DimensionInstance LEVEL1 = new DimensionInstance("level1",
+                        new DimensionProperties(true, 1));
 
         public static final DimensionInstance PITFALLS = new DimensionInstance("pitfalls",
-                        new DimensionProperties(true));
+                        new DimensionProperties(true, 1));
 
         public static final DimensionInstance LEVEL0_2 = new DimensionInstance("level0_2",
-                        new DimensionProperties(true));
+                        new DimensionProperties(true, 1));
 
         public static final DimensionInstance LEVEL_NEGATIVE_0_2 = new DimensionInstance(
-                        "level_negative_0_2", new DimensionProperties(true));
+                        "level_negative_0_2", new DimensionProperties(true, 1));
 
         public static final DimensionInstance LEVEL_FUN = new DimensionInstance("levelfun",
-                        new DimensionProperties(true));
+                        new DimensionProperties(true, 1));
 
         public static final DimensionInstance PROMISED_LAND = new DimensionInstance("promised_land",
-                        new DimensionProperties(false));
+                        new DimensionProperties(false, 1));
 
-        public static final DimensionInstance LEVEL5 = new DimensionInstance("level5", new DimensionProperties(true));
+        public static final DimensionInstance LEVEL5 = new DimensionInstance("level5",
+                        new DimensionProperties(true, Level5ChunkGen.HOTEL_HEIGHT + 3));
 
-        public static final DimensionInstance LEVEL3 = new DimensionInstance("level3", new DimensionProperties(true));
+        public static final DimensionInstance LEVEL3 = new DimensionInstance("level3",
+                        new DimensionProperties(true, 1));
 
-        public static final DimensionInstance LEVEL2 = new DimensionInstance("level2", new DimensionProperties(true));
+        public static final DimensionInstance LEVEL2 = new DimensionInstance("level2",
+                        new DimensionProperties(true, 0));
 
-        public static final DimensionInstance LEVEL4 = new DimensionInstance("level4", new DimensionProperties(true));
+        public static final DimensionInstance LEVEL4 = new DimensionInstance("level4",
+                        new DimensionProperties(true, 1));
 
         public static final DimensionInstance THE_BROKEN = new DimensionInstance("the_broken",
                         new DimensionProperties(false));
@@ -116,13 +124,23 @@ public class ModDimensions {
 
         public static class DimensionProperties {
                 public final boolean wretchedCycle;
+                public final int teleportableY;
 
+                public DimensionProperties(boolean wretchedCycle, int baseY) {
+                        this.wretchedCycle = wretchedCycle;
+                        this.teleportableY = baseY;
+                }
+
+                @Deprecated(forRemoval = true)
+                @Obsolete
                 public DimensionProperties(boolean wretchedCycle) {
                         this.wretchedCycle = wretchedCycle;
+                        this.teleportableY = 1;
                 }
 
                 public static class Builder {
                         protected boolean wretchedCycle = false;
+                        protected int teleportY = 0;
 
                         public Builder() {
 
@@ -133,8 +151,13 @@ public class ModDimensions {
                                 return this;
                         }
 
+                        public Builder setBaseTeleportableY(int base) {
+                                this.teleportY = base;
+                                return this;
+                        }
+
                         public DimensionProperties build() {
-                                return new DimensionProperties(this.wretchedCycle);
+                                return new DimensionProperties(this.wretchedCycle, this.teleportY);
                         }
                 }
 

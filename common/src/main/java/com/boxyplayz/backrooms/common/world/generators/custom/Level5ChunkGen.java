@@ -25,7 +25,7 @@ public class Level5ChunkGen extends BaseChunkGen {
 		return random.nextIntBetweenInclusive(0, 4) == 0;
 	}
 
-	public int HOTEL_HEIGHT = 32;
+	public static int HOTEL_HEIGHT = 32;
 
 	public static final MapCodec<Level5ChunkGen> CODEC = RecordCodecBuilder.mapCodec(
 			instance -> instance.group(
