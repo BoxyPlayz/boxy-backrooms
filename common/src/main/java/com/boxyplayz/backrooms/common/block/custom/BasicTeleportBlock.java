@@ -17,7 +17,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class ConditionlessDimensionTeleportBlock extends Block {
+public class BasicTeleportBlock extends Block {
 
 	private DimensionInstance target;
 	private List<ResourceKey<Level>> starts;
@@ -61,7 +61,7 @@ public class ConditionlessDimensionTeleportBlock extends Block {
 		}
 	}
 
-	public ConditionlessDimensionTeleportBlock(CustomProps properties) {
+	public BasicTeleportBlock(CustomProps properties) {
 		super(properties.build());
 		this.target = properties.target;
 		this.starts = properties.starts;
@@ -73,9 +73,11 @@ public class ConditionlessDimensionTeleportBlock extends Block {
 			return;
 		if (!(entity instanceof ServerPlayer player))
 			return;
+		if (player.level().dimension() == this.target.level)
+			return;
 		if (!player.isShiftKeyDown())
 			return;
-		if (!(starts.contains(level.dimension())))
+		if (!starts.isEmpty() && !(starts.contains(level.dimension())))
 			return;
 		ServerLevel target = player.level().getServer().getLevel(this.target.level);
 		if (target == null) {

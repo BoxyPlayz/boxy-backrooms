@@ -16,7 +16,7 @@ import com.boxyplayz.backrooms.common.item.custom.FireSaltItem;
 import com.boxyplayz.backrooms.common.item.custom.GrayKeyItem;
 import com.boxyplayz.backrooms.common.item.custom.LiquidPainItem;
 
-import dev.architectury.registry.fuel.FuelRegistry;
+// import dev.architectury.registry.fuel.FuelRegistry;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -254,6 +254,6 @@ public class ModItems {
 	public static void registerModItems() {
 		BoxysBackroomsCommon.ITEMS.register();
 
-		FuelRegistry.register(4000, FIRESALT_SHARD.get());
+		// FuelRegistry.register(4000, FIRESALT_SHARD.get());
 	}
 }

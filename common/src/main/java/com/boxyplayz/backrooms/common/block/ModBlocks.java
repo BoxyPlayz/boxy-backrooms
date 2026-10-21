@@ -6,13 +6,11 @@ import java.util.function.Function;
 import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
 import com.boxyplayz.backrooms.common.ModCreativeTabs;
 import com.boxyplayz.backrooms.common.block.custom.BlenderBlock;
-import com.boxyplayz.backrooms.common.block.custom.ConditionlessDimensionTeleportBlock;
+import com.boxyplayz.backrooms.common.block.custom.BasicTeleportBlock;
 import com.boxyplayz.backrooms.common.block.custom.ElevatorBlock;
 import com.boxyplayz.backrooms.common.block.custom.ErrorSlateBlock;
 import com.boxyplayz.backrooms.common.block.custom.FalseWheat;
-import com.boxyplayz.backrooms.common.block.custom.Level0Carpet;
 import com.boxyplayz.backrooms.common.block.custom.Level0Wallpaper;
-import com.boxyplayz.backrooms.common.block.custom.Level11Concrete;
 import com.boxyplayz.backrooms.common.block.custom.Level2Door;
 import com.boxyplayz.backrooms.common.block.custom.Level2FireExitBlock;
 import com.boxyplayz.backrooms.common.block.custom.Level5CarpetBlock;
@@ -23,7 +21,6 @@ import com.boxyplayz.backrooms.common.block.custom.NoFallDamageBlock;
 import com.boxyplayz.backrooms.common.block.custom.OceanTransporter;
 import com.boxyplayz.backrooms.common.block.custom.OverworldTransporter;
 import com.boxyplayz.backrooms.common.block.custom.PainOnBreakBlock;
-import com.boxyplayz.backrooms.common.block.custom.PremiumCarpet;
 import com.boxyplayz.backrooms.common.block.custom.PromisedGate;
 import com.boxyplayz.backrooms.common.block.custom.PureBlue;
 import com.boxyplayz.backrooms.common.block.custom.StepVisibleBlock;
@@ -70,14 +67,13 @@ public class ModBlocks {
 		return block;
 	}
 
-	public static <T extends Block> DeferredSupplier<T> registerTeleport(String name,
-			Function<ConditionlessDimensionTeleportBlock.CustomProps, T> blockFactory,
-			ConditionlessDimensionTeleportBlock.CustomProps settings, boolean shouldRegisterItem) {
+	public static DeferredSupplier<BasicTeleportBlock> registerTeleport(String name,
+			BasicTeleportBlock.CustomProps settings, boolean shouldRegisterItem) {
 		// Create a registry key for the block
 		ResourceKey<Block> blockKey = keyOfBlock(name);
 		// Create the block instance
-		DeferredSupplier<T> block = BoxysBackroomsCommon.BLOCKS.register(name,
-				() -> blockFactory.apply(settings.setId(blockKey)));
+		DeferredSupplier<BasicTeleportBlock> block = BoxysBackroomsCommon.BLOCKS.register(name,
+				() -> new BasicTeleportBlock(settings.setId(blockKey)));
 
 		// Sometimes, you may not want to register an item for the block.
 		// Eg: if it's a technical block like `minecraft:moving_piston` or
@@ -125,10 +121,11 @@ public class ModBlocks {
 					.mapColor(MapColor.TERRACOTTA_YELLOW),
 			true);
 
-	public static final DeferredSupplier<Level0Carpet> LEVEL0_CARPET = register(
+	public static final DeferredSupplier<BasicTeleportBlock> LEVEL0_CARPET = registerTeleport(
 			"level0_carpet",
-			Level0Carpet::new,
-			BlockBehaviour.Properties.of().sound(SoundType.WOOL).strength(5f, 7f).mapColor(MapColor.COLOR_YELLOW),
+			new BasicTeleportBlock.CustomProps(BlockBehaviour.Properties.of().sound(SoundType.WOOL).strength(5f, 7f)
+					.mapColor(MapColor.COLOR_YELLOW)).target(ModDimensions.LEVEL0)
+					.starts(List.of(ModDimensions.LEVEL0_2.level, ModDimensions.BLUE_CHANNEL.level)),
 			true);
 
 	public static final DeferredSupplier<Block> LEVEL0_CEILING_TILE = register(
@@ -154,10 +151,9 @@ public class ModBlocks {
 					}).randomTicks(),
 			true);
 
-	public static final DeferredSupplier<ConditionlessDimensionTeleportBlock> LEVEL0_CARPET_GLITCHED = registerTeleport(
+	public static final DeferredSupplier<BasicTeleportBlock> LEVEL0_CARPET_GLITCHED = registerTeleport(
 			"level0_carpet_glitched",
-			ConditionlessDimensionTeleportBlock::new,
-			new ConditionlessDimensionTeleportBlock.CustomProps(BlockBehaviour.Properties.of().sound(SoundType.TUFF)
+			new BasicTeleportBlock.CustomProps(BlockBehaviour.Properties.of().sound(SoundType.TUFF)
 					.strength(1000f).mapColor(MapColor.COLOR_BLACK)).target(ModDimensions.LEVEL1)
 					.starts(List.of(ModDimensions.LEVEL0.level, ModDimensions.LEVEL0_2.level,
 							ModDimensions.BLUE_CHANNEL.level)),
@@ -221,10 +217,13 @@ public class ModBlocks {
 			BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(0.6F).sound(SoundType.STONE),
 			true);
 
-	public static final DeferredSupplier<PremiumCarpet> PREMIUM_CARPET = register(
+	public static final DeferredSupplier<BasicTeleportBlock> PREMIUM_CARPET = registerTeleport(
 			"premium_carpet",
-			PremiumCarpet::new,
-			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_RED).strength(0.6F).sound(SoundType.WOOL),
+			new BasicTeleportBlock.CustomProps(BlockBehaviour.Properties.of()
+					.mapColor(MapColor.TERRACOTTA_RED).strength(0.6F).sound(SoundType.WOOL))
+					.target(ModDimensions.LEVEL0_2)
+					.starts(List.of(ModDimensions.LEVEL0.level, ModDimensions.LEVEL_NEGATIVE_0_2.level,
+							ModDimensions.BLUE_CHANNEL.level)),
 			true);
 
 	public static final DeferredSupplier<Block> PREMIUM_WALLPAPER = register(
@@ -239,10 +238,9 @@ public class ModBlocks {
 			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).strength(0.6F).sound(SoundType.STONE),
 			true);
 
-	public static final DeferredSupplier<ConditionlessDimensionTeleportBlock> INFERIOR_CARPET = registerTeleport(
+	public static final DeferredSupplier<BasicTeleportBlock> INFERIOR_CARPET = registerTeleport(
 			"inferior_carpet",
-			ConditionlessDimensionTeleportBlock::new,
-			new ConditionlessDimensionTeleportBlock.CustomProps(BlockBehaviour.Properties.of()
+			new BasicTeleportBlock.CustomProps(BlockBehaviour.Properties.of()
 					.mapColor(MapColor.TERRACOTTA_RED).strength(0.6F).sound(SoundType.STONE))
 					.starts(List.of(ModDimensions.LEVEL0_2.level, ModDimensions.BLUE_CHANNEL.level))
 					.target(ModDimensions.LEVEL_NEGATIVE_0_2),
@@ -422,9 +420,12 @@ public class ModBlocks {
 					.mapColor(MapColor.COLOR_BROWN),
 			true);
 
-	public static final DeferredSupplier<Level11Concrete> LEVEL11_CONCRETE = register("level11_concrete",
-			Level11Concrete::new,
-			BlockBehaviour.Properties.of().strength(20).mapColor(MapColor.COLOR_GRAY), true);
+	public static final DeferredSupplier<BasicTeleportBlock> LEVEL11_CONCRETE = registerTeleport(
+			"level11_concrete",
+			new BasicTeleportBlock.CustomProps(
+					BlockBehaviour.Properties.of().strength(20).mapColor(MapColor.COLOR_GRAY))
+					.target(ModDimensions.LEVEL11),
+			true);
 
 	public static final DeferredSupplier<Level9EntryHouse> LEVEL9_ENTRY = register("level9_entry_house",
 			Level9EntryHouse::new,

@@ -32,6 +32,15 @@ public class ModDimensions {
         private ModDimensions() {
         }
 
+        public static class VanillaDimensions {
+                public static final DimensionInstance OVERWORLD = new DimensionInstance(
+                                Identifier.withDefaultNamespace("overworld"), new DimensionProperties(false, 63));
+                public static final DimensionInstance THE_NETHER = new DimensionInstance(
+                                Identifier.withDefaultNamespace("the_nether"), new DimensionProperties(false, 63));
+                public static final DimensionInstance THE_END = new DimensionInstance(
+                                Identifier.withDefaultNamespace("the_end"), new DimensionProperties(false, 63));
+        }
+
         public static final DimensionInstance BLUE_CHANNEL = new DimensionInstance("blue_channel",
                         new DimensionProperties(false, 200));
 
@@ -80,10 +89,10 @@ public class ModDimensions {
                         new DimensionProperties(true, 1));
 
         public static final DimensionInstance THE_BROKEN = new DimensionInstance("the_broken",
-                        new DimensionProperties(false));
+                        new DimensionProperties(false, 200));
 
         public static final DimensionInstance LEVEL11 = new DimensionInstance("level11",
-                        new DimensionProperties(false));
+                        new DimensionProperties(false, 6));
 
         public static final DimensionInstance LEVEL9 = new DimensionInstance("level9", new DimensionProperties(true));
 
@@ -112,6 +121,21 @@ public class ModDimensions {
                         this.stem = ResourceKey.create(
                                         Registries.LEVEL_STEM,
                                         Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, id));
+                        this.props = props;
+
+                        backroomsDimensions.add(this);
+                }
+
+                public DimensionInstance(Identifier id, DimensionProperties props) {
+                        this.level = ResourceKey.create(
+                                        Registries.DIMENSION,
+                                        id);
+                        this.type = ResourceKey.create(
+                                        Registries.DIMENSION_TYPE,
+                                        id);
+                        this.stem = ResourceKey.create(
+                                        Registries.LEVEL_STEM,
+                                        id);
                         this.props = props;
 
                         backroomsDimensions.add(this);
