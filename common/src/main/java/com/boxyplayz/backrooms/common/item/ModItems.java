@@ -1,5 +1,7 @@
 package com.boxyplayz.backrooms.common.item;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.function.Function;
 
 import org.jspecify.annotations.NonNull;
@@ -20,16 +22,21 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SpawnEggItem;
+import net.minecraft.world.item.component.BlocksAttacks;
 import net.minecraft.world.item.component.Consumables;
 import net.minecraft.world.item.component.DamageResistant;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.minecraft.world.item.consume_effects.RemoveStatusEffectsConsumeEffect;
 import net.minecraft.world.item.equipment.ArmorType;
+import net.minecraft.world.level.block.entity.BannerPatternLayers;
 
 public class ModItems {
 
@@ -226,6 +233,23 @@ public class ModItems {
 					.humanoidArmor(ModMaterials.FIRESTEEL_ARMOR_MATERIAL, ArmorType.BOOTS)
 					.delayedComponent(DataComponents.DAMAGE_RESISTANT,
 							context -> new DamageResistant(context.getOrThrow(ModTags.FIRE_ATTACKS))));
+
+	public static final RegistrySupplier<Item> FIRESTEEL_SHIELD = registerItem("firesteel_shield", Item::new,
+			key -> new Item.Properties()
+					.component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY)
+					.repairable(ModTags.FIRESTEEL_REPAIR_ITEMS)
+					.equippableUnswappable(EquipmentSlot.OFFHAND)
+					.delayedComponent(DataComponents.BLOCKS_ATTACKS,
+							(context) -> new BlocksAttacks(0.23f, 0.9f,
+									List.of(new BlocksAttacks.DamageReduction(
+											90.0F,
+											Optional.empty(),
+											0.0F,
+											1.0F)),
+									new BlocksAttacks.ItemDamageFunction(3.0F, 1.0F, 1.0F),
+									Optional.of(context.getOrThrow(DamageTypeTags.BYPASSES_SHIELD)),
+									Optional.of(SoundEvents.SHIELD_BLOCK),
+									Optional.of(SoundEvents.SHIELD_BLOCK))));
 
 	public static void registerModItems() {
 		BoxysBackroomsCommon.ITEMS.register();

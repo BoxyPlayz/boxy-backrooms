@@ -10,7 +10,6 @@ import com.boxyplayz.backrooms.common.savedata.PlayerOverworldEntryLocations;
 import com.boxyplayz.backrooms.common.world.ModBiomes;
 import com.boxyplayz.backrooms.common.world.ModDimensions;
 import com.boxyplayz.backrooms.common.world.ModBiomes.AbyssBiomes;
-import com.boxyplayz.backrooms.common.world.ModBiomes.Level0Biomes;
 import com.boxyplayz.backrooms.common.world.ModDimensions.DimensionInstance;
 
 import dev.architectury.event.events.common.TickEvent;
@@ -83,50 +82,18 @@ public class EntityTickEvents {
 		TickEvent.SERVER_LEVEL_PRE.register((ServerLevel level) -> {
 			List<ServerPlayer> players = List.copyOf(level.players());
 			players.forEach((ServerPlayer player) -> {
-				if (player.level().dimension() == ModDimensions.BLUE_CHANNEL.level) {
-					if (player.position().y < -10) {
-						ServerLevel target = level.getServer().getLevel(ModDimensions.THE_BROKEN.level);
-						if (target == null)
-							return;
-						player.teleportTo(target, 0, 120, 0, Set.of(),
-								player.getYRot(), player.getXRot(),
-								false);
-					}
-				}
-				if (player.level().dimension() == ModDimensions.THE_BROKEN.level) {
-					if (player.position().y < -10) {
-						ServerLevel target = level.getServer().getLevel(ModDimensions.THE_ABYSS.level);
-						if (target == null)
-							return;
-						player.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 20 * 30, 9));
-						player.teleportTo(target, 0, 300, 0, Set.of(),
-								player.getYRot(), player.getXRot(),
-								false);
-					}
+				DimensionInstance dimension = ModDimensions.getDimensionFromLevel(player.level());
+
+				if (dimension == null) {
+					return;
 				}
 
-				if (player.level().dimension() == ModDimensions.LEVEL7.level) {
-					if (player.getAirSupply() < player.getMaxAirSupply()) {
-						player.setAirSupply(player.getMaxAirSupply());
-					}
-				}
-				DimensionInstance dimension = ModDimensions.getDimensionFromLevel(player.level());
-				if (dimension != null && dimension.props.wretchedCycle) {
+				if (dimension.props.wretchedCycle) {
 					if (player.getFoodData().getFoodLevel() < 2) {
 						if (!player.hasEffect(ModEffects.WRETCHED_CYCLE)) {
 							MobEffectInstance instance = new MobEffectInstance(ModEffects.WRETCHED_CYCLE, 20 * 5);
 							player.addEffect(instance);
 						}
-					}
-				}
-				if (player.level().dimension() == ModDimensions.PITFALLS.level) {
-					if (Math.sqrt((player.position().x * player.position().x)
-							+ (player.position().z * player.position().z)) > 1000) {
-						ServerLevel target = player.level().getServer().getLevel(ModDimensions.LEVEL94.level);
-						if (target == null)
-							return;
-						player.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 10 * 20, 20));
-						player.teleportTo(target, 0.5, 120, 0.5, Set.of(), player.getYRot(), player.getXRot(), false);
 					}
 				}
 
@@ -142,31 +109,6 @@ public class EntityTickEvents {
 						int y = 200;
 						player.teleportTo(target, x + 0.5, y, z + 0.5, Set.of(), player.getYRot(), player.getXRot(),
 								false);
-					}
-				}
-
-				if (player.level().dimension() == ModDimensions.LEVEL0.level) {
-					if (player.position().y < -16) {
-						if (player.level().getBiome(player.blockPosition()).is(Level0Biomes.PITFALLS_BIOME)) {
-							ServerLevel target = player.level().getServer()
-									.getLevel(ModDimensions.PITFALLS.level);
-							if (target == null)
-								return;
-							player.fallDistance = 0;
-							player.teleportTo(target, 0, 10, 0, Set.of(), player.getYRot(), player.getXRot(), false);
-						}
-					}
-				}
-
-				if (player.level().dimension() == ModDimensions.LEVEL_NEGATIVE_0_2.level) {
-					if (player.position().y < -16) {
-						ServerLevel target = player.level().getServer()
-								.getLevel(ModDimensions.BLUE_CHANNEL.level);
-						if (target == null)
-							return;
-						player.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 10 * 20, 20));
-						player.teleportTo(target, player.position().x, 120, player.position().z, Set.of(),
-								player.getYRot(), player.getXRot(), false);
 					}
 				}
 

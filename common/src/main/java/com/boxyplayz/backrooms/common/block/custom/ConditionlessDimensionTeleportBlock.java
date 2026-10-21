@@ -51,6 +51,11 @@ public class ConditionlessDimensionTeleportBlock extends Block {
 			return this;
 		}
 
+		public CustomProps setId(ResourceKey<Block> id) {
+			this.properties = this.properties.setId(id);
+			return this;
+		}
+
 		public BlockBehaviour.Properties build() {
 			return properties;
 		}

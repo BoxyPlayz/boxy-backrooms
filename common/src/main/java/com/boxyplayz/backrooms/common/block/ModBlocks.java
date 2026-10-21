@@ -10,9 +10,7 @@ import com.boxyplayz.backrooms.common.block.custom.ConditionlessDimensionTelepor
 import com.boxyplayz.backrooms.common.block.custom.ElevatorBlock;
 import com.boxyplayz.backrooms.common.block.custom.ErrorSlateBlock;
 import com.boxyplayz.backrooms.common.block.custom.FalseWheat;
-import com.boxyplayz.backrooms.common.block.custom.InferiorCarpet;
 import com.boxyplayz.backrooms.common.block.custom.Level0Carpet;
-import com.boxyplayz.backrooms.common.block.custom.Level0GlitchedCarpet;
 import com.boxyplayz.backrooms.common.block.custom.Level0Wallpaper;
 import com.boxyplayz.backrooms.common.block.custom.Level11Concrete;
 import com.boxyplayz.backrooms.common.block.custom.Level2Door;
@@ -73,13 +71,13 @@ public class ModBlocks {
 	}
 
 	public static <T extends Block> DeferredSupplier<T> registerTeleport(String name,
-			Function<BlockBehaviour.Properties, T> blockFactory,
+			Function<ConditionlessDimensionTeleportBlock.CustomProps, T> blockFactory,
 			ConditionlessDimensionTeleportBlock.CustomProps settings, boolean shouldRegisterItem) {
 		// Create a registry key for the block
 		ResourceKey<Block> blockKey = keyOfBlock(name);
 		// Create the block instance
 		DeferredSupplier<T> block = BoxysBackroomsCommon.BLOCKS.register(name,
-				() -> blockFactory.apply(settings.build().setId(blockKey)));
+				() -> blockFactory.apply(settings.setId(blockKey)));
 
 		// Sometimes, you may not want to register an item for the block.
 		// Eg: if it's a technical block like `minecraft:moving_piston` or
@@ -156,10 +154,13 @@ public class ModBlocks {
 					}).randomTicks(),
 			true);
 
-	public static final DeferredSupplier<Level0GlitchedCarpet> LEVEL0_CARPET_GLITCHED = register(
+	public static final DeferredSupplier<ConditionlessDimensionTeleportBlock> LEVEL0_CARPET_GLITCHED = registerTeleport(
 			"level0_carpet_glitched",
-			Level0GlitchedCarpet::new,
-			BlockBehaviour.Properties.of().sound(SoundType.TUFF).strength(1000f).mapColor(MapColor.COLOR_BLACK),
+			ConditionlessDimensionTeleportBlock::new,
+			new ConditionlessDimensionTeleportBlock.CustomProps(BlockBehaviour.Properties.of().sound(SoundType.TUFF)
+					.strength(1000f).mapColor(MapColor.COLOR_BLACK)).target(ModDimensions.LEVEL1)
+					.starts(List.of(ModDimensions.LEVEL0.level, ModDimensions.LEVEL0_2.level,
+							ModDimensions.BLUE_CHANNEL.level)),
 			true);
 
 	public static final DeferredSupplier<Block> LEVEL1_CEILING_AQUILA = register(
@@ -238,9 +239,9 @@ public class ModBlocks {
 			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).strength(0.6F).sound(SoundType.STONE),
 			true);
 
-	public static final DeferredSupplier<InferiorCarpet> INFERIOR_CARPET = registerTeleport(
+	public static final DeferredSupplier<ConditionlessDimensionTeleportBlock> INFERIOR_CARPET = registerTeleport(
 			"inferior_carpet",
-			InferiorCarpet::new,
+			ConditionlessDimensionTeleportBlock::new,
 			new ConditionlessDimensionTeleportBlock.CustomProps(BlockBehaviour.Properties.of()
 					.mapColor(MapColor.TERRACOTTA_RED).strength(0.6F).sound(SoundType.STONE))
 					.starts(List.of(ModDimensions.LEVEL0_2.level, ModDimensions.BLUE_CHANNEL.level))
