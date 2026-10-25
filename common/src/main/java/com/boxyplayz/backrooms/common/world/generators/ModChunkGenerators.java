@@ -21,6 +21,7 @@ import com.boxyplayz.backrooms.common.world.generators.custom.LevelRunChunkGen;
 import com.boxyplayz.backrooms.common.world.generators.custom.Level_Negative_0_2ChunkGen;
 import com.boxyplayz.backrooms.common.world.generators.custom.PitfallsChunkGen;
 import com.boxyplayz.backrooms.common.world.generators.custom.PromisedLandChunkGen;
+import com.boxyplayz.backrooms.common.world.generators.custom.ShadyGrayChunkGen;
 import com.boxyplayz.backrooms.common.world.generators.custom.TheBrokenChunkGen;
 import com.mojang.serialization.MapCodec;
 
@@ -99,6 +100,9 @@ public class ModChunkGenerators {
 		CHUNK_GENERATORS.register(
 				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "run_for_your_life"),
 				() -> LevelRunChunkGen.CODEC);
+		CHUNK_GENERATORS.register(
+				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "fade_into_the_gray"),
+				() -> ShadyGrayChunkGen.CODEC);
 
 		CHUNK_GENERATORS.register();
 

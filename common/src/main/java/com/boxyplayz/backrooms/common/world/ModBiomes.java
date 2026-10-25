@@ -227,6 +227,13 @@ public class ModBiomes {
 				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "levelfun/party_rooms"));
 	}
 
+	public static class ShadyGrayBiomes {
+		public static final ResourceKey<Biome> ZEROZERO = ResourceKey.create(
+				Registries.BIOME,
+				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "gray/zerozero"));
+
+	}
+
 	/**
 	 * Register biome resource keys
 	 */

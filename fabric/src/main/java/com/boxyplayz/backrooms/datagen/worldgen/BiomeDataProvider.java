@@ -1,19 +1,23 @@
 package com.boxyplayz.backrooms.datagen.worldgen;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
 import com.boxyplayz.backrooms.common.world.ModBiomes;
 import com.boxyplayz.backrooms.common.world.ModStructures;
 import com.boxyplayz.backrooms.common.world.ModBiomes.AbyssBiomes;
+import com.boxyplayz.backrooms.common.world.ModBiomes.ShadyGrayBiomes;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
 import net.minecraft.core.HolderLookup.Provider;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.attribute.AmbientParticle;
 import net.minecraft.world.attribute.BedRule;
 import net.minecraft.world.attribute.EnvironmentAttributes;
 import net.minecraft.world.attribute.BedRule.Rule;
@@ -396,6 +400,19 @@ public class BiomeDataProvider extends FabricDynamicRegistryProvider {
 				.setAttribute(EnvironmentAttributes.STAR_BRIGHTNESS, 0.7f)
 				.specialEffects(new BiomeSpecialEffects.Builder()
 						.waterColor(8883365)
+						.build())
+				.hasPrecipitation(false)
+				.temperature(0.5f)
+				.downfall(0f)
+				.mobSpawnSettings(MobSpawnSettings.EMPTY)
+				.generationSettings(BiomeGenerationSettings.EMPTY)
+				.build());
+
+		register(context, ShadyGrayBiomes.ZEROZERO, new Biome.BiomeBuilder()
+				.setAttribute(EnvironmentAttributes.AMBIENT_PARTICLES, List.of(
+						new AmbientParticle(ParticleTypes.WHITE_ASH, 0.1f)))
+				.specialEffects(new BiomeSpecialEffects.Builder()
+						.waterColor(4159204)
 						.build())
 				.hasPrecipitation(false)
 				.temperature(0.5f)

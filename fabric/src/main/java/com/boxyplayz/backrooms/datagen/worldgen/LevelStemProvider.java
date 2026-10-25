@@ -20,10 +20,11 @@ import com.boxyplayz.backrooms.common.world.generators.custom.Level7ChunkGen;
 import com.boxyplayz.backrooms.common.world.generators.custom.Level94ChunkGen;
 import com.boxyplayz.backrooms.common.world.generators.custom.Level9ChunkGen;
 import com.boxyplayz.backrooms.common.world.generators.custom.LevelFunChunkGen;
-import com.boxyplayz.backrooms.common.world.generators.custom.LevelRunChunkGen;
+// import com.boxyplayz.backrooms.common.world.generators.custom.LevelRunChunkGen;
 import com.boxyplayz.backrooms.common.world.generators.custom.Level_Negative_0_2ChunkGen;
 import com.boxyplayz.backrooms.common.world.generators.custom.PitfallsChunkGen;
 import com.boxyplayz.backrooms.common.world.generators.custom.PromisedLandChunkGen;
+import com.boxyplayz.backrooms.common.world.generators.custom.ShadyGrayChunkGen;
 import com.boxyplayz.backrooms.common.world.generators.custom.TheBrokenChunkGen;
 import com.boxyplayz.backrooms.common.world.ModBiomes.AbyssBiomes;
 import com.boxyplayz.backrooms.common.world.ModBiomes.Level0Biomes;
@@ -157,10 +158,17 @@ public class LevelStemProvider extends FabricDynamicRegistryProvider {
 						new TheBrokenChunkGen(
 								biomes.getOrThrow(ModBiomes.BROKEN_BIOME))));
 
-		context.register(ModDimensions.RUN_FOR_LIFE.stem,
-				new LevelStem(dimensionTypes.getOrThrow(ModDimensions.RUN_FOR_LIFE.type),
-						new LevelRunChunkGen(
-								biomes.getOrThrow(Biomes.THE_VOID))));
+		/*
+		 * 
+		 * context.register(ModDimensions.RUN_FOR_LIFE.stem,
+		 * new LevelStem(dimensionTypes.getOrThrow(ModDimensions.RUN_FOR_LIFE.type),
+		 * new LevelRunChunkGen(
+		 * biomes.getOrThrow(Biomes.THE_VOID))));
+		 */
+
+		context.register(ModDimensions.SHADY_GRAY.stem,
+				new LevelStem(dimensionTypes.getOrThrow(ModDimensions.SHADY_GRAY.type),
+						new ShadyGrayChunkGen(biomes.getOrThrow(ModBiomes.ShadyGrayBiomes.ZEROZERO))));
 	}
 
 }

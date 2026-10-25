@@ -105,28 +105,34 @@ public class ModDimensions {
         public static final DimensionInstance RUN_FOR_LIFE = new DimensionInstance("run_for_your_life",
                         new DimensionProperties(false));
 
+        public static final DimensionInstance SHADY_GRAY = new DimensionInstance("fade_into_the_gray",
+                        new DimensionProperties(false));
+
         public static class DimensionInstance {
                 public final ResourceKey<Level> level;
                 public final ResourceKey<DimensionType> type;
                 public final ResourceKey<LevelStem> stem;
+                public final Identifier id;
                 public final DimensionProperties props;
 
                 public DimensionInstance(String id, DimensionProperties props) {
+                        this.id = Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, id);
                         this.level = ResourceKey.create(
                                         Registries.DIMENSION,
-                                        Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, id));
+                                        this.id);
                         this.type = ResourceKey.create(
                                         Registries.DIMENSION_TYPE,
-                                        Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, id));
+                                        this.id);
                         this.stem = ResourceKey.create(
                                         Registries.LEVEL_STEM,
-                                        Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, id));
+                                        this.id);
                         this.props = props;
 
                         backroomsDimensions.add(this);
                 }
 
                 public DimensionInstance(Identifier id, DimensionProperties props) {
+                        this.id = id;
                         this.level = ResourceKey.create(
                                         Registries.DIMENSION,
                                         id);
