@@ -3,6 +3,7 @@ package com.boxyplayz.backrooms.common.world.generators;
 import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
 import com.boxyplayz.backrooms.common.world.generators.custom.AbyssChunkGen;
 import com.boxyplayz.backrooms.common.world.generators.custom.BlueChannelChunkGen;
+import com.boxyplayz.backrooms.common.world.generators.custom.Hayrooms;
 import com.boxyplayz.backrooms.common.world.generators.custom.Level0ChunkGen;
 import com.boxyplayz.backrooms.common.world.generators.custom.Level0_2ChunkGen;
 import com.boxyplayz.backrooms.common.world.generators.custom.Level10ChunkGen;
@@ -103,6 +104,9 @@ public class ModChunkGenerators {
 		CHUNK_GENERATORS.register(
 				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "fade_into_the_gray"),
 				() -> ShadyGrayChunkGen.CODEC);
+		CHUNK_GENERATORS.register(
+				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "hayrooms"),
+				() -> Hayrooms.CODEC);
 
 		CHUNK_GENERATORS.register();
 

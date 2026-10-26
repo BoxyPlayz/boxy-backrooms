@@ -108,6 +108,9 @@ public class ModDimensions {
         public static final DimensionInstance SHADY_GRAY = new DimensionInstance("fade_into_the_gray",
                         new DimensionProperties(false));
 
+        public static final DimensionInstance HAYROOMS = new DimensionInstance("hayrooms",
+                        new DimensionProperties(false));
+
         public static class DimensionInstance {
                 public final ResourceKey<Level> level;
                 public final ResourceKey<DimensionType> type;

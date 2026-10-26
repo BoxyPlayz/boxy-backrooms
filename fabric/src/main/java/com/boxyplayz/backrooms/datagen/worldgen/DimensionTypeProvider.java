@@ -62,6 +62,15 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 				.setCeiling(true)
 				.build());
 
+		register(context, ModDimensions.HAYROOMS.type, new DimensionTypeBuilder()
+				.setHeight(32)
+				.setFixedTime(true)
+				.setMinY(-16)
+				.setAmbientLight(0.3f)
+				.setSkylight(false)
+				.setCeiling(true)
+				.build());
+
 		register(context, ModDimensions.LEVEL0_2.type, new DimensionTypeBuilder()
 				.setHeight(32)
 				.setFixedTime(true)
