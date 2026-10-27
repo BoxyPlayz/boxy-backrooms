@@ -22,6 +22,7 @@ import net.minecraft.world.attribute.EnvironmentAttributeMap;
 import net.minecraft.world.attribute.EnvironmentAttributes;
 import net.minecraft.world.clock.WorldClock;
 import net.minecraft.world.clock.WorldClocks;
+import net.minecraft.world.level.CardinalLighting;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.dimension.DimensionType.Skybox;
 import net.minecraft.world.timeline.Timelines;
@@ -315,7 +316,8 @@ public class DimensionTypeProvider extends FabricDynamicRegistryProvider {
 				.setSkybox(Skybox.NONE)
 				.setEnvAttributes(EnvironmentAttributeMap.EMPTY)
 				.setFixedTime(true)
-				.setAmbientLight(0.3f)
+				.setCardinalLightType(CardinalLighting.Type.NETHER)
+				.setAmbientLight(0.6f)
 				.setSkylight(false)
 				.setCeiling(true)
 				.build());

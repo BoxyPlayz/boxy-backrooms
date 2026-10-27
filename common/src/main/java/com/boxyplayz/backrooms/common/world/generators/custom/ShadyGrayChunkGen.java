@@ -7,14 +7,28 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.core.Holder;
 import net.minecraft.resources.RegistryOps;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.FixedBiomeSource;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.PositionalRandomFactory;
+import net.minecraft.world.level.levelgen.synth.SimplexNoise;
 
 public class ShadyGrayChunkGen extends BaseChunkGen {
+
+	private SimplexNoise noise;
+
+	private SimplexNoise getNoise(PositionalRandomFactory randomFactory) {
+		if (this.noise == null) {
+			RandomSource random = randomFactory.fromHashOf(this.getSeed());
+			this.noise = new SimplexNoise(random);
+		}
+
+		return this.noise;
+
+	}
 
 	public static final MapCodec<ShadyGrayChunkGen> CODEC = RecordCodecBuilder.mapCodec(
 			instance -> instance.group(
@@ -28,6 +42,19 @@ public class ShadyGrayChunkGen extends BaseChunkGen {
 
 	@Override
 	public BlockState getBlockAt(PositionalRandomFactory randomFactory, int x, int y, int z) {
+		if (y >= 384) {
+			if (y == 384) {
+				return Blocks.BEDROCK.defaultBlockState();
+			}
+			double value = 384 + (1.01 + getNoise(randomFactory).getValue(x * 0.002, z * 0.002)) * 20;
+			if (y < value) {
+				if (!(y + 1 < value)) {
+					return Blocks.GRASS_BLOCK.defaultBlockState();
+				}
+				return Blocks.DIRT.defaultBlockState();
+			}
+		}
+
 		return Blocks.AIR.defaultBlockState();
 	}
 

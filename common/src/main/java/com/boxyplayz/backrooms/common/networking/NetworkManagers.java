@@ -10,6 +10,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -49,6 +50,11 @@ public class NetworkManagers {
 								targetY = 1;
 								break;
 
+							case SHADE_GRAY:
+								target = livingEntity.level().getServer().getLevel(ModDimensions.SHADY_GRAY.level);
+								targetY = 512;
+								break;
+
 							default:
 								return;
 						}
@@ -77,6 +83,8 @@ public class NetworkManagers {
 								}
 							}
 						}
+
+						livingEntity.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 20 * 5, 9));
 
 						livingEntity.teleportTo(target, x + 0.5, y, z + 0.5, Set.of(), livingEntity.getYRot(),
 								livingEntity.getXRot(), false);

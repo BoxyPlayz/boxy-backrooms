@@ -15,6 +15,7 @@ import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.attribute.AmbientParticle;
@@ -413,12 +414,17 @@ public class BiomeDataProvider extends FabricDynamicRegistryProvider {
 						new AmbientParticle(ParticleTypes.WHITE_ASH, 0.1f)))
 				.specialEffects(new BiomeSpecialEffects.Builder()
 						.waterColor(4159204)
+						.foliageColorOverride(10197915)
+						.grassColorOverride(10197915)
 						.build())
 				.hasPrecipitation(false)
 				.temperature(0.5f)
 				.downfall(0f)
 				.mobSpawnSettings(MobSpawnSettings.EMPTY)
-				.generationSettings(BiomeGenerationSettings.EMPTY)
+				.generationSettings(new BiomeGenerationSettings.PlainBuilder()
+						.addFeature(Decoration.SURFACE_STRUCTURES,
+								context.lookup(Registries.PLACED_FEATURE).getOrThrow(VegetationPlacements.TREES_PLAINS))
+						.build())
 				.build());
 	}
 }

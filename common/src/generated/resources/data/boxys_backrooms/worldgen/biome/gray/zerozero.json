@@ -12,9 +12,19 @@
   "carvers": [],
   "downfall": 0.0,
   "effects": {
+    "foliage_color": "#9b9b9b",
+    "grass_color": "#9b9b9b",
     "water_color": "#3f76e4"
   },
-  "features": [],
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:trees_plains"
+    ]
+  ],
   "has_precipitation": false,
   "spawn_costs": {},
   "spawners": {
