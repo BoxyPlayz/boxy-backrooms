@@ -422,8 +422,26 @@ public class BiomeDataProvider extends FabricDynamicRegistryProvider {
 				.downfall(0f)
 				.mobSpawnSettings(MobSpawnSettings.EMPTY)
 				.generationSettings(new BiomeGenerationSettings.PlainBuilder()
-						.addFeature(Decoration.SURFACE_STRUCTURES,
+						.addFeature(Decoration.VEGETAL_DECORATION,
 								context.lookup(Registries.PLACED_FEATURE).getOrThrow(VegetationPlacements.TREES_PLAINS))
+						.build())
+				.build());
+
+		register(context, ShadyGrayBiomes.TWOTWO, new Biome.BiomeBuilder()
+				.setAttribute(EnvironmentAttributes.AMBIENT_PARTICLES, List.of(
+						new AmbientParticle(ParticleTypes.SNOWFLAKE, 0.03f)))
+				.specialEffects(new BiomeSpecialEffects.Builder()
+						.waterColor(4159204)
+						.foliageColorOverride(10197915)
+						.grassColorOverride(10197915)
+						.build())
+				.hasPrecipitation(false)
+				.temperature(2f)
+				.downfall(0f)
+				.mobSpawnSettings(MobSpawnSettings.EMPTY)
+				.generationSettings(new BiomeGenerationSettings.PlainBuilder()
+						.addFeature(Decoration.VEGETAL_DECORATION,
+								context.lookup(Registries.PLACED_FEATURE).getOrThrow(VegetationPlacements.TREES_TAIGA))
 						.build())
 				.build());
 	}
