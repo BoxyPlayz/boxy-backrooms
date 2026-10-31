@@ -16,20 +16,7 @@
     "grass_color": "#9b9b9b",
     "water_color": "#3f76e4"
   },
-  "features": [
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [
-      "minecraft:trees_taiga"
-    ]
-  ],
+  "features": [],
   "has_precipitation": false,
   "spawn_costs": {},
   "spawners": {

@@ -22,8 +22,6 @@ public class BiomeTagProvider extends FabricTagsProvider<Biome> {
 	@Override
 	protected void addTags(Provider registries) {
 
-		builder(BiomeTags.IS_TAIGA)
-				.add(ModBiomes.ShadyGrayBiomes.TWOTWO);
 		builder(BiomeTags.HAS_PILLAGER_OUTPOST)
 				.add(ModBiomes.LEVEL10_BIOME);
 

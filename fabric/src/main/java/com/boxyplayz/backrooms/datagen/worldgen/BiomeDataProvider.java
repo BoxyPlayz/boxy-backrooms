@@ -439,10 +439,7 @@ public class BiomeDataProvider extends FabricDynamicRegistryProvider {
 				.temperature(2f)
 				.downfall(0f)
 				.mobSpawnSettings(MobSpawnSettings.EMPTY)
-				.generationSettings(new BiomeGenerationSettings.PlainBuilder()
-						.addFeature(Decoration.VEGETAL_DECORATION,
-								context.lookup(Registries.PLACED_FEATURE).getOrThrow(VegetationPlacements.TREES_TAIGA))
-						.build())
+				.generationSettings(BiomeGenerationSettings.EMPTY)
 				.build());
 	}
 }
