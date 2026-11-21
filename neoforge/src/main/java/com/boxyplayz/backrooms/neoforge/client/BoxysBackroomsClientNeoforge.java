@@ -20,9 +20,13 @@ import com.boxyplayz.backrooms.client.entity.wretch.WretchedRenderer;
 import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
 import com.boxyplayz.backrooms.common.ModCreativeTabs;
 import com.boxyplayz.backrooms.common.entity.ModEntities;
+import com.boxyplayz.backrooms.common.fluid.ModFluids;
 import com.boxyplayz.backrooms.neoforge.BoxysBackroomsNeoForge;
 
+import net.minecraft.client.renderer.block.FluidModel;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
+import net.minecraft.client.resources.model.sprite.Material;
+import net.minecraft.resources.Identifier;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -30,6 +34,7 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterFluidModelsEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 
 @Mod(value = BoxysBackroomsCommon.MOD_ID, dist = Dist.CLIENT)
@@ -39,6 +44,7 @@ public class BoxysBackroomsClientNeoforge {
 		bus.addListener(BoxysBackroomsClientNeoforge::registerRenderers);
 		bus.addListener(BoxysBackroomsClientNeoforge::registerLayers);
 		bus.addListener(BoxysBackroomsClientNeoforge::buildContents);
+		bus.addListener(BoxysBackroomsClientNeoforge::registerFluidModels);
 
 		container.registerConfig(ModConfig.Type.CLIENT,
 				BoxysBackroomsClientConfig.SPEC);
@@ -84,5 +90,15 @@ public class BoxysBackroomsClientNeoforge {
 		if (event.getTabKey() == ModCreativeTabs.BACKROOMS_ITEM_GROUP_KEY) {
 			event.accept(BoxysBackroomsNeoForge.POWER_OUTLET_BLOCK);
 		}
+	}
+
+	private static void registerFluidModels(RegisterFluidModelsEvent event) {
+		event.register(new FluidModel.Unbaked(
+				new Material(Identifier.withDefaultNamespace("fluid/reality_source")),
+				new Material(Identifier.withDefaultNamespace("fluid/reality_flowing")),
+				null,
+				null),
+				ModFluids.LIQUID_REALITY_SOURCE,
+				ModFluids.LIQUID_REALITY_FLOWING);
 	}
 }

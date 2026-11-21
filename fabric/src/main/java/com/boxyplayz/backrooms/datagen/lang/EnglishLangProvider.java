@@ -72,6 +72,7 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModItems.LIQUID_PAIN.get(), "Liquid Pain");
 		translationBuilder.add(ModBlocks.ELEVATOR.get(), "Elevator");
 		translationBuilder.add(ModItems.GRAY_KEY.get(), "Gray Key");
+		translationBuilder.add(ModItems.REALITY_BUCKET.get(), "Bucket of Reality");
 
 		// Noclippable Blocks
 		translationBuilder.add(ModBlocks.ERRORSLATE.get(), "Errorslate");
@@ -275,5 +276,7 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 
 		translationBuilder.add("key.category.boxys_backrooms.backrooms_keybinds", "Boxy's Backrooms");
 		translationBuilder.add("key.boxys_backrooms.dash", "Leap");
+
+		translationBuilder.add("fluid.boxys_backrooms.liquid_reality", "Liquid Reality");
 	}
 }

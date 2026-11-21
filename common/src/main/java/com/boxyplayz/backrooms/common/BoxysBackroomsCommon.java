@@ -13,6 +13,7 @@ import com.boxyplayz.backrooms.common.events.EntityTickEvents;
 import com.boxyplayz.backrooms.common.events.LevelChangeEvents;
 import com.boxyplayz.backrooms.common.events.PlayerJoinEvents;
 import com.boxyplayz.backrooms.common.events.UseEvents;
+import com.boxyplayz.backrooms.common.fluid.ModFluids;
 import com.boxyplayz.backrooms.common.item.ModItems;
 import com.boxyplayz.backrooms.common.menu.MenuTypes;
 import com.boxyplayz.backrooms.common.networking.NetworkManagers;
@@ -28,6 +29,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.material.Fluid;
 
 public final class BoxysBackroomsCommon {
         public static final String MOD_ID = "boxys_backrooms";
@@ -42,6 +44,9 @@ public final class BoxysBackroomsCommon {
 
         public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(BoxysBackroomsCommon.MOD_ID,
                         Registries.BLOCK);
+
+        public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(BoxysBackroomsCommon.MOD_ID,
+                        Registries.FLUID);
 
         public static void init() {
                 ModBiomes.RegisterModBiomes();
@@ -59,12 +64,8 @@ public final class BoxysBackroomsCommon {
                 NetworkManagers.register();
                 ModCreativeTabs.RegisterModCreativeTabs();
                 ModEffects.RegisterModEffects();
-                LevelChangeEvents.init();
-                AfterDamageEvents.RegisterAfterDamageEvents();
-                EntityTickEvents.RegisterEntityTickEvents();
-                AllowDamageEvents.RegisterAllowDamageEvents();
-                UseEvents.RegisterUseEvents();
                 ModChunkGenerators.registerModChunkGenerators();
+                ModFluids.Register();
                 ModBlocks.RegisterModBlocks();
                 ModItems.registerModItems();
                 EntityAttributeRegister.RegisterEntityAttributes();
@@ -72,5 +73,11 @@ public final class BoxysBackroomsCommon {
                 ModEntitySpawner.RegisterModMobSpawning();
                 MenuTypes.Register();
                 ModSounds.Register();
+
+                LevelChangeEvents.init();
+                AfterDamageEvents.RegisterAfterDamageEvents();
+                EntityTickEvents.RegisterEntityTickEvents();
+                AllowDamageEvents.RegisterAllowDamageEvents();
+                UseEvents.RegisterUseEvents();
         }
 }

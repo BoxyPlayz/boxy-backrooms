@@ -8,6 +8,7 @@ import com.boxyplayz.backrooms.common.item.ModItems;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
@@ -63,6 +64,10 @@ public class ItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
 		valueLookupBuilder(ItemTags.CHEST_ARMOR).add(ModItems.FIRESTEEL_CHESTPLATE.get());
 		valueLookupBuilder(ItemTags.LEG_ARMOR).add(ModItems.FIRESTEEL_LEGGINGS.get());
 		valueLookupBuilder(ItemTags.FOOT_ARMOR).add(ModItems.FIRESTEEL_BOOTS.get());
+
+		valueLookupBuilder(ConventionalItemTags.BUCKETS)
+				.add(ModItems.REALITY_BUCKET.get());
+
 	}
 
 }
