@@ -24,7 +24,7 @@
       "com.boxyplayz.backrooms.datagen.BoxysBackroomsDataGenEntry"
     ],
     "client": [
-      "com.boxyplayz.backrooms.client.BoxysBackroomsClient"
+      "com.boxyplayz.backrooms.client.BoxysBackroomsClientFabric"
     ]
   },
   "mixins": [

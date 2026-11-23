@@ -27,6 +27,8 @@ import net.minecraft.client.renderer.block.FluidModel;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.resources.Identifier;
+import net.minecraft.util.ARGB;
+import net.minecraft.world.level.material.FluidState;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -35,6 +37,7 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterFluidModelsEvent;
+import net.neoforged.neoforge.client.fluid.FluidTintSource;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 
 @Mod(value = BoxysBackroomsCommon.MOD_ID, dist = Dist.CLIENT)
@@ -94,10 +97,20 @@ public class BoxysBackroomsClientNeoforge {
 
 	private static void registerFluidModels(RegisterFluidModelsEvent event) {
 		event.register(new FluidModel.Unbaked(
-				new Material(Identifier.withDefaultNamespace("fluid/reality_source")),
-				new Material(Identifier.withDefaultNamespace("fluid/reality_flowing")),
-				null,
-				null),
+				new Material(
+						Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "block/reality_source")),
+				new Material(
+						Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "block/reality_flowing")),
+				new Material(
+						Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "block/fluid_overlay")),
+				new FluidTintSource() {
+
+					@Override
+					public int color(FluidState arg0) {
+						return ARGB.opaque(0X6B00FF);
+					}
+
+				}),
 				ModFluids.LIQUID_REALITY_SOURCE,
 				ModFluids.LIQUID_REALITY_FLOWING);
 	}

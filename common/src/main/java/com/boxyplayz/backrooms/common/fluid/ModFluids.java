@@ -38,11 +38,13 @@ public class ModFluids {
 				.of(() -> ModFluids.LIQUID_REALITY_FLOWING.get(), () -> ModFluids.LIQUID_REALITY_SOURCE.get())
 				.block(ModFluids.LIQUID_REALITY_BLOCK)
 				.bucketItem(ModItems.REALITY_BUCKET)
-				.sourceTexture(Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "fluid/reality_source"))
-				.flowingTexture(Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "fluid/reality_flowing"))
+				.sourceTexture(Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "block/reality_source"))
+				.flowingTexture(Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "block/reality_flowing"))
 				.convertToSource(true)
 				.rarity(Rarity.EPIC)
-				.density(0)
+				.density(500)
+				.lighterThanAir(true)
+				.slopeFindDistance(2)
 				.color(0X6B00FF)
 				.luminosity(4);
 

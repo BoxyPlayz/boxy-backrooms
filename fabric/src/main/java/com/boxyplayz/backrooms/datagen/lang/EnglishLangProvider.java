@@ -278,5 +278,6 @@ public class EnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add("key.boxys_backrooms.dash", "Leap");
 
 		translationBuilder.add("fluid.boxys_backrooms.liquid_reality", "Liquid Reality");
+		translationBuilder.add("block.boxys_backrooms.liquid_reality", "Liquid Reality");
 	}
 }
