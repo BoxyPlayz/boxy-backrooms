@@ -236,6 +236,10 @@ public class ModBiomes {
 				Registries.BIOME,
 				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "gray/twotwo"));
 
+		public static final ResourceKey<Biome> THREETHREE = ResourceKey.create(
+				Registries.BIOME,
+				Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "gray/threethree"));
+
 	}
 
 	/**

@@ -9,16 +9,20 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import com.boxyplayz.backrooms.common.ModTags;
 import com.boxyplayz.backrooms.common.item.ModItems;
+import com.boxyplayz.backrooms.common.world.ModBiomes;
 import com.boxyplayz.backrooms.common.world.ModBiomes.Level0Biomes;
 import com.boxyplayz.backrooms.common.world.ModDimensions;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Input;
+import net.minecraft.world.phys.Vec3;
 
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
@@ -135,4 +139,31 @@ public class LivingEntityMixin {
 			}
 		}
 	}
+
+	@Inject(method = "travel", at = @At("HEAD"), cancellable = true)
+	public void backrooms$travel(final Vec3 input, CallbackInfo ci) {
+		LivingEntity entity = (LivingEntity) (Object) this;
+
+		boolean isFalling = entity.getDeltaMovement().y <= 0.0;
+		double oldY = entity.getY();
+		double baseGravity = entity.getEffectiveGravity();
+		if (entity.level().getBiome(entity.blockPosition()).is(ModBiomes.ShadyGrayBiomes.THREETHREE)) {
+
+			entity.travelInWater(input, baseGravity, isFalling, oldY);
+			if (entity instanceof ServerPlayer player) {
+				Input playerInput = player.getLastClientInput();
+				Vec3 movement = entity.getDeltaMovement();
+
+				if (playerInput.jump()) {
+					entity.setDeltaMovement(new Vec3(movement.x, Math.min(movement.y + 0.04, 0.03), movement.z));
+					isFalling = false;
+				} else if (playerInput.shift()) {
+					entity.setDeltaMovement(new Vec3(movement.x, Math.max(movement.y - 0.04, -0.12), movement.z));
+					isFalling = true;
+				}
+			}
+			ci.cancel();
+		}
+	}
+
 }

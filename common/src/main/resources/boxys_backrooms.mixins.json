@@ -1,16 +1,18 @@
 {
-  "required": true,
-  "package": "com.boxyplayz.backrooms.mixin",
-  "compatibilityLevel": "JAVA_25",
-  "minVersion": "0.8",
-  "client": [
-    "SkyRendererMixin"
-  ],
-  "mixins": [
-    "TeleportTransitionMixin",
-    "LivingEntityMixin"
-  ],
-  "injectors": {
-    "defaultRequire": 1
-  }
+	"required": true,
+	"package": "com.boxyplayz.backrooms.mixin",
+	"compatibilityLevel": "JAVA_25",
+	"minVersion": "0.8",
+	"client": [
+		"SkyRendererMixin"
+	],
+	"mixins": [
+		"TeleportTransitionMixin",
+		"LivingEntityMixin",
+		"SwimmingMixin",
+		"EntityMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
 }

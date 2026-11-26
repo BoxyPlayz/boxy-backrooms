@@ -175,7 +175,9 @@ public class LevelStemProvider extends FabricDynamicRegistryProvider {
 		context.register(ModDimensions.SHADY_GRAY.stem,
 				new LevelStem(dimensionTypes.getOrThrow(ModDimensions.SHADY_GRAY.type),
 						new ShadyGrayChunkGen(biomes.getOrThrow(ModBiomes.ShadyGrayBiomes.ZEROZERO),
-								biomes.getOrThrow(ModBiomes.ShadyGrayBiomes.TWOTWO))));
+								biomes.getOrThrow(ModBiomes.ShadyGrayBiomes.TWOTWO),
+								biomes.getOrThrow(ModBiomes.ShadyGrayBiomes.THREETHREE),
+								biomes.getOrThrow(ModBiomes.ShadyGrayBiomes.ZEROZERO))));
 	}
 
 }

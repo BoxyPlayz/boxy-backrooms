@@ -20,7 +20,7 @@ public class ShadyGrayBiomeSource extends BiomeSource {
 			.mapCodec(instance -> instance.group(
 					RegistryOps.retrieveElement(ShadyGrayBiomes.ZEROZERO),
 					RegistryOps.retrieveElement(ShadyGrayBiomes.TWOTWO),
-					RegistryOps.retrieveElement(ShadyGrayBiomes.ZEROZERO),
+					RegistryOps.retrieveElement(ShadyGrayBiomes.THREETHREE),
 					RegistryOps.retrieveElement(ShadyGrayBiomes.ZEROZERO)).apply(
 							instance,
 							instance.stable(ShadyGrayBiomeSource::new)));

@@ -44,12 +44,13 @@ public class ShadyGrayChunkGen extends BaseChunkGen {
 	public static final MapCodec<ShadyGrayChunkGen> CODEC = RecordCodecBuilder.mapCodec(
 			instance -> instance.group(
 					RegistryOps.retrieveElement(ModBiomes.ShadyGrayBiomes.ZEROZERO),
-					RegistryOps.retrieveElement(ModBiomes.ShadyGrayBiomes.TWOTWO))
-					.apply(instance,
-							instance.stable(ShadyGrayChunkGen::new)));
+					RegistryOps.retrieveElement(ModBiomes.ShadyGrayBiomes.TWOTWO),
+					RegistryOps.retrieveElement(ModBiomes.ShadyGrayBiomes.THREETHREE),
+					RegistryOps.retrieveElement(ModBiomes.ShadyGrayBiomes.ZEROZERO))
+					.apply(instance, instance.stable(ShadyGrayChunkGen::new)));
 
-	public ShadyGrayChunkGen(Holder<Biome> zero, Holder<Biome> two) {
-		super(new ShadyGrayBiomeSource(zero, two, zero, zero));
+	public ShadyGrayChunkGen(Holder<Biome> zero, Holder<Biome> two, Holder<Biome> three, Holder<Biome> four) {
+		super(new ShadyGrayBiomeSource(zero, two, three, four));
 	}
 
 	@Override

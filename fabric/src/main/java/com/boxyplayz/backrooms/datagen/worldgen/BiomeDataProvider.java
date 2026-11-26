@@ -441,5 +441,18 @@ public class BiomeDataProvider extends FabricDynamicRegistryProvider {
 				.mobSpawnSettings(MobSpawnSettings.EMPTY)
 				.generationSettings(BiomeGenerationSettings.EMPTY)
 				.build());
+
+		register(context, ShadyGrayBiomes.THREETHREE, new Biome.BiomeBuilder()
+				.specialEffects(new BiomeSpecialEffects.Builder()
+						.waterColor(4159204)
+						.foliageColorOverride(10197915)
+						.grassColorOverride(10197915)
+						.build())
+				.hasPrecipitation(false)
+				.temperature(2f)
+				.downfall(0f)
+				.mobSpawnSettings(MobSpawnSettings.EMPTY)
+				.generationSettings(BiomeGenerationSettings.EMPTY)
+				.build());
 	}
 }
