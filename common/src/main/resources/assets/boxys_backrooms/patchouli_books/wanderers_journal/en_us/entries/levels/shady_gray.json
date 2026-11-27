@@ -1,0 +1,11 @@
+{
+	"name": "Th3 Sh4dy Gr3y",
+	"icon": "boxys_backrooms:aged_concrete",
+	"category": "boxys_backrooms:levels",
+	"pages": [
+		{
+			"type": "patchouli:text",
+			"text": "Okay. HOW??? Yeah buddy you ain't surviving."
+		}
+	]
+}

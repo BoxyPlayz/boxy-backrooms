@@ -64,6 +64,9 @@ public class ModTags {
 	public static final TagKey<Biome> SPAWN_SPIDER = TagKey.create(Registries.BIOME,
 			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "spawn/spider"));
 
+	public static final TagKey<Biome> SUPERHEATED_BIOMES = TagKey.create(Registries.BIOME,
+			Identifier.fromNamespaceAndPath(BoxysBackroomsCommon.MOD_ID, "spawn/superheated"));
+
 	public static void RegisterModTags() {
 
 	}

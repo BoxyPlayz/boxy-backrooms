@@ -62,7 +62,7 @@ public class ShadyGrayChunkGen extends BaseChunkGen {
 
 		if (y >= ZEROZERO_START) {
 			if (y == ZEROZERO_START) {
-				return Blocks.BEDROCK.defaultBlockState();
+				// return Blocks.BEDROCK.defaultBlockState();
 			}
 			double value = ZEROZERO_START + (1.01 + getNoise(randomFactory).getValue(x * 0.002, z * 0.002)) * 20;
 			if (y < value) {

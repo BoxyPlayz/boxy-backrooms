@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 import com.boxyplayz.backrooms.common.BoxysBackroomsCommon;
+import com.boxyplayz.backrooms.common.ModTags;
 import com.boxyplayz.backrooms.common.effect.ModEffects;
 import com.boxyplayz.backrooms.common.savedata.PlayerBackroomsEntryLocations;
 import com.boxyplayz.backrooms.common.savedata.PlayerOverworldEntryLocations;
@@ -37,42 +38,40 @@ public class EntityTickEvents {
 		TickEvent.SERVER_LEVEL_POST.register((ServerLevel level) -> {
 			List<ServerPlayer> players = List.copyOf(level.players());
 			players.forEach((ServerPlayer player) -> {
-				if (player.level().dimension() == ModDimensions.THE_ABYSS.level) {
-					boolean fullLeather = player.getItemBySlot(EquipmentSlot.CHEST).is(Items.LEATHER_CHESTPLATE)
-							&& player.getItemBySlot(EquipmentSlot.HEAD).is(Items.LEATHER_HELMET)
-							&& player.getItemBySlot(EquipmentSlot.LEGS).is(Items.LEATHER_LEGGINGS)
-							&& player.getItemBySlot(EquipmentSlot.FEET).is(Items.LEATHER_BOOTS);
+				boolean fullLeather = player.getItemBySlot(EquipmentSlot.CHEST).is(Items.LEATHER_CHESTPLATE)
+						&& player.getItemBySlot(EquipmentSlot.HEAD).is(Items.LEATHER_HELMET)
+						&& player.getItemBySlot(EquipmentSlot.LEGS).is(Items.LEATHER_LEGGINGS)
+						&& player.getItemBySlot(EquipmentSlot.FEET).is(Items.LEATHER_BOOTS);
 
-					boolean noArmor = player.getItemBySlot(EquipmentSlot.CHEST).isEmpty()
-							&& player.getItemBySlot(EquipmentSlot.HEAD).isEmpty()
-							&& player.getItemBySlot(EquipmentSlot.LEGS).isEmpty()
-							&& player.getItemBySlot(EquipmentSlot.FEET).isEmpty();
+				boolean noArmor = player.getItemBySlot(EquipmentSlot.CHEST).isEmpty()
+						&& player.getItemBySlot(EquipmentSlot.HEAD).isEmpty()
+						&& player.getItemBySlot(EquipmentSlot.LEGS).isEmpty()
+						&& player.getItemBySlot(EquipmentSlot.FEET).isEmpty();
 
+				if (player.level().getBiome(player.blockPosition()).is(AbyssBiomes.ABYSS_COLD_BIOME)) {
 					if (!fullLeather) {
-						if (player.level().getBiome(player.blockPosition()).is(AbyssBiomes.ABYSS_COLD_BIOME)) {
-							player.setTicksFrozen(
-									Math.min(player.getTicksFrozen() + 4, player.getTicksRequiredToFreeze()));
+						player.setTicksFrozen(
+								Math.min(player.getTicksFrozen() + 4, player.getTicksRequiredToFreeze()));
 
-							if (player.getTicksFrozen() >= player.getTicksRequiredToFreeze()
-									&& player.tickCount % 40 == 0) {
-								player.hurtServer(
-										level,
-										player.damageSources().freeze(),
-										1.0F);
-							}
-
-						} else {
-							player.setTicksFrozen(
-									Math.max(0, player.getTicksFrozen() - 2));
+						if (player.getTicksFrozen() >= player.getTicksRequiredToFreeze()
+								&& player.tickCount % 40 == 0) {
+							player.hurtServer(
+									level,
+									player.damageSources().freeze(),
+									1.0F);
 						}
+
+					} else {
+						player.setTicksFrozen(
+								Math.max(0, player.getTicksFrozen() - 2));
 					}
-					if (player.level().getBiome(player.blockPosition()).is(AbyssBiomes.ABYSS_HOT_BIOME)) {
-						if (!noArmor) {
-							if (fullLeather) {
-								player.setRemainingFireTicks(20 * 20);
-							} else {
-								player.setRemainingFireTicks(4 * 20);
-							}
+				}
+				if (player.level().getBiome(player.blockPosition()).is(ModTags.SUPERHEATED_BIOMES)) {
+					if (!noArmor) {
+						if (fullLeather) {
+							player.setRemainingFireTicks(20 * 20);
+						} else {
+							player.setRemainingFireTicks(4 * 20);
 						}
 					}
 				}

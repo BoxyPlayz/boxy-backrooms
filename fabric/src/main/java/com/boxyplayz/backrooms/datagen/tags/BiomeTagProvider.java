@@ -67,6 +67,10 @@ public class BiomeTagProvider extends FabricTagsProvider<Biome> {
 		builder(ModTags.SPAWN_SPIDER)
 				.add(ModBiomes.Level1Biomes.GOTHIC_BIOME)
 				.add(ModBiomes.LEVEL8_CAVESYSTEM_BIOME);
+
+		builder(ModTags.SUPERHEATED_BIOMES)
+				.add(ModBiomes.AbyssBiomes.ABYSS_HOT_BIOME)
+				.add(ModBiomes.ShadyGrayBiomes.TWOTWO);
 	}
 
 }
